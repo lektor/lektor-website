@@ -1,6 +1,6 @@
 language: python
 python: 2.7
-install: "pip install Lektor"
+install: "pip install git+https://github.com/lektor/lektor#egg=Lektor"
 script: "lektor build && lektor deploy production"
 cache:
   directories:
