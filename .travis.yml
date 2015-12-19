@@ -5,6 +5,6 @@ script: "lektor build && lektor deploy production"
 cache:
   directories:
     - $HOME/.cache/pip
-    #- $HOME/.cache/lektor
+    - $HOME/.cache/lektor
 addons:
   ssh_known_hosts: flow.srv.pocoo.org
