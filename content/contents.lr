@@ -7,9 +7,9 @@ body:
 #### banner ####
 image: header.jpg
 ----
-class: dark
-----
 height: 500
+----
+class: dark
 ----
 contents:
 
@@ -27,6 +27,17 @@ contents:
     <div class="col-md-4 visible-md-block visible-lg-block">
       <div class="download-btn"><a href="download/"
         ><i class="glyphicon glyphicon-download-alt"></i> Download</a></div>
+
+      <ul class="badges">
+        <li><a href="https://twitter.com/getlektor"
+          class="twitter-follow-button" data-show-count="false"
+          data-size="large" data-dnt="true">Follow @getlektor</a>
+        <li><a class="github-button" href="https://github.com/lektor/lektor"
+          data-style="mega" data-count-href="/lektor/lektor/stargazers"
+          data-count-api="/repos/lektor/lektor#stargazers_count"
+          data-count-aria-label="# stargazers on GitHub"
+          aria-label="Star lektor/lektor on GitHub">Star</a>
+      </ul>
     </div>
   </div>
   <div class="install-row">
