@@ -1,0 +1,37 @@
+{% set carousel_id = 'carousel-' ~ get_random_id() %}
+<div class="slideshow-wrapper">
+  <div class="slideshow">
+    <div class="slideshow-inner">
+      <div class="carousel slide" data-ride="carousel" id="{{ carousel_id }}">
+        {#
+        <ol class="carousel-indicators">
+        {% for slide in this.slides.blocks %}
+          <li data-target="#{{ carousel_id }}" data-slide-to="{{ loop.index0 }}"{%
+            if loop.first %} class="active"{% endif %}></li>
+        {% endfor %}
+        </ol>
+        #}
+        <div class="carousel-inner" role="listbox">
+          {% for slide in this.slides.blocks %}
+          <div class="item slide{% if loop.first %} active{% endif %}">
+            <div class="container">
+              <img src="{{ slide.image }}">
+              <div class="description">
+                {{ slide.description }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <a class="left carousel-control" href="#{{ carousel_id }}" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#{{ carousel_id }}" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

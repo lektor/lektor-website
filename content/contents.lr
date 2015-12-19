@@ -1,0 +1,113 @@
+_model: poster
+---
+title: Welcome
+---
+body:
+
+#### banner ####
+image: header.jpg
+----
+class: dark
+----
+height: 500
+----
+contents:
+
+<div class="container lektor-intro">
+  <div class="row">
+    <div class="col-md-8">
+      <img src="logo.png" alt="Lektor" class="logo">
+      <p>
+	a flexible and powerful static content management system for building
+	complex and beautiful websites out of flat files — for people who do
+        not want to make a compromise between a CMS and a static blog engine.
+      <p>
+        <a href="docs/what/">Read about what makes Lektor different</a>.
+    </div>
+    <div class="col-md-4 visible-md-block visible-lg-block">
+      <div class="download-btn"><a href="download/"
+        ><i class="glyphicon glyphicon-download-alt"></i> Download</a></div>
+    </div>
+  </div>
+  <div class="install-row">
+    <pre>curl -sf https://www.getlektor.com/install.sh | sh</pre>
+  </div>
+</div>
+#### text-block ####
+text:
+
+## Full of Features
+
+* <i class="feature-circle fa fa-ship"></i> **Deploy Anywhere** Because Lektor
+  builds out 100% static HTML you can deploy them to any host (including S3,
+  github pages, any web hoster, etc.)
+* <i class="feature-circle fa fa-globe"></i> **Cross Platform** it runs on
+  Linux, OSX and Windows.
+* <i class="feature-circle fa fa-file-code-o"></i> **100% File Based** All
+  source data is well structured and can be tracked in a version control
+  system or cloud storage like Dropbox.
+* <i class="feature-circle fa fa-database"></i> **Flat-File Database** All
+  source data is stored in a flat-file tree database and can be freely
+  queried. The layout of that data is completely configurable.
+* <i class="feature-circle fa fa-pencil"></i> **Customizable Admin** comes
+  fully equipped with a flexible and beautiful admin interface so you can
+  edit your pages without having to touch the raw sources.
+* <i class="feature-circle fa fa-code-fork"></i> **Dependency Tracking**
+  The build process intelligently tracks dependencies between pages to only
+  build the files that need rebuilding due to changes.
+* <i class="feature-circle fa fa-image"></i> **Image Tools** create
+  thumbnails and give convenient access to EXIF data.
+* <i class="feature-circle fa fa-puzzle-piece"></i> **Plugin System** Lektor
+  supports loading plugins that can customize a wide range of functionality.
+* <i class="feature-circle fa fa-terminal"></i> **Python API** the build
+  system is written in Python and provides a documented API to extend it and
+  integrate into other apps.
+* <i class="feature-circle fa fa-language"></i> **Multilingual** We can
+  speak multiple languages and allows you to easily create localized websites.
+----
+class: two-column-list
+#### slideshow ####
+slides:
+
+##### slide #####
+description:
+
+Lektor comes with a customizable admin panel that allows anyone to
+create and edit pages.
+-----
+image: edit-post.png
+##### slide #####
+description:
+
+The project files are neatly laid out in the filesystem and allow tracking
+via cloud storage or version control.
+-----
+image: filesystem.png
+##### slide #####
+description: Projects can be immediately published to remote servers from the admin panel.
+-----
+image: publish.png
+##### slide #####
+description:
+
+Changes become immediately visible as Lektor rebuilds on demand.  A preview
+is also embedded in the admin interface.
+-----
+image: preview.png
+##### slide #####
+description:
+
+The structure of the pages and the templates used to render the page can
+be completely customized.
+-----
+image: structure.png
+#### text-block ####
+text:
+
+## Open Source
+
+Lektor at it's core is a three clause [BSD licensed
+](https://raw.githubusercontent.com/lektor/lektor/master/LICENSE) Open Source
+project written in Python and Node.js.
+----
+class: centered

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }} | The Transcript{% endblock %}
+{% from 'macros/blocksupport.html' import render_full_width_blocks %}
+{% block outerbody %}
+  <div class="blog-post">
+    {% call render_full_width_blocks(this.body.blocks) %}
+      <div class="meta-bar">
+        <h1>{{ this.title }}</h1>
+        <p class="meta">
+          by
+          {% if this.twitter_handle %}
+            <a href="https://twitter.com/{{ this.twitter_handle }}">{{
+              this.author or this.twitter_handle }}</a>
+          {% else %}
+            {{ this.author }}
+          {% endif %}
+          on {{ this.pub_date|dateformat('full') }}
+        </p>
+      </div>
+    {% endcall %}
+  </div>
+{% endblock %}

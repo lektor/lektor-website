@@ -1,0 +1,24 @@
+_model: page
+---
+title: Contact
+---
+body:
+
+#### banner ####
+image: header.jpg
+#### text-block ####
+class: default
+----
+text:
+
+Lektor is an Open Source project licensed under the [three clause BSD
+license](../license/).
+
+## Imprint
+
+Armin Ronacher  
+Khünburg, 86  
+9620 Hermagor; Austria
+
+VAT number / UID: AT U68598289  
+E-Mail: [armin@ronacher.eu](mailto:armin@ronacher.eu)

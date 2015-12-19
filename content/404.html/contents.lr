@@ -1,0 +1,15 @@
+title: Page Not Found
+---
+body:
+
+#### banner ####
+image: header.jpg
+#### text-block ####
+class: default
+----
+text:
+
+The page you requested does not exist.  Maybe it has been removed or
+deleted or you made a typo when copy/pasting or typing it.  If you think this
+is a mistake you can [report it here
+:ext](https://github.com/lektor/lektor-website/issues/new).

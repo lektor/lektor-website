@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}The Transcript{% endblock %}
+{% block outerbody %}
+  {% set image = site.get('/blog').attachments.images.first() %}
+  {% if image %}
+    <div class="banner" style="background-image: url({{ image|url }}); height: 200px"></div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+{% set feed_url = create_atom_feed(
+  filename='/blog/feed.xml',
+  title='The Transcript',
+  subtitle='Lektor\'s blog',
+  link='/blog'|url,
+  items=site.query('/blog').limit(10)
+) %}
+{% block body %}
+  <div class="row">
+    <div class="col-sm-8">
+      {% block blog_body %}{% endblock %}
+    </div>
+    <div class="col-sm-4">
+      <h3>About This Blog</h3>
+      <p>
+        “The Transcript” is the blog about <a href="{{ '/'|url
+        }}">Lektor</a>, a new solution in static content managment.
+      <p>
+        Subscribe for the latest news about Lektor as well as content
+        management and web development.
+      <ul>
+        <li><a href="{{ feed_url }}">RSS Feed</a>
+        <li><a href="https://twitter.com/getlektor">Follow us on Twitter</a>
+      </ul>
+      <h3>Missed a Post?</h3>
+      <ul>
+        {% set archive = get_blog_archive() %}
+        <li><a href="{{ archive|url }}">Blog Archives</a>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

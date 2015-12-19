@@ -1,0 +1,18 @@
+{% extends "blog_layout.html" %}
+{% block title %}{{ this.year }} Archive | The Transcript{% endblock %}
+{% block blog_body %}
+  <h1>The Transcript in {{ this.year }}</h1>
+  <p>
+    <a href="{{ this.archive_index|url }}">&laquo; Back to the archive</a>
+  <ul>
+  {% for archive, items in this.items_by_months %}
+    <li><a href="{{ archive|url }}">{{ archive.date|dateformat('MMMM') }}</a>:
+      <ul>
+        {% for post in items %}
+        <li><a href="{{ post|url }}">{{ post.title }}</a> by {{ post.author }}
+          on {{ post.pub_date|dateformat }}
+        {% endfor %}
+      </ul>
+  {% endfor %}
+  </ul>
+{% endblock %}
