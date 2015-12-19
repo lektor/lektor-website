@@ -1,17 +1,19 @@
 # Lektor Website
 
-This is the work in progress website for Lektor.  This also includes
-documentation.
+This is the repository for the Lektor website at
+[getlektor.com](https://www.getlektor.com/).
 
 To run:
 
 ```
-lektor dev
+$ lektor server
 ```
 
 If you also want to update the webpack files, you need `npm` installed
 and then run it like this:
 
 ```
-LEKTOR_WEBPACK=1 lektor dev
+$ lektor server -f webpack
 ```
+
+Changes here get deployed automatically by travis.
