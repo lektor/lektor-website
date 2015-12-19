@@ -5,7 +5,7 @@ summary:
 Welcome to Lektor, the static content management system that introduces a
 new paradigm for developing beautiful websites.
 ---
-pub_date: 2015-12-24
+pub_date: 2015-12-21
 ---
 author: Armin Ronacher
 ---
@@ -33,11 +33,11 @@ allow me to run a simple website in a secure manner without having to resort
 to all kinds of user-unfriendly hackery.
 
 While there are many static site generators none of them really matched what I
-actually wanted: a content management framework.  Primarily they are either too
-“hacker focused” in the sense that they could not be used by normal human
-beings, they are “flat file content management systems” that actually run PHP
-on the server or they just too simplistic and break down when you want to build
-anything slightly more demanding with.
+actually wanted: a content management system that just happens to run
+on the client.  Most static website generators are too “hacker focused” in the
+sense that they could not be used by people without programming experiences or
+they are full fledged content management systems that need a server to run on
+or require regular maintenance for security updates.
 
 There the hacker's favorite projects like
 [Pelican](https://github.com/getpelican/pelican) or
@@ -46,12 +46,11 @@ files that are tracked through version control and there are CMS systems like
 [Statamic](http://statamic.com/) which store all of it's data in flat files
 — but as mentioned — needs PHP.
 
-Neither of those were what I was looking for.  Static file generators like
-Jekyll are nice in a way, but they are very user unfriendly and typically very
-inflexible in how you can use them.  They are based on the idea that you use
-their system to run a basic blog and not much else.  I have tried a bunch of
-them and build different things with them, but ultimately always felt like
-somethign is missing.
+None of those were what I was looking for.  Static file generators like Jekyll
+are nice in a way but not just end user unfriendly, but also very limited in
+what you can do with them.  They are more suited for building blogs than
+more complex sites.  I have tried a bunch of them and build different things
+with them, but ultimately always felt like somethign is missing.
 
 After about two years of frustration with that situation I finally sat down
 and spend some time working on a system to solve this problem.  May I
@@ -61,12 +60,12 @@ introduce: Lektor.
 
 Lektor combines the experience of using a content management system like
 Workdpress with a static website generator like Jekyll and has some of the
-flexibility of a web development framework like Django.  It runs locally
-on your computer.  All source assets are stored either in version control
-or Dropbox and when you are satisfied with the end results, you can push
-them online from the UI to a remote server.
+flexibility of a web development framework like Django.  It can run locally
+on your computer and deploy to remote servers.  All source assets are stored
+either in version control or Dropbox and when you are satisfied with the end
+results, you can push them online from the UI to a remote server.
 
-And this is what it roughly looks like when you look at the admin:
+And this is what it roughly looks like when you look at the admin panel:
 
 <div class="screenshot-frame"><img src="admin.png"></div>
 
@@ -95,7 +94,8 @@ Desktop version or maybe in the future use a cloud hosted version.
 To get an idea how it works, you can have a look at the [github repository of
 this website](https://github.com/lektor/lektor-website/) which contains the
 project for this website and blog and have a look at the introduction
-documentation: [Getting Started :ref](../../../../docs/quickstart/).
+documentation: [Getting Started :ref](../../../../docs/quickstart/).  You can
+also find a screencast there.
 
 On a very basic level Lektor takes `.lr` files which are basic text files
 with a super simple format and generates out HTML files.  The `.lr` files
