@@ -1,5 +1,4 @@
-@echo off & python --version 2> NUL & IF ERRORLEVEL 1 ( ECHO To use this script you need to have Python installed & goto :eof ) ELSE ( python -x "%~f0" %* & goto :eof )
-
+$InstallScript = @"
 import os
 import sys
 import json
@@ -13,7 +12,7 @@ import ctypes
 from ctypes.wintypes import HWND, UINT, WPARAM, LPARAM, LPVOID
 
 
-VENV_URL = "https://pypi.python.org/pypi/virtualenv/json"
+VENV_URL = 'https://pypi.python.org/pypi/virtualenv/json'
 APPDATA = os.environ['LocalAppData']
 APP = 'lektor-cli'
 LIB = 'lib'
@@ -113,3 +112,7 @@ def main():
    print 'All done!'
 
 main()
+"@
+
+
+if (Get-Command python) { python -c $InstallScript } else { "To use this script you need to have Python installed"; exit }
