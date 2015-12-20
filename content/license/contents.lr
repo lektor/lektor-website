@@ -11,6 +11,11 @@ class: default
 ----
 text:
 
+Lektor is a BSD Licensed Open Source project.  Independently of that the
+text content of the website (including documentation here) is CC0.
+
+## Lektor License
+
 Copyright (c) 2015 by the Armin Ronacher.
 
 Some rights reserved.
@@ -42,3 +47,11 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+## Website License
+
+The text content and templates (excluding images and design) of this website
+is licensed under the CC0 license.  For information about the license text
+see [CC0 Legal Text](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
+
+Note that this does not apply to images and design.
