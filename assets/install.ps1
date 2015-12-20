@@ -68,7 +68,7 @@ def install(virtualenv_url, virtualenv_filename, install_dir, lib_dir):
    scripts = os.path.join(lib_dir, 'Scripts')
    #just using pip.exe and cwd will still install globally
    Popen([os.path.join(scripts, 'pip.exe'),
-           'install', '--upgrade', 'git+https://github.com/lektor/lektor'],
+           'install', '--upgrade', 'Lektor'],
            cwd=scripts).wait()
 
    with open(os.path.join(install_dir, 'lektor.cmd'), 'w') as link_file:
