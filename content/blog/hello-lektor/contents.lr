@@ -59,7 +59,7 @@ introduce: Lektor.
 ## What is Lektor?
 
 Lektor combines the experience of using a content management system like
-Workdpress with a static website generator like Jekyll and has some of the
+Wordpress with a static website generator like Jekyll and has some of the
 flexibility of a web development framework like Django.  It can run locally
 on your computer and deploy to remote servers.  All source assets are stored
 either in version control or Dropbox and when you are satisfied with the end
