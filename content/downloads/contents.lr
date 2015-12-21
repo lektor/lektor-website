@@ -6,13 +6,17 @@ body:
 
 #### banner ####
 image: header.jpg
-#### text-block ####
-class: default
 ----
+height: 300
+----
+class: 
+----
+contents: 
+#### text-block ####
 text:
 
 Lektor is an [Open Source Project](../license/) and freely available to
-download.  As it's currently still under heavy development not all platforms
+download.  As it's currently still under heavy development and not all platforms
 are equally well supported.
 
 ## Command Line Interface
@@ -22,6 +26,14 @@ Lektor by copy/pasting a command into your terminal:
 
 ```
 curl -sf https://www.getlektor.com/install.sh | sh
+```
+If you are on Windows copy/paste this command into the `command prompt`:
+```
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://getlektor.com/install.ps1'))" && SET PATH=%PATH%;%LocalAppData%\lektor-cli
+```
+alternatively use this command in your `Powershell`:
+```
+iex ((new-object net.webclient).DownloadString('https://getlektor.com/install.ps1'))
 ```
 
 The command line application is written in Python and the current releases
@@ -44,3 +56,5 @@ includes the command line utilities.
 
 <a href="https://github.com/lektor/lektor/releases/latest" class="download-desktop-app">
   Download Desktop App</a>
+----
+class: default
