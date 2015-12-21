@@ -51,7 +51,7 @@ Here an example that shows the camera information:
 ```html+jinja
 <div class="image">
   <img src="{{ image|url }}" alt="">
-  <p><strong>Camera:</strong> {{ image.exif.camera }}
+  <p><strong>Camera:</strong> {{ image.exif.camera }}</p>
 </div>
 ```
 
