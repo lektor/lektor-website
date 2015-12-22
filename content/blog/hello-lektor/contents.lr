@@ -49,8 +49,8 @@ files that are tracked through version control and there are CMS systems like
 None of those were what I was looking for.  Static file generators like Jekyll
 are nice in a way but not just end user unfriendly, but also very limited in
 what you can do with them.  They are more suited for building blogs than
-more complex sites.  I have tried a bunch of them and build different things
-with them, but ultimately always felt like somethign is missing.
+more complex sites.  I tried a bunch of them and built different things
+with them, but ultimately always felt like something was missing.
 
 After about two years of frustration with that situation I finally sat down
 and spend some time working on a system to solve this problem.  May I
@@ -59,7 +59,7 @@ introduce: Lektor.
 ## What is Lektor?
 
 Lektor combines the experience of using a content management system like
-Workdpress with a static website generator like Jekyll and has some of the
+Wordpress with a static website generator like Jekyll and has some of the
 flexibility of a web development framework like Django.  It can run locally
 on your computer and deploy to remote servers.  All source assets are stored
 either in version control or Dropbox and when you are satisfied with the end
