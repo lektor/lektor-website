@@ -43,7 +43,7 @@ There the hacker's favorite projects like
 [Pelican](https://github.com/getpelican/pelican) or
 [Jekyll](https://jekyllrb.com/) which support generating websites out of static
 files that are tracked through version control and there are CMS systems like
-[Statamic](http://statamic.com/) which store all of it's data in flat files
+[Statamic](http://statamic.com/) which store all of its data in flat files
 — but as mentioned — needs PHP.
 
 None of those were what I was looking for.  Static file generators like Jekyll
