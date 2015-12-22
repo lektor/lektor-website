@@ -40,7 +40,7 @@ contents:
       </ul>
     </div>
   </div>
-  <div class="install-row">
+  <div class="install-row hide-for-windows">
     <pre>curl -sf https://www.getlektor.com/install.sh | sh</pre>
   </div>
 </div>
