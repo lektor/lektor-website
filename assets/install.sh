@@ -24,6 +24,7 @@ if 1:
     import json
     import urllib
     import tempfile
+    import shutil
     from subprocess import Popen
 
     sys.stdin = open('/dev/tty', 'r')
@@ -67,6 +68,14 @@ if 1:
         t = tempfile.mkdtemp()
         Popen('curl -sf "%s" | tar -xzf - --strip-components=1' %
               virtualenv_url, shell=True, cwd=t).wait()
+
+        symlink_path = os.path.join(bin_dir, 'lektor')
+        if os.path.exists(symlink_path):
+            os.remove(symlink_path)
+
+        if os.path.exists(lib_dir):
+            shutil.rmtree(lib_dir, ignore_errors=True)
+
         try:
             os.makedirs(lib_dir)
         except OSError:
@@ -75,7 +84,7 @@ if 1:
         Popen([os.path.join(lib_dir, 'bin', 'pip'),
 	       'install', '--upgrade', 'Lektor']).wait()
         os.symlink(os.path.join(lib_dir, 'bin', 'lektor'),
-                   os.path.join(bin_dir, 'lektor'))
+                   symlink_path)
 
     def main():
         print 'Welcome to Lektor'
