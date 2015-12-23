@@ -117,7 +117,7 @@ text:
 
 ## Open Source
 
-Lektor at it's core is a three clause [BSD licensed
+Lektor at its core is a three clause [BSD licensed
 ](https://raw.githubusercontent.com/lektor/lektor/master/LICENSE) Open Source
 project written in Python and Node.js.
 ----
