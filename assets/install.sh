@@ -60,6 +60,32 @@ if 1:
                     os.path.dirname(path), 'lib', 'lektor')
         None, None
 
+    def get_confirmation():
+        while 1:
+            input = raw_input('Continue? [Yn] ').lower().strip()
+            if input in ('', 'y'):
+                break
+            elif input == 'n':
+                print
+                print 'Aborted!'
+                sys.exit()
+
+    def wipe_installation(lib_dir, symlink_path):
+        if os.path.lexists(symlink_path):
+            os.remove(symlink_path)
+        if os.path.exists(lib_dir):
+            shutil.rmtree(lib_dir, ignore_errors=True)
+
+    def check_installation(lib_dir, bin_dir):
+        symlink_path = os.path.join(bin_dir, 'lektor')
+        if os.path.exists(lib_dir) or os.path.lexists(symlink_path):
+            print '   Lektor seems to be installed already.'
+            print '   Continuing will wipe %s and remove %s' % (lib_dir, symlink_path)
+            print
+            get_confirmation()
+            print
+            wipe_installation(lib_dir, symlink_path)
+
     def fail(message):
         print 'Error: %s' % message
         sys.exit(1)
@@ -69,24 +95,18 @@ if 1:
         Popen('curl -sf "%s" | tar -xzf - --strip-components=1' %
               virtualenv_url, shell=True, cwd=t).wait()
 
-        symlink_path = os.path.join(bin_dir, 'lektor')
-        if os.path.exists(symlink_path):
-            os.remove(symlink_path)
-
-        if os.path.exists(lib_dir):
-            shutil.rmtree(lib_dir, ignore_errors=True)
-
         try:
             os.makedirs(lib_dir)
         except OSError:
             pass
         Popen(['./virtualenv.py', lib_dir], cwd=t).wait()
         Popen([os.path.join(lib_dir, 'bin', 'pip'),
-	       'install', '--upgrade', 'Lektor']).wait()
+           'install', '--upgrade', 'Lektor']).wait()
         os.symlink(os.path.join(lib_dir, 'bin', 'lektor'),
-                   symlink_path)
+                   os.path.join(bin_dir, 'lektor'))
 
     def main():
+        print
         print 'Welcome to Lektor'
         print
         print 'This script will install Lektor on your computer.'
@@ -101,17 +121,14 @@ if 1:
         if bin_dir is None or lib_dir is None:
             fail('Could not determine installation location for Lektor.')
 
+        check_installation(lib_dir, bin_dir)
+
+        print 'Installing at:'
         print '  bin: %s' % bin_dir
         print '  app: %s' % lib_dir
         print
 
-        while 1:
-            input = raw_input('Continue? [Yn] ').lower().strip()
-            if input in ('', 'y'):
-                break
-            elif input == 'n':
-                print 'Aborted!'
-                sys.exit()
+        get_confirmation()
 
         for url in json.load(urllib.urlopen(VENV_URL))['urls']:
             if url['python_version'] == 'source':
