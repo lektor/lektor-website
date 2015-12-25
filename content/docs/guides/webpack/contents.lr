@@ -99,7 +99,7 @@ module.exports = {
       { test: /\.css$/,
         loader: ExtractTextPlugin.extract(
           'style-loader', 'css-loader') },
-      { test: /\.(woff2?|ttf|eot|svg|png|jpe?g|gif)$/,
+      { test: /\.(woff2?|ttf|eot|svg|png|jpe?g|gif)($|\?)/,
         loader: 'file' }
     ]
   },
@@ -149,7 +149,7 @@ Now you need to include the files in your template.  This will do it:
 
 ```html+jinja
 <link rel="stylesheet" href="{{
-  '/static/gen/styles.css'|asseturl }}">
+  '/static/gen/styles.css'|url }}">
 <script type=text/javascript src="{{
-  '/static/gen/app.js'|asseturl }}" charset="utf-8"></script>
+  '/static/gen/app.js'|url }}" charset="utf-8"></script>
 ```
