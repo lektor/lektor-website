@@ -9,8 +9,6 @@ image: header.jpg
 ----
 height: 500
 ----
-class: dark
-----
 contents:
 
 <div class="container lektor-intro">
