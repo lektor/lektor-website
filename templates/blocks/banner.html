@@ -1,8 +1,5 @@
 {% set image = record.attachments.get(this.image) %}
-<div class="banner{% if this.class %} banner-{{ this.class }}{% endif %}" style="background-image: url({{ image|url
-  }}); height: {{ {
-    'full': image.height,
-    'half': image.height / 2,
-    }.get(this.height, this.height) }}px">{% if this.contents %}
+<div class="banner banner-{{ this.height }}" style="background-image: url({{ image|url
+  }})">{% if this.contents %}
   {{ this.contents }}
 {% endif %}</div>

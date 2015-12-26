@@ -9,8 +9,6 @@ image: header.jpg
 ----
 height: 500
 ----
-class: dark
-----
 contents:
 
 <div class="container lektor-intro">
@@ -37,6 +35,9 @@ contents:
           data-count-api="/repos/lektor/lektor#stargazers_count"
           data-count-aria-label="# stargazers on GitHub"
           aria-label="Star lektor/lektor on GitHub">Star</a>
+        <li><a href="https://gitter.im/lektor/lektor"><img
+          src="https://badges.gitter.im/lektor/lektor.svg"
+          alt="Join the chat at https://gitter.im/lektor/lektor"></a>
       </ul>
     </div>
   </div>
@@ -74,7 +75,7 @@ text:
   system is written in Python and provides a documented API to extend it and
   integrate into other apps.
 * <i class="feature-circle fa fa-language"></i> **Multilingual** We can
-  speak multiple languages and allows you to easily create localized websites.
+  speak multiple languages and allow you to easily create localized websites.
 ----
 class: two-column-list
 #### slideshow ####
