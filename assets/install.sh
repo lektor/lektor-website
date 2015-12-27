@@ -103,7 +103,7 @@ if 1:
             os.makedirs(lib_dir)
         except OSError:
             pass
-        Popen(['./virtualenv.py', lib_dir], cwd=t).wait()
+        Popen([sys.executable, './virtualenv.py', lib_dir], cwd=t).wait()
         Popen([os.path.join(lib_dir, 'bin', 'pip'),
            'install', '--upgrade', 'Lektor']).wait()
         os.symlink(os.path.join(lib_dir, 'bin', 'lektor'),
