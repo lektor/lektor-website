@@ -12,7 +12,7 @@ them out as full-size images with info text on top and optional additional
 project information below the fold.
 
 To achieve uniformity between the different projects a predefined structure for
-all of the was defined.  Editors just upload pictures and fill out the form to
+all of them was defined.  Editors just upload pictures and fill out the form to
 add a new project.  Lektor automatically generates out the necessary thumbnails
 and builds the overview pages.
 
