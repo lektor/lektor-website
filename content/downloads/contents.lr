@@ -37,6 +37,9 @@ your current user does not have rights to write into `/usr/local`.
 curl -sf https://www.getlektor.com/install.sh | sh
 ```
 
+You might need additional dependencies for this installation.  For more
+information see [Installation](../docs/installation/).
+
 ### Windows
 
 If you are on Windows copy/paste this command into the `command prompt`:
