@@ -33,7 +33,8 @@ contents:
           data-count-api="/repos/lektor/lektor#stargazers_count"
           data-count-aria-label="# stargazers on GitHub"
           aria-label="Star lektor/lektor on GitHub">Star</a>
-        <li><a href="https://gitter.im/lektor/lektor"><img
+        <li><a href="https://gitter.im/lektor/lektor"
+          class="js-gitter-toggle-chat-button"><img
           src="https://badges.gitter.im/lektor/lektor.svg"
           alt="Join the chat at https://gitter.im/lektor/lektor"></a>
       </ul>
