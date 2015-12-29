@@ -1,0 +1,28 @@
+_model: page
+---
+title: Community
+---
+body:
+
+#### banner ####
+image: header.jpg
+#### text-block ####
+text:
+
+Working with Lektor is more fun when you can ask questions to other users.
+Because the project is so new there are not that many channels for it yet.
+Here is where you can find other Lektor users:
+
+* [Find us on Stack Overflow](http://stackoverflow.com/questions/tagged/lektor)
+* [Ask us a question on Stack Overflow](http://stackoverflow.com/questions/ask?tags=lektor)
+* [Chat with us on Gitter](gitter/)
+
+Want to get in contact with us otherwise?
+
+* [Reach us via Twitter at @getlektor](https://twitter.com/getlektor)
+
+## Chat with Us
+
+<iframe src="https://gitter.im/lektor/lektor/~embed" style="width: 100%; height: 500px; border: 1px solid #eee"></iframe>
+----
+class: default

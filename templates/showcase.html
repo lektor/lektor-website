@@ -1,5 +1,12 @@
 {% extends "layout.html" %}
 {% block title %}Showcase{% endblock %}
+{% block outerbody %}
+  {% set image = site.get('/showcase').attachments.images.first() %}
+  {% if image %}
+    <div class="page-banner page-banner-300" style="background-image: url({{ image|url }})"></div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
 {% block body %}
   <h1>Showcase</h1>
   <p>
