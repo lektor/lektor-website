@@ -1,0 +1,11 @@
+name: Mark Steve Samson
+---
+url: https://marksteve.com
+---
+description:
+
+This personal homepage was once powered by Jekyll. Porting to Lektor took less than half a day. The Open Source Projects section that used to be filled through XHR is now populated by a Lektor [plugin](https://github.com/marksteve/lektor-github-repos). 
+
+[View the Sourcecode on GitHub](https://github.com/marksteve/marksteve.github.io/tree/src)
+---
+cover_image: 1-frontpage.jpg
