@@ -18,5 +18,23 @@
         </p>
       </div>
     {% endcall %}
+
+    {% set older = this.get_next_sibling() %}
+    {% set newer = this.get_prev_sibling() %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        {% if older %}
+          <div class="nav-prev">
+            <a href="{{ older|url }}">Previous: {{ older.title }}</a>
+          </div>
+        {% endif %}
+        {% if newer %}
+          <div class="nav-next">
+            <a href="{{ newer|url }}">Next: {{ newer.title }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
   </div>
 {% endblock %}
