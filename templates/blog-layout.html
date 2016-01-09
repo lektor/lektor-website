@@ -3,7 +3,7 @@
 {% block outerbody %}
   {% set image = site.get('/blog').attachments.images.first() %}
   {% if image %}
-    <div class="page-banner page-banner-200" style="background-image: url({{ image|url }})"></div>
+    <div class="page-banner page-banner-300" style="background-image: url({{ image|url }})"></div>
   {% endif %}
   {{ super() }}
 {% endblock %}
