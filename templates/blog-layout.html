@@ -7,13 +7,6 @@
   {% endif %}
   {{ super() }}
 {% endblock %}
-{% set feed_url = create_atom_feed(
-  filename='/blog/feed.xml',
-  title='The Transcript',
-  subtitle='Lektor\'s blog',
-  link='/blog'|url,
-  items=site.query('/blog').limit(10)
-) %}
 {% block body %}
   <div class="row">
     <div class="col-sm-8">
@@ -28,7 +21,7 @@
         Subscribe for the latest news about Lektor as well as content
         management and web development.
       <ul>
-        <li><a href="{{ feed_url }}">RSS Feed</a>
+        <li><a href="{{ '@atom/transcript'|url }}">RSS Feed</a>
         <li><a href="https://twitter.com/getlektor">Follow us on Twitter</a>
       </ul>
       <h3>Missed a Post?</h3>
