@@ -1,72 +1,45 @@
 # -*- coding: utf-8 -*-
 import posixpath
 from datetime import date
+from itertools import chain
 
 from werkzeug.utils import cached_property
 
 from lektor.pluginsystem import Plugin
 from lektor.sourceobj import VirtualSourceObject
 from lektor.build_programs import BuildProgram
-from lektor.context import get_ctx
-
-
-def get_path_segments(str):
-    pieces = str.split('/')
-    if pieces == ['']:
-        return []
-    return pieces
-
-
-def push_path(pieces, item):
-    if item:
-        pieces.append(unicode(item))
+from lektor.utils import build_url, parse_path
 
 
 class BlogArchive(VirtualSourceObject):
 
-    def __init__(self, parent, plugin, items=None, year=None, month=None):
-        VirtualSourceObject.__init__(self, parent)
+    def __init__(self, record, plugin, items=None):
+        VirtualSourceObject.__init__(self, record)
         self.plugin = plugin
         self._items = items
-        self.year = year
-        self.month = month
 
     @property
-    def date(self):
-        if self.year is None:
-            raise AttributeError()
-        return date(self.year, self.month or 1, 1)
+    def path(self):
+        return self.record.path + '@blog-archive'
+
+    template_name = 'blog-archive/index.html'
 
     @property
-    def year_archive(self):
-        if self.year is None:
-            raise AttributeError()
-        if self.month is None:
-            return self
-        return BlogArchive(self.parent, self.plugin, year=self.year)
-
-    @property
-    def archive_index(self):
-        if self.year is None:
-            return self
-        return BlogArchive(self.parent, self.plugin)
+    def parent(self):
+        return self.record
 
     @cached_property
     def year_archives(self):
-        if self.year is not None:
-            return []
         years = set()
-        for item in self.parent.children:
+        for item in self.record.children:
             pub_date = self.plugin.get_pub_date(item)
             if pub_date:
                 years.add(pub_date.year)
-        return [BlogArchive(self.parent, self.plugin,
-                            year=year) for year in sorted(years)]
+        return [BlogYearArchive(self.record, self.plugin,
+                                year=year) for year in sorted(years)]
 
     @property
     def items(self):
-        if self.year is None:
-            return []
         if self._items is not None:
             return self._items
         rv = list(self._iter_items())
@@ -74,13 +47,7 @@ class BlogArchive(VirtualSourceObject):
         return rv
 
     def _iter_items(self):
-        for item in self.parent.children:
-            pub_date = self.plugin.get_pub_date(item)
-            if pub_date is None:
-                continue
-            if pub_date.year == self.year and \
-               (self.month is None or pub_date.month == self.month):
-                yield item
+        return iter(())
 
     @property
     def has_any_items(self):
@@ -97,34 +64,87 @@ class BlogArchive(VirtualSourceObject):
             pub_date = self.plugin.get_pub_date(item)
             months.setdefault(date(pub_date.year, pub_date.month, 1),
                               []).append(item)
-        return [(BlogArchive(self.parent, self.plugin,
-                             year=d.year, month=d.month), i)
+        return [(BlogMonthArchive(self.record, self.plugin,
+                                  year=d.year, month=d.month), i)
                 for d, i in sorted(months.items())]
+
+    def get_archive_url_path(self):
+        return self.plugin.get_url_path('archive_path')
 
     @property
     def url_path(self):
-        prefix = self.parent.url_path.strip('/')
-        pieces = []
-        if prefix:
-            pieces.append(prefix)
-        if self.year is None:
-            push_path(pieces, self.plugin.get_archive_index_path())
-        elif self.month is None:
-            push_path(pieces, self.plugin.get_month_archive_prefix())
-            push_path(pieces, self.year)
-        else:
-            push_path(pieces, self.plugin.get_year_archive_prefix())
-            push_path(pieces, self.year)
-            push_path(pieces, self.month)
-        return '/%s/' % '/'.join(pieces)
+        return build_url(chain([self.record.url_path.strip('/')],
+                               self.get_archive_url_path() or ()))
+
+
+class BlogYearArchive(BlogArchive):
+    template_name = 'blog-archive/year.html'
+
+    def __init__(self, record, plugin, items=None, year=None):
+        BlogArchive.__init__(self, record, plugin, items)
+        self.year = year
+
+    def _iter_items(self):
+        for item in self.record.children:
+            pub_date = self.plugin.get_pub_date(item)
+            if pub_date is not None and \
+               pub_date.year == self.year:
+                yield item
 
     @property
-    def template_name(self):
-        if self.year is None:
-            return 'blog-archive/index.html'
-        if self.month is None:
-            return 'blog-archive/year.html'
-        return 'blog-archive/month.html'
+    def path(self):
+        return '%s@blog-archive/%s' % (
+            self.record.path,
+            self.year,
+        )
+
+    @property
+    def parent(self):
+        return BlogArchive(self.record, self.plugin)
+
+    @property
+    def date(self):
+        return date(self.year, 1, 1)
+
+    def get_archive_url_path(self):
+        return self.plugin.get_url_path('year_archive_prefix') + [self.year]
+
+
+class BlogMonthArchive(BlogArchive):
+    template_name = 'blog-archive/year.html'
+
+    def __init__(self, record, plugin, items=None, year=None, month=None):
+        BlogArchive.__init__(self, record, plugin, items)
+        self.year = year
+        self.month = month
+
+    def _iter_items(self):
+        for item in self.record.children:
+            pub_date = self.plugin.get_pub_date(item)
+            if pub_date is not None and \
+               pub_date.year == self.year and \
+               pub_date.month == self.month:
+                yield item
+
+    @property
+    def path(self):
+        return '%s@blog-archive/%s/%s' % (
+            self.record.path,
+            self.year,
+            self.month
+        )
+
+    @property
+    def parent(self):
+        return BlogYearArchive(self.record, self.plugin, year=self.year)
+
+    @property
+    def date(self):
+        return date(self.year, self.month, 1)
+
+    def get_archive_url_path(self):
+        return self.plugin.get_url_path('month_archive_prefix') + [
+            self.year, self.month]
 
 
 class BlogArchiveBuildProgram(BuildProgram):
@@ -150,77 +170,70 @@ class BlogArchivePlugin(Plugin):
     def get_blog_path(self):
         return self.get_config().get('blog_path', '/blog')
 
-    def get_archive_index_path(self):
-        return self.get_config().get('archive_path', 'archive').strip('/')
-
-    def get_year_archive_prefix(self):
-        return self.get_config().get('year_archive_prefix', 'archive').strip('/')
-
-    def get_month_archive_prefix(self):
-        return self.get_config().get('month_archive_prefix', 'archive').strip('/')
+    def get_url_path(self, name, default='archive'):
+        return parse_path(self.get_config().get(name, default))
 
     def on_setup_env(self, **extra):
-        blog_path = self.get_blog_path()
         self.env.add_build_program(BlogArchive, BlogArchiveBuildProgram)
 
-        def get_blog_archive():
-            pad = get_ctx().pad
-            blog = pad.get(blog_path)
-            if blog is not None:
-                return BlogArchive(blog, self)
-        self.env.jinja_env.globals['get_blog_archive'] = get_blog_archive
+        @self.env.virtualpathresolver('blog-archive')
+        def blog_archive_resolver(node, pieces):
+            if node.path == self.get_blog_path():
+                if not pieces:
+                    return BlogArchive(node, self)
+                elif len(pieces) == 1 and pieces[0].isdigit():
+                    return BlogYearArchive(node, self, year=int(pieces[0]))
+                elif len(pieces) == 2 and pieces[0].isdigit() \
+                        and pieces[1].isdigit():
+                    return BlogMonthArchive(node, self, year=int(pieces[0]),
+                                            month=int(pieces[1]))
 
         @self.env.urlresolver
-        def archive_resolver(node, url_path):
-            if node.path != blog_path:
+        def archive_urlresolver(node, url_path):
+            if node.path != self.get_blog_path():
                 return
 
-            archive_index = get_path_segments(self.get_archive_index_path())
+            archive_index = self.get_url_path('archive_path')
             if url_path == archive_index:
                 return BlogArchive(node, self)
 
-            year_prefix = get_path_segments(self.get_year_archive_prefix())
-            month_prefix = get_path_segments(self.get_month_archive_prefix())
-
-            year = None
-            month = None
-
+            year_prefix = self.get_url_path('year_archive_prefix')
             if url_path[:len(year_prefix)] == year_prefix and \
                url_path[len(year_prefix)].isdigit() and \
                len(url_path) == len(year_prefix) + 1:
                 year = int(url_path[len(year_prefix)])
-            elif (url_path[:len(month_prefix)] == month_prefix and
-                  len(url_path) == len(month_prefix) + 2 and
-                  url_path[len(month_prefix)].isdigit() and
-                  url_path[len(month_prefix) + 1].isdigit()):
+                rv = BlogYearArchive(node, self, year=year)
+                if rv.has_any_items:
+                    return rv
+
+            month_prefix = self.get_url_path('month_archive_prefix')
+            if url_path[:len(month_prefix)] == month_prefix and \
+               len(url_path) == len(month_prefix) + 2 and \
+               url_path[len(month_prefix)].isdigit() and \
+               url_path[len(month_prefix) + 1].isdigit():
                 year = int(url_path[len(month_prefix)])
                 month = int(url_path[len(month_prefix) + 1])
-            else:
-                return None
-
-            rv = BlogArchive(node, self, year=year, month=month)
-            if rv.has_any_items:
-                return rv
+                rv = BlogMonthArchive(node, self, year=year, month=month)
+                if rv.has_any_items:
+                    return rv
 
         @self.env.generator
         def genererate_blog_archive_pages(source):
-            if source.path != blog_path:
+            if source.path != self.get_blog_path():
                 return
-
-            blog = source
 
             years = {}
             months = {}
-            for post in blog.children:
+            for post in source.children:
                 pub_date = self.get_pub_date(post)
                 if pub_date:
                     years.setdefault(pub_date.year, []).append(post)
                     months.setdefault((pub_date.year,
                                        pub_date.month), []).append(post)
 
-            yield BlogArchive(blog, self)
+            yield BlogArchive(source, self)
             for year, items in sorted(years.items()):
-                yield BlogArchive(blog, self, year=year, items=items)
+                yield BlogYearArchive(source, self, year=year, items=items)
             for (year, month), items in sorted(months.items()):
-                yield BlogArchive(blog, self, year=year, month=month,
-                                  items=items)
+                yield BlogMonthArchive(source, self, year=year, month=month,
+                                       items=items)
