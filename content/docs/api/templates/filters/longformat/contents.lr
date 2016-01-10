@@ -15,6 +15,6 @@ and [latlongformat :ref](../latlongformat/).
 ## Examples
 
 ```html+jinja
-<p>Lat: {{ image.exif.latitude|latformat }}
-<p>Long: {{ image.exif.longitude|longformat }}
+<p>Lat: {{ image.exif.latitude|latformat }}</p>
+<p>Long: {{ image.exif.longitude|longformat }}</p>
 ```

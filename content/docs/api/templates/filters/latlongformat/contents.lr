@@ -15,5 +15,5 @@ in the format format degrees, minutes and seconds.  See also [latformat
 ## Examples
 
 ```html+jinja
-<p>Location: {{ image.exif.location|latlongformat }}
+<p>Location: {{ image.exif.location|latlongformat }}</p>
 ```

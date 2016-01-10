@@ -31,11 +31,11 @@ more information see [CLDR Date/Time Symbols
 ## Examples
 
 ```html+jinja
-<p>Date: {{ this.pub_date|dateformat('full') }}
+<p>Date: {{ this.pub_date|dateformat('full') }}</p>
 ```
 
 Or with custom CLDR format strings:
 
 ```html+jinja
-<p>Date: {{ this.pub_date|dateformat('EEE, MMM d, ''yy') }}
+<p>Date: {{ this.pub_date|dateformat('EEE, MMM d, ''yy') }}</p>
 ```

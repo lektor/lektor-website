@@ -25,6 +25,6 @@ attribute overlaps with your custom field, you need to access the fields
 with the subscript syntax (`[]`):
 
 ```html+jinja
-<p>Built-in Path: {{ obj.path }}
-<p>Path field: {{ obj['path'] }}
+<p>Built-in Path: {{ obj.path }}</p>
+<p>Path field: {{ obj['path'] }}</p>
 ```

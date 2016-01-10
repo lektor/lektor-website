@@ -13,6 +13,6 @@ only implemented for attachments that are images.
 
 ```html+jinja
 {% for image in this.attachments.images %}
-  <p>{{ image._id }}: {{ image.format }}
+  <p>{{ image._id }}: {{ image.format }}</p>
 {% endfor %}
 ```

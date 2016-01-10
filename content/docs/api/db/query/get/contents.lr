@@ -18,5 +18,5 @@ requested page number from the query for pagination.
 ```html+jinja
 {% set p1 = this.children.get('project-1') %}
 <h2>{{ p1.name }}</h2>
-<p>Our favorite!
+<p>Our favorite!</p>
 ```

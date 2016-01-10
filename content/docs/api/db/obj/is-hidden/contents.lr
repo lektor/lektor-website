@@ -24,6 +24,6 @@ source objects is that they are always visible.
 ```html+jinja
 {% set downloads = site.get('/downloads') %}
 {% if downloads.is_hidden %}
-  <p>Downloads are currently unavailable
+  <p>Downloads are currently unavailable</p>
 {% endif %}
 ```

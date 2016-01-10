@@ -23,5 +23,5 @@ type = date
 ## Template Usage
 
 ```html+jinja
-<p>Published: {{ this.pub_date.strftime('%d/%m/%Y') }}
+<p>Published: {{ this.pub_date.strftime('%d/%m/%Y') }}</p>
 ```
