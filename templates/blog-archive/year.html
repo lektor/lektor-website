@@ -4,6 +4,7 @@
   <h1>The Transcript in {{ this.year }}</h1>
   <p>
     <a href="{{ '..'|url }}">&laquo; Back to the archive</a>
+  </p>
   <ul>
   {% for archive, items in this.items_by_months %}
     <li><a href="{{ archive|url }}">{{ archive.date|dateformat('MMMM') }}</a>:
@@ -11,6 +12,7 @@
         {% for post in items %}
         <li><a href="{{ post|url }}">{{ post.title }}</a> by {{ post.author }}
           on {{ post.pub_date|dateformat }}
+        </li>
         {% endfor %}
       </ul>
   {% endfor %}

@@ -2,7 +2,7 @@
 {% block title %}{{ this.date|dateformat('MMMM yyyy') }} Archive | The Transcript{% endblock %}
 {% block blog_body %}
   <h1>The Transcript, {{ this.date|dateformat('MMMM yyyy') }}</h1>
-  <p>
+  <p></p>
     <a href="{{ '..'|url }}">&laquo; Back to {{ this.year }}</a>
   <ul>
   {% for post in this.items %}
