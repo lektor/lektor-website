@@ -33,7 +33,7 @@ Here another example that loads the current page but in another language:
 
 ```html+jinja
 {% set other_lang = site.get(this._path, alt='ru') %}
-<p>This page in Russian: {{ other_lang.title }}
+<p>This page in Russian: {{ other_lang.title }}</p>
 ```
 
 ## Virtual Paths

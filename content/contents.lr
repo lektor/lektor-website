@@ -19,8 +19,10 @@ contents:
 	A flexible and powerful static content management system for building
 	complex and beautiful websites out of flat files — for people who do
         not want to make a compromise between a CMS and a static blog engine.
+      </p>
       <p>
         Getting your ideas implemented is as easy as making breakfast eggs.
+      </p>
     </div>
     <div class="col-md-4 visible-md-block visible-lg-block">
       <div class="download-btn"><a href="download/"

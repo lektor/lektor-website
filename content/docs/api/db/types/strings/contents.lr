@@ -28,7 +28,7 @@ description = A list of things that would be good to buy
 <h2>Shopping List</h2>
 <ul>
 {% for item in this.things_to_buy %}
-  <li>{{ item }}
+  <li>{{ item }}</li>
 {% endfor %}
 </ul>
 ```

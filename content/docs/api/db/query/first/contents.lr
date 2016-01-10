@@ -15,6 +15,6 @@ query.  If no such record can be produced, `None` is returned.
 {% first_visible = this.children.first() %}
 {% if first_visible %}
   <h2>Explore More ...</h2>
-  <p>{{ first_visible.title }}
+  <p>{{ first_visible.title }}</p>
 {% endif %}
 ```

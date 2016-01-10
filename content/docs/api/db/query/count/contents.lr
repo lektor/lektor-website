@@ -12,5 +12,5 @@ This is a simple way to count the total number of items a query matches.
 
 ```html+jinja
 {% set project_count = site.query('/projects').count() %}
-<p>We built {{ project_count }} projects.
+<p>We built {{ project_count }} projects.</p>
 ```

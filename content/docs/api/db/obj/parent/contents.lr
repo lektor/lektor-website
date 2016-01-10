@@ -14,5 +14,5 @@ where this property can be used to discover the associated parent object.
 ## Example
 
 ```html+jinja
-<p>My parent is: {{ this.parent.path }}
+<p>My parent is: {{ this.parent.path }}</p>
 ```

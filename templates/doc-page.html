@@ -35,11 +35,11 @@
 
       <ul class=page-meta>
       {% if this.type == 'method' %}
-        <li>Method of {{ get_doc_link(this.parent) }}
+        <li>Method of {{ get_doc_link(this.parent) }}</li>
       {% elif this.type == 'property' %}
-        <li>Property of {{ get_doc_link(this.parent) }}
+        <li>Property of {{ get_doc_link(this.parent) }}</li>
       {% elif this.type == 'operator' %}
-        <li>Operator of {{ get_doc_link(this.parent) }}
+        <li>Operator of {{ get_doc_link(this.parent) }}</li>
       {% endif %}
       {% if this.template_var %}
         <li>Template variable: <a href="{{ (

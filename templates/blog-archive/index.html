@@ -4,11 +4,13 @@
   <h1>The Transcript Archive</h1>
   <p>
     <a href="{{ '/blog'|url }}">&laquo; back to the blog</a>
+  </p>
   <p>
     There have been posts in the following years:
+  </p>
   <ul>
   {% for archive in this.year_archives %}
-    <li><a href="{{ archive|url }}">{{ archive.year }}</a>
+    <li><a href="{{ archive|url }}">{{ archive.year }}</a></li>
   {% endfor %}
   </ul>
 {% endblock %}

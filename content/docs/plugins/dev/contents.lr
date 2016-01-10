@@ -152,7 +152,7 @@ template globals when the environment is initialized.  This means that we
 can access this function from templates then:
 
 ```html+jinja
-<p>Message of the page: {{ get_random_message() }}
+<p>Message of the page: {{ get_random_message() }}</p>
 ```
 
 There are many events that can be hooked and they can be found in the
