@@ -111,7 +111,7 @@ class BlogYearArchive(BlogArchive):
 
 
 class BlogMonthArchive(BlogArchive):
-    template_name = 'blog-archive/year.html'
+    template_name = 'blog-archive/month.html'
 
     def __init__(self, record, plugin, items=None, year=None, month=None):
         BlogArchive.__init__(self, record, plugin, items)
