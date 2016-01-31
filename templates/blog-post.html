@@ -19,8 +19,9 @@
       </div>
     {% endcall %}
 
-    {% set older = this.get_next_sibling() %}
-    {% set newer = this.get_prev_sibling() %}
+    {% set siblings = this.get_siblings() %}
+    {% set older = siblings.next_page %}
+    {% set newer = siblings.prev_page %}
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
