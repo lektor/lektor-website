@@ -10,7 +10,7 @@ from _winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
                    HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_EXPAND_SZ
 import ctypes
 from ctypes.wintypes import HWND, UINT, WPARAM, LPARAM, LPVOID
-
+import shutil
 
 VENV_URL = 'https://pypi.python.org/pypi/virtualenv/json'
 APPDATA = os.environ['LocalAppData']
@@ -22,11 +22,22 @@ LRESULT = LPARAM
 HWND_BROADCAST = 0xFFFF
 WM_SETTINGCHANGE = 0x1A
 
-def find_location():
+
+def get_location():
    install_dir = os.path.join(APPDATA, APP)
+   return install_dir
+
+def find_location():
+   install_dir = get_location()
    if os.path.exists(install_dir) and os.path.isdir(install_dir):
        return None, None
    return install_dir, os.path.join(install_dir, LIB)
+
+def deletion_error(func, path, excinfo):
+       print 'Problem deleting {}'.format(path)
+       print 'Please try and delete {} manually'.format(path)
+       print 'Aborted!'
+       sys.exit()
 
 def fail(message):
    print 'Error: %s' % message
@@ -86,7 +97,21 @@ def main():
 
    install_dir, lib_dir = find_location()
    if install_dir == None:
-       fail('Lektor seems to be installed already.')
+       print '   Lektor seems to be already installed at:'
+       print '   {}'.format(get_location())
+       while 1:
+           input = raw_input(
+               'Delete existing and reinstall? [Yn]'
+           ).lower().strip()
+
+           if input in ('', 'y'):
+               shutil.rmtree(get_location(), onerror=deletion_error)
+               break
+           elif input == 'n':
+               print 'Aborted!'
+               sys.exit()
+
+   install_dir, lib_dir = find_location()
 
    print '   Installing at: %s' % install_dir
    while 1:
