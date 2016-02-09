@@ -99,7 +99,7 @@ def main():
 
            if input in ('', 'y'):
                break
-           elif input in 'n':
+           elif input == 'n':
                print 'Aborted!'
                sys.exit()
 
