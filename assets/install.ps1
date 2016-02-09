@@ -103,7 +103,13 @@ def main():
                print 'Aborted!'
                sys.exit()
 
-   shutil.rmtree(get_location())
+   def report_error(func, path, excinfo):
+       print('Problem deleting {}, {}, {}'.format(func, path, excinfo))
+       print('Please try and delete {} manually'.format(get_location())
+       print('Aborted!')
+       sys.exit()
+
+   shutil.rmtree(get_location(), onerror=report_error)
 
 
    print '   Installing at: %s' % install_dir
