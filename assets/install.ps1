@@ -97,18 +97,21 @@ def main():
 
    install_dir, lib_dir = find_location()
    if install_dir == None:
-       print 'Lektor seems to be already installed'
+       print '   Lektor seems to be already installed at:'
+       print '   {}'.format(get_location())
        while 1:
            input = raw_input(
                'Delete existing and reinstall? [Yn]'
            ).lower().strip()
 
            if input in ('', 'y'):
-               shutil.rmtree(get_location())
+               shutil.rmtree(get_location(), onerror=deletion_error)
                break
            elif input == 'n':
                print 'Aborted!'
                sys.exit()
+
+   install_dir, lib_dir = find_location()
 
    print '   Installing at: %s' % install_dir
    while 1:
