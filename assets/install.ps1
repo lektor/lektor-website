@@ -33,6 +33,12 @@ def find_location():
        return None, None
    return install_dir, os.path.join(install_dir, LIB)
 
+def deletion_error(func, path, excinfo):
+       print 'Problem deleting {}'.format(path)
+       print 'Please try and delete {} manually'.format(path)
+       print 'Aborted!'
+       sys.exit()
+
 def fail(message):
    print 'Error: %s' % message
    sys.exit(1)
@@ -98,19 +104,11 @@ def main():
            ).lower().strip()
 
            if input in ('', 'y'):
+               shutil.rmtree(get_location())
                break
            elif input == 'n':
                print 'Aborted!'
                sys.exit()
-
-   def report_error(func, path, excinfo):
-       print('Problem deleting {}, {}, {}'.format(func, path, excinfo))
-       print('Please try and delete {} manually'.format(get_location())
-       print('Aborted!')
-       sys.exit()
-
-   shutil.rmtree(get_location(), onerror=report_error)
-
 
    print '   Installing at: %s' % install_dir
    while 1:
