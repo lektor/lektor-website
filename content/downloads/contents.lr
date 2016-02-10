@@ -24,6 +24,10 @@ are equally well supported.
 If you are on Linux or Mac you can install the command line version of
 Lektor by copy/pasting a command into your terminal.
 
+!!! Scared about copy/pasting this into a terminal?  We will not do anything
+before asking you for confirmation and you can download the script upfront
+to see what it's doing.
+
 ### Mac/Linux
 
 This will install Lektor for you but you might have to run it with `sudo` if
@@ -32,6 +36,9 @@ your current user does not have rights to write into `/usr/local`.
 ```
 curl -sf https://www.getlektor.com/install.sh | sh
 ```
+
+You might need additional dependencies for this installation.  For more
+information see [Installation](../docs/installation/).
 
 ### Windows
 

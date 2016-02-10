@@ -1,0 +1,15 @@
+name: Atelier Ronacher
+---
+url: https://www.atelier-ronacher.at/
+---
+cover_image: frontpage.jpg
+---
+description:
+
+Based on the design and general concept behind the website of [Architekten
+Ronacher :ref](../architekten-ronacher/) a second project was created for a
+vacation rental website.  It uses Lektor to present itself, the apartments and
+the area surrounding it.
+
+Because this is for a rental it also embeds external services like Google
+Maps and a booking engine.

@@ -100,7 +100,7 @@ also find a screencast there.
 On a very basic level Lektor takes `.lr` files which are basic text files
 with a super simple format and generates out HTML files.  The `.lr` files
 correspond to a previously set up data model.  They are pure text format for
-key/value pairs.  Each pair is seaprated by three dashes (`---`):
+key/value pairs.  Each pair is separated by three dashes (`---`):
 
 ```
 field_1: value

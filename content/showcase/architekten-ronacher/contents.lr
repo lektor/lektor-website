@@ -1,0 +1,20 @@
+name: Architekten Ronacher
+---
+url: http://www.architekten-ronacher.at/
+---
+cover_image: frontpage.jpg
+---
+description:
+
+This website is what originally inspired Lektor.  At the center of project was
+the idea to bring the photos of the projects in the foreground and to render
+them out as full-size images with info text on top and optional additional
+project information below the fold.
+
+To achieve uniformity between the different projects a predefined structure for
+all of them was defined.  Editors just upload pictures and fill out the form to
+add a new project.  Lektor automatically generates out the necessary thumbnails
+and builds the overview pages.
+
+Minimal use of JavaScript is used to drive the slideshows and the filter on
+the overview page.

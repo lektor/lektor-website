@@ -11,12 +11,16 @@
 I() {
   set -u
 
-  if ! hash python 2> /dev/null; then
+  if hash python2 2> /dev/null; then
+    PY=python2
+  elif hash python 2> /dev/null; then
+    PY=python
+  else
     echo "Error: To use this script you need to have Python installed"
     exit 1
   fi
 
-  python - <<'EOF'
+  $PY - <<'EOF'
 if 1:
 
     import os
@@ -99,7 +103,7 @@ if 1:
             os.makedirs(lib_dir)
         except OSError:
             pass
-        Popen(['./virtualenv.py', lib_dir], cwd=t).wait()
+        Popen([sys.executable, './virtualenv.py', lib_dir], cwd=t).wait()
         Popen([os.path.join(lib_dir, 'bin', 'pip'),
            'install', '--upgrade', 'Lektor']).wait()
         os.symlink(os.path.join(lib_dir, 'bin', 'lektor'),
