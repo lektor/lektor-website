@@ -43,14 +43,14 @@ There the hacker's favorite projects like
 [Pelican](https://github.com/getpelican/pelican) or
 [Jekyll](https://jekyllrb.com/) which support generating websites out of static
 files that are tracked through version control and there are CMS systems like
-[Statamic](http://statamic.com/) which store all of it's data in flat files
+[Statamic](http://statamic.com/) which store all of its data in flat files
 — but as mentioned — needs PHP.
 
 None of those were what I was looking for.  Static file generators like Jekyll
 are nice in a way but not just end user unfriendly, but also very limited in
 what you can do with them.  They are more suited for building blogs than
-more complex sites.  I have tried a bunch of them and build different things
-with them, but ultimately always felt like somethign is missing.
+more complex sites.  I tried a bunch of them and built different things
+with them, but ultimately always felt like something was missing.
 
 After about two years of frustration with that situation I finally sat down
 and spend some time working on a system to solve this problem.  May I
@@ -59,7 +59,7 @@ introduce: Lektor.
 ## What is Lektor?
 
 Lektor combines the experience of using a content management system like
-Workdpress with a static website generator like Jekyll and has some of the
+Wordpress with a static website generator like Jekyll and has some of the
 flexibility of a web development framework like Django.  It can run locally
 on your computer and deploy to remote servers.  All source assets are stored
 either in version control or Dropbox and when you are satisfied with the end
@@ -100,7 +100,7 @@ also find a screencast there.
 On a very basic level Lektor takes `.lr` files which are basic text files
 with a super simple format and generates out HTML files.  The `.lr` files
 correspond to a previously set up data model.  They are pure text format for
-key/value pairs.  Each pair is seaprated by three dashes (`---`):
+key/value pairs.  Each pair is separated by three dashes (`---`):
 
 ```
 field_1: value

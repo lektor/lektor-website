@@ -1,9 +1,9 @@
-{% extends "blog_layout.html" %}
+{% extends "blog-layout.html" %}
 {% block title %}{{ this.date|dateformat('MMMM yyyy') }} Archive | The Transcript{% endblock %}
 {% block blog_body %}
   <h1>The Transcript, {{ this.date|dateformat('MMMM yyyy') }}</h1>
   <p>
-    <a href="{{ this.year_archive|url }}">&laquo; Back to {{ this.year }}</a>
+    <a href="{{ '..'|url }}">&laquo; Back to {{ this.year }}</a>
   <ul>
   {% for post in this.items %}
     <li><a href="{{ post|url }}">{{ post.title }}</a> by {{ post.author }} on {{ post.pub_date|dateformat }}

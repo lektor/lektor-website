@@ -1,0 +1,37 @@
+title: Lektor Loves Travis-CI and GitHub Pages
+---
+summary:
+
+Read about how to use Lektor with Travis-CI and GitHub Pages.
+---
+pub_date: 2015-12-23
+---
+author: Armin Ronacher
+---
+twitter_handle: mitsuhiko
+---
+body:
+
+#### banner ####
+image: header.jpg
+----
+height: 500
+#### text-block ####
+text:
+
+Open Source projects need websites, that's a given, and one of the most popular
+ways to host them these days is [GitHub Pages :ext](https://pages.github.com/).
+It's a free service provided by [GitHub :ext](https://github.com/) which allows
+hosts a git repository as a website on a subdomain of `github.io`.
+
+Wouldn't it be nice if you could easily host Lektor projects on there?  Turns
+out you can with the help of [Travis-CI :ext](https://travis-ci.org/).  Because
+Lektor has built-in support for deploying to GitHub Pages pairing up the three
+is a breeze.
+
+We [created a guide :ref](../../../../docs/deployment/travisci/) and also recorded
+a screencast that goes with it:
+
+<iframe width="100%" height=410 frameborder="0" allowfullscreen="allowfullscreen"
+  src="https://www.youtube.com/embed/3pj_EyZIL5A?autoplay=0&fs=1">
+</iframe>

@@ -7,9 +7,7 @@ body:
 #### banner ####
 image: header.jpg
 ----
-height: 500
-----
-class: dark
+height: 500-tall
 ----
 contents:
 
@@ -18,41 +16,47 @@ contents:
     <div class="col-md-8">
       <img src="logo.png" alt="Lektor" class="logo">
       <p>
-	a flexible and powerful static content management system for building
+	A flexible and powerful static content management system for building
 	complex and beautiful websites out of flat files — for people who do
         not want to make a compromise between a CMS and a static blog engine.
       <p>
-        <a href="docs/what/">Read about what makes Lektor different</a>.
+        Getting your ideas implemented is as easy as making breakfast eggs.
     </div>
     <div class="col-md-4 visible-md-block visible-lg-block">
       <div class="download-btn"><a href="download/"
         ><i class="glyphicon glyphicon-download-alt"></i> Download</a></div>
-
-      <ul class="badges">
-        <li><a href="https://twitter.com/getlektor"
-          class="twitter-follow-button" data-show-count="false"
-          data-size="large" data-dnt="true">Follow @getlektor</a>
-        <li><a class="github-button" href="https://github.com/lektor/lektor"
-          data-style="mega" data-count-href="/lektor/lektor/stargazers"
-          data-count-api="/repos/lektor/lektor#stargazers_count"
-          data-count-aria-label="# stargazers on GitHub"
-          aria-label="Star lektor/lektor on GitHub">Star</a>
-      </ul>
     </div>
   </div>
-  <div class="install-row">
+  <div class="install-row hide-for-windows">
     <pre>curl -sf https://www.getlektor.com/install.sh | sh</pre>
   </div>
 </div>
 #### text-block ####
 text:
-
+<div class="badges">
+  <ul>
+    <li><a href="https://twitter.com/getlektor"
+      class="twitter-follow-button" data-show-count="false"
+      data-size="large" data-dnt="true">Follow @getlektor</a>
+    <li><a class="github-button" href="https://github.com/lektor/lektor"
+      data-style="mega" data-count-href="/lektor/lektor/stargazers"
+      data-count-api="/repos/lektor/lektor#stargazers_count"
+      data-count-aria-label="# stargazers on GitHub"
+      aria-label="Star lektor/lektor on GitHub">Star</a>
+    <li><a href="https://gitter.im/lektor/lektor"
+      class="js-gitter-toggle-chat-button"><img
+      src="https://badges.gitter.im/lektor/lektor.svg"
+      alt="Join the chat at https://gitter.im/lektor/lektor"></a>
+  </ul>
+</div>
+#### text-block ####
+text:
 ## Full of Features
 
 * <i class="feature-circle fa fa-ship"></i> **Deploy Anywhere** Because Lektor
   builds out 100% static HTML you can deploy them to any host (including S3,
-  github pages, any web hoster, etc.)
-* <i class="feature-circle fa fa-globe"></i> **Cross Platform** it runs on
+  github pages, any web host, etc.).
+* <i class="feature-circle fa fa-globe"></i> **Cross Platform** It runs on
   Linux, OSX and Windows.
 * <i class="feature-circle fa fa-file-code-o"></i> **100% File Based** All
   source data is well structured and can be tracked in a version control
@@ -60,21 +64,21 @@ text:
 * <i class="feature-circle fa fa-database"></i> **Flat-File Database** All
   source data is stored in a flat-file tree database and can be freely
   queried. The layout of that data is completely configurable.
-* <i class="feature-circle fa fa-pencil"></i> **Customizable Admin** comes
-  fully equipped with a flexible and beautiful admin interface so you can
+* <i class="feature-circle fa fa-pencil"></i> **Customizable Admin** Lektor
+  comes fully equipped with a flexible and beautiful admin interface so you can
   edit your pages without having to touch the raw sources.
 * <i class="feature-circle fa fa-code-fork"></i> **Dependency Tracking**
-  The build process intelligently tracks dependencies between pages to only
-  build the files that need rebuilding due to changes.
-* <i class="feature-circle fa fa-image"></i> **Image Tools** create
+  The build process intelligently tracks page dependencies such that it only
+  rebuilds pages that have changed.
+* <i class="feature-circle fa fa-image"></i> **Image Tools** Create
   thumbnails and give convenient access to EXIF data.
 * <i class="feature-circle fa fa-puzzle-piece"></i> **Plugin System** Lektor
   supports loading plugins that can customize a wide range of functionality.
-* <i class="feature-circle fa fa-terminal"></i> **Python API** the build
+* <i class="feature-circle fa fa-terminal"></i> **Python API** The build
   system is written in Python and provides a documented API to extend it and
   integrate into other apps.
 * <i class="feature-circle fa fa-language"></i> **Multilingual** We can
-  speak multiple languages and allows you to easily create localized websites.
+  speak multiple languages and allow you to easily create localized websites.
 ----
 class: two-column-list
 #### slideshow ####
@@ -117,7 +121,7 @@ text:
 
 ## Open Source
 
-Lektor at it's core is a three clause [BSD licensed
+Lektor at its core is a three clause [BSD licensed
 ](https://raw.githubusercontent.com/lektor/lektor/master/LICENSE) Open Source
 project written in Python and Node.js.
 ----

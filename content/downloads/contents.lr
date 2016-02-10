@@ -22,31 +22,37 @@ are equally well supported.
 ## Command Line Interface
 
 If you are on Linux or Mac you can install the command line version of
-Lektor by copy/pasting a command into your terminal:
+Lektor by copy/pasting a command into your terminal.
+
+!!! Scared about copy/pasting this into a terminal?  We will not do anything
+before asking you for confirmation and you can download the script upfront
+to see what it's doing.
+
+### Mac/Linux
+
+This will install Lektor for you but you might have to run it with `sudo` if
+your current user does not have rights to write into `/usr/local`.
 
 ```
 curl -sf https://www.getlektor.com/install.sh | sh
 ```
+
+You might need additional dependencies for this installation.  For more
+information see [Installation](../docs/installation/).
+
+### Windows
+
 If you are on Windows copy/paste this command into the `command prompt`:
+
 ```
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://getlektor.com/install.ps1'))" && SET PATH=%PATH%;%LocalAppData%\lektor-cli
 ```
+
 alternatively use this command in your `Powershell`:
+
 ```
 iex ((new-object net.webclient).DownloadString('https://getlektor.com/install.ps1'))
 ```
-
-The command line application is written in Python and the current releases
-can be found on PyPI: [pypi/Lektor](http://pypi.python.org/pypi/Lektor).
-
-If you know Python, you can also pip install it:
-
-```
-pip install Lektor
-```
-
-This will install Lektor for you.  You might have to run it with `sudo` if
-your current user does not have rights to write into `/usr/local`.
 
 ## Desktop Application
 

@@ -1,0 +1,14 @@
+Most content in this repository is licensed under the CC0
+license (https://creativecommons.org/publicdomain/zero/1.0/legalcode).
+
+It applies to content below:
+
+* content/
+* databags/
+* models/
+* flowblocks/
+* templates/
+* configs/
+
+It does not apply to the assets and design.  For the packages used individual
+licenses apply.

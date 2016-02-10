@@ -1,0 +1,13 @@
+name: Lektor Website
+---
+url: https://www.getlektor.com/
+---
+cover_image: frontpage.png
+---
+description:
+
+This is the website of the Lektor CMS itself.  It's the very website you are
+looking at right now.  What's special about this one is that its structure
+and content is available on GitHub so you can see how it's built.
+
+[View the Sourcecode on GitHub](https://github.com/lektor/lektor-website)

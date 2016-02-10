@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Showcase{% endblock %}
+{% block outerbody %}
+  {% set image = site.get('/showcase').attachments.images.first() %}
+  {% if image %}
+    <div class="page-banner page-banner-300" style="background-image: url({{ image|url }})"></div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+{% block body %}
+  <h1>Showcase</h1>
+  <p>
+    Want to see what Lektor is used for?  This should give you a brief overview
+    of what projects are built on the basis of Lektor.  We take good care of
+    ensuring this list stays up to date by carefully moderating it.
+  <p>
+    Click any of the showcases to learn a bit more about how it uses Lektor.
+  <div class="showcase row">
+    {% for project in this.children %}
+      <div class="project col-md-6">
+        <a href="{{ project|url }}">
+          <h2>{{ project.name }}</h2>
+          {% if project.cover_image %}
+            {% set image = project.attachments.get(project.cover_image) %}
+            <div class="frame"><img src="{{ image.thumbnail(480)|url }}" width="100%" alt=""></div>
+          {% endif %}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <p>
+    <small>You want your own website on here?  <a
+      href="https://github.com/lektor/lektor-website/tree/master/content/showcase">Fork
+    the Lektor Website Repository on GitHub</a> to add your own project.  Make sure to
+    add screenshots and a description about the project.</small>
+{% endblock %}
