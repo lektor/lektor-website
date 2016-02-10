@@ -74,17 +74,26 @@ if 1:
                 print 'Aborted!'
                 sys.exit()
 
+    def deletion_error(func, path, excinfo):
+        print 'Problem deleting {}'.format(path)
+        print 'Please try and delete {} manually'.format(path)
+        print 'Aborted!'
+        sys.exit()
+
     def wipe_installation(lib_dir, symlink_path):
         if os.path.lexists(symlink_path):
             os.remove(symlink_path)
         if os.path.exists(lib_dir):
-            shutil.rmtree(lib_dir, ignore_errors=True)
+            shutil.rmtree(lib_dir, onerror=deletion_error)
 
     def check_installation(lib_dir, bin_dir):
         symlink_path = os.path.join(bin_dir, 'lektor')
         if os.path.exists(lib_dir) or os.path.lexists(symlink_path):
             print '   Lektor seems to be installed already.'
-            print '   Continuing will wipe %s and remove %s' % (lib_dir, symlink_path)
+            print '   Continuing will delete:'
+            print '   %s' % lib_dir
+            print '   and remove this symlink:'
+            print '   %s' % symlink_path
             print
             get_confirmation()
             print
