@@ -50,7 +50,7 @@ def wipe_installation(install_dir):
 def check_installation(install_dir):
     if os.path.exists(install_dir):
         print '   Lektor seems to be installed already.'
-        print '   Continuing will delete:
+        print '   Continuing will delete:'
         print '   %s' % install_dir
         print
         get_confirmation()
