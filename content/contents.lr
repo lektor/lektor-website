@@ -55,7 +55,7 @@ text:
 
 * <i class="feature-circle fa fa-ship"></i> **Deploy Anywhere** Because Lektor
   builds out 100% static HTML you can deploy them to any host (including S3,
-  github pages, any web host, etc.).
+  GitHub Pages, any web host, etc.).
 * <i class="feature-circle fa fa-globe"></i> **Cross Platform** It runs on
   Linux, OSX and Windows.
 * <i class="feature-circle fa fa-file-code-o"></i> **100% File Based** All
