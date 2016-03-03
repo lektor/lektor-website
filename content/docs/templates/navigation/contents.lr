@@ -70,11 +70,12 @@ the recursive Jinja loop system comes really in.
 <ul class="tree-nav">
   {% set root = site.get('/') %}
   {% for child in root.children recursive %}
-    <li{% if this._path == child._path %} class="active"{% endif
-        %}><a href="{{ child|url }}">{{ child.title }}</a>
+    <li{% if this._path == child._path %} class="active"{% endif %}>
+      <a href="{{ child|url }}">{{ child.title }}</a>
       {% if this.is_child_of(child) %}
       <ul>{{ loop(child.children) }}</ul>
       {% endif %}
+    </li>
   {% endfor %}
 </ul>
 ```
