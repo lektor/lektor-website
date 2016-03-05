@@ -1,0 +1,7 @@
+name: PyCon Philippines 2016
+---
+description: We built the PyCon Philippines 2016 event website using Lektor. Speakers, schedule and sponsors were managed using [Flow](https://www.getlektor.com/docs/content/flow/). This allowed easy collaboration for our contributors.
+---
+url: https://pycon.python.ph
+---
+cover_image: 01-about.png
