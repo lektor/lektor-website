@@ -1,0 +1,76 @@
+title: Road to Lektor 2.0
+---
+author: Armin Ronacher
+---
+pub_date: 2015-03-10
+---
+summary: What's cooking for Lektor 2.0 and what's missing so far.
+---
+twitter_handle: mitsuhiko
+---
+body:
+
+#### banner ####
+image: header.jpg
+----
+height: 500
+#### text-block ####
+text:
+
+It's great to see what people have been building with Lektor so far. It also
+shows us what still needs to be built.  For a lot of things we improved for
+Lektor 2.0 which is going to release very soon indeed.  To give you some ideas
+what's going to change here is a current brief look into the changelog and
+what has been changed so far.
+
+## Page Discovery
+
+One of the biggest frustrations users have voiced is the inability to control
+discoverability of pages.  In Lektor 1.0 you can only hide pages entirely in
+which case the build process skips over them but there was no way to hide them
+by default from queries.  While you could always hide pages by changing the
+query, this did not work for pagination and it also required you to be quite
+careful with the queries you are writing in templates.
+
+In Lektor 2.0 we introduced the system `_discoverable` attribute which allows
+you to easily hide pages from any query.  Queries can explicitly include
+undiscoverable pages but you do not need to take care of this yourself.  This
+makes it possible to automatically hide drafts from blogs for instance.  Lektor
+will still build it but without knowing the URL you cannot see it on the
+overview.
+
+## Virtual Paths
+
+The biggest change in Lektor 2.0 is the introduction of virtual paths and
+sources.  This is somewhat of an under the hood change but it has big
+implications on what is possible with Lektor plugins.  Each page can have
+virtual resources below it that can be provided by plugins.  These virtual
+resources are separated from the page through what is called a virtual path
+which is indicated by the at-sign (`@`).  For instance this blog here uses
+a plugin which provides a blog archive available at `/blog@blog-archive` and
+the year 2015 is available at `/blog@blog-archive/2015` etc.
+
+## Next / Previous Page
+
+Lektor 2.0 implements sibling support through it's virtual path system which
+allows you to refer to the next or previous record easily.  This is for
+instance used by this blog here to link between blog posts.
+
+## Improved Alternative Support
+
+Alternatives were heavily improved.  Individual fields that are absent in
+content files now fall back to the primary content file.  In addition it is
+now possible to ask Lektor about which alternatives exist for a given source
+or in total.  This simplifies handling of internationalized pages greatly
+but more work will be done in that field.
+
+## Improved Plugin Support
+
+Plugins now have the ability to do a few more things they could not do before:
+
+* custom field types (want to render reStructuredText? You can now build a plugin)
+* custom build programs: because of the virtual source and path support you can
+  now build custom build programs that build things that do not exist in the
+  source tree.  For instance you can build feeds, blog archives etc.
+----
+class: default
