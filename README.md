@@ -16,4 +16,9 @@ and then run it like this:
 $ lektor server -f webpack
 ```
 
+## Notes
+
 Changes here get deployed automatically by travis.
+
+Building lektor-website requires the "master" version of lektor, see the [development install instructions](https://github.com/lektor/lektor)
+
