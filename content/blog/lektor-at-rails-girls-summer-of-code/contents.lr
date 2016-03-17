@@ -1,0 +1,46 @@
+title: Lektor at Rails Girls Summer of Code 2016
+---
+author: Armin Ronacher
+---
+pub_date: 2016-03-17
+---
+summary: Lektor is participating as a project in the Rails Girls Summer of Code.
+---
+twitter_handle: mitsuhiko
+---
+body:
+
+#### banner ####
+image: banner.jpg
+----
+height: 500
+----
+contents: 
+#### text-block ####
+text:
+
+I'm happy to announce that Lektor is participating as a project in this year's
+[Rails Girls Summer of Code](http://railsgirlssummerofcode.org/) (RGSOC).
+Unlike what the name would suggest, RGSOC is open for all Open Source projects
+and not just Ruby.
+
+The goal of RGSOC is to bring more women into programming.  To quote the
+website:
+
+> Rails Girls Summer of Code is a global fellowship program aimed at bringing
+> more diversity into Open Source. Successful applicants are paid a monthly
+> stipend, from July-September, to work on Open Source projects of their
+> choice.
+
+Lektor was accepted as a particpating project.  For more information about
+the project there refer to the [project overview on
+RGSOC](https://teams.railsgirlssummerofcode.org/projects/115-lektor-cms).
+
+We want to make it as easy as possible to work on Lektor during the event which
+is why we will be very flexible with regards to which area interested
+developers want to work on.
+
+If you are interested in working on Lektor you can reach out to us via
+Twitter at [@getlektor](https://twitter.com/getlektor) or
+<a href="https://gitter.im/lektor/lektor"
+class="js-gitter-toggle-chat-button">Gitter</a>.
