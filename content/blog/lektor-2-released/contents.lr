@@ -1,0 +1,85 @@
+title: Lektor 2.0 Released
+---
+author: Armin Ronacher
+---
+body:
+
+#### banner ####
+image: banner.jpg
+----
+height: 500
+----
+contents: 
+#### text-block ####
+text:
+
+After quite a bit of wait, I'm happy to announce the 2.0 release of Lektor.
+Some things that previously were supposed to go into this release were pushed
+out a bit more because the wait just was too long and quite a few features
+were already in this release.
+
+Here is the changelog of what's in this release:
+
+- Added `_discoverable` system field which controls if a page should show
+  up in `children`.  The default is that a page is discoverable.  Setting it
+  to `False` means in practical terms that someone needs to know the URL as
+  all collection operations will not return it.
+- Added `for_page` function to pagination that returns the pagiantion for a
+  specific page.
+- Make pagination next_page and prev_page be None on the edges.
+- Allow plugins to provide publishers.
+- Added `|markdown` filter.
+- Added French translations.
+- Unicode filenames as final build artifacts are now explicitly disallowed.
+- Serve up a 404.html as an error page in the dev server.
+- Improvements to the path normalization and alt handling.  This should support
+  URL generation in more complex cases between alts now.
+- Show a clearer error message when URL generation fails because a source
+  object is virtual (does not have a path).
+- Empty text is now still valid markdown.
+- Lektor clean now loads the plugins as well.
+- Basic support for type customization.
+- Fields that are absent in a content file from an alternative are now pulled
+  from the primary content file.
+- Development server now resolves index.html for assets as well.
+- Markdown processing now correctly adjusts links relative to where the
+  rendered output is rendered.
+- Added Dutch translations.
+- Added Record.get_siblings()
+- Added various utilties: build_url, join_path, parse_path
+- Added support for virtual paths and made pagination work with it.
+- Added support for Query.distinct
+- Add support for pagination url resolving on root URL.
+- Server information can now also contain extra key/value pairs that
+  can be used by publishers to affect the processing.
+- The thumbnails will now always have the correct width and height set
+  as an attribute.
+- added datetime type
+- added support for the process_image utility functions so that plugins
+  can use it directly.
+- added support for included_assets and excluded_assets in the project file.
+- added Spanish translations.
+- added Japanese translations.
+- added support for discovering existing alts of sources.
+- added support for image cropping.
+- added preliminary support for publishing on windows.
+- children and attachments can now have a hidden flag configured explicitly.
+  Attachments will also no longer inherit the hidden flag of the parent
+  record as that is not a sensible default.
+- changed internal sqlite consistency mode to improve performance on HDDs.
+- allow SVG files to be treated as images.  This is something that does not
+  work in all situations yet (in particular thumbnailing does not actually
+  do anything for those)
+
+As always you can install the release as mentioned in the release notes.
+If you had a previous version of Lektor the install process should auto
+upgrade.  If you use the OS X desktop build, just drag the new application over
+the already existing one.
+----
+class: default
+---
+pub_date: 2016-04-11
+---
+summary: After a long wait, Lektor 2.0 is now available for consumption.
+---
+twitter_handle: mitsuhiko
