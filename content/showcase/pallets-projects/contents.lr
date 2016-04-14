@@ -1,0 +1,13 @@
+name: Pallets Projects
+---
+description:
+
+This is the website of the Pallets Projects - a collection of very popular
+Python software development libraries including the Flask web framework,
+the Werkzeug WSGI library, the Jinja template engine and more.
+
+[View the Sourcecode on GitHub](https://github.com/pallets/website)
+---
+url: http://www.palletsprojects.com/
+---
+cover_image: 1-home.png
