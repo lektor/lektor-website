@@ -1,0 +1,16 @@
+name: Taiga Support
+---
+url: https://tree.taiga.io/support/
+---
+cover_image: frontpage.png
+---
+description:
+
+We define [Taiga](https://taiga.io) as an Open Source (*AGPL v3*) powerful project management platform for startups
+and agile developers & designers who want a simple, beautiful tool that makes work
+ truly enjoyable.
+
+We use Lektor to create the site with all the help documentation. Its content is available on
+GitHub so you can see and contribute to it.
+
+[View the Sourcecode on GitHub](https://github.com/taigaio/taiga-support)
