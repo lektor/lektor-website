@@ -5,11 +5,15 @@ install:
   - "pip install git+https://github.com/lektor/lektor#egg=Lektor"
 script:
   - "lektor build"
-  - "test \"$TRAVIS_PULL_REQUEST\" == \"false\" && test \"$TRAVIS_BRANCH\" == \"master\" && lektor deploy production"
 cache:
   directories:
     - $HOME/.cache/pip
     - $HOME/.cache/lektor/builds
+deploy:
+  provider: script
+  script: lektor deploy production
+  on:
+    branch: master
 addons:
   ssh_known_hosts: flow.srv.pocoo.org
 
