@@ -5,7 +5,7 @@ install:
   - "pip install git+https://github.com/lektor/lektor#egg=Lektor"
 script:
   - "lektor build"
-  - "test \"$TRAVIS_PULL_REQUEST\" == \"false\" && test \"$TRAVIS_BRANCH\" == \"master\" && lektor deploy production"
+  - "test \"$TRAVIS_PULL_REQUEST\" == \"false\" && test \"$TRAVIS_BRANCH\" == \"master\" && lektor deploy production || exit 0"
 cache:
   directories:
     - $HOME/.cache/pip
