@@ -1,0 +1,13 @@
+name: David Baumgold
+---
+url: https://www.davidbaumgold.com
+---
+cover_image: frontpage.png
+---
+description:
+
+My former website was hand-written HTML files, and quickly proved to be
+impossible to maintain. Using Lektor, I rebuilt it using
+[Bootstrap 4](https://v4-alpha.getbootstrap.com/) and
+[Font Awesome](http://fontawesome.io/) for a simple, maintainable
+personal website.
