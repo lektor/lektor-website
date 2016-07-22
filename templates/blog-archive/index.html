@@ -8,7 +8,7 @@
     There have been posts in the following years:
   <ul>
   {% for archive in this.year_archives %}
-    <li><a href="{{ archive|url }}">{{ archive.year }}</a>
+    <li><a href="{{ archive|url }}">{{ archive.year }}</a></li>
   {% endfor %}
   </ul>
 {% endblock %}

@@ -38,15 +38,18 @@ text:
     <li><a href="https://twitter.com/getlektor"
       class="twitter-follow-button" data-show-count="false"
       data-size="large" data-dnt="true">Follow @getlektor</a>
+    </li>
     <li><a class="github-button" href="https://github.com/lektor/lektor"
       data-style="mega" data-count-href="/lektor/lektor/stargazers"
       data-count-api="/repos/lektor/lektor#stargazers_count"
       data-count-aria-label="# stargazers on GitHub"
       aria-label="Star lektor/lektor on GitHub">Star</a>
+    </li>
     <li><a href="https://gitter.im/lektor/lektor"
       class="js-gitter-toggle-chat-button"><img
       src="https://badges.gitter.im/lektor/lektor.svg"
       alt="Join the chat at https://gitter.im/lektor/lektor"></a>
+    </li>
   </ul>
 </div>
 #### text-block ####
