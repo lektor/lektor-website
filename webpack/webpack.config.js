@@ -10,7 +10,7 @@ var options = {
   },
   output: {
     path: path.dirname(__dirname) + '/assets/static',
-    filename: '[name].js'
+    filename: '[name].js',
     publicPath: "/static/gen/"
   },
   devtool: '#cheap-module-source-map',
