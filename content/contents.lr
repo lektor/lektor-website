@@ -98,7 +98,7 @@ image: edit-post.png
 description:
 
 The project files are neatly laid out in the filesystem and allow tracking
-via cloud storage or version control.
+via cloud storage like Dropbox or version control.
 -----
 image: filesystem.png
 ##### slide #####
