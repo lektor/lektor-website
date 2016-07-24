@@ -9,8 +9,14 @@ image: header.jpg
 #### text-block ####
 text:
 
+### Rules of Engagement
+
 Working with Lektor is more fun when you can ask questions to other users.
-Because the project is so new there are not that many channels for it yet.
+
+Lektor is so new that there aren't many channels for it yet, but we look forward to growing the community! As projects scale up to involve multiple people it's important to set up rules and expectations about what is acceptable behavior. Lektor wants to be an inclusive and a friendly environment. We want try to mediate between participants to resolve conflict if one arises. As a participant in this community, you should be friendly, welcoming and considerate, and you should be careful and professional with the words you chose in conversation.
+
+We're people from different culture and backgrounds, and we know disagreement is a fact of life. Keep technical discussions technical and abstain from making it personal. If you feel like someone overstepped a line, misbehaved or an incident has been mishandled, please reach out to us. Inquiries will be handled with the utmost respect and confidentiality.
+
 Here is where you can find other Lektor users:
 
 * [Find us on Stack Overflow](http://stackoverflow.com/questions/tagged/lektor)
@@ -19,6 +25,8 @@ Here is where you can find other Lektor users:
 * Join the IRC Channel `#lektor` on `irc.freenode.net`
   * [Read the channel logs](https://botbot.me/freenode/lektor/)
   * [Join the web chat](https://webchat.freenode.net/?channels=lektor)
+
+
 
 Want to get in contact with us otherwise?
 
