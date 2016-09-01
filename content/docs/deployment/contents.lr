@@ -55,7 +55,10 @@ potential deployment target add a `[servers.NAME]` section.  The supported
 keys are `name` for an optional human readable name of the server, `enabled` to
 enable or disable it (defaults to `true`) and `target` which is the URL to
 publish to.  Additionally one of the servers can have `default` set to `yes`
-to set it as default.  Here is an example:
+to set it as default.  
+
+
+Here is an example:
 
 ```ini
 [servers.production]
