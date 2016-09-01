@@ -18,6 +18,9 @@ can also accept `username:password@` in the URL to hold the credentials in
 addition to accepting username and password from the command line or
 environment variables.
 
+You will need to change your '<your-project-name>.lektorproject` 
+file to specify the ghpages server target. 
+
 Example:
 
 ```ini
