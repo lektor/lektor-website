@@ -29,7 +29,7 @@ The branch does not matter.  GitLab scans all branches for a file named
 ## Configuration
 
 To enable support for Lektor you need to create a `.gitlab-ci.yml` config
-next to your `.lektorproject` file with the following contents:
+next to your `your-project.lektorproject` file with the following contents:
 
 ```yaml
 image: python:2.7
