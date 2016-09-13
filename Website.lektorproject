@@ -2,9 +2,8 @@
 name = Lektor
 
 [servers.ghpages]
-enabled = yes
 target = ghpages://go-bears/lektor-website
-default = yes
+
 
 [packages]
 lektor-webpack-support = 0.1
