@@ -1,11 +1,9 @@
 [project]
 name = Lektor
 
-
 [servers.ghpages]
 enabled = yes
-name = Production
-target = https://github.com/go-bears/lektor-website
+target = ghpages://go-bears/lektor-website
 default = yes
 
 [packages]
