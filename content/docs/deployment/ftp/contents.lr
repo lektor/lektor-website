@@ -22,7 +22,7 @@ The system supports FTP (`ftp://`) and FTP over TLS (`ftps://`).  Passive mode
 can be enabled/disabled with the optional `?passive` parameter.  It defaults
 to true.
 
-You will need to change the '<your-project-name>.lektorproject` 
+You will need to change the `your-project-name.lektorproject` 
 file to specify the server target. 
 
 ## Example
