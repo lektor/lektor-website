@@ -11,12 +11,12 @@ height: 300
 ----
 class: 
 ----
-contents: 
+contents:
 #### text-block ####
 text:
 
 Lektor is an [Open Source Project](../license/) and freely available to
-download.  As it's currently still under heavy development and not all platforms
+download.  It's currently still under heavy development and not all platforms
 are equally well supported.
 
 ## Command Line Interface
