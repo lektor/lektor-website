@@ -38,6 +38,11 @@ if 1:
                   os.path.join(os.environ['HOME'], '.bin'),
                   os.path.join(os.environ['HOME'], '.local', 'bin')]
 
+    if os.environ.get('LEKTOR_SILENT') == None:
+        prompt = True
+    else:
+        prompt = False
+
     def find_user_paths():
         rv = []
         for item in os.environ['PATH'].split(':'):
@@ -95,7 +100,7 @@ if 1:
             print '   and remove this symlink:'
             print '   %s' % symlink_path
             print
-            get_confirmation()
+            if prompt: get_confirmation()
             print
             wipe_installation(lib_dir, symlink_path)
 
@@ -141,7 +146,7 @@ if 1:
         print '  app: %s' % lib_dir
         print
 
-        get_confirmation()
+        if prompt: get_confirmation()
 
         for url in json.load(urllib.urlopen(VENV_URL))['urls']:
             if url['python_version'] == 'source':
