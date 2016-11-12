@@ -38,6 +38,7 @@ into a dictionary that can be dumped to JSON for instance.
 | `latitude`          | The longitude as floating point value.
 | `longitude`         | The longitude as floating point value.
 | `altitude`          | The altitude in meters as floating point value.
+| `rotated`           | Whether the image is rotated
 
 ## Example
 
