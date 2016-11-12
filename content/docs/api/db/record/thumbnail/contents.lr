@@ -24,6 +24,9 @@ It provides the following attributes:
 * `url_path` the URL path of the thumbnail.  This is absolute and needs to
   be made relative with the `|url` filter.
 
+Note that for images that are rotated according to the "Orientation" EXIF
+header, the created thumbnail will be rotated back to the correct orientation.
+
 !!! Starting with Lektor 2.0 you can also pass `crop=True` to crop the image
 to the exact dimensions provided instead of scaling it uncropped.
 
