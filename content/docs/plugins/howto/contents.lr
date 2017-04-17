@@ -46,6 +46,44 @@ class GravatarPlugin(Plugin):
         self.env.jinja_env.filters['gravatar'] = get_gravatar
 ```
 
+## Trigger off of Lektor events
+
+Plugins have handlers which are attached to *events* emitted by Lektor's core,
+or emitted by other plugins. To attach to an event, the plugin needs to have a
+method that's named `on_<event>`, where `<event>` is the event's name with
+underscores instead of hyphons.
+
+Events can pass arguments through to handlers in a payload, and handlers should
+always accept an `**extra` argument to accomodate future expansion of the
+payload.
+
+The following is the list of all events emitted by Lektor:
+
+ - `setup-env`: Sent while setting up the environment, after all plugins have
+   been instantiated. This is a good place to change values stored on the
+   environment.
+ - `before-prune`, `after-prune`: Sent before and after cleaning up all data in
+   the build folder that does not correspond to known artifacts.
+ - `before-build`, `after-build`: Sent before and after building a source
+   object. These each get sent once for each source object in the build.
+ - `before-build-all`, `after-build-all` Sent before and after the build
+   step. These get sent just once for the entire build process.
+ - `server-spawn`: Sent right after `lektor server` starts its background
+   server process.
+ - `server-stop`: Sent right after `lektor server`'s background server process
+   is stopped.
+ - `process-template-context`: Sent before processing a template, but after
+   loading defaults for the template. This is a good place to add things to the
+   Jinja environment like filters.
+ - `markdown-config`: Sent right after Lektor's Markdown processor is
+   configured. The `MarkdownConfig` that is getting set up is passed in, so
+   this is a good place to add mixins to change the behavior of the Markdown
+   processor.
+ - `markdown-meta-init`: Sent right before Lektor's Markdown processor parses
+   text to convert it into HTML.
+ - `markdown-meta-postprocess`: Sent right after Lektor's Markdown processor
+   parses text to convert it into HTML.
+
 ## Configure Plugins
 
 Plugins can come with their own config files and it's encouraged that plugins
