@@ -99,7 +99,7 @@ using their templates:
 ```html+jinja
 {% for blk in this.demo_flow.blocks %}
   {% if blk._flowblock == 'text' %}
-    <p>{{ blk.text }}
+    <p>{{ blk.text }}</p>
   {% elif blk._flowblock == 'image' %}
     <img src="{{ blk.image }}" alt="{{ blk.alt }}">
   {% endif %}
