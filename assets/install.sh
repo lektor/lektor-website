@@ -22,10 +22,13 @@ if 1:
     import os
     import sys
     import json
-    import urllib
     import tempfile
     import shutil
     from subprocess import Popen
+    try:
+        from urllib.request import urlopen
+    except ImportError:
+        from urllib import urlopen
 
     PY2 = sys.version_info[0] == 2
     if PY2:
@@ -143,7 +146,7 @@ if 1:
 
         get_confirmation()
 
-        for url in json.load(urllib.urlopen(VENV_URL))['urls']:
+        for url in json.load(urlopen(VENV_URL))['urls']:
             if url['python_version'] == 'source':
                 virtualenv = url['url']
                 break

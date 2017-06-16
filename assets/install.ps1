@@ -2,11 +2,14 @@ $InstallScript = @"
 import os
 import sys
 import json
-import urllib
 import tempfile
 import tarfile
 import shutil
 from subprocess import Popen
+try:
+    from urllib.request import urlopen
+except ImportError:
+    from urllib import urlopen
 from _winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
                    HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_EXPAND_SZ
 import ctypes
@@ -87,7 +90,7 @@ def add_to_path(location):
 def install(virtualenv_url, virtualenv_filename, install_dir, lib_dir):
     t = tempfile.mkdtemp()
     with open(os.path.join(t, 'virtualenv.tar.gz'), 'wb') as f:
-        download = urllib.urlopen(virtualenv_url)
+        download = urlopen(virtualenv_url)
         f.write(download.read())
         download.close()
     with tarfile.open(os.path.join(t, 'virtualenv.tar.gz'), 'r:gz') as tar:
@@ -127,7 +130,7 @@ def main():
     print()
     get_confirmation()
 
-    for url in json.load(urllib.urlopen(VENV_URL))['urls']:
+    for url in json.load(urlopen(VENV_URL))['urls']:
         if url['python_version'] == 'source':
             virtualenv_url = url['url']
             #stripping '.tar.gz'
