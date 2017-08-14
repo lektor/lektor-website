@@ -1,0 +1,9 @@
+name: Eswar Malla
+---
+cover_image: home_page.png
+---
+description:
+
+I am using lektor for my personal blog. In the process I also ported a jekyll theme(pixyll) to be used with lektor, which you can find it [here](https://github.com/eswarm/piktor) and preview [here](http://eswarm.in/piktor/). One of the primary reasons for moving to lektor for me is the admin panel provided. 
+---
+url: http://eswarm.in
