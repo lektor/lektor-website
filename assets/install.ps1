@@ -6,12 +6,15 @@ import tempfile
 import tarfile
 import shutil
 from subprocess import Popen
-try:
+try: # py3
     from urllib.request import urlopen
-except ImportError:
-    from urllib import urlopen
-from _winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
+    from winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
                    HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_EXPAND_SZ
+except ImportError: # py2
+    from urllib import urlopen
+    from _winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
+                   HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_EXPAND_SZ
+
 import ctypes
 from ctypes.wintypes import HWND, UINT, WPARAM, LPARAM, LPVOID
 
