@@ -1,0 +1,14 @@
+name: Playwarwick
+---
+description:
+
+Website for Warwick, a terminal-based strategy game.
+
+Lektor is used as templating engine and content manager, while Grunt is used
+for minification and assets manipulation.
+
+[View the Sourcecode on GitHub](https://github.com/lurebound/playwarwick)
+---
+url: https://playwarwick.com
+---
+cover_image: 1-home.png
