@@ -146,7 +146,7 @@ if 1:
 
         get_confirmation()
 
-        for url in json.load(urlopen(VENV_URL))['urls']:
+        for url in json.loads(urlopen(VENV_URL).read().decode('utf-8'))['urls']:
             if url['python_version'] == 'source':
                 virtualenv = url['url']
                 break
