@@ -9,9 +9,7 @@ image: header.jpg
 ----
 height: 300
 ----
-class: 
-----
-contents:
+contents: 
 #### text-block ####
 text:
 
@@ -56,11 +54,6 @@ iex ((new-object net.webclient).DownloadString('https://getlektor.com/install.ps
 
 ## Desktop Application
 
-If you are on OS X you are in luck because you can use an installable
-version of Lektor that comes with a graphical user interface.  It also
-includes the command line utilities.
-
-<a href="https://github.com/lektor/lektor/releases/latest" class="download-desktop-app">
-  Download Desktop App</a>
+Lektor supported an installable version of Lektor on OSX. The current build process for these installers is [old and in need of refactoring](https://github.com/lektor/lektor/issues/420). Temporarily until this is resolved, as of version 3.1, this installer is no longer supported.
 ----
 class: default
