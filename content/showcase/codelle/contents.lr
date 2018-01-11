@@ -1,0 +1,9 @@
+name: Codelle
+---
+url: http://codelle.com
+---
+description:
+
+Codelle is a Dutch app development company. The old website was a hard to maintain Sinatra app. After redesigning and rebuilding the site in Lektor working on the site became fun again. The site features showcases for all of the apps and a blog. It is hosted on Surge.
+---
+cover_image: 1-frontpage.png
