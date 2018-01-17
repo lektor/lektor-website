@@ -2,13 +2,19 @@ $InstallScript = @"
 import os
 import sys
 import json
-import urllib
 import tempfile
 import tarfile
 import shutil
 from subprocess import Popen
-from _winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
+try: # py3
+    from urllib.request import urlopen
+    from winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
                    HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_EXPAND_SZ
+except ImportError: # py2
+    from urllib import urlopen
+    from _winreg import OpenKey, CloseKey, QueryValueEx, SetValueEx, \
+                   HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_EXPAND_SZ
+
 import ctypes
 from ctypes.wintypes import HWND, UINT, WPARAM, LPARAM, LPVOID
 
@@ -23,15 +29,19 @@ LRESULT = LPARAM
 HWND_BROADCAST = 0xFFFF
 WM_SETTINGCHANGE = 0x1A
 
+PY2 = sys.version_info[0] == 2
+if PY2:
+    input = raw_input
+
 
 def get_confirmation():
     while 1:
-        input = raw_input('Continue? [Yn] ').lower().strip()
-        if input in ('', 'y'):
+        user_input = input('Continue? [Yn] ').lower().strip()
+        if user_input in ('', 'y'):
             break
-        elif input == 'n':
-            print
-            print 'Aborted!'
+        elif user_input == 'n':
+            print()
+            print('Aborted!')
             sys.exit()
 
 def find_location():
@@ -39,9 +49,9 @@ def find_location():
     return install_dir, os.path.join(install_dir, LIB)
 
 def deletion_error(func, path, excinfo):
-    print 'Problem deleting {}'.format(path)
-    print 'Please try and delete {} manually'.format(path)
-    print 'Aborted!'
+    print('Problem deleting {}'.format(path))
+    print('Please try and delete {} manually'.format(path))
+    print('Aborted!')
     sys.exit()
 
 def wipe_installation(install_dir):
@@ -49,16 +59,16 @@ def wipe_installation(install_dir):
 
 def check_installation(install_dir):
     if os.path.exists(install_dir):
-        print '   Lektor seems to be installed already.'
-        print '   Continuing will delete:'
-        print '   %s' % install_dir
-        print
+        print('   Lektor seems to be installed already.')
+        print('   Continuing will delete:')
+        print('   %s' % install_dir)
+        print()
         get_confirmation()
-        print
+        print()
         wipe_installation(install_dir)
 
 def fail(message):
-    print 'Error: %s' % message
+    print('Error: %s' % message)
     sys.exit(1)
 
 def add_to_path(location):
@@ -83,7 +93,7 @@ def add_to_path(location):
 def install(virtualenv_url, virtualenv_filename, install_dir, lib_dir):
     t = tempfile.mkdtemp()
     with open(os.path.join(t, 'virtualenv.tar.gz'), 'wb') as f:
-        download = urllib.urlopen(virtualenv_url)
+        download = urlopen(virtualenv_url)
         f.write(download.read())
         download.close()
     with tarfile.open(os.path.join(t, 'virtualenv.tar.gz'), 'r:gz') as tar:
@@ -108,22 +118,22 @@ def install(virtualenv_url, virtualenv_filename, install_dir, lib_dir):
 
 
 def main():
-    print
-    print 'Welcome to Lektor'
-    print
-    print 'This script will install Lektor on your computer.'
-    print
+    print()
+    print('Welcome to Lektor')
+    print()
+    print('This script will install Lektor on your computer.')
+    print()
 
     install_dir, lib_dir = find_location()
 
     check_installation(install_dir)
 
-    print '   Installing at:'
-    print '   %s' % install_dir
-    print
+    print('   Installing at:')
+    print('   %s' % install_dir)
+    print()
     get_confirmation()
 
-    for url in json.load(urllib.urlopen(VENV_URL))['urls']:
+    for url in json.load(urlopen(VENV_URL))['urls']:
         if url['python_version'] == 'source':
             virtualenv_url = url['url']
             #stripping '.tar.gz'
@@ -134,8 +144,8 @@ def main():
 
     install(virtualenv_url, virtualenv_filename, install_dir, lib_dir)
 
-    print
-    print 'All done!'
+    print()
+    print('All done!')
 
 main()
 "@
