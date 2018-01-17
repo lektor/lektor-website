@@ -11,25 +11,28 @@
 I() {
   set -u
 
-  if hash python2 2> /dev/null; then
-    PY=python2
-  elif hash python 2> /dev/null; then
-    PY=python
-  else
+  if ! hash python 2> /dev/null; then
     echo "Error: To use this script you need to have Python installed"
     exit 1
   fi
 
-  $PY - <<'EOF'
+  python - <<'EOF'
 if 1:
 
     import os
     import sys
     import json
-    import urllib
     import tempfile
     import shutil
     from subprocess import Popen
+    try:
+        from urllib.request import urlopen
+    except ImportError:
+        from urllib import urlopen
+
+    PY2 = sys.version_info[0] == 2
+    if PY2:
+        input = raw_input
 
     sys.stdin = open('/dev/tty', 'r')
 
@@ -66,18 +69,18 @@ if 1:
 
     def get_confirmation():
         while 1:
-            input = raw_input('Continue? [Yn] ').lower().strip()
-            if input in ('', 'y'):
+            user_input = input('Continue? [Yn] ').lower().strip()
+            if user_input in ('', 'y'):
                 break
-            elif input == 'n':
-                print
-                print 'Aborted!'
+            elif user_input == 'n':
+                print()
+                print('Aborted!')
                 sys.exit()
 
     def deletion_error(func, path, excinfo):
-        print 'Problem deleting {}'.format(path)
-        print 'Please try and delete {} manually'.format(path)
-        print 'Aborted!'
+        print('Problem deleting {}'.format(path))
+        print('Please try and delete {} manually'.format(path))
+        print('Aborted!')
         sys.exit()
 
     def wipe_installation(lib_dir, symlink_path):
@@ -89,18 +92,18 @@ if 1:
     def check_installation(lib_dir, bin_dir):
         symlink_path = os.path.join(bin_dir, 'lektor')
         if os.path.exists(lib_dir) or os.path.lexists(symlink_path):
-            print '   Lektor seems to be installed already.'
-            print '   Continuing will delete:'
-            print '   %s' % lib_dir
-            print '   and remove this symlink:'
-            print '   %s' % symlink_path
-            print
+            print('   Lektor seems to be installed already.')
+            print('   Continuing will delete:')
+            print('   %s' % lib_dir)
+            print('   and remove this symlink:')
+            print('   %s' % symlink_path)
+            print()
             get_confirmation()
-            print
+            print()
             wipe_installation(lib_dir, symlink_path)
 
     def fail(message):
-        print 'Error: %s' % message
+        print('Error: %s' % message)
         sys.exit(1)
 
     def install(virtualenv_url, lib_dir, bin_dir):
@@ -119,11 +122,11 @@ if 1:
                    os.path.join(bin_dir, 'lektor'))
 
     def main():
-        print
-        print 'Welcome to Lektor'
-        print
-        print 'This script will install Lektor on your computer.'
-        print
+        print()
+        print('Welcome to Lektor')
+        print()
+        print('This script will install Lektor on your computer.')
+        print()
 
         paths = find_user_paths()
         if not paths:
@@ -136,14 +139,14 @@ if 1:
 
         check_installation(lib_dir, bin_dir)
 
-        print 'Installing at:'
-        print '  bin: %s' % bin_dir
-        print '  app: %s' % lib_dir
-        print
+        print('Installing at:')
+        print('  bin: %s' % bin_dir)
+        print('  app: %s' % lib_dir)
+        print()
 
         get_confirmation()
 
-        for url in json.load(urllib.urlopen(VENV_URL))['urls']:
+        for url in json.loads(urlopen(VENV_URL).read().decode('utf-8'))['urls']:
             if url['python_version'] == 'source':
                 virtualenv = url['url']
                 break
@@ -152,8 +155,8 @@ if 1:
 
         install(virtualenv, lib_dir, bin_dir)
 
-        print
-        print 'All done!'
+        print()
+        print('All done!')
 
     main()
 EOF

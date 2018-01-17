@@ -1,0 +1,8 @@
+name: Yargies Games
+---
+description:
+Yargies Games is where I showcase my mobile games and blog. I knew I wanted to use a static site generator to build the site and I chose Lektor because of it's flexibility. I deploy to S3 and Cloudfront using the [lektor-s3](https://github.com/spenczar/lektor-s3) plugin. Hosting is fast, cheap and worry-free with Lektor.
+---
+url: http://yargies.com
+---
+cover_image: 1-home.png
