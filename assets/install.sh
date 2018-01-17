@@ -103,7 +103,8 @@ if 1:
             print('   and remove this symlink:')
             print('   %s' % symlink_path)
             print()
-            if prompt: get_confirmation()
+            if prompt:
+                get_confirmation()
             print()
             wipe_installation(lib_dir, symlink_path)
 
