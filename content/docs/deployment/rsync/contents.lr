@@ -13,6 +13,9 @@ SSH as you would normally do.  The `username` part is optional and defaults
 to the current user that is signed into the machine or whatever is picked up
 as default from the `.ssh/config`.
 
+You will need to change your `your-project-name.lektorproject` 
+file to specify the server target. 
+
 ## Example
 
 ```ini

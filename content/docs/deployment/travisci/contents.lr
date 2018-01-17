@@ -40,8 +40,8 @@ to configure that.
 
 ## Project Server Config
 
-For the above example the best way to configure the server for the deployment
-in the project file would be to use `ghpages+https` like this:
+For the above example the best way to configure the server for the deployment in the 
+'<your-project-name>.lektorproject` file would be to use `ghpages+https` like this:
 
 ```ini
 [servers.ghpages]

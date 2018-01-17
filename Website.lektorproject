@@ -1,13 +1,11 @@
 [project]
 name = Lektor
-url = https://www.getlektor.com/
+url = https://go-bears/lektor-website
 url_style = absolute
 
-[servers.production]
-enabled = yes
-name = Production
-target = rsync://deploy@flow.srv.pocoo.org/srv/websites/getlektor.com/static
-default = yes
+[servers.ghpages]
+target = ghpages://go-bears/lektor-website
+
 
 [packages]
 lektor-webpack-support = 0.3
