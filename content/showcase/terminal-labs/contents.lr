@@ -1,0 +1,11 @@
+name: Terminal Labs
+---
+url: https://terminallabs.com/
+---
+cover_image: terminal-labs-homepage.png
+---
+description:
+
+Terminal Labs is a consulting firm specializing in Python, Data Science, and DevOps. We love science and technology. We make clusters for fun, and enjoy experimenting to find and make better tools. That's what led us to find and try out Lektor. We love it. Right now a Lektor-based static site hosted on a CDN is just what we want, since it's is easy and fast to develop with and deploy, and is very performant.
+
+You can view the source code for our site [here](https://bitbucket.org/terminal_labs/tl-lektor/src), or view any of our other public repositories over on our [GitHub page](https://github.com/terminal-labs).
