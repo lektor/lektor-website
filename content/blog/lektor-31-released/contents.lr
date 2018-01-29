@@ -13,13 +13,13 @@ contents:
 #### text-block ####
 text:
 
-Lektor continues to be discovered and used by more people, and many of these fine people have given back. Lektor is now a little easier to use, and more robust with plenty of bugfixes and added support for Python 3. Let's take a brief look at what's been done, and what we want.
+Lektor continues to be discovered and used by more people, and many of these fine people have given back. Lektor is now a little easier to use, and more robust with plenty of bugfixes and added support for Python 3. Let's take a brief look at what's been done, and what we want next.
 
 ## Lektor Themes
 
 Perhaps the most eye-catching change is the introduction of the ability for Lektor to use [themes](/docs/themes/). This can become a very powerful tool, allowing people to make beautiful sites even more quickly by standing on the shoulders of those who have gone before them. Why spend more time fiddling with your CSS, or template queries than you need to? If there's a theme that's similar to yours in either design or function, you can start from there. Assets, templates, models, and flowblocks are all able to be themed, offering a lot of flexibility in what they could provide.
 
-This is a very new and experimental feature. We'd love to add more support for themes so that making them and using them is easy, but it's a bit rough around the edges at the moment. The [contributor](https://github.com/rlaverde) who gave Lektor its initial theming ability also created the [first theme](https://github.com/rlaverde/lektor-theme-nix), which is a simple theme based on the [Nix Hugo theme[(https://themes.gohugo.io/hugo-theme-nix/).
+This is a very new and experimental feature. We'd love to add more support for themes so that making them and using them is easy, but it may be a bit rough around the edges at the moment. The [contributor](https://github.com/rlaverde) who gave Lektor its initial theming ability also created the [first theme](https://github.com/rlaverde/lektor-theme-nix), which is a simple theme based on the [Nix Hugo theme[(https://themes.gohugo.io/hugo-theme-nix/).
 
 I think this feature has a lot of potential. It's pretty exciting.
 
@@ -43,7 +43,7 @@ The code that was used to create the Mac installer for the Desktop App has [some
 
 ## Want to Contribute?
 
-Open Source Software lives and dies by the communities that use them, love them, and support them. If you're a developer looking get your feet wet in OSS, we'd love to review your pull request. <3
+Open Source Software lives and dies by the communities that use them, love them, and support them. If you're a developer looking to get your feet wet in OSS, we'd love to review your pull request. <3
 
 A larger task, if you're someone with React (and Python) knowledge, is our admin interface. It has served us pretty well so far, but it also has [some issues](https://github.com/lektor/lektor/issues/458). It could use some TLC.
 ----
