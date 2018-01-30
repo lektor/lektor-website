@@ -78,7 +78,7 @@ if 1:
             if user_input in ('', 'y'):
                 break
             elif user_input == 'n':
-                print()
+                print('')
                 print('Aborted!')
                 sys.exit()
 
@@ -102,10 +102,10 @@ if 1:
             print('   %s' % lib_dir)
             print('   and remove this symlink:')
             print('   %s' % symlink_path)
-            print()
+            print('')
             if prompt:
                 get_confirmation()
-            print()
+            print('')
             wipe_installation(lib_dir, symlink_path)
 
     def fail(message):
@@ -128,11 +128,11 @@ if 1:
                    os.path.join(bin_dir, 'lektor'))
 
     def main():
-        print()
+        print('')
         print('Welcome to Lektor')
-        print()
+        print('')
         print('This script will install Lektor on your computer.')
-        print()
+        print('')
 
         paths = find_user_paths()
         if not paths:
@@ -148,7 +148,7 @@ if 1:
         print('Installing at:')
         print('  bin: %s' % bin_dir)
         print('  app: %s' % lib_dir)
-        print()
+        print('')
 
         if prompt: get_confirmation()
 
@@ -161,7 +161,7 @@ if 1:
 
         install(virtualenv, lib_dir, bin_dir)
 
-        print()
+        print('')
         print('All done!')
 
     main()
