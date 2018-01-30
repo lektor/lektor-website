@@ -19,7 +19,7 @@ Lektor continues to be discovered and used by more people, and many of these fin
 
 Perhaps the most eye-catching change is the introduction of the ability for Lektor to use [themes](/docs/themes/). This can become a very powerful tool, allowing people to make beautiful sites even more quickly by standing on the shoulders of those who have gone before them. Why spend more time fiddling with your CSS, or template queries than you need to? If there's a theme that's similar to yours in either design or function, you can start from there. Assets, templates, models, and flowblocks are all able to be themed, offering a lot of flexibility in what they could provide.
 
-This is a very new and experimental feature. We'd love to add more support for themes so that making them and using them is easy, but it may be a bit rough around the edges at the moment. The [contributor](https://github.com/rlaverde) who gave Lektor its initial theming ability also created the [first theme](https://github.com/rlaverde/lektor-theme-nix), which is a simple theme based on the [Nix Hugo theme[(https://themes.gohugo.io/hugo-theme-nix/).
+This is a very new and experimental feature. We'd love to add more support for themes so that making them and using them is easy, but it may be a bit rough around the edges at the moment. The [contributor](https://github.com/rlaverde) who gave Lektor its initial theming ability also created the [first theme](https://github.com/rlaverde/lektor-theme-nix), which is a simple theme based on the [Nix Hugo theme](https://themes.gohugo.io/hugo-theme-nix/).
 
 I think this feature has a lot of potential. It's pretty exciting.
 
