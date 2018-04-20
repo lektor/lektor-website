@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% from "macros/plugins.html" import
+  render_plugin_list, render_category_nav %}
+{% from 'macros/blocksupport.html' import render_full_width_blocks %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block outerbody %}
+  {% call render_full_width_blocks(this.body.blocks, classes='col-md-12') %}
+    <h1>{{ this.title }}</h1>
+    {{ render_plugin_list(this.children) }}
+  {% endcall %}
+{% endblock %}

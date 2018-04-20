@@ -1,0 +1,16 @@
+_model: plugins
+---
+title: Lektor Loves Plugins
+---
+body:
+
+#### banner ####
+image: header.jpg
+----
+height: 300
+----
+contents: image content
+#### text-block ####
+text: some text
+----
+class: default

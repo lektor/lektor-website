@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% from "macros/plugins.html" import render_category_nav %}
+{% block title %}Plugin Categories{% endblock %}
+{% block body %}
+  <h1>Plugin Categories</h1>
+  {{ render_category_nav(active=none) }}
+{% endblock %}

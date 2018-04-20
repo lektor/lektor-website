@@ -1,0 +1,26 @@
+{% macro render_category_nav(active=none) %}
+  <ul>
+    {% for category in site.query('/plugin-categories') %}
+      <li{% if category._id == active %} class="active"{% endif
+        %}><a href="{{ category|url }}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro render_plugin_list(plugins, active=none) %}
+  <ul>
+    {% for category in site.query('/plugin-categories') %}
+      <li{% if category._id == active %} class="active"{% endif
+        %}><a href="{{ category|url }}">{{ category.name }}</a></li>
+      <ul>
+        {% for plugin in category.children.order_by('-official', 'title') %}
+          {% if plugin.official %}
+            <li><a href="{{ plugin|url }}">* {{ plugin.title }}</a></li>
+          {% else %}
+            <li><a href="{{ plugin|url }}">{{ plugin.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </ul>
+{% endmacro %}
