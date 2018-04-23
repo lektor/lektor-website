@@ -8,19 +8,22 @@
 {% endmacro %}
 
 {% macro render_plugin_list(plugins, active=none) %}
-  <ul>
     {% for category in site.query('/plugin-categories') %}
-      <li{% if category._id == active %} class="active"{% endif
-        %}><a href="{{ category|url }}">{{ category.name }}</a></li>
+      <h2><a href="{{ category|url }}">{{ category.name }}</a></h2>
       <ul>
         {% for plugin in category.children.order_by('-official', 'title') %}
           {% if plugin.official %}
-            <li><a href="{{ plugin|url }}">* {{ plugin.title }}</a></li>
+            <li><a href="{{ plugin|url }}">* {{ plugin.name }}</a></li>
+            {% if loop.nextitem %}
+              {% if not loop.nextitem.official %}
+                ---
+              {% endif %}
+            {% endif %}
+
           {% else %}
-            <li><a href="{{ plugin|url }}">{{ plugin.title }}</a></li>
+            <li><a href="{{ plugin|url }}">{{ plugin.name }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
     {% endfor %}
-  </ul>
 {% endmacro %}

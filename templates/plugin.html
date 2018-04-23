@@ -2,7 +2,10 @@
 {% from 'macros/blocksupport.html' import render_full_width_blocks %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block outerbody %}
-  <h1>{{ this.title }}</h1>1111
-  {{ this.summary }}2222
-  {{ this.repo }}333
+  <h1>{{ this.name }}</h1>
+  {% set pd =  project_data(this.name) %}
+  {{ pd  }}
+  <br>
+  {{ pd.description }}
+
 {% endblock %}
