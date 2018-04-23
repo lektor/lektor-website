@@ -1,11 +1,22 @@
 {% extends "layout.html" %}
-{% from "macros/plugins.html" import
-  render_plugin_list, render_category_nav %}
+{% from "macros/plugins.html" import render_plugin_list %}
 {% from 'macros/blocksupport.html' import render_full_width_blocks %}
 {% block title %}{{ this.title }}{% endblock %}
+
 {% block outerbody %}
+  {% set image = site.get('/plugins').attachments.images.first() %}
+  {% if image %}
+    <div class="page-banner page-banner-300" style="background-image: url({{ image|url }})"></div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+
+{% block body %}
+  <h1>{{ this.title }}</h1>
   {% call render_full_width_blocks(this.body.blocks, classes='col-md-12') %}
-    <h1>{{ this.title }}</h1>
-    {{ render_plugin_list(this.children) }}
   {% endcall %}
+  {% for category in site.query('/plugin-categories') %}
+    <h2><a href="{{ category|url }}">{{ category.title }}</a></h2>
+    {{ render_plugin_list(category) }}
+  {% endfor %}
 {% endblock %}

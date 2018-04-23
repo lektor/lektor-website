@@ -7,23 +7,19 @@
   </ul>
 {% endmacro %}
 
-{% macro render_plugin_list(plugins, active=none) %}
-    {% for category in site.query('/plugin-categories') %}
-      <h2><a href="{{ category|url }}">{{ category.name }}</a></h2>
-      <ul>
-        {% for plugin in category.children.order_by('-official', 'title') %}
-          {% if plugin.official %}
-            <li><a href="{{ plugin|url }}">* {{ plugin.name }}</a></li>
-            {% if loop.nextitem %}
-              {% if not loop.nextitem.official %}
-                ---
-              {% endif %}
-            {% endif %}
-
-          {% else %}
-            <li><a href="{{ plugin|url }}">{{ plugin.name }}</a></li>
+{% macro render_plugin_list(category) %}
+  <ul>
+    {% for plugin in category.children.order_by('-official', 'title') %}
+      {% if plugin.official %}
+        <li><a href="{{ plugin|url }}">* {{ plugin.name }}</a></li>
+        {% if loop.nextitem %}
+          {% if not loop.nextitem.official %}
+            ---
           {% endif %}
-        {% endfor %}
-      </ul>
+        {% endif %}
+      {% else %}
+        <li><a href="{{ plugin|url }}">{{ plugin.name }}</a></li>
+      {% endif %}
     {% endfor %}
+  </ul>
 {% endmacro %}

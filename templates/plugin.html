@@ -1,11 +1,15 @@
-{% extends "layout.html" %}
-{% from 'macros/blocksupport.html' import render_full_width_blocks %}
-{% block title %}{{ this.title }}{% endblock %}
-{% block outerbody %}
+{% extends "plugins.html" %}
+
+{% block body %}
   <h1>{{ this.name }}</h1>
   {% set pd =  project_data(this.name) %}
-  {{ pd  }}
-  <br>
-  {{ pd.description }}
+  {{ pd  }}<br>
+  111<br>
+  {{ pd.author  }}<br>
+  {{ pd.version  }}<br>
+  {{ pd.home_page  }}<br>
+  {{ pd.summary  }}<br>
 
+  <br>
+  {{ pd.description|markdown }}
 {% endblock %}

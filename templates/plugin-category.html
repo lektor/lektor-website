@@ -1,9 +1,8 @@
-{% extends "layout.html" %}
-{% from "macros/plugins.html" import render_category_nav,
-   render_plugin_list %}
-{% block title %}Plugin Category {{ this.name }}{% endblock %}
+{% extends "plugins.html" %}
+
 {% block body %}
-  <h1>Plugin Category {{ this.name }}</h1>
-  {{ render_category_nav(active=this._id) }}
-  {{ render_plugin_list(this.children) }}
+  <h1>{{ this.title }}</h1>
+  {% call render_full_width_blocks(this.body.blocks, classes='col-md-12') %}
+  {% endcall %}
+  {{ render_plugin_list(this) }}
 {% endblock %}
