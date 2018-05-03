@@ -8,7 +8,8 @@ setup(
     license='MIT',
     py_modules=['lektor_project_data'],
     install_requires=[
-        'qypi==0.4.1',
+        'requests',
+        'readme_renderer==0.20',
     ],
     entry_points={
         'lektor.plugins': [
