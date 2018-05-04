@@ -9,7 +9,7 @@ setup(
     py_modules=['lektor_project_data'],
     install_requires=[
         'requests',
-        'readme_renderer==0.20',
+        'readme_renderer==20.0',
     ],
     entry_points={
         'lektor.plugins': [
