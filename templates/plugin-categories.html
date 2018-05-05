@@ -1,7 +1,15 @@
-{% extends "layout.html" %}
+{% extends "plugins.html" %}
 {% from "macros/plugins.html" import render_category_nav %}
-{% block title %}Plugin Categories{% endblock %}
+
 {% block body %}
-  <h1>Plugin Categories</h1>
-  {{ render_category_nav(active=none) }}
+  <h1>{{ this.title }}</h1>
+  {% call render_full_width_blocks(this.body.blocks, classes='col-md-12') %}
+  {% endcall %}
+  <ul>
+    {% for category in site.query('/plugin-categories') %}
+      <li><h3>
+        <a href="{{ category|url }}">{{ category.title }}</a>
+      </h3></li>
+    {% endfor %}
+  </ul>
 {% endblock %}

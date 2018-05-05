@@ -1,3 +1,12 @@
 _model: plugin-categories
 ---
 _slug: plugins/categories
+---
+body:
+
+#### text-block ####
+text: estate
+----
+class: default
+---
+title: Plugin Categories

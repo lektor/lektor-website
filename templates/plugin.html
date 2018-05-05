@@ -60,7 +60,7 @@
         <h4>Tags</h4>
       </div>
       {% if this.tags %}
-        {% for t in this.tags -%}
+        {% for t in this.tags %}
           {{ "and " if loop.last }}
           <a href="{{ ('/plugins/tag/' ~ t.lower() ~ '/')|url }}">{{ t }}</a>{{ ", " if not loop.last }}
         {% endfor %}

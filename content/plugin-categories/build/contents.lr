@@ -1,8 +1,12 @@
 body:
 
 #### text-block ####
-text: par
+text: These plugins primarily deal with Lektor's build process, adding build tools or processes.
 ----
 class: default
 ---
 title: Build
+---
+_discoverable: yes
+---
+_hidden: no

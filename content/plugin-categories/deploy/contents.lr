@@ -1,7 +1,7 @@
 body:
 
 #### text-block ####
-text: ds
+text: These plugins primarily deal with Lektor's deployment abilities. They may add a deployment service or location.
 ----
 class: default
 ---

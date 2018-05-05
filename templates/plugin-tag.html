@@ -2,12 +2,32 @@
 
 {% block body %}
   <h1>Tag: {{ this.tag }}</h1>
+
+  {% for event in site.get('/docs/api/plugins/events').children.all() %}
+    {% if this.tag == event.title %}
+      <p>
+        This is an event emitted by Lektor for plugins to hook.
+        The following plugins hook this event.
+        Take a look at their source code to see how they work!
+      </p>
+      <p>
+        <a href="{{ '/docs/plugins'|url }}" class="ref">Intro to Plugins</a>
+        ||
+        <a href="{{ '/docs/cli/plugins/'|url }}" class="ref">Plugin Commands</a>
+        ||
+        <a href="{{ '/docs/api/plugins'|url }}" class="ref">Plugin API</a>
+        ||
+        <a href="{{ event|url }}" class="ref">This Event</a>
+      </p>
+    {% endif %}
+  {% endfor %}
+
   <h2>Plugins:</h2>
   <ul>
-    {% for i in this.items %}
-      <li><a href="{{ i|url }}">{{ i._id }}</a></li>
-    {% else %}
-      <li><em>No items.</em></li>
+    {% for plugin in this.items %}
+      <li>
+        <a href="{{ plugin|url }}">{{ plugin._id }}</a>
+      </li>
     {% endfor %}
   </ul>
 {% endblock %}

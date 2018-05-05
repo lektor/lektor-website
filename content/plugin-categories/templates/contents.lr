@@ -1,7 +1,7 @@
 body:
 
 #### text-block ####
-text: saf
+text: These plugins primarily deal with Lektor's [Templates :ref](/docs/templates/). They may add or modify [context :ref](docs/templates/#template-context), filters, api, globals, modify images, change navigation, or many other functionalities available to templates.
 ----
 class: default
 ---

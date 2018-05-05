@@ -3,6 +3,6 @@ title: Content
 body:
 
 #### text-block ####
-text: adsf
+text: These plugins primarily deal with adding or modifying available content in Lektor.
 ----
 class: default
