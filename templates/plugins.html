@@ -15,8 +15,10 @@
   <h1>{{ this.title }}</h1>
   {% call render_full_width_blocks(this.body.blocks, classes='col-md-12') %}
   {% endcall %}
-  {% for category in site.query('/plugin-categories') %}
+  {% for category in site.query('/plugin-categories').order_by('title') %}
     <h2><a href="{{ category|url }}">{{ category.title }}</a></h2>
-    {{ render_plugin_list(category) }}
+    <div class="plugin">
+      {{ render_plugin_list(category) }}
+    </div>
   {% endfor %}
 {% endblock %}

@@ -52,9 +52,19 @@ class ProjectDataPlugin(Plugin):
         resp = requests.get(url)
         pkg = resp.json()
         self.data.update(pkg['info'])
-        # rewrite description as rendered description
+        # Erase bad keys that are sometimes returned from the api
+        # to handle it in the template.
+        # To us, unknown is the same as non-existent.
+        for key in self.data:
+            val = self.data.get(key)
+            if type(val) is str and val.strip() == 'UNKNOWN':
+                self.data[key] = ''
+        self.data['short_name'] = name.split('lektor-')[1]
+        # Rewrite description as rendered description.
         self.data['description'] = self.render(
             self.data['description'], self.data['description_content_type'])
+        if not self.data.get('home_page'):
+            self.data['home_page'] = 'https://pypi.org/project/{}/'.format(name)
 
     def github_data(self, owner=None, repo=None):
         url = 'https://api.github.com/repos/{}/{}'.format(owner, repo)
