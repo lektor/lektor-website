@@ -9,3 +9,5 @@ S3
 Cloudfront
 deploy target
 setup-env
+---
+summary: Publish to <a href="https://aws.amazon.com/s3/">S3</a> buckets and <a href="https://aws.amazon.com/cloudfront/">Cloudfront</a>.

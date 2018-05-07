@@ -9,3 +9,5 @@ markdown
 markdown-config
 jinja filters
 setup-env
+---
+summary: Allows you to use shortcodes (something like tags) in your model fields.
