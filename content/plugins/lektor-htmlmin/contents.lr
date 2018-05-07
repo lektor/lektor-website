@@ -1,3 +1,11 @@
 name: lektor-htmlmin
 ---
 categories: build
+---
+tags:
+
+html
+minify
+htmlmin
+after-build-all
+

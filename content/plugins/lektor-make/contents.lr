@@ -1,3 +1,11 @@
 name: lektor-make
 ---
 categories: build
+---
+tags:
+
+before-build-all
+make
+makefile
+---
+summary: Run <code>make lektor</code> for custom build systems.

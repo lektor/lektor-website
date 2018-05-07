@@ -1,0 +1,8 @@
+name: lektor-google-analytics
+---
+tags:
+
+analytics
+Google Analytics
+jinja globals
+setup-env

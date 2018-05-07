@@ -3,3 +3,15 @@ name: lektor-webpack-support
 categories: build
 ---
 official: yes
+---
+tags:
+
+official
+webpack
+npm
+yarn
+node
+scss
+server-spawn
+server-stop
+before-build-all

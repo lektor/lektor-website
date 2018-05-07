@@ -1,0 +1,14 @@
+name: lektor-markdown-highlighter
+---
+categories: content
+---
+official: yes
+---
+tags:
+
+official
+markdown
+syntax highlighting
+Pygments
+markdown-config
+setup-env
