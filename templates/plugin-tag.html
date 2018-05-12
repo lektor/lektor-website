@@ -1,4 +1,5 @@
 {% extends "plugins.html" %}
+{% from "macros/plugins.html" import render_plugin_list %}
 
 {% block body %}
   <h1>Tag: {{ this.tag }}</h1>
@@ -23,11 +24,7 @@
   {% endfor %}
 
   <h2>Plugins:</h2>
-  <ul>
-    {% for plugin in this.items %}
-      <li>
-        <a href="{{ plugin|url }}">{{ plugin._id }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+    <div class="plugin">
+      {{ render_plugin_list(this.items) }}
+    </div>
 {% endblock %}

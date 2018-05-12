@@ -7,9 +7,9 @@
   </ul>
 {% endmacro %}
 
-{% macro render_plugin_list(category) %}
+{% macro render_plugin_list(query) %}
   <ul>
-    {% for plugin in category.children.order_by('-official', 'name') %}
+    {% for plugin in query.order_by('-official', 'name') %}
       {% set pd =  project_data(plugin.name) %}
       {% if plugin.summary %}
         {% set summary = plugin.summary %}

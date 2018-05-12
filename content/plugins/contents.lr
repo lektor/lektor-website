@@ -7,10 +7,10 @@ body:
 #### text-block ####
 text:
 
-Lektor is a young project but it has a growing list of both official and community supported plugins. Official plugins were developed by the authors of Lektor and kept in good shape together with the rest of the project. Community plugins are moderated and updated regularly, but they might not keep pace with development on Lektor. They are maintained by the community. Install them with `lektor plugins add NAME`.
-
-This is a list of currently known plugins. Official plugins are prefixed with as asterisk (*) and are listed first in each section and separated by an underline.
+Lektor is a young project but it has a growing list of both official and community supported plugins. Official plugins are maintained by Lektor and kept in good shape together with the rest of the project. Community plugins are moderated and updated regularly, but they might not keep pace with development on Lektor. They are maintained by the community. Install them with `lektor plugins add NAME`.
 
 If you want to make or publish your own plugin, or see our [docs :ref](/docs/plugins).
+
+(*) Asterisks denote official plugins.
 ----
 class: default

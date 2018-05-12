@@ -18,7 +18,7 @@
   {% for category in site.query('/plugin-categories').order_by('title') %}
     <h2><a href="{{ category|url }}">{{ category.title }}</a></h2>
     <div class="plugin">
-      {{ render_plugin_list(category) }}
+      {{ render_plugin_list(category.children) }}
     </div>
   {% endfor %}
 {% endblock %}
