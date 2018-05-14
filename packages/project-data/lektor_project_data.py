@@ -74,10 +74,11 @@ class ProjectDataPlugin(Plugin):
 
     def project_data(self, name):
         self.package_data(name)
-        if 'github' in self.data.get('home_page'):
-            owner = self.data['home_page'].split('/')[-2]
-            repo = self.data['home_page'].split('/')[-1]
-            self.data['gh'] = self.github_data(owner=owner, repo=repo)
+        # github data not currently used. Commented to save build time.
+        # if 'github' in self.data.get('home_page'):
+        #     owner = self.data['home_page'].split('/')[-2]
+        #     repo = self.data['home_page'].split('/')[-1]
+        #     self.data['gh'] = self.github_data(owner=owner, repo=repo)
         # TODO: support bitbucket
         return self.data
 

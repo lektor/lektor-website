@@ -9,7 +9,7 @@ minify
 html
 css
 js
-setup_env
-after_build
+setup-env
+after-build
 ---
 categories: build
