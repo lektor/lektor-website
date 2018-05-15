@@ -16,15 +16,21 @@
   <p>
     Click any of the showcases to learn a bit more about how it uses Lektor.
   <div class="showcase row">
-    {% for project in this.children %}
-      <div class="project col-md-6">
-        <a href="{{ project|url }}">
-          <h2>{{ project.name }}</h2>
-          {% if project.cover_image %}
-            {% set image = project.attachments.get(project.cover_image) %}
-            <div class="frame"><img src="{{ image.thumbnail(480)|url }}" width="100%" alt=""></div>
-          {% endif %}
-        </a>
+    {% for project_row in this.children | batch(2, '&nbsp;') %}
+      <div class="row">
+        {% for project in project_row %}
+          <div class="project col-md-6">
+            <a href="{{ project|url }}">
+              <h2>{{ project.name }}</h2>
+              {% if project.cover_image %}
+                {% set image = project.attachments.get(project.cover_image) %}
+                <div class="frame">
+                  <img src="{{ image.thumbnail(480)|url }}" width="100%" alt="">
+                </div>
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
       </div>
     {% endfor %}
   </div>
