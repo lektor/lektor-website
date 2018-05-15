@@ -1,0 +1,8 @@
+{% extends "plugins.html" %}
+
+{% block body %}
+  <h1>{{ this.title }}</h1>
+  {% call render_full_width_blocks(this.body.blocks, classes='col-md-12') %}
+  {% endcall %}
+  {{ render_plugin_list(this.children) }}
+{% endblock %}

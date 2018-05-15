@@ -1,0 +1,12 @@
+_model: plugin-categories
+---
+_slug: plugins/categories
+---
+body:
+
+#### text-block ####
+text: 
+----
+class: default
+---
+title: Plugin Categories

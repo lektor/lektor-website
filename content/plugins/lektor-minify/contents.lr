@@ -1,0 +1,15 @@
+name: lektor-minify
+---
+tags:
+
+django_htmlmin
+rcssmin
+rjsmin
+minify
+html
+css
+js
+setup-env
+after-build
+---
+categories: build

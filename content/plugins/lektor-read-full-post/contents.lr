@@ -1,0 +1,10 @@
+name: lektor-read-full-post
+---
+categories: content
+---
+tags:
+
+setup-env
+jinja globals
+blog
+markdown

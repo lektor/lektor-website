@@ -1,0 +1,11 @@
+name: lektor-netlify
+---
+categories: deploy
+---
+tags:
+
+Netlify
+publisher
+setup-env
+---
+summary: Allows you to generate configurable thumbnails for all your attachment images, so you can link them in your pages.

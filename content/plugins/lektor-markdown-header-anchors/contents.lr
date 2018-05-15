@@ -1,0 +1,16 @@
+name: lektor-markdown-header-anchors
+---
+categories: content
+---
+official: yes
+---
+tags:
+
+official
+markdown
+headers
+anchors
+table of contents
+markdown-config
+makrdown-meta-init
+markdown-meta-postprocess
