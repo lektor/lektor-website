@@ -11,7 +11,7 @@ twitter_handle: nixjdm
 body:
 
 #### banner ####
-image: header.jpg
+image: spices.jpg
 ----
 height: 300
 ----
@@ -29,7 +29,7 @@ Each plugin now falls within one of a few broad categories to help quickly narro
 
 ### Details
 
-Now, each plugin also has its own dedicated page. On this page you can see the entire README for a plugin, in beautiful rendered Markdown or reStructuredText, GitHub statistics, authorship information, and tags. This page should give you all the information you need to be able to use the plugin, or to decide if it's what you're looking for as a guide to building your own.
+Each plugin also now has its own dedicated page. On this page you can see the entire README for a plugin, in beautiful rendered Markdown or reStructuredText, GitHub statistics, authorship information, and tags. This page should give you all the information you need to be able to use the plugin, or to decide if it's what you're looking for as a guide to building your own.
 
 ### Tags
 
