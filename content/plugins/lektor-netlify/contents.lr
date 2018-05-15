@@ -5,7 +5,7 @@ categories: deploy
 tags:
 
 Netlify
-deploy target
+publisher
 setup-env
 ---
 summary: Allows you to generate configurable thumbnails for all your attachment images, so you can link them in your pages.
