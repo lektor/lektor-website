@@ -16,7 +16,7 @@
   <p>
     Click any of the showcases to learn a bit more about how it uses Lektor.
   <div class="showcase row">
-    {% for project_row in this.children | batch(2, '&nbsp;') %}
+    {% for project_row in this.children | batch(2) %}
       <div class="row">
         {% for project in project_row %}
           <div class="project col-md-6">
