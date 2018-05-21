@@ -8,3 +8,5 @@ setup-env
 jinja globals
 blog
 markdown
+---
+summary: Allows blog listing posts to be shortened with a link to the full post.

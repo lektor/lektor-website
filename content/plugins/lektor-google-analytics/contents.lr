@@ -6,3 +6,5 @@ analytics
 Google Analytics
 jinja globals
 setup-env
+---
+categories: templates
