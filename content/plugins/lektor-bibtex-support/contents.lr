@@ -1,3 +1,9 @@
 name: lektor-bibtex-support
 ---
 categories: content
+---
+tags:
+
+setup-env
+jinja globals
+LaTeX
