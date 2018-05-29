@@ -1,0 +1,12 @@
+name: lektor-gulp
+---
+categories: build
+---
+tags:
+html
+css
+javascript
+gulp
+before-build-all
+server-stop
+server-spawn
