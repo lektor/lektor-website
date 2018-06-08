@@ -5,5 +5,5 @@ categories: templates
 tags:
 
 markdown
-jinja filter
+jinja filters
 setup-env
