@@ -1,6 +1,8 @@
 language: python
 python: 3.7
 env: TRAVIS_NODE_VERSION=10
+dist: xenial
+sudo: true
 branches:
   only:
     - master
