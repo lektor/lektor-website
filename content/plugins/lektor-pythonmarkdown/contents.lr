@@ -1,0 +1,13 @@
+name: lektor-pythonmarkdown
+---
+allow_comments: yes
+---
+categories: content
+---
+official: no
+---
+tags:
+
+markdown
+setup-env
+field type
