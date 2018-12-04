@@ -121,9 +121,9 @@ if 1:
             os.makedirs(lib_dir)
         except OSError:
             pass
-        try:
+        try:  # virtualenv 16.1.0, 17+
             check_output([sys.executable, './src/virtualenv.py', lib_dir], cwd=t)
-        except CalledProcessError:  # virtualenv 16.1.0, 17+
+        except CalledProcessError:  # older virtualenv
             Popen([sys.executable, './virtualenv.py', lib_dir], cwd=t).wait()
         Popen([os.path.join(lib_dir, 'bin', 'pip'),
            'install', '--upgrade', 'Lektor']).wait()
