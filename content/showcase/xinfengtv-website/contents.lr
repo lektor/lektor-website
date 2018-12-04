@@ -1,0 +1,15 @@
+name: XinFengTv Website
+---
+url: https://www.xinfengtv.com
+---
+cover_image: xinfengtv-com-cover.jpg
+---
+description:
+
+This project is a news and magazine website talking about AI / smart home and robots. We build this project's front with Lektor to speed it up and make it faster than ever to visit.
+
+The difficulty during building this project is that we have to make every page match the MIP rulers - which is the alternative mobile website standard to Google's AMP provide by Baidu.
+
+Before Lektor, we tried several tools; WordPress, Hugo, Hexo, and even Forestry. Finally we met Lektor. It is very powerful and now we love it. We will use it to build more projects and we are starting to make some plugins for it.
+
+Thanks again!
