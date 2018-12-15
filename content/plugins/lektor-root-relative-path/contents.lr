@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-root-relative-path
 ---
 categories: templates
