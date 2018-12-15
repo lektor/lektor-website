@@ -5,9 +5,9 @@ name: lektor-gulp
 categories: build
 ---
 tags:
-html
-css
-javascript
+HTML
+CSS
+JavaScript
 gulp
 before-build-all
 server-stop

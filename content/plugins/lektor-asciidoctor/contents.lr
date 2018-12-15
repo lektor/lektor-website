@@ -4,7 +4,7 @@ name: lektor-asciidoctor
 ---
 tags:
 
-asciidoc
+AsciiDoc
 field type
 setup-env
 ---

@@ -6,6 +6,6 @@ categories: templates
 ---
 tags:
 
-jinja filters
-html
+Jinja filters
+HTML
 setup-env

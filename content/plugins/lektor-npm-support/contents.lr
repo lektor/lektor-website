@@ -7,11 +7,13 @@ categories: build
 tags:
 
 webpack
-browserify
+Browserify
 Parcel
 Babel
 Sass
-yarn
+Node
+npm
+Yarn
 server-spawn
 server-stop
 before-build-all

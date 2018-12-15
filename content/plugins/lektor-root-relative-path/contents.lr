@@ -7,5 +7,5 @@ categories: templates
 tags:
 
 navigation
-jinja filters
+Jinja filters
 setup-env

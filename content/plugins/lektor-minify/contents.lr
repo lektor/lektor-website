@@ -5,12 +5,12 @@ name: lektor-minify
 tags:
 
 django_htmlmin
-rcssmin
-rjsmin
+rCSSmin
+rJSmin
 minify
-html
-css
-js
+HTML
+CSS
+JavaScript
 setup-env
 after-build
 ---

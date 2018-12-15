@@ -8,10 +8,6 @@ tags:
 
 Creative Commons
 Licensing
-jinja globals
-multi-language
-multilingual
-setup-env
-translate
-translation
+Jinja globals
+i18n
 setup-env

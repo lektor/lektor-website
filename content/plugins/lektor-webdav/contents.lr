@@ -7,8 +7,8 @@ categories: templates
 tags:
 
 WebDAV
+content
 remote content
-jinja globals
-jinja filters
+Jinja globals
+Jinja filters
 setup-env
-
