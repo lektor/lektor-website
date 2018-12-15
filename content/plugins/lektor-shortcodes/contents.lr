@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-shortcodes
 ---
 categories: templates
@@ -5,9 +7,9 @@ categories: templates
 tags:
 
 shortcodes
-markdown
+Markdown
 markdown-config
-jinja filters
+Jinja filters
 setup-env
 ---
 summary: Allows you to use shortcodes (something like tags) in your model fields.

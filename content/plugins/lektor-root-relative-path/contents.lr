@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-root-relative-path
 ---
 categories: templates
@@ -5,5 +7,5 @@ categories: templates
 tags:
 
 navigation
-jinja filters
+Jinja filters
 setup-env

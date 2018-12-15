@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-i18n
 ---
 categories: build
@@ -6,15 +8,10 @@ summary: Use GetText .PO files to translate your site content.
 ---
 tags:
 
-multilingual
-multi-language
-language
 GetText
-translate
-translation
 alternatives
 i18n
-babel
+Babel
 setup-env
 before-build
 after-build

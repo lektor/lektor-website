@@ -1,9 +1,11 @@
+_model: plugin
+---
 name: lektor-markdown-excerpt
 ---
 categories: templates
 ---
 tags:
 
-markdown
-jinja filters
+Markdown
+Jinja filters
 setup-env

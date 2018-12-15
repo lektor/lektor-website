@@ -1,10 +1,11 @@
+_model: plugin
+---
 name: lektor-rst
 ---
 categories: content
 ---
 tags:
 
-rst
 reStructuredText
 field type
 setup-env

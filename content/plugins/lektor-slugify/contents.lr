@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-slugify
 ---
 categories: templates
@@ -5,6 +7,6 @@ categories: templates
 tags:
 
 slugify
-jinja filters
+Jinja filters
 python-slugify
 setup-env
