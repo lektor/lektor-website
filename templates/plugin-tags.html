@@ -9,12 +9,12 @@
   </p>
   <div class="row">
 
-    {% set tags = this.parent.children.distinct("tags")|rejectattr("tags") %}
+    {% set tags = this.parent.children.distinct("tags") %}
     {% for column in tags|sort|slice(3) %}
       <div class="col-md-4 child">
         <ul>
           {% for tag in column %}
-            <li><a href="{{ ('/plugins/tag/' ~ tag.lower() ~ '/')|url }}">{{ tag }}</a></li>
+            <li><a href="{{ ('/plugins@tag/' ~ tag ~ '/')|url }}">{{ tag }}</a></li>
           {% endfor %}
         </ul>
       </div>
