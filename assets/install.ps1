@@ -90,7 +90,16 @@ def add_to_path(location):
     SendMessage.restype = LRESULT
     SendMessage(HWND_BROADCAST, WM_SETTINGCHANGE, 0, u'Environment')
 
-def install(virtualenv_url, virtualenv_filename, install_dir, lib_dir):
+def _fetch_virtualenv():
+    for url in json.load(urlopen(VENV_URL))['urls']:
+        if url['python_version'] == 'source':
+            virtualenv_url = url['url']
+            #stripping '.tar.gz'
+            virtualenv_filename = url['filename'][:-7]
+            break
+    else:
+        fail('Could not find virtualenv')
+
     t = tempfile.mkdtemp()
     with open(os.path.join(t, 'virtualenv.tar.gz'), 'wb') as f:
         download = urlopen(virtualenv_url)
@@ -99,11 +108,30 @@ def install(virtualenv_url, virtualenv_filename, install_dir, lib_dir):
     with tarfile.open(os.path.join(t, 'virtualenv.tar.gz'), 'r:gz') as tar:
         tar.extractall(path=t)
 
+    return os.path.join(t, virtualenv_filename)
+
+def install_virtualenv(target_dir):
+    # recent python versions include virtualenv
+    cmd = [sys.executable, '-m', 'venv', target_dir]
+
+    try:
+        import venv
+    except ImportError:
+        venv_dir = _fetch_virtualenv()
+        venv_file = os.path.join(venv_dir, 'virtualenv.py')
+        # in recent versions "virtualenv.py" moved to the "src" subdirectory
+        if not os.path.exists(venv_file):
+            venv_file = os.path.join(venv_dir, 'src', 'virtualenv.py')
+
+        cmd = [sys.executable, venv_file, target_dir]
+
+    Popen(cmd).wait()
+
+def install(install_dir, lib_dir):
     os.makedirs(install_dir)
     os.makedirs(lib_dir)
 
-    Popen([sys.executable, 'virtualenv.py', lib_dir],
-           cwd=os.path.join(t, virtualenv_filename)).wait()
+    install_virtualenv(lib_dir)
 
     scripts = os.path.join(lib_dir, 'Scripts')
     Popen([os.path.join(scripts, 'pip.exe'),
@@ -133,16 +161,7 @@ def main():
     print()
     get_confirmation()
 
-    for url in json.load(urlopen(VENV_URL))['urls']:
-        if url['python_version'] == 'source':
-            virtualenv_url = url['url']
-            #stripping '.tar.gz'
-            virtualenv_filename = url['filename'][:-7]
-            break
-    else:
-        fail('Could not find virtualenv')
-
-    install(virtualenv_url, virtualenv_filename, install_dir, lib_dir)
+    install(install_dir, lib_dir)
 
     print()
     print('All done!')
