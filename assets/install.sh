@@ -28,7 +28,10 @@ if 1:
     try:
         from urllib.request import urlopen
     except ImportError:
-        from urllib import urlopen
+        if sys.version_info[0] == 2 and sys.version_info[1] == 7 and sys.version_info[2] == 16:
+            from urllib2 import urlopen
+        else:
+            from urllib import urlopen
 
     PY2 = sys.version_info[0] == 2
     if PY2:
