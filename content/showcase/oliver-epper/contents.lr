@@ -1,0 +1,14 @@
+name: Oliver Epper
+---
+url: https://oliver-epper.de
+---
+cover_image: _oliver-epper.de-start.jpg
+---
+description:
+
+This is my personal website created with webpack and lektor.
+I work as a golf professional in germany and have been a software developer
+in my first carrer. I really love lektor for creating websites and the
+showcase section helped me a lot while learning how to use lektor.
+
+If you're interested [View the Sourcecode on GitHub](https://github.com/oliverepper/oliver-epper.de)
