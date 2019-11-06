@@ -106,6 +106,9 @@ def install(virtualenv_url, virtualenv_filename, install_dir, lib_dir):
            cwd=os.path.join(t, virtualenv_filename)).wait()
 
     scripts = os.path.join(lib_dir, 'Scripts')
+    Popen([os.path.join(scripts, 'python.exe'),
+           '-m', 'pip', 'install','--upgrade', 'pip'],
+           cwd=scripts).wait()
     Popen([os.path.join(scripts, 'pip.exe'),
            'install', '--upgrade', 'Lektor'],
            cwd=scripts).wait()
