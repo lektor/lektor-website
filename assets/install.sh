@@ -11,12 +11,12 @@
 I() {
   set -u
 
-  if ! hash python 2> /dev/null; then
+  if ! hash python3 2> /dev/null; then
     echo "Error: To use this script you need to have Python installed"
     exit 1
   fi
 
-  python - <<'EOF'
+  python3 - <<'EOF'
 if 1:
 
     import os
