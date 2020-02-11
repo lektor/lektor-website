@@ -99,7 +99,7 @@ class ProjectThemesPlugin(Plugin):
             return False
 
         # Check token permissions
-        url = "https://api.github.com/repos/{}/".format(GITHUB_THEMES_REPO)
+        url = "https://api.github.com/repos/{}".format(GITHUB_THEMES_REPO)
         api_get(url)
         return True
 
@@ -246,7 +246,7 @@ def api_get(url):
         raise Exception("Cannot access GitHub API without token. Add env var 'GITHUB_TOKEN'")
 
     headers = {
-        'Authorization': "Bearer {}".format(github_token),
+        'Authorization': "token {}".format(github_token),
         'Cache-Control': "no-cache",
     }
     response = requests.get(url, headers=headers)
