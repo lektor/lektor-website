@@ -61,10 +61,12 @@ The following options are used for all types:
 - `label`: the label for the field.  This is shown in the UI in larger letters
 - `description`: an optional string that provides some description for the
   field that is shown in the UI to give a bit more explanation.
-- `addon_label`: an optional string that is supported by all types that are
-  rendered as an input field.  This string is shown as an UI label on the 
-right side of the input field to give it more context.  For instance, it can
-  be used to clarify units of a field (pixel, percent etc.).
+- `addon_label`: an optional string or icon that is supported by all types
+  that are rendered as an input field.  This string or icon is shown as an UI
+  label on the right side of the input field to give it more context.  For
+  instance, it can be used to clarify units of a field (pixel, percent etc.).
+  If an icon is to be used it must be a valid Fontawesome 4 icon name and
+  between double brackets (e.g.: [[github]]).
 - `width`: defines the width of the input in the admin as a fraction.  For
   instance `1/4` sets it to a quarter of the width, `1/2` to a half etc.
 - `size` can be set to `normal`, `small` or `large` to affect the size a
