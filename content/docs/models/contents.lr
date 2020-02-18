@@ -65,8 +65,8 @@ The following options are used for all types:
   that are rendered as an input field.  This string or icon is shown as an UI
   label on the right side of the input field to give it more context.  For
   instance, it can be used to clarify units of a field (pixel, percent etc.).
-  If an icon is to be used it must be a valid Fontawesome 4 icon name and
-  between double brackets (e.g.: [[github]]).
+  If an icon is to be used it must be a valid [Fontawesome 4 :ext](https://fontawesome.com/v4.7.0/icons/)
+  icon name  between double brackets (e.g.: [[github]]).
 - `width`: defines the width of the input in the admin as a fraction.  For
   instance `1/4` sets it to a quarter of the width, `1/2` to a half etc.
 - `size` can be set to `normal`, `small` or `large` to affect the size a
