@@ -103,28 +103,6 @@ The following targets are supported for the `target` field natively:
 
 **In addition**, there are [third-party plugins :ref](../../plugins/categories/deploy/) available for additional deploy targets.
 
-## Delete Option
-
-To keep two directories truly in sync when deploying with `rsync`, it's necessary to explicit tell `rsync` to remove files or directories on target that no longer exist on source anymore. It can be done using URL query syntax:
-
-```ini
-[servers.production]
-target = rsync://server/path/to/folder?delete
-```
-
-With the `?delete` URL parameter, Lektor will perform a `rsync --delete-delay` to make sure there won't be any deletions in case of failures.
-
-!!!! It's important to notice that the `?delete` option will delete **any file or directory** on target that do not exist in the source. So if there are files or directories on target that `rsync` can not remove, consider the potential risk of data loss when using this option improperly.
-
-To prevent the deletion of custom files or directories present on target, it's necessary to tell `rsync` to exclude then from the sync when deploying with `?delete`:
-
-```ini
-[servers.production]
-target = rsync://server/path/to/folder?delete&exclude=my_custom_file_on_target&exclude=my_custom_directory_on_target
-```
-
-This way, `rsync` will ignore files and directories that matches the patterns in each `exclude` option on the URL.
-
 ## Manual Deployments
 
 If you want to manually deploy something through the favorite tool of yours
