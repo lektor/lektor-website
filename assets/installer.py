@@ -45,8 +45,9 @@ SILENT = (
     not in ("", "0", "off", "false")
 )
 
-if not IS_WIN:
-    sys.stdin = open("/dev/tty", "r")
+if not os.isatty(sys.stdin.fileno()):
+    # the script is being piped, we need to reset stdin
+    sys.stdin = open("CON:" if IS_WIN else "/dev/tty")
 
 if sys.version_info.major == 2:
     input = raw_input
