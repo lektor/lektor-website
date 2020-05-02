@@ -28,11 +28,12 @@ contents:
     </div>
   </div>
   <div class="install-row hide-for-windows">
-    <pre>curl -sf https://www.getlektor.com/install.sh | sh</pre>
+    <pre>curl -sf https://www.getlektor.com/installer.py | sudo python3</pre>
   </div>
 </div>
 #### text-block ####
 text:
+
 <div class="badges">
   <ul>
     <li><a href="https://twitter.com/getlektor"
@@ -52,8 +53,11 @@ text:
     </li>
   </ul>
 </div>
+----
+class: default
 #### text-block ####
 text:
+
 ## Full of Features
 
 * <i class="feature-circle fa fa-ship"></i> **Deploy Anywhere** Because Lektor
