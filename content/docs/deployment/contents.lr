@@ -87,7 +87,8 @@ $ lektor build && lektor deploy
 
 If you want to provide a different build folder, provide it explicitly with
 `--output-path` to both `build` and `deploy`.  This can also be set with
-the `LEKTOR_OUTPUT_PATH` environment variable.
+the `LEKTOR_OUTPUT_PATH` environment variable, or provided in 
+[the project file :ref](../project/file/).
 
 !!!! **Note on credentials**: For FTP and other systems it is possible to embed
 the credentials directly in the URL.  If you do this, please ensure that
