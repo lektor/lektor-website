@@ -17,9 +17,9 @@ Recently we've made a big push to bring the project back on its feet. Our focus 
 
 We have also promoted [lektor-tags](https://github.com/lektor/lektor-tags) and [lektor-atom](https://github.com/lektor/lektor-atom) to official plugins. This represents our commitment to keep them up to date. We have also deployed a [new CI workflow](https://github.com/lektor/lektor-atom/pull/28) that can publish new versions using tags. This will be something all plugin authors can use in their own projects.
 
-!! Since Python 2 is EOL and its [final release ever](https://blog.python.org/2020/04/python-2718-last-release-of-python-2.html) happened on April 20th, 2020, this will be the last Lektor release with Python 2 support. This is also the last release supporting Python 3.5 since we want to have opportunity to work with the `async` ecosystem going forward.
-
 A big shoutout to all the contributors who help make Lektor awesome!
+
+!! Since Python 2 is EOL and its [final release ever](https://blog.python.org/2020/04/python-2718-last-release-of-python-2.html) happened on April 20th, 2020, this will be the last Lektor release with Python 2 support. This is also the last release supporting Python 3.5 since it is [very near EOL](https://devguide.python.org/#status-of-python-branches) and we want to have opportunity to work with several benefits of Python 3.6 going forward.
 
 !!!! The slugify change may mean that your URLs will change when you update to Lektor 3.2. This could lead to broken links from external sites such as search engines. This can be fixed by providing a custom slug for the necessary pages. We don't have any plans to change the slug algorithm in the future.
 
@@ -27,9 +27,9 @@ A big shoutout to all the contributors who help make Lektor awesome!
 
 ## Bugfixes
 
-* Fix to correctly calculate relative urls from slugs that contain dots.
-* Fix to allow negative integers in integer fields in the admin UI.
-* Fix `lektor plugins reinstall` triggered `on_setup_env` instead of just reinstalling plugins.
+* Fix to correctly calculate relative urls from slugs that contain dots. (thank you [f-seven](https://github.com/f-seven))
+* Fix to allow negative integers in integer fields in the admin UI. (thank you [David Ferguson](https://github.com/davidferguson))
+* Fix `lektor plugins reinstall` triggered `on_setup_env` instead of just reinstalling plugins. (thank you [Mikhail Gerasimov](https://github.com/germn))
 * Fix failing dimensions detection for some JPEG thumbnails.
 * Fix mismatch between reported thumbnail size and on-disk image when both width & height are provided.
 * Return JPEG dimensions swapped when EXIF rotation is in effect.
@@ -43,6 +43,7 @@ A big shoutout to all the contributors who help make Lektor awesome!
 
 ## Improvements
 
+* Added support for setting the output_path in the project file. (thank you [George Kussumoto](https://github.com/georgeyk))
 * Added support for deleting and excluding files for the rsync deployment publisher. (thank you [m-lib](https://github.com/m-lib))
 * Several modernization and performance improvements to the admin UI (thank you [Jakob Schnitzer](https://github.com/yagebu))
 * Improved speed of source info updates. (thank you [Jeff Dairiki](https://github.com/dairiki))
@@ -53,7 +54,7 @@ A big shoutout to all the contributors who help make Lektor awesome!
 * Added the ability to collapse flow elements in the admin UI. (thank you [jtraub91](https://github.com/jtraub91))
 * Now `extra_flags` is passed to all plugin events.
 * Extra flags can now be passed to the `clean` and `dev shell` CLI commands.
-* Deprecate the `crop` thumbnail argument in favor of the new `mode` argument, which can be one of `fit` (the default), `crop`, or `stretch`. 
+* Deprecate the `crop` thumbnail argument in favor of the new `mode` argument, which can be one of `fit` (the default), `crop`, or `stretch`.
 * `upscale=False` for thumbnails can now prevent up scaling.
 * Added a new CLI command `lektor dev new-theme`.
 * Made admin use full UTF-8 version of RobotoSlab. Fixes missing glyphs for some languages (thank you [Jakob Schnitzer](https://github.com/yagebu))
