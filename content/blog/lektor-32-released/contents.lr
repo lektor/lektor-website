@@ -60,7 +60,7 @@ A big shoutout to all the contributors who help make Lektor awesome!
 * Made admin use full UTF-8 version of RobotoSlab. Fixes missing glyphs for some languages (thank you [Jakob Schnitzer](https://github.com/yagebu))
 * Bumped minimum Jinja2 version to 2.11 (thank you [Joseph Nix](https://github.com/nixjdm))
 * Bumped filetype dependency to 1.0.7 because of API changes (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
-* Relative urls are now as short as possible. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Relative urls are now as short as possible. (thank you [Oleg Geier](https://github.com/relikd) and [Ionuț Ciocîrlan](https://github.com/xlotlu))
 * Automatically include setup.cfg configured for universal wheels when creating plugins (thank you [George Kussumoto](https://github.com/georgeyk))
 * Changed default slug creation to use [python-slugify](https://github.com/un33k/python-slugify). This should mean greater language support, but this may produce slightly different results than before for some users (thank you [Joseph Nix](https://github.com/nixjdm) and [Ionuț Ciocîrlan](https://github.com/xlotlu))
 
