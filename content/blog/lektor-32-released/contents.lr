@@ -2,7 +2,7 @@ title: Lektor 3.2 Released
 ---
 author: Andreas Runfalk
 ---
-pub_date: 2020-07-01
+pub_date: 2020-08-18
 ---
 summary: What's changed with Lektor 3.2
 ---
@@ -15,7 +15,7 @@ It's been a long time in the making, and on behalf of the Lektor Team I'm happy 
 
 Recently we've made a big push to bring the project back on its feet. Our focus besides merging PRs and fixing various issues has been to streamline the CI and release process. The biggest change was the [switch from Travis and Appveyor to GitHub actions](https://github.com/lektor/lektor/pull/734) which should make the release process a lot easier going forward.
 
-We have also promoted [lektor-tags](https://github.com/lektor/lektor-tags) and [lektor-atom](https://github.com/lektor/lektor-atom) to official plugins. This represents our commitment to keep them up to date. We have also deployed a [new CI workflow](https://github.com/lektor/lektor-atom/pull/28) that can publish new versions using tags. This will be something all plugin authors can use in their own projects.
+We have also promoted [lektor-tags](https://github.com/lektor/lektor-tags) and [lektor-atom](https://github.com/lektor/lektor-atom) to official plugins. This represents our commitment to keep them up to date. We have also deployed a [new CI workflow](https://github.com/lektor/lektor-atom/pull/28) that can publish new versions using tags. This will be something all plugin authors can use in their own projects. Thank you [Gonzalo Peña-Castellanos](https://github.com/goanpeca) for spearheading the CI improvements.
 
 A big shoutout to all the contributors who help make Lektor awesome!
 
@@ -30,15 +30,15 @@ A big shoutout to all the contributors who help make Lektor awesome!
 * Fix to correctly calculate relative urls from slugs that contain dots. (thank you [f-seven](https://github.com/f-seven))
 * Fix to allow negative integers in integer fields in the admin UI. (thank you [David Ferguson](https://github.com/davidferguson))
 * Fix `lektor plugins reinstall` triggered `on_setup_env` instead of just reinstalling plugins. (thank you [Mikhail Gerasimov](https://github.com/germn))
-* Fix failing dimensions detection for some JPEG thumbnails.
-* Fix mismatch between reported thumbnail size and on-disk image when both width & height are provided.
-* Return JPEG dimensions swapped when EXIF rotation is in effect.
-* Fix off-by-1px rounding discrepancy between reported thumbnail dimensions and actual dimensions.
+* Fix failing dimensions detection for some JPEG thumbnails. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Fix mismatch between reported thumbnail size and on-disk image when both width & height are provided. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Return JPEG dimensions swapped when EXIF rotation is in effect. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Fix off-by-1px rounding discrepancy between reported thumbnail dimensions and actual dimensions. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
 
 
 ## New features
 
-* Added the ability to [generate video thumbnails](/docs/templates/videoops/) with ffmpeg.
+* Added the ability to [generate video thumbnails](/docs/templates/videoops/) with ffmpeg. (thank you [Andreas Runfalk](https://github.com/runfalk))
 
 
 ## Improvements
@@ -47,21 +47,22 @@ A big shoutout to all the contributors who help make Lektor awesome!
 * Added support for deleting and excluding files for the rsync deployment publisher. (thank you [m-lib](https://github.com/m-lib))
 * Several modernization and performance improvements to the admin UI (thank you [Jakob Schnitzer](https://github.com/yagebu))
 * Improved speed of source info updates. (thank you [Jeff Dairiki](https://github.com/dairiki))
-* Set colorspace to sRGB for thumbnails. This should result in significantly reduced thumbnail file size when the source image uses a more exotic colorspace.
-* Now stripping profiles and comments from thumbnails, for even smaller file size.
+* Set colorspace to sRGB for thumbnails. This should result in significantly reduced thumbnail file size when the source image uses a more exotic colorspace. (thank you [Stavros Korokithakis](https://github.com/skorokithakis))
+* Now stripping profiles and comments from thumbnails, for even smaller file size. (thank you [Stavros Korokithakis](https://github.com/skorokithakis))
 * Improved speed of flow rendering in the admin UI. (thank you [David Ferguson](https://github.com/davidferguson))
-* Improved image-heavy build speeds by reducing the amount of data extracted from EXIFs.
+* Improved image-heavy build speeds by reducing the amount of data extracted from EXIFs. (thank you [Tobias Pfeiffer](https://github.com/tgpfeiffer))
 * Added the ability to collapse flow elements in the admin UI. (thank you [jtraub91](https://github.com/jtraub91))
-* Now `extra_flags` is passed to all plugin events.
-* Extra flags can now be passed to the `clean` and `dev shell` CLI commands.
-* Deprecate the `crop` thumbnail argument in favor of the new `mode` argument, which can be one of `fit` (the default), `crop`, or `stretch`.
-* `upscale=False` for thumbnails can now prevent up scaling.
-* Added a new CLI command `lektor dev new-theme`.
+* Now `extra_flags` is passed to all plugin events. (thank you [Joseph Nix](https://github.com/nixjdm))
+* Extra flags can now be passed to the `clean` and `dev shell` CLI commands. (thank you [Joseph Nix](https://github.com/nixjdm))
+* Deprecate the `crop` thumbnail argument in favor of the new `mode` argument, which can be one of `fit` (the default), `crop`, or `stretch`. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* `upscale=False` for thumbnails can now prevent up scaling. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Added a new CLI command `lektor dev new-theme`. (thank you [Joseph Nix](https://github.com/nixjdm))
 * Made admin use full UTF-8 version of RobotoSlab. Fixes missing glyphs for some languages (thank you [Jakob Schnitzer](https://github.com/yagebu))
-* Bumped minimum Jinja2 version to 2.11
-* Bumped filetype dependency to 1.0.7 because of API changes
-* Relative urls are now as short as possible.
-* Automatically include setup.cfg configured for universal wheels when creating plugins
-* Changed default slug creation to use [python-slugify](https://github.com/un33k/python-slugify). This should mean greater language support, but this may produce slightly different results than before for some users
+* Bumped minimum Jinja2 version to 2.11 (thank you [Joseph Nix](https://github.com/nixjdm))
+* Bumped filetype dependency to 1.0.7 because of API changes (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Relative urls are now as short as possible. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Automatically include setup.cfg configured for universal wheels when creating plugins (thank you [George Kussumoto](https://github.com/georgeyk))
+* Changed default slug creation to use [python-slugify](https://github.com/un33k/python-slugify). This should mean greater language support, but this may produce slightly different results than before for some users (thank you [Joseph Nix](https://github.com/nixjdm) and [Ionuț Ciocîrlan](https://github.com/xlotlu))
+
 ----
 class: default
