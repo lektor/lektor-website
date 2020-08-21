@@ -40,7 +40,7 @@ A big shoutout to all the contributors who help make Lektor awesome!
 * Fix mismatch between reported thumbnail size and on-disk image when both width & height are provided. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
 * Return JPEG dimensions swapped when EXIF rotation is in effect. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
 * Fix off-by-1px rounding discrepancy between reported thumbnail dimensions and actual dimensions. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
-* Fix off-by-one error in pagintaion's iter_pages in the interpretation of the right_current argument, and adding an appropriate trailing `None` for some uses. (thank you [Jeff Dairiki](https://github.com/dairiki))
+* Fix off-by-one error in pagination's iter_pages in the interpretation of the right_current argument, and adding an appropriate trailing `None` for some uses. (thank you [Jeff Dairiki](https://github.com/dairiki))
 
 
 ## New features
