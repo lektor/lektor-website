@@ -58,7 +58,7 @@ A big shoutout to all the contributors who help make Lektor awesome!
 * Now stripping profiles and comments from thumbnails, for even smaller file size. (thank you [Stavros Korokithakis](https://github.com/skorokithakis))
 * Improved speed of flow rendering in the admin UI. (thank you [David Ferguson](https://github.com/davidferguson))
 * Improved image-heavy build speeds by reducing the amount of data extracted from EXIFs. (thank you [Tobias Pfeiffer](https://github.com/tgpfeiffer))
-* Added the ability to collapse flow elements in the admin UI. (thank you [jtraub91](https://github.com/jtraub91))
+* Added the ability to collapse flow elements in the admin UI. (thank you [Jason Traub](https://github.com/jtraub91))
 * Now `extra_flags` is passed to all plugin events. (thank you [Joseph Nix](https://github.com/nixjdm))
 * Extra flags can now be passed to the `clean` and `dev shell` CLI commands. (thank you [Joseph Nix](https://github.com/nixjdm))
 * Deprecate the `crop` thumbnail argument in favor of the new `mode` argument, which can be one of `fit` (the default), `crop`, or `stretch`. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
