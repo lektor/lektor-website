@@ -45,6 +45,8 @@ SILENT = (
     not in ("", "0", "off", "false")
 )
 
+WIN_MINIMUM_PIP_VERSION = '18.0'
+
 if not os.isatty(sys.stdin.fileno()):
     # the script is being piped, we need to reset stdin
     sys.stdin = open("CON:" if IS_WIN else "/dev/tty")
@@ -69,7 +71,17 @@ def get_confirmation():
             print("Aborted!")
             sys.exit()
 
+            
+def is_ensurepip_pip_version_ok():
+    try:
+        import ensurepip
+        from packaging import version
+        bundled_pip_version = ensurepip.version()
+        return version.parse(bundled_pip_version) >= version.parse(WIN_MINIMUM_PIP_VERSION)	
+    except:
+        return False
 
+    
 def fail(message):
     print("Error: %s" % message, file=sys.stderr)
     sys.exit(1)
@@ -180,6 +192,11 @@ def create_virtualenv(target_dir):
         except ImportError:
             return
 
+        # On Windows, the builtin 'venv' module relies on the builtin
+        # 'ensurepip' module to install pip in the virtual environment.
+        if IS_WIN and not is_ensurepip_pip_version_ok():
+            return None
+        
         # on Debian and Ubuntu systems Python is missing `ensurepip`,
         # prompting the user to install `python3-venv` instead.
         #
