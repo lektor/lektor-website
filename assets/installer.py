@@ -45,7 +45,7 @@ SILENT = (
     not in ("", "0", "off", "false")
 )
 
-WIN_MINIMUM_PIP_VERSION = '18.0'
+MINIMUM_PIP_VERSION_FOR_PREFER_BINARY = '18.0'
 
 if not os.isatty(sys.stdin.fileno()):
     # the script is being piped, we need to reset stdin
@@ -72,16 +72,33 @@ def get_confirmation():
             sys.exit()
 
             
-def is_ensurepip_pip_version_ok():
+def get_ensurepip_pip_version():
     try:
         import ensurepip
-        from packaging import version
-        bundled_pip_version = ensurepip.version()
-        return version.parse(bundled_pip_version) >= version.parse(WIN_MINIMUM_PIP_VERSION)	
+        return ensurepip.version()  # string
     except:
-        return False
+        return None
 
-    
+
+def get_virtualenv_pip_version():
+    try:
+        from virtualenv.seed.wheels.embed import get_embed_wheel as get_virtualenv_embedded_wheel
+        py_ver = "{0}.{1}".format(*sys.version_info[0:2])
+        pip_wheel = get_virtualenv_embedded_wheel("pip", py_ver)
+        return pip_wheel.version  # string
+    except Exception as exception:
+        return None
+
+
+def pip_supports_prefer_binary_switch(pip_version_string):
+    try:
+        from distutils.version import LooseVersion
+        assert pip_version_string is not None
+        return LooseVersion(pip_version_string) >= LooseVersion(MINIMUM_PIP_VERSION_FOR_PREFER_BINARY)
+    except:
+        return False  # assume it's not supported
+
+
 def fail(message):
     print("Error: %s" % message, file=sys.stderr)
     sys.exit(1)
@@ -194,8 +211,12 @@ def create_virtualenv(target_dir):
 
         # On Windows, the builtin 'venv' module relies on the builtin
         # 'ensurepip' module to install pip in the virtual environment.
-        if IS_WIN and not is_ensurepip_pip_version_ok():
-            return None
+        # Since 'venv' cannot be updated independently from the Python 
+        # distribution, 'use_venv' should be skipped if the pip switch 
+        # '--prefer-binary' is not supported by the bundled pip version.
+		# For Windows, we rely on that switch.
+        if IS_WIN and not pip_supports_prefer_binary_switch(get_ensurepip_pip_version()):
+            return
         
         # on Debian and Ubuntu systems Python is missing `ensurepip`,
         # prompting the user to install `python3-venv` instead.
@@ -209,7 +230,11 @@ def create_virtualenv(target_dir):
         venv_exec = which("virtualenv")
         if not venv_exec:
             return
-
+        
+        # On Windows we rely on the '--prefer-binary' switch of pip.
+        if IS_WIN and not pip_supports_prefer_binary_switch(get_virtualenv_pip_version()):
+            return
+    
         return call([venv_exec, "-p", sys.executable, target_dir])
 
     def use_zipapp():
