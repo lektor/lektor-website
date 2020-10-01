@@ -1,4 +1,4 @@
-# Lektor Website
+# The Lektor Website
 
 This is the repository for the Lektor website at
 [getlektor.com](https://www.getlektor.com/).
