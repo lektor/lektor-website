@@ -1,0 +1,14 @@
+name: Kamner IT-Dienstleistungen
+---
+url: https://www.kamner.de
+---
+cover_image: home.png
+---
+description:
+
+Kamner IT-Dienstleistungen (IT-Services) is a small IT and automation company in Germany.
+We love and live with git and python every day and wanted to move our website over as well.
+Lektor enables us to bring our website into a all automated workflow
+and respond faster then ever to changing trends in our local market.
+
+View our [Lektor tooling](https://gitlab.com/kamneros/lektor-tools) and other public projects on our [GitLab page](https://gitlab.com/kamneros).
