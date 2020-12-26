@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-s3
 ---
 categories: deploy
@@ -6,7 +8,7 @@ tags:
 
 AWS
 S3
-Cloudfront
+CloudFront
 publisher
 setup-env
 ---

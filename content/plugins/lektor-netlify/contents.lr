@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-netlify
 ---
 categories: deploy
@@ -8,4 +10,4 @@ Netlify
 publisher
 setup-env
 ---
-summary: Allows you to generate configurable thumbnails for all your attachment images, so you can link them in your pages.
+summary: Allows you to publish your lektor website to netlify easily.

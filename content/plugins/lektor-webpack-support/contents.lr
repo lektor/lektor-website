@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-webpack-support
 ---
 categories: build
@@ -9,9 +11,9 @@ tags:
 official
 webpack
 npm
-yarn
-node
-scss
+Yarn
+Node
+sCSS
 server-spawn
 server-stop
 before-build-all

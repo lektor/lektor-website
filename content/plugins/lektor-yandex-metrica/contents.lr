@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-yandex-metrica
 ---
 categories: templates
@@ -7,4 +9,4 @@ tags:
 analytics
 Yandex Metrica
 setup-env
-jinja globals
+Jinja globals

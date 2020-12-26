@@ -1,3 +1,5 @@
+_model: plugin
+---
 name: lektor-bibtex-support
 ---
 categories: content
@@ -5,5 +7,5 @@ categories: content
 tags:
 
 setup-env
-jinja globals
+Jinja globals
 LaTeX

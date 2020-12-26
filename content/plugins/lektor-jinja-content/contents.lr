@@ -1,11 +1,14 @@
+_model: plugin
+---
 name: lektor-jinja-content
 ---
 categories: content
 ---
 tags:
 
-before-build
-jinja
+process-template-context
+Jinja
 templates
 content
-markdown
+context
+Markdown

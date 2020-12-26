@@ -1,0 +1,24 @@
+{% extends "plugin.html" %}
+
+{% block body %}
+  <h1>Plugin Tags</h1>
+
+  <p>
+    This is a list of all tags that Lektor plugins have.
+    Click on individual tags to see which plugins use that tag.
+  </p>
+  <div class="row">
+
+    {% set tags = this.parent.children.distinct("tags") %}
+    {% for column in tags|sort|slice(3) %}
+      <div class="col-md-4 child">
+        <ul>
+          {% for tag in column %}
+            <li><a href="{{ ('/plugins@tag/' ~ tag ~ '/')|url }}">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+
+  </div>
+{% endblock %}
