@@ -1,0 +1,7 @@
+name: Vignette
+---
+url: https://vignette.agency/
+---
+cover_image: vignette-features-1.jpg
+---
+description: A photographic portfolio site for Vignette, built with [Lektor](https://www.getlektor.com/) and the [Bulma CSS Framework](https://bulma.io/). The contact form was implemented with [Formspree](https://formspree.io/). Deployed and hosted on Netlify. The code repository for this project is [here](https://github.com/jurgenizer/-vignette-portfolio-)
