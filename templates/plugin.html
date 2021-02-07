@@ -62,7 +62,7 @@
         </div>
         {% if this.tags %}
           {% for t in this.tags|sort %}
-            {{ "and " if loop.last }}
+            {{ "and " if loop.last and not loop.first }}
             <a href="{{ ('/plugins@tag/' ~ t ~ '/')|url }}">{{ t }}</a>{{ ", " if not loop.last }}
           {% endfor %}
         {% else %}
