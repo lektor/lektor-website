@@ -1,0 +1,42 @@
+name: "Deploy site"
+
+on:
+  pull_request:
+    branches:
+    - '*'
+  push:
+    branches:
+    - 'master'
+
+jobs:
+  example-1:
+    name: Deploy lektor website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10'
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: |
+          pip install -U pip
+          pip install "werkzeug<1.0"
+          pip install git+https://github.com/lektor/lektor#egg=Lektor
+          pip install "werkzeug<1.0"
+      - name: Install plugins
+        run: lektor plugins reinstall
+      - name: Build site
+        run: lektor build
+      - name: Deploy
+        if: github.event == 'push'
+        env:
+          LEKTOR_DEPLOY_USERNAME: ${{ secrets.LEKTOR_DEPLOY_USERNAME }}
+          LEKTOR_DEPLOY_PASSWORD: ${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
+        run: lektor deploy ghpages

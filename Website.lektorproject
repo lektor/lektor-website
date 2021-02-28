@@ -1,13 +1,19 @@
 [project]
 name = Lektor
 url = https://www.getlektor.com/
-url_style = absolute
+url_style = relative
 
 [servers.production]
 enabled = yes
 name = Production
 target = rsync://deploy@flow.srv.pocoo.org/srv/websites/getlektor.com/static
 default = yes
+
+[servers.ghpages]
+enabled = yes
+name = Github pages on repo
+target = ghpages+https://lektor/_deployed-lektor-website
+default = no
 
 [packages]
 lektor-webpack-support = 0.3

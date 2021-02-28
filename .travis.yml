@@ -8,7 +8,9 @@ branches:
     - master
 install:
   - "pip install -U pip"
+  - "pip install "werkzeug<1.0"
   - "pip install git+https://github.com/lektor/lektor#egg=Lektor"
+  - "pip install "werkzeug<1.0"
 script:
   - "lektor build"
 cache:
