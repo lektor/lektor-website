@@ -1,0 +1,20 @@
+name: Inconsistent Records
+---
+url: https://www.inconsistentrecords.co.uk/
+---
+cover_image: home.png
+---
+description:
+
+Lektor finally gave me the flexibility and ease I wanted to produce a blog/home site for myself
+without requiring effort on my part! Inconsistent Records was always intended to be a place for
+my personal musings; growing to host my desire to do some blogging alongside the public 
+projects and, eventually, music I decide to upload. 
+
+I've managed to integrate it nicely with other projects (Isso and LightGallery), and it's super
+unintrusive from the infrastructure perspective. Soon I hope to write a bit more about using
+the plugin system of lektor, but it's a slow work in progress for the moment...
+
+[Site source available on GitHub](https://github.com/JimCircadian/inconsistentrecords) and a 
+[series of blog posts](https://www.inconsistentrecords.co.uk/blog/making-this-site/) 
+about using Lektor, amongst other projects, to build the site.
