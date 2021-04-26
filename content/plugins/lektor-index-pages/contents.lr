@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-index-pages
+---
+categories: content
+---
+tags:
+
+blog
+indexing
+before-build
+setup-env

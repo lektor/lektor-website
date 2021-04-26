@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-polymorphic-type
+---
+categories: content
+---
+tags:
+
+field type
+setup-env
+

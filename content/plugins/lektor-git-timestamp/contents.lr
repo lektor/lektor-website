@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-git-timestamp
+---
+categories: build
+---
+tags:
+
+git
+metadata
+setup-env
