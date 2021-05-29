@@ -224,6 +224,8 @@ def install_lektor(lib_dir):
     create_virtualenv(lib_dir)
 
     pip = get_pip(lib_dir)
+    # avoid fail on Ubuntu,see https://github.com/lektor/lektor/issues/906
+    call([pip, "install", "--upgrade", "pip"])
 
     args = [pip, "install"]
     if IS_WIN:
