@@ -1,0 +1,17 @@
+_model: plugin
+---
+name: lektor-tawk
+---
+allow_comments: yes
+---
+categories: templates
+---
+official: no
+---
+tags:
+setup-env
+tawk
+website
+templates
+---
+summary: Embed Tawk Live Chat into your website.
