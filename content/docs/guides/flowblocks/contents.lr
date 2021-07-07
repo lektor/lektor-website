@@ -1,0 +1,120 @@
+title: Flowblocks
+---
+allow_comments: yes
+---
+body:
+
+When you need redundant models to be added in the CMS at will, you can use flowblocks. 
+When used they show up in your CMS as buttons to add the flowblocks fields.
+
+## The setup
+
+You need to manually add a `flowblocks/` folder as a sibling of the `models/` and `templates/` folders.
+If you are making a corresponding template then you will also add `blocks/` as a subdirectory of `templates/`.
+
+## flowblocks.ini file
+
+This is the redundant code that will be populated in the CMS every time you click the button.
+Here the fields are the same as a `models.ini` would be, but the section head will say `[block]` instead of `[model]`,
+and there will be a subsection text to identify this file as a flowblocks button to Lektor.
+
+Example flowblock file: `button.ini`
+```
+[block]
+name = Text Block
+button_label = Text
+
+[fields.text]
+label = Text
+type = markdown
+
+[fields.thumbnail]
+label = Button Thumbnail
+type = select
+source = record.attachments.images
+
+[fields.link]
+label = URL or File Link
+type = string
+```
+
+## models.ini
+
+Now that the `flowblocks.ini` file is made you'll add a field to a `models.ini` file to incorporate the flowblocks fields. 
+This would be the `[field.buttons]` in this models file. 
+
+Example model file: `mainLayout.ini`
+```
+[model]
+name = mainLayout
+label = {{ this.title }}
+
+[fields.page_title]
+label = Page Title
+type = text
+
+[fields.buttons]
+label = Buttons
+type = flow
+flow_blocks = button
+
+[fields.logo]
+label = Logo
+type = select
+source = record.attachments.images
+```
+
+## Corresponding template
+With the `button.ini` (flowblock) created and `mainLayout.ini` (model) including a field for the flowblock, we can use jinja code inside a template to handle the infinite number of flowblocks that could be added.
+
+For this example we made `button.html` that directly corresponds to `button.ini` file. 
+This corresponding template isn't a requirement, just an easier way to segregate the code for this guide.
+```
+<center>
+	<div style="width:1300px">        
+
+	  {% for button in this.buttons.blocks %}
+	    <a href="{{ button.link }}">
+              <div class="outer_navigation">
+                <div class="inner_navigation">
+                  <img src="{{ button.thumbnail }}" class="thumb_size">
+                </div>
+                {{ button.text }}
+              </div>
+	    </a>
+	  {% endfor %}
+
+	</div>
+</center>
+```
+
+## Including templates
+
+The `button.html` template will now be `included` in the `mainLayout.html` template (corresponds to the `mainLayout.ini` file) via jinja as well.
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ '/style.css'|asseturl }}">
+  </head>
+
+  <body class="main" onLoad="loaded();"> 
+    <div class="mainTitleDiv">
+      <h1>{{ this.page_title }}</h1>
+    </div>
+
+    {% include "button.html" %}
+
+    <div style="clear: both;">
+      <p align=center>
+	<img src="{{ this.logo }}" class="mainlogo">
+      </p>
+    </div>
+  </body>
+</html>
+```
+## Conclusion
+
+With these files in place a CMS admin can add and subtract flowblocks at will and they will be displayed on the page after saving changes.
+---
+summary: Shows how to use flowblocks in Lektor.
