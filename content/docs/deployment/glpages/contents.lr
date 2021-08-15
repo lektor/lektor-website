@@ -68,7 +68,8 @@ image: python:latest
 default:
   cache:
     paths:
-      - .cache
+      - .cache/lektor
+      - .cache/pip
 
 variables:
   XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
