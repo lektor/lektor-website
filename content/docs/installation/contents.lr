@@ -84,7 +84,7 @@ clear understanding of the use case and it is not to be treated lightly.
 ## pip
 
 Alternatively you can manually install the command line version with
-`virtualenv` if you know how that works. `pipx` technically does this for you,
+`pip` after creating a virtual environment if you know how that works. `pipx` technically does this for you,
 then if you need something particular and you know this will make it easier, 
 go for it.
 
