@@ -70,21 +70,11 @@ changes to take effect. Then proceed to reopen and install Lektor with pipx:
 pipx install lektor
 ```
 
-This will install lektor in your user's `HOME`. If you want a system-wide installation, try this instead:
-
-```
-export PIPX_HOME=/opt/pipx
-export PIPX_BIN_DIR=/opt/pipx_bin
-pipx install lektor
-```
-
-!!!! Please keep in mind that system wide installations should be done with
-clear understanding of the use case and it is not to be treated lightly.
 
 ## pip
 
 Alternatively you can manually install the command line version with
-`pip` after creating a virtual environment if you know how that works. `pipx` technically does this for you,
+`pip` after creating a virtual environment, if you know how that works. `pipx` technically does this for you,
 then if you need something particular and you know this will make it easier, 
 go for it.
 
