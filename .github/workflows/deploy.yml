@@ -18,10 +18,11 @@ jobs:
       - uses: actions/setup-python@v2
       - run: pip install tox
       - name: Run tox to build site
+        if: github.event_name != 'push'
         run: tox
-      - name: Deploy
+      - name: Run tox to build site and deploy
         if: github.event_name == 'push'
         env:
           LEKTOR_DEPLOY_USERNAME: ${{ secrets.LEKTOR_DEPLOY_USERNAME }}
           LEKTOR_DEPLOY_PASSWORD: ${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
-        run: lektor deploy ghpages
+        run: tox -e deploy
