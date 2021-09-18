@@ -1,0 +1,27 @@
+name: "Deploy site"
+
+on:
+  pull_request:
+    branches:
+    - '*'
+  push:
+    branches:
+    - 'master'
+
+jobs:
+  deploy-lektor-website:
+    name: Deploy lektor website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - uses: actions/setup-python@v2
+      - run: pip install tox
+      - name: Run tox to build site
+        run: tox
+      - name: Deploy
+        if: github.event == 'push'
+        env:
+          LEKTOR_DEPLOY_USERNAME: ${{ secrets.LEKTOR_DEPLOY_USERNAME }}
+          LEKTOR_DEPLOY_PASSWORD: ${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
+        run: lektor deploy ghpages
