@@ -13,6 +13,9 @@ lektor-disqus-comments = "*"
 lektor-markdown-header-anchors = "*"
 lektor-markdown-highlighter = "*"
 lektor-markdown-admonition = "*"
+lektor-project-data = {editable = true, path = "./plugins/project-data"}
+lektor-markdown-link-classes = {editable = true, path = "./plugins/markdown-link-classes"}
+lektor-blog-archive = {editable = true, path = "./plugins/blog-archive"}
 
 [dev-packages]
 

@@ -7,6 +7,8 @@ assets/static/*
 !assets/static/favicon.png
 packages/*/build
 packages/*/dist
+plugins/*/build
+plugins/*/dist
 webpack/node_modules
 *~
 *#
