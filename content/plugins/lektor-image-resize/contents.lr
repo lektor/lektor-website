@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-image-resize
+---
+categories: templates
+---
+tags:
+
+webp
+images
+thumbnails
