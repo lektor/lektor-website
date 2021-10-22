@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Themes{% endblock %}
+{% block outerbody %}
+  {% set image = site.get('/themes').attachments.images.first() %}
+  {% if image %}
+    <div class="page-banner page-banner-300" style="background-image: url({{ image|url }})"></div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+{% block body %}
+  <h1>Themes</h1>
+
+  {% if not this.children.count() %}
+    You need to set env var GITHUB_TOKEN and build with `--extra-flag themes` to
+    pull the most recent themes and build their content.<br><br>
+  {% endif %}
+  <p>
+    Want to change the way your Lektor site looks?  Below are available themes created by
+    the community.
+  <p>
+    Click any of the themes to see more of it.
+  <p>
+    If you want to make or publish your own theme, or see our <a href="#">docs</a>.
+  <div class="showcase row">
+    {% for project_row in this.children | batch(2) %}
+      <div class="row">
+        {% for project in project_row %}
+          <div class="project col-md-6">
+            <a href="{{ project|url }}">
+              <h2>{{ project.name }}</h2>
+              {% if project.cover_image %}
+                {% set image = project.attachments.get(project.cover_image) %}
+                <div class="frame">
+                  <img src="{{ image.thumbnail(480)|url }}" width="100%" alt="">
+                </div>
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  <p>
+    <small>You want your own theme on here? <a
+      href="https://github.com/lektor/lektor-themes/tree/master">Fork
+      the Lektor Themes Repository on GitHub</a> to add your own theme.
+      Make sure to add screenshots in the /images folder in your project.
+    </small>
+{% endblock %}

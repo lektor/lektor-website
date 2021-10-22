@@ -8,3 +8,4 @@ packages/*/dist
 webpack/node_modules
 *~
 *#
+content/themes/
