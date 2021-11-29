@@ -1,62 +1,57 @@
-var webpack = require('webpack');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+var webpack = require("webpack");
+var path = require("path");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 var options = {
   entry: {
-    'app': './js/app.js',
-    'styles': './scss/main.scss'
+    app: "./js/app.js",
+    styles: "./scss/main.scss",
   },
   output: {
-    path: path.dirname(__dirname) + '/assets/static',
-    filename: '[name].js'
+    path: path.dirname(__dirname) + "/assets/static",
+    filename: "[name].js",
   },
-  devtool: '#cheap-module-source-map',
+  devtool: "cheap-module-source-map",
+  mode: "production",
   resolve: {
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.js']
+    modules: ["node_modules"],
+    extensions: ["", ".js"],
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015'],
-        }
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["es2015"],
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.(woff2?|ttf|eot|svg|png)(\?.*?)?$/,
-        loader: 'file'
-      }
-    ]
+        use: ["file"],
+      },
+    ],
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
+      $: "jquery",
+      jQuery: "jquery",
     }),
-    new ExtractTextPlugin('styles.css', {
-      allChunks: true
-    })
-  ]
+    new MiniCssExtractPlugin(),
+  ],
 };
 
 module.exports = options;
