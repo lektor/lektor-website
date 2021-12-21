@@ -7,26 +7,36 @@ on:
   push:
     branches:
     - 'master'
+  workflow_dispatch:
+    # Allow manually running workflow
+  schedule:
+    - cron: '23 2 * * *'
 
 jobs:
   deploy-lektor-website:
     name: Deploy lektor website
     runs-on: ubuntu-latest
+    env:
+      DEPLOY: ${{ github.event_name != 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
       - uses: actions/setup-python@v2
+
       - run: pip install tox
+
+      - run: echo DEPLOY='${{ env.DEPLOY }}'
       - name: Run tox to build site
-        if: github.event_name != 'push'
+        if: env.DEPLOY != 'true'
         run: tox
+
       - name: Add flow.srv.pocoo.org to ~/.ssh/known_hosts
-        if: github.event_name == 'push'
+        if: env.DEPLOY == 'true'
         run: |
           mkdir -p ~/.ssh/
           echo "flow.srv.pocoo.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8X1nZnXChssjRoUMXWwz3IskVFaGvD9sRIMvlkU8RbLMqfp0kT+/hhi/c1xVv+wdGCrPTuFSs9X2RzdNsWSwaUqoeSh80BsfQRso3hSPd2Z+PNplHGuBt/29MwX2l+j1lWB7D2VFb7R1HGxwgmccef75JepVse7fCjVP3KvjIJ4nae0k9aHhcKLVUlRl+Ut+8pWCGE1wdoMEwpeio8DeBX7YWE1vX5DhAd0U+nga2xRAuWbQ5sD1LJQ1fmZoTBUKsVioQmuvrUQKSofwolwBgQtDqgcWLyeKfWn11aG6rMD3ZJHX0ltM91Gbynu10+xN5i7j6TdNQyE9CfO+Xz7Gv" > ~/.ssh/known_hosts
       - name: Run tox to build site and deploy
-        if: github.event_name == 'push'
+        if: env.DEPLOY == 'true'
         env:
           LEKTOR_DEPLOY_USERNAME: ${{ secrets.LEKTOR_DEPLOY_USERNAME }}
           LEKTOR_DEPLOY_PASSWORD: ${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
