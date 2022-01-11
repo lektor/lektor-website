@@ -40,6 +40,10 @@ evaluated in but the following are always available:
 | `alt`          | A string that identifies the [Alternative :ref](../content/alts/) of the page.
 | `config`       | Gives access to the Lektor project configuration.
 
+Additionally, exporting the `LEKTOR_DEV=1` environment variable when running [`lektor server` :ref](../cli/server/)
+ will also enable [Jinja debug extension  :ext](https://jinja.palletsprojects.com/en/3.0.x/extensions/#debug-extension)
+which may be useful in template development.
+
 ## The First Template
 
 So let's dive in making our first template.  In case you went through the

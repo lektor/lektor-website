@@ -12,10 +12,13 @@ body:
 
 The server command will launch a local server for development.
 
-Lektor's developemnt server will automatically build all files into
+Lektor's development server will automatically build all files into
 pages similar to how the build command with the `--watch` switch
 works, but also at the same time serve up the website on a local
 HTTP server.
+
+Exporting the `LEKTOR_DEV=1` environment variable will also enable
+[Jinja debug extension  :ext](https://jinja.palletsprojects.com/en/3.0.x/extensions/#debug-extension).
 
 ## Options
 
