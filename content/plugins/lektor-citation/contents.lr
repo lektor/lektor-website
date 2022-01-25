@@ -1,0 +1,18 @@
+_model: plugin
+---
+name: lektor-citation
+---
+categories: content
+---
+tags:
+
+citation
+bibliography
+content
+Jinja globals
+LaTeX
+setup-env
+---
+allow_comments: no
+---
+official: no
