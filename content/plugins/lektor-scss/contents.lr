@@ -7,6 +7,6 @@ categories: build
 tags:
 
 HTML
-scss
-sass
+SCSS
+Sass
 after-build-all

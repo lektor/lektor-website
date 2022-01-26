@@ -14,5 +14,5 @@ headers
 anchors
 table of contents
 markdown-config
-makrdown-meta-init
+markdown-meta-init
 markdown-meta-postprocess

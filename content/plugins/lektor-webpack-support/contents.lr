@@ -13,7 +13,7 @@ webpack
 npm
 Yarn
 Node
-sCSS
+SCSS
 server-spawn
 server-stop
 before-build-all

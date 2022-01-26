@@ -7,7 +7,7 @@ categories: build
 tags:
 
 SCSS
-SASS
+Sass
 minify
 libsass
-before_build_all
+before-build-all
