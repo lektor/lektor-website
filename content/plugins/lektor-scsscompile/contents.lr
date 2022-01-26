@@ -11,3 +11,5 @@ Sass
 minify
 libsass
 before-build-all
+server-spawn
+server-stop

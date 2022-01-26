@@ -9,4 +9,7 @@ tags:
 HTML
 SCSS
 Sass
-after-build-all
+before-build-all
+server-spawn
+server-stop
+
