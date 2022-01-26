@@ -1,0 +1,15 @@
+_model: plugin
+---
+name: lektor-google-search
+---
+categories: templates
+---
+tags:
+
+search
+google search
+lektor plugin
+setup-env
+search engine
+jinja globals
+
