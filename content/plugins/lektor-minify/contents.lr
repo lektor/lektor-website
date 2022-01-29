@@ -4,8 +4,8 @@ name: lektor-minify
 ---
 tags:
 
-django_htmlmin
-rCSSmin
+django-htmlmin
+RCSSmin
 rJSmin
 minify
 HTML
