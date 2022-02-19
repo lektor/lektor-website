@@ -1,0 +1,14 @@
+name: Martin Häcker
+---
+cover_image: homepage.png
+---
+description:
+
+I am using lektor for my personal blog, project showcase and professional website.
+
+It showcases a simple mobile first responsive design, how to use multiple languages, tags and a blog with atom feeds. It also shows how to deploy to a github static page with a custom domain.
+
+The source is [on BitBucket](https://bitbucket.org/dwt/homepage/) and you can [view the page here](https://häcker.net).
+
+---
+url: https://häcker.net
