@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-asciidoc
+---
+categories: content
+---
+tags:
+
+AsciiDoc
+field type
+setup-env

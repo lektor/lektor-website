@@ -13,6 +13,7 @@ $font-size-h5: $font-size-base;
 $font-size-h6: ceil(($font-size-base * 0.85));
 
 $container-large-desktop: 900px;
+$container-desktop: $container-large-desktop; // md is the same.
 
 $border-radius-base: 0;
 $border-radius-large: 0;
@@ -45,6 +46,10 @@ blockquote {
   font-size: inherit;
   padding: 0;
   margin: 15px 0 15px 30px;
+}
+
+code {
+  white-space: nowrap;
 }
 
 nav.navbar-static-top {
@@ -213,7 +218,7 @@ div.blog-snippet {
   }
 }
 
-div.doc-styling, div.blog-post {
+div.doc-styling, div.blog-post, div.plugin {
   line-height: 1.75;
 
   a.ref {
@@ -221,6 +226,7 @@ div.doc-styling, div.blog-post {
   }
 
   a.ext {
+    white-space: nowrap;
     &:before {
       @extend .glyphicon;
       @extend .glyphicon-link;
@@ -438,13 +444,13 @@ div.badges {
     text-align: center;
     vertical-align: top;
     font-size: 0;
-  
+
     li {
       vertical-align: top;
       display: table-cell;
       margin: 0;
       padding: 0 10px;
-  
+
       img {
         height: 28px;
         margin: 0;
@@ -588,6 +594,12 @@ p.meta {
   color: lighten($gray, 30);
 }
 
+ul.button-nav {
+  margin: 25px 0;
+  padding-left: 10px;
+  list-style: none;
+}
+
 ul.toc, ul.toc ul {
   font-size: 14px;
   padding-left: 25px;
@@ -660,6 +672,18 @@ ul.tree-nav {
     }
   }
 }
+
+div.plugin-margin {
+  h4 {
+    margin: 25px 0;
+  }
+
+  div.separator {
+    border-top: 1px solid #ddd;
+    margin: 25px 0;
+  }
+}
+
 
 div.comment-box {
   border-top: 1px solid #ddd;
@@ -758,6 +782,11 @@ div.showcase {
 
       .frame {
         background: white;
+
+        @media (min-width: $screen-sm-max) {
+          max-height: 260px; // Taller thumbnails get cropped.
+          overflow: hidden;
+        }
       }
 
       &:hover {

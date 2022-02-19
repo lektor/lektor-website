@@ -1,0 +1,15 @@
+_model: plugin
+---
+name: lektor-scsscompile
+---
+categories: build
+---
+tags:
+
+SCSS
+Sass
+minify
+libsass
+before-build-all
+server-spawn
+server-stop

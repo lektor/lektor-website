@@ -9,9 +9,7 @@ image: header.jpg
 ----
 height: 300
 ----
-class: 
-----
-contents:
+contents: 
 #### text-block ####
 text:
 
@@ -25,16 +23,16 @@ If you are on Linux or Mac you can install the command line version of
 Lektor by copy/pasting a command into your terminal.
 
 !!! Scared about copy/pasting this into a terminal?  We will not do anything
-before asking you for confirmation and you can download the script upfront
-to see what it's doing.
+before asking you for confirmation and you can download [the script](https://www.getlektor.com/installer.py)
+upfront to see what it's doing.
 
 ### Mac/Linux
 
-This will install Lektor for you but you might have to run it with `sudo` if
-your current user does not have rights to write into `/usr/local`.
+This will install Lektor in your `HOME`. Running it with `sudo` will result in
+a system installation instead.
 
 ```
-curl -sf https://www.getlektor.com/install.sh | sh
+curl -sf https://www.getlektor.com/installer.py | python3
 ```
 
 You might need additional dependencies for this installation.  For more
@@ -42,25 +40,21 @@ information see [Installation](../docs/installation/).
 
 ### Windows
 
-If you are on Windows copy/paste this command into the `command prompt`:
+If you are on Windows copy/paste this command into `Powershell`:
 
 ```
-@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://getlektor.com/install.ps1'))" && SET PATH=%PATH%;%LocalAppData%\lektor-cli
+(new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python
 ```
 
-alternatively use this command in your `Powershell`:
+or alternatively use this in `command prompt`:
 
 ```
-iex ((new-object net.webclient).DownloadString('https://getlektor.com/install.ps1'))
+@powershell -NoProfile -Command "(new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python"
 ```
+
 
 ## Desktop Application
 
-If you are on OS X you are in luck because you can use an installable
-version of Lektor that comes with a graphical user interface.  It also
-includes the command line utilities.
-
-<a href="https://github.com/lektor/lektor/releases/latest" class="download-desktop-app">
-  Download Desktop App</a>
+Lektor supported an installable version of Lektor on OSX. The current build process for these installers is [old and in need of refactoring](https://github.com/lektor/lektor/issues/420). Temporarily until this is resolved, as of version 3.1, this installer is no longer supported.
 ----
 class: default

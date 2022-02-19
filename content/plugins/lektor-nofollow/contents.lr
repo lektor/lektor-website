@@ -1,0 +1,13 @@
+_model: plugin
+---
+name: lektor-nofollow
+---
+categories: content
+---
+tags:
+
+nofollow links
+Markdown
+markdown-config
+---
+summary: Easily create nofollow links in Markdown.

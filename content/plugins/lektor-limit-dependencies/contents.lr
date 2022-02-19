@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-limit-dependencies
+---
+categories: build
+---
+tags:
+
+Jinja filters
+build optimization
+setup-env

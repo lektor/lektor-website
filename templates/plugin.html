@@ -1,0 +1,91 @@
+{% extends "plugins.html" %}
+{% from "macros/docs.html" import get_doc_icon, get_doc_link %}
+{% block body %}
+  {% set pd =  project_data(this.name) %}
+  {% if this.summary %}
+    {% set summary = this.summary %}
+  {% elif pd.summary %}
+    {% set summary = pd.summary %}
+  {% endif %}
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  {#  <script async defer src="https://buttons.github.io/buttons.js"></script>#}
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; {{ pd.name }} {{ pd.version }}</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>{{ summary }}<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="{{ pd.home_page }}" class="ext">Homepage</a></li>
+        </ul>
+
+        {% if 'github' in pd.home_page %}
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="{{ pd.home_page }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star {{ this.name }} on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="{{ pd.home_page }}/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="{{ pd.home_page }}/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        {% endif %}
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> {{ pd.version }}</p>
+        <p><strong>Author:</strong>
+          {% if pd.author_email %}
+            <a href = "mailto:{{ pd.author_email }}">{{ pd.author }}</a>
+          {% else %}
+            {{ pd.author }}
+          {% endif %}
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        {% if this.tags %}
+          {% for t in this.tags|sort %}
+            {{ "and " if loop.last and not loop.first }}
+            <a href="{{ ('/plugins@tag/' ~ t ~ '/')|url }}">{{ t }}</a>{{ ", " if not loop.last }}
+          {% endfor %}
+        {% else %}
+          <p>Plugin has no tags.</p>
+        {% endif %}
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        {% if pd.description %}
+          {{ pd.description|safe }} {# comes out as a text string always #}
+        {% else %}
+          <i>Plugin has no long_description</i>
+        {% endif %}
+
+        {% if this.allow_comments %}
+          <div class="comment-box">
+            <h2>Comments</h2>
+            {{ render_disqus_comments() }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

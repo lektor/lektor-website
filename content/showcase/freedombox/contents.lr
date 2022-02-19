@@ -1,0 +1,15 @@
+name: FreedomBox
+---
+url: https://freedombox.org
+---
+cover_image: home.png
+---
+description:
+
+[FreedomBox](https://freedombox.org) is a personal server running a free
+software operating system, with free applications designed to create and
+preserve personal privacy.
+
+The official website of the FreedomBox project was created using Lektor. You can
+find the source code for the website on [Debian
+Salsa](https://salsa.debian.org/freedombox-team/freedombox.org).

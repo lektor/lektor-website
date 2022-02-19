@@ -1,0 +1,10 @@
+_model: plugin
+---
+name: lektor-thumbnail-generator
+---
+categories: templates
+---
+tags:
+
+images
+thumbnails

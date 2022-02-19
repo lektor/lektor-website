@@ -1,0 +1,14 @@
+_model: plugin
+---
+name: lektor-jinja-content
+---
+categories: content
+---
+tags:
+
+process-template-context
+Jinja
+templates
+content
+context
+Markdown

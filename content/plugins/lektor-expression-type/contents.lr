@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-expression-type
+---
+categories: content
+---
+tags:
+
+field type
+Jinja
+setup-env

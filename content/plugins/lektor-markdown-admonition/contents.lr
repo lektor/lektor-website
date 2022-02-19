@@ -1,0 +1,14 @@
+_model: plugin
+---
+name: lektor-markdown-admonition
+---
+categories: content
+---
+official: yes
+---
+tags:
+
+official
+Markdown
+admonition
+markdown-config

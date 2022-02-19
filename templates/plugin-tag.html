@@ -1,0 +1,33 @@
+{% extends "plugins.html" %}
+{% from "macros/plugins.html" import render_plugin_list %}
+
+{% block body %}
+  <h1>Tag: {{ this.tag }}</h1>
+
+  {% for event in site.get('/docs/api/plugins/events').children.all() %}
+    {% if this.tag == event.title %}
+      <p>
+        This is an event emitted by Lektor for plugins to hook.
+        The following plugins hook this event.
+        Take a look at their source code to see how they work!
+      </p>
+      <p>
+        <a href="{{ '/docs/plugins'|url }}" class="ref">Intro to Plugins</a>
+        ||
+        <a href="{{ '/docs/cli/plugins/'|url }}" class="ref">Plugin Commands</a>
+        ||
+        <a href="{{ '/docs/api/plugins'|url }}" class="ref">Plugin API</a>
+        ||
+        <a href="{{ event|url }}" class="ref">This Event</a>
+      </p>
+    {% endif %}
+  {% endfor %}
+
+  <h2>Plugins:</h2>
+  <p>(*) Asterisks denote official plugins.</p>
+  <div class="plugin">
+    {{ render_plugin_list(this.items) }}
+  </div>
+
+  <p>View a list of all Lektor plugin tags <a href="/plugins/tags" class="ref">here</a>.</p>
+{% endblock %}

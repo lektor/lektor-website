@@ -1,0 +1,13 @@
+name: happyhols
+---
+url: https://happyhols.co.za/
+---
+cover_image: happyhols1.jpg
+---
+description:
+
+I created this project to learn about Lektor,  Markdown, and the [Bulma](https://bulma.io/) CSS framework. I think they work well together and I had fun making this project.
+The site is deployed on Netlify via a GitHub repo. I followed [this](https://www.netlify.com/blog/2016/05/25/lektor-on-netlify---a-step-by-step-guide/) tutorial to get it set up and working.
+The contact form is powered by [FormSpree](https://formspree.io/), which is a super easy form solution for static sites.
+
+You can view the source code for the site on [GitHub](https://github.com/jurgenizer/hh-lektor).

@@ -1,0 +1,15 @@
+_model: plugin
+---
+name: lektor-pythonmarkdown
+---
+allow_comments: yes
+---
+categories: content
+---
+official: no
+---
+tags:
+
+Markdown
+setup-env
+field type

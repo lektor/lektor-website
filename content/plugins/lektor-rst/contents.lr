@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-rst
+---
+categories: content
+---
+tags:
+
+reStructuredText
+field type
+setup-env

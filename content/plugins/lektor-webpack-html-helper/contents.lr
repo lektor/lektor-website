@@ -1,0 +1,15 @@
+_model: plugin
+---
+name: lektor-webpack-html-helper
+---
+categories: build
+---
+tags:
+
+webpack
+html-webpack-plugin
+watchdog
+server-spawn
+server-stop
+---
+official: no

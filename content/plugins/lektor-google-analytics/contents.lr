@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-google-analytics
+---
+tags:
+
+analytics
+Google Analytics
+Jinja globals
+setup-env
+---
+categories: templates

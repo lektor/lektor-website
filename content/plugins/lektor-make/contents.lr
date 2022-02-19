@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-make
+---
+categories: build
+---
+tags:
+
+before-build-all
+make
+---
+summary: Run <code>make lektor</code> for custom build systems.

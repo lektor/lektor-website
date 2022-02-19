@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-htmlmin
+---
+categories: build
+---
+tags:
+
+HTML
+minify
+htmlmin
+after-build-all

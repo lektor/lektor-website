@@ -1,0 +1,17 @@
+_model: plugin
+---
+name: lektor-disqus-comments
+---
+categories: templates
+---
+official: yes
+---
+tags:
+
+official
+Disqus
+comments
+blog
+setup-env
+---
+summary: Embed Disqus comments into your website.

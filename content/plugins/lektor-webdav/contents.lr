@@ -1,0 +1,14 @@
+_model: plugin
+---
+name: lektor-webdav
+---
+categories: templates
+---
+tags:
+
+WebDAV
+content
+remote content
+Jinja globals
+Jinja filters
+setup-env

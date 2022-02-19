@@ -1,0 +1,19 @@
+_model: plugin
+---
+name: lektor-webpack-support
+---
+categories: build
+---
+official: yes
+---
+tags:
+
+official
+webpack
+npm
+Yarn
+Node
+SCSS
+server-spawn
+server-stop
+before-build-all

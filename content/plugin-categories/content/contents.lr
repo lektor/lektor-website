@@ -1,0 +1,8 @@
+title: Content
+---
+body:
+
+#### text-block ####
+text: These plugins primarily deal with adding or modifying available content in Lektor, adding content types, or modifying how content behaves.
+----
+class: default

@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-natural-language
+---
+categories: templates
+---
+tags:
+
+Jinja filters
+NLTK
+natural language
+setup-env

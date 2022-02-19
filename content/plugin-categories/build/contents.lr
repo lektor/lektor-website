@@ -1,0 +1,12 @@
+body:
+
+#### text-block ####
+text: These plugins primarily deal with Lektor's [build :ref](/docs/quickstart/#building) process, adding build tools or processes.
+----
+class: default
+---
+title: Build
+---
+_discoverable: yes
+---
+_hidden: no

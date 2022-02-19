@@ -1,0 +1,56 @@
+title: Lektor 3.1 Released
+---
+author: Joseph Nix
+---
+body:
+
+#### banner ####
+image: pancakes-2020863.jpg
+----
+height: 500-tall
+----
+contents: 
+#### text-block ####
+text:
+
+Lektor continues to be discovered and used by more people, and many of these fine people have given back. Lektor is now a little easier to use, and more robust with plenty of bugfixes and added support for Python 3. Let's take a brief look at what's been done, and what we want next.
+
+## Lektor Themes
+
+Perhaps the most eye-catching change is the introduction of the ability for Lektor to use [themes](/docs/themes/). This can become a very powerful tool, allowing people to make beautiful sites even more quickly by standing on the shoulders of those who have gone before them. Why spend more time fiddling with your CSS, or template queries than you need to? If there's a theme that's similar to yours in either design or function, you can start from there. Assets, templates, models, and flowblocks are all able to be themed, offering a lot of flexibility in what they could provide.
+
+This is a very new and experimental feature. We'd love to add more support for themes so that making them and using them is easy, but it may be a bit rough around the edges at the moment. The [contributor](https://github.com/rlaverde) who gave Lektor its initial theming ability also created the [first theme](https://github.com/rlaverde/lektor-theme-nix), which is a simple theme based on the [Nix Hugo theme](https://themes.gohugo.io/hugo-theme-nix/).
+
+I think this feature has a lot of potential. It's pretty exciting.
+
+## Improved Support and Testing
+
+If you take a look at the changelog since version 2.0, you'll notice many references to bugfixes and dependency updates. We now support Python 3, and have a more extensive automated testing environment. We have upgraded the versions of Mistune (our current Markdown parser), and several JavaScript dependencies that drive the admin interface. Windows users have a few bugfixes to help them out, and added automated testing to catch more bugs before they reach a release.
+
+## Other Features
+
+* Templates now have greater control of image quality and rotation.
+* Fixed and expanded handling of image EXIF data.
+* Improved date handling in the admin interface.
+* Added ability to publish from different file systems.
+* Fields can now be disabled for alternatives in the admin interface.
+* Another Plugin hook added between instantiating the Renderer and creating the Markdown Processor.
+* `lektor dev shell` now uses IPython if it's installed.
+
+## Support for Mac Installer Paused
+
+The code that was used to create the Mac installer for the Desktop App has [some problems](https://github.com/lektor/lektor/issues/420). We're (hopefully temporarily) pulling support for the desktop app because of this. If you have modern experience making executables (especially cross-platform) and would like to contribute, we'd love to have your support. We generally want to make Lektor as easy to use as possible, and a new desktop app could really help with that.
+
+## Want to Contribute?
+
+Open Source Software lives and dies by the communities that use them, love them, and support them. If you're a developer looking to get your feet wet in OSS, we'd love to review your pull request. <3
+
+A larger task, if you're someone with React (and Python) knowledge, is our admin interface. It has served us pretty well so far, but it also has [some issues](https://github.com/lektor/lektor/issues/458). It could use some TLC.
+----
+class: default
+---
+pub_date: 2018-01-29
+---
+summary: What's changed with Lektor 3.1.
+---
+twitter_handle: nixjdm

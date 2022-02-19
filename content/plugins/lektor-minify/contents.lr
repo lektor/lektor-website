@@ -1,0 +1,17 @@
+_model: plugin
+---
+name: lektor-minify
+---
+tags:
+
+django-htmlmin
+RCSSmin
+rJSmin
+minify
+HTML
+CSS
+JavaScript
+setup-env
+after-build
+---
+categories: build

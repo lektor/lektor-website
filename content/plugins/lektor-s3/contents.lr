@@ -1,0 +1,15 @@
+_model: plugin
+---
+name: lektor-s3
+---
+categories: deploy
+---
+tags:
+
+AWS
+S3
+CloudFront
+publisher
+setup-env
+---
+summary: Publish to <a href="https://aws.amazon.com/s3/">S3</a> buckets and <a href="https://aws.amazon.com/cloudfront/">Cloudfront</a>.

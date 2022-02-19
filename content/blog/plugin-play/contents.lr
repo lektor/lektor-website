@@ -1,0 +1,42 @@
+title: Plugin Play
+---
+author: Joseph Nix
+---
+pub_date: 2018-05-15
+---
+summary: Discovering and learning about plugins just got easier.
+---
+twitter_handle: nixjdm
+---
+body:
+
+#### banner ####
+image: spices.jpg
+----
+height: 300
+----
+contents: 
+#### text-block ####
+text:
+
+## Get Lektor Updates
+
+This site just updated the way it lists available plugins! Now https://www.getlektor.com/plugins/ gives you a list of all known Lektor plugins in a much more interactive and informative way. This will hopefully make it much easier for you to discover plugins that are relevant to your project and your needs. If you are a plugin developer, this should also help you find examples from existing plugins to help you learn how to interact better with Lektor's plugin system.
+
+### Categories
+
+Each plugin now falls within one of a few broad categories to help quickly narrow your search for what you're looking for.
+
+### Details
+
+Each plugin also now has its own dedicated page. On this page you can see the entire README for a plugin, in beautiful rendered Markdown or reStructuredText, GitHub statistics, authorship information, and tags. This page should give you all the information you need to be able to use the plugin, or to decide if it's what you're looking for as a guide to building your own.
+
+### Tags
+
+Plugins are tagged with specific key words or phrases that describe what they are used for and how they work. All of a plugin's tags are listed on its page as a link. Each tag has its own page where you can see other plugins that share that tag. This offers a powerful way to navigate between related content, and another way to discover more plugins.
+
+I think this is especially useful for plugin development when the tag is an event that the plugin hooks. This allows you to quickly find the source code of plugins that depend on the same Lektor plugin events, so that you can see many quick examples to help you write your own plugin. For instance, you can find all of the plugins that hook the `before-build-all` event by looking at it's tag page [here](/plugins/tag/before-build-all/). Tag pages for events also have links back to the plugin documentation pages, including the page for that specific event.
+
+Now go check out some [plugins](/plugins)! 
+----
+class: default

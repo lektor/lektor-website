@@ -1,0 +1,74 @@
+title: Lektor 3.2 Released
+---
+author: Andreas Runfalk
+---
+pub_date: 2020-08-20
+---
+summary: What's changed with Lektor 3.2
+---
+body:
+
+#### banner ####
+image: coffee-ground-1171092-1599x1066.jpg
+----
+height: 500
+----
+contents:
+#### text-block ####
+text:
+
+It's been a long time in the making, and on behalf of the Lektor Team I'm happy to introduce the 3.2 release of Lektor. As some of you may have noticed the development pace of Lektor has slowed down over the past two years. Those of you who have had open PRs for a long time, sorry for the delay and we'll try to do better going forward!
+
+Recently we've made a big push to bring the project back on its feet. Our focus besides merging PRs and fixing various issues has been to streamline the CI and release process. The biggest change was the [switch from Travis and Appveyor to GitHub actions](https://github.com/lektor/lektor/pull/734) which should make the release process a lot easier going forward.
+
+We have also promoted [lektor-tags](https://github.com/lektor/lektor-tags) and [lektor-atom](https://github.com/lektor/lektor-atom) to official plugins. This represents our commitment to keep them up to date. We have also deployed a [new CI workflow](https://github.com/lektor/lektor-atom/pull/28) that can publish new versions using tags. This will be something all plugin authors can use in their own projects. Thank you [Gonzalo Peña-Castellanos](https://github.com/goanpeca) for spearheading the CI improvements.
+
+A big shoutout to all the contributors who help make Lektor awesome!
+
+!! Since Python 2 is EOL and its [final release ever](https://blog.python.org/2020/04/python-2718-last-release-of-python-2.html) happened on April 20th, 2020, this will be the last Lektor release with Python 2 support. This is also the last release supporting Python 3.5 since it is [very near EOL](https://devguide.python.org/#status-of-python-branches) and we want to have opportunity to work with several benefits of Python 3.6 going forward.
+
+!!!! The slugify change may mean that your URLs will change when you update to Lektor 3.2. This could lead to broken links from external sites such as search engines. This can be fixed by providing a custom slug for the necessary pages.
+
+# Changelog
+
+## Bugfixes
+
+* Fix to correctly calculate relative urls from slugs that contain dots. (thank you [f-seven](https://github.com/f-seven))
+* Fix to allow negative integers in integer fields in the admin UI. (thank you [David Ferguson](https://github.com/davidferguson))
+* Fix `lektor plugins reinstall` triggered `on_setup_env` instead of just reinstalling plugins. (thank you [Mikhail Gerasimov](https://github.com/germn))
+* Fix failing dimensions detection for some JPEG thumbnails. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Fix mismatch between reported thumbnail size and on-disk image when both width & height are provided. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Return JPEG dimensions swapped when EXIF rotation is in effect. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Fix off-by-1px rounding discrepancy between reported thumbnail dimensions and actual dimensions. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Fix off-by-one error in pagination's iter_pages in the interpretation of the right_current argument, and adding an appropriate trailing `None` for some uses. (thank you [Jeff Dairiki](https://github.com/dairiki))
+
+
+## New features
+
+* Added the ability to [generate video thumbnails](/docs/templates/videoops/) with ffmpeg. (thank you [Andreas Runfalk](https://github.com/runfalk))
+
+
+## Improvements
+
+* Added support for setting the output_path in the project file. (thank you [George Kussumoto](https://github.com/georgeyk))
+* Added support for deleting and excluding files for the rsync deployment publisher. (thank you [m-lib](https://github.com/m-lib))
+* Several modernization and performance improvements to the admin UI (thank you [Jakob Schnitzer](https://github.com/yagebu))
+* Improved speed of source info updates. (thank you [Jeff Dairiki](https://github.com/dairiki))
+* Set colorspace to sRGB for thumbnails. This should result in significantly reduced thumbnail file size when the source image uses a more exotic colorspace. (thank you [Stavros Korokithakis](https://github.com/skorokithakis))
+* Now stripping profiles and comments from thumbnails, for even smaller file size. (thank you [Stavros Korokithakis](https://github.com/skorokithakis))
+* Improved speed of flow rendering in the admin UI. (thank you [David Ferguson](https://github.com/davidferguson))
+* Improved image-heavy build speeds by reducing the amount of data extracted from EXIFs. (thank you [Tobias Pfeiffer](https://github.com/tgpfeiffer))
+* Added the ability to collapse flow elements in the admin UI. (thank you [Jason Traub](https://github.com/jtraub91))
+* Now `extra_flags` is passed to all plugin events. (thank you [Joseph Nix](https://github.com/nixjdm))
+* Extra flags can now be passed to the `clean` and `dev shell` CLI commands. (thank you [Joseph Nix](https://github.com/nixjdm))
+* Deprecate the `crop` thumbnail argument in favor of the new `mode` argument, which can be one of `fit` (the default), `crop`, or `stretch`. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* `upscale=False` for thumbnails can now prevent up scaling. (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Added a new CLI command `lektor dev new-theme`. (thank you [Joseph Nix](https://github.com/nixjdm))
+* Made admin use full UTF-8 version of RobotoSlab. Fixes missing glyphs for some languages (thank you [Jakob Schnitzer](https://github.com/yagebu))
+* Bumped minimum Jinja2 version to 2.11 (thank you [Joseph Nix](https://github.com/nixjdm))
+* Bumped filetype dependency to 1.0.7 because of API changes (thank you [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Relative urls are now as short as possible. (thank you [Oleg Geier](https://github.com/relikd) and [Ionuț Ciocîrlan](https://github.com/xlotlu))
+* Automatically include setup.cfg configured for universal wheels when creating plugins (thank you [George Kussumoto](https://github.com/georgeyk))
+* Changed default slug creation to use [python-slugify](https://github.com/un33k/python-slugify). This should mean greater language support, but this may produce slightly different results than before for some users (thank you [Joseph Nix](https://github.com/nixjdm) and [Ionuț Ciocîrlan](https://github.com/xlotlu))
+----
+class: default

@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-tags
+---
+categories: content
+---
+tags:
+
+tags
+page generation
+virtual paths
+setup-env

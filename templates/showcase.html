@@ -16,15 +16,21 @@
   <p>
     Click any of the showcases to learn a bit more about how it uses Lektor.
   <div class="showcase row">
-    {% for project in this.children %}
-      <div class="project col-md-6">
-        <a href="{{ project|url }}">
-          <h2>{{ project.name }}</h2>
-          {% if project.cover_image %}
-            {% set image = project.attachments.get(project.cover_image) %}
-            <div class="frame"><img src="{{ image.thumbnail(480)|url }}" width="100%" alt=""></div>
-          {% endif %}
-        </a>
+    {% for project_row in this.children | batch(2) %}
+      <div class="row">
+        {% for project in project_row %}
+          <div class="project col-md-6">
+            <a href="{{ project|url }}">
+              <h2>{{ project.name }}</h2>
+              {% if project.cover_image %}
+                {% set image = project.attachments.get(project.cover_image) %}
+                <div class="frame">
+                  <img src="{{ image.thumbnail(480)|url }}" width="100%" alt="">
+                </div>
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
       </div>
     {% endfor %}
   </div>
@@ -33,7 +39,10 @@
       href="https://github.com/lektor/lektor-website/tree/master/content/showcase">Fork
       the Lektor Website Repository on GitHub</a> to add your own project.
       Make sure to add screenshots and a description about the project.
-      We encourage you to add a link to your source code so that others can
-      learn from your example.
+      The primary screenshot is thumbnailed on this page to 415px wide, and cropped to
+      260px tall, and on your site's individual page the larger images are 870px wide.
+
+      We encourage you to add a link to your source code
+      so that others can learn from your example.
     </small>
 {% endblock %}

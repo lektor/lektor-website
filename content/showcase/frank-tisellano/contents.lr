@@ -1,0 +1,13 @@
+name: Frank Tisellano
+---
+url: http://www.ft.io
+---
+cover_image: home.png
+---
+description:
+
+This is my personal website. It includes a simple about page, a blog, and a curated list of interesting links I've come across. I generally link to and blog about product management, marketing, strategy, and design.
+
+Links are stored statically in lektor in the same way blog posts are stored, but I wrote a bit of code that syncs those links before lektor deployments from [pinboard](https://pinboard.in/u:ft), where I manage them centrally.
+
+The site is hosted on S3 behind Cloudflare, and I use the excellent lektor-s3 plugin to get it there.

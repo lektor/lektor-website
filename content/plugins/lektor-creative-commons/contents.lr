@@ -1,0 +1,13 @@
+_model: plugin
+---
+name: lektor-creative-commons
+---
+categories: templates
+---
+tags:
+
+Creative Commons
+Licensing
+Jinja globals
+i18n
+setup-env

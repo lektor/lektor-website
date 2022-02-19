@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-strip-html-tags
+---
+categories: templates
+---
+tags:
+
+Jinja filters
+HTML
+setup-env

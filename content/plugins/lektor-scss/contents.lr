@@ -1,0 +1,15 @@
+_model: plugin
+---
+name: lektor-scss
+---
+categories: build
+---
+tags:
+
+HTML
+SCSS
+Sass
+before-build-all
+server-spawn
+server-stop
+

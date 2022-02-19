@@ -1,0 +1,8 @@
+body:
+
+#### text-block ####
+text: These plugins primarily deal with Lektor's [deployment :ref](/docs/deployment/) abilities. They may add a deployment service or location.
+----
+class: default
+---
+title: Deploy

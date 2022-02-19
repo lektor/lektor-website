@@ -1,0 +1,13 @@
+_model: plugin
+---
+name: lektor-netlify
+---
+categories: deploy
+---
+tags:
+
+Netlify
+publisher
+setup-env
+---
+summary: Allows you to publish your lektor website to netlify easily.

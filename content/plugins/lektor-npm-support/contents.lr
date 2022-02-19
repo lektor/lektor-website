@@ -1,0 +1,21 @@
+_model: plugin
+---
+name: lektor-npm-support
+---
+categories: build
+---
+tags:
+
+webpack
+Browserify
+Parcel
+Babel
+Sass
+Node
+npm
+Yarn
+server-spawn
+server-stop
+before-build-all
+---
+summary: Adds support for using npm/yarn to build assets in Lektor using tools such as <a href="https://parceljs.org/" class="ext">Parcel</a>, <a href="https://webpack.js.org/" class="ext">webpack</a>, etc.

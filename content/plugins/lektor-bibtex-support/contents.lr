@@ -1,0 +1,11 @@
+_model: plugin
+---
+name: lektor-bibtex-support
+---
+categories: content
+---
+tags:
+
+setup-env
+Jinja globals
+LaTeX

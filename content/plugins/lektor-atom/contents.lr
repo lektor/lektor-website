@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-atom
+---
+categories: templates
+---
+tags:
+
+Atom
+RSS
+virtual paths
+setup-env

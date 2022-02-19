@@ -1,0 +1,14 @@
+_model: plugin
+---
+name: lektor-read-full-post
+---
+categories: content
+---
+tags:
+
+setup-env
+Jinja globals
+blog
+Markdown
+---
+summary: Allows blog listing posts to be shortened with a link to the full post.

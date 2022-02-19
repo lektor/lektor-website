@@ -1,0 +1,17 @@
+name: Amin Mesbah
+---
+url: https://www.amin.space
+---
+cover_image: frontpage.png
+---
+description:
+
+This is my simple personal blog. I write about programming. I also recently
+added a photography section, for which I wrote a little [Lektor plugin][1] that
+fetches image links off my WebDAV file host.
+
+I've found Lektor to be delightfully efficient and extensible, and a pleasure to
+work with. The source files for my site can be found on [GitHub][2].
+
+[1]: https://github.com/mesbahamin/lektor-webdav "lektor-webdav: Lektor plugin to get a list of files from a webDAV server"
+[2]: https://github.com/mesbahamin/amin.space "The GitHub repository for my website's Lektor files"

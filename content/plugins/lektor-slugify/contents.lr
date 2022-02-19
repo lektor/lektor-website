@@ -1,0 +1,12 @@
+_model: plugin
+---
+name: lektor-slugify
+---
+categories: templates
+---
+tags:
+
+slugify
+Jinja filters
+python-slugify
+setup-env

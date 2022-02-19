@@ -1,0 +1,8 @@
+body:
+
+#### text-block ####
+text: These plugins primarily deal with Lektor's [Templates :ref](/docs/templates/). They may add or modify [context :ref](docs/templates/#template-context), [api :ref](/docs/api/templates/), [filters :ref](/docs/api/templates/filters/), [globals :ref](/docs/api/templates/globals/), [modify images :ref](/docs/templates/imageops/), [change navigation :ref](/docs/templates/navigation/), or many other functionalities available to templates.
+----
+class: default
+---
+title: Templates

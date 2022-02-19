@@ -1,0 +1,18 @@
+name: Eric J. Ma
+---
+url: https://ericmjl.github.io/
+---
+cover_image: frontpage.png
+---
+description:
+
+I used to maintain a blog on Wordpress, but that got slow for me.
+On [David Baumgold's](https://www.davidbaumgold.com/) suggestion,
+I tried out Lektor.
+He guided me through the basics of the web,
+and now I have a site that I am very extremely happy to maintain.
+Lektor's separation of data model, content and templates has made it
+a very powerful to create complex content,
+but at the same time,
+to get a simple website going on which I retain full control
+is not difficult at all.

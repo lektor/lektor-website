@@ -1,0 +1,15 @@
+name: All-New Self Study Thai
+---
+url: http://selfstudythai.com
+---
+cover_image: sst_3_study.png
+---
+description:
+
+This responsive website offers Thai audio, corresponding transcripts, for news articles from "Voice of America", commonly referred to as VOA.
+
+What started out as study tools for myself, I decided that with some extra work could be made useful to others.
+
+It's all self study and it's all FREE, though you do need to be able to read Thai to be able to take advantage of this website's content.
+
+<p class="site-link"><a href="https://gitlab.com/universe6/selfstudythai">View the Sourcecode on GitHub</a></p>

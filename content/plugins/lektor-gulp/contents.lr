@@ -1,0 +1,14 @@
+_model: plugin
+---
+name: lektor-gulp
+---
+categories: build
+---
+tags:
+HTML
+CSS
+JavaScript
+gulp
+before-build-all
+server-stop
+server-spawn

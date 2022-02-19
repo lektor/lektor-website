@@ -26,9 +26,10 @@ And the template could access it like this:
 
 ```html+jinja
 <ul class="nav">
-{% for path, label in bag('main-nav').iteritems() %}
+{% for path, label in bag('main-nav').items() %}
   <li{% if this.is_child_of(path) %} class="active"{% endif
     %}><a href="{{ path|url }}">{{ label }}</a>
+  </li>
 {% endfor %}
 </ul>
 ```
