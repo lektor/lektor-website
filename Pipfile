@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-lektor = {git = "https://github.com/lektor/lektor"}
+lektor = "*"
 lektor-atom = "*"
 lektor-tags = "*"
 lektor-slugify = "*"
@@ -20,4 +20,4 @@ lektor-blog-archive = {editable = true, path = "./plugins/blog-archive"}
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
