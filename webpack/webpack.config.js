@@ -1,22 +1,18 @@
-var webpack = require("webpack");
-var path = require("path");
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require("webpack");
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-var options = {
+const options = {
   entry: {
     app: "./js/app.js",
     styles: "./scss/main.scss",
   },
   output: {
-    path: path.dirname(__dirname) + "/assets/static",
+    path: path.join(__dirname, "..", "assets", "static"),
     filename: "[name].js",
   },
-  devtool: "cheap-module-source-map",
+  devtool: "source-map",
   mode: "production",
-  resolve: {
-    modules: ["node_modules"],
-    extensions: ["", ".js"],
-  },
   module: {
     rules: [
       {
@@ -26,7 +22,7 @@ var options = {
           {
             loader: "babel-loader",
             options: {
-              presets: ["es2015"],
+              presets: ["@babel/preset-env"],
             },
           },
         ],
@@ -41,7 +37,7 @@ var options = {
       },
       {
         test: /\.(woff2?|ttf|eot|svg|png)(\?.*?)?$/,
-        use: ["file"],
+        type: "asset",
       },
     ],
   },
