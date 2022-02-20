@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title>Content | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../">Welcome</a></li>
+        
+        
+          <li><a href="../what/">What is Lektor</a>
+            
+        
+          <li><a href="../installation/">Installation</a>
+            
+        
+          <li><a href="../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../project/">Project</a>
+            
+        
+          <li class="active"><a href="./">Content</a>
+            
+            <ul>
+          <li><a href="alts/">Alternatives</a>
+            
+        
+          <li><a href="attachments/">Attachments</a>
+            
+        
+          <li><a href="databags/">Data Bags</a>
+            
+        
+          <li><a href="flow/">Flow</a>
+            
+        
+          <li><a href="paths/">Paths</a>
+            
+        
+          <li><a href="system-fields/">System Fields</a>
+            
+        
+          <li><a href="urls/">URLs and Slugs</a>
+            
+        </ul>
+            
+        
+          <li><a href="../templates/">Templates</a>
+            
+        
+          <li><a href="../themes/">Themes</a>
+            
+        
+          <li><a href="../guides/">Guides</a>
+            
+        
+          <li><a href="../deployment/">Deployment</a>
+            
+        
+          <li><a href="../plugins/">Plugins</a>
+            
+        
+          <li><a href="../models/">Data Modelling</a>
+            
+        
+          <li><a href="../cli/">Command Line</a>
+            
+        
+          <li><a href="../api/">API</a>
+            
+        
+          <li><a href="../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#one-folder-one-page">One Folder — One Page</a></li>
+        
+          <li><a href="#one-page-one-url">One Page — One URL</a></li>
+        
+          <li><a href="#page-model-and-template">Page, Model and Template</a></li>
+        
+          <li><a href="#content-file-format">Content File Format</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Content</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Lektor builds a website by taking all the files in the <code>content/</code> folder,
+processing them according to the rules of your <a href="../models/" class="ref">Models</a>
+and rendering them by using templates.  Don't worry.  It's easier than it
+sounds.</p>
+<h2 id="one-folder-one-page">One Folder — One Page</h2><p>Each page (or each URL) corresponds to a folder below the <code>content/</code> folder.
+There can be as many folders as you want and they can be arbitrarily nested.
+Within each folder there needs to be at least one file, the content file:
+<code>contents.lr</code>.  Into that file, your data goes.</p>
+<p>All the other files in a folder are considered attachments of the page.</p>
+<p>Here is an example structure from a website:</p>
+<pre><code>content/
+  contents.lr
+  portfolio/
+    contents.lr
+    project-a/
+      contents.lr
+      thumbnail.jpg
+    project-b/
+      contents.lr
+      thumbnail.jpg
+  about/
+    contents.lr
+</code></pre>
+<h2 id="one-page-one-url">One Page — One URL</h2><p>Out of each <code>contents.lr</code> file, Lektor builds exactly one final page on
+exactly one URL.  So if you have <code>content/portfolio/project-a/contents.lr</code>
+the rendered end result will be at <code>/portfolio/project-a/</code>.</p>
+<h2 id="page-model-and-template">Page, Model and Template</h2><p>Each page is associated with a model and a template.  Each page needs to have
+a model that defines which fields exist.  The template by default matches the
+model name but it can be overridden on a per-page basis.</p>
+<p>So how is the model selected?  Either explicitly in the <code>contents.lr</code> file
+with the <code>_model</code> key or by configuration and convention.  Lektor will
+select the default model based on trying things in this order:</p>
+<ol>
+<li>configured model in contents file</li>
+<li>model configured from a parent model for all children</li>
+<li>model matching the page ID</li>
+<li>the model named <code>page</code></li>
+</ol>
+<p>The template is always the name of the model with <code>.html</code> as extension.  It
+can be overridden in the content file with the <code>_template</code> field.</p>
+<h2 id="content-file-format">Content File Format</h2><p>So now it's time to talk about the content file.  The content file is just a
+UTF-8 encoded text file with the <code>.lr</code> extension.  It can be edited with any
+text editor that supports UTF-8 as character encoding.  This file consists of
+multiple data fields according to the model.  The format is very simple:</p>
+<pre><code>_model: page
+---
+title: The Page Title
+---
+body:
+
+The page body goes here
+</code></pre>
+<p>Fields are separated by three dashes <code>---</code> and follow the format <code>key: value</code>.
+For values with multiple lines it's recommended to insert two newlines after
+the key.  The format of each field is specific to how the model is configured.</p>
+<p>Some fields are plain text, others can be markdown syntax and more.  These
+fields become available for rendering in the template automatically.</p>
+<div class="admonition admonition-tip"><p>If you want to use <code>---</code> itself in the document text, just add another
+dash.  This means <code>----</code> will render as <code>---</code> and <code>-----</code> will render as
+<code>----</code> etc.</p></div><p>Fields prefixed with an underscore are so-called system fields.  They are
+provided by Lektor and customize behavior within Lektor.  For a list of
+available fields see <a href="../api/db/system-fields/" class="ref">System Fields</a>.</p>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="alts/">Alternatives</a>
+              </h4>
+              
+                <p class="summary">Alternatives allow you to localize or internationalize a site.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="attachments/">Attachments</a>
+              </h4>
+              
+                <p class="summary">A quick introduction in how attachments are handled in Lektor.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="databags/">Data Bags</a>
+              </h4>
+              
+                <p class="summary">A summary about using the data bag system to store useful data.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="flow/">Flow</a>
+              </h4>
+              
+                <p class="summary">Learn about how to use the flow system to build more flexible pages.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="paths/">Paths</a>
+              </h4>
+              
+                <p class="summary">An explanation about how paths in Lektor work.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="system-fields/">System Fields</a>
+              </h4>
+              
+                <p class="summary">Brief overview of the system fields in Lektor.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="urls/">URLs and Slugs</a>
+              </h4>
+              
+                <p class="summary">Explains how URLs and slugs work in Lektor.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/content"; this.page.url = "https://www.getlektor.com/docs/content/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/content/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

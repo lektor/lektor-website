@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Paths | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../">Content</a>
+            
+            <ul>
+          <li><a href="../alts/">Alternatives</a>
+            
+        
+          <li><a href="../attachments/">Attachments</a>
+            
+        
+          <li><a href="../databags/">Data Bags</a>
+            
+        
+          <li><a href="../flow/">Flow</a>
+            
+        
+          <li class="active"><a href="./">Paths</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../system-fields/">System Fields</a>
+            
+        
+          <li><a href="../urls/">URLs and Slugs</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#what-is-a-path">What is a Path</a></li>
+        
+          <li><a href="#virtual-paths">Virtual Paths</a></li>
+        
+          <li><a href="#relative-paths">Relative Paths</a></li>
+        
+          <li><a href="#alternatives-and-paths">Alternatives and Paths</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Paths</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <div class="admonition admonition-info"><p>This refers mostly to Lektor 2.0.  If you are using an older version of
+Lektor the virtual path feature is not implemented yet and a lot of this just
+does not apply.</p></div><p>Lektor attempts to map the paths from the content folder as closely as possible
+to the final URLs (at least in the default configuration).  There are various
+ways in which this can be customized (see <a href="../urls/" class="ref">URLs and Slugs</a>) and
+there are situations in which Lektor needs to render out content that does not
+actually directly correspond to a path on the file system.</p>
+<p>Here we try to explain how the path system in Lektor works and what it means.</p>
+<h2 id="what-is-a-path">What is a Path</h2><p>A path in Lektor is a string that uniquely identifies a <a href="../../api/db/obj/" class="ref">Source Object</a>.  For the most part these directly point to
+<code>content.lr</code> files or attachments therein.  These paths always use forward
+slashes, no matter on which platform Lektor runs.  So for instance if you
+have a file named <code>projects/my-project/contents.lr</code> then the path for this
+record will be <code>/projects/my-project</code>.  Thereby it does not matter if the
+slug or final URL was changed, the path is always the same.</p>
+<p>Lektor uses paths to refer to records by default in all cases.  This means that
+if you use the <a href="../../api/templates/filters/url/" class="ref">url filter</a> for instance
+it will operate on paths and not URLs!</p>
+<p>But what about sources that do not directly correspond to something on the
+file system?  This is where virtual paths come in.  Virtual paths are
+separated from physical paths with an at (<code>@</code>) sign.  Virtual paths are always
+attached to a record and point to things that are not actually coming from the
+content folder but something else.</p>
+<p>Virtual paths are for instance used to refer to paginated pages or to some
+resources that plugins add.</p>
+<h2 id="virtual-paths">Virtual Paths</h2><p>Virtual paths are added behind physical paths and are separated by an at
+sign (<code>@</code>).  The only virtual path that is supported by Lektor out of the box
+is the special numeric virtual path which can be used to refer to specific
+pages for a pagination.  For instance <code>/blog@1</code> refers to the first page of
+the <code>blog</code> page, <code>/blog@2</code> to the second etc.  There are however plugins that
+add virtual paths to refer to their own resources.  For instance a plugin can
+register <code>/blog@feed</code> to refer to a RSS/Atom feed for the blog.</p>
+<h2 id="relative-paths">Relative Paths</h2><p>Now that we talked a bit about paths, we should probably cover how relative
+paths work.  Relative paths work similar to how you expect them to work on
+most operating systems but they can operate on the virtual as well as the
+physical path.  There is also some special behavior with regards to the numeric
+virtual path for pagination.</p>
+<p>For the most part <code>.</code> refers to the same page and <code>..</code> refers to the page one
+level up.  If you use a path that just contains of a virtual path, then it's
+attached to the current page to replace the active virtual path.</p>
+<table>
+<thead><tr>
+<th>Current</th>
+<th>Relative</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/blog</code></td>
+<td><code>..</code></td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><code>/blog</code></td>
+<td><code>.</code></td>
+<td><code>/blog</code></td>
+</tr>
+<tr>
+<td><code>/blog/post</code></td>
+<td><code>..</code></td>
+<td><code>/blog</code></td>
+</tr>
+<tr>
+<td><code>/blog</code></td>
+<td><code>@2</code></td>
+<td><code>/blog@2</code></td>
+</tr>
+<tr>
+<td><code>/blog@2</code></td>
+<td><code>@1</code></td>
+<td><code>/blog@1</code></td>
+</tr>
+<tr>
+<td><code>/blog@feed</code></td>
+<td><code>recent</code></td>
+<td><code>/blog@feed/recent</code></td>
+</tr>
+<tr>
+<td><code>/blog@feed</code></td>
+<td><code>..</code></td>
+<td><code>/blog@feed</code></td>
+</tr>
+</tbody>
+</table>
+<p>However! The numeric path is special with regards because it's considered to
+belong to the current page:</p>
+<table>
+<thead><tr>
+<th>Current</th>
+<th>Relative</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/blog@2</code></td>
+<td><code>.</code></td>
+<td><code>/blog@2</code></td>
+</tr>
+<tr>
+<td><code>/blog@2</code></td>
+<td><code>..</code></td>
+<td><code>/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="alternatives-and-paths">Alternatives and Paths</h2><p>If you have used Lektor a bit you might be wondering how <a href="../alts/" class="ref">Alternatives</a> work with paths.  The answer might be surprising but it's
+basically that they don't really work with paths.  Alternatives are
+implemented on a level higher than paths.  If you have a page that exists
+in both German and English alternative then they will have the same path.
+The alternative code is supplied separately.</p>
+<p>This is done so that you can later start introducing alternatives to sites
+that were never aware of them without having to go everywhere and start
+passing alternative information around.  While there are indeed some places
+where you might have to perform some changes (especially if you perform
+manual queries in the templates) for the most part adding alternatives to an
+existing site later is a trivial matter.</p>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/content/paths"; this.page.url = "https://www.getlektor.com/docs/content/paths/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/content/paths/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

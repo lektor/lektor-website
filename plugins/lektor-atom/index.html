@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-atom 0.4.0</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Lektor plugin that generates Atom feeds.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/lektor/lektor-atom" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/lektor/lektor-atom" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-atom on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/lektor/lektor-atom/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/lektor/lektor-atom/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.4.0</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:jesse@emptysquare.net">A. Jesse Jiryu Davis</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/Atom/">Atom</a>, 
+          
+            
+            <a href="../tag/RSS/">RSS</a>, 
+          
+            
+            <a href="../tag/setup-env/">setup-env</a>, 
+          
+            and 
+            <a href="../tag/virtual-paths/">virtual paths</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>Lektor Atom Plugin</h1>
+<p><img alt="Linux tests" src="https://github.com/lektor/lektor-atom/workflows/Linux%20tests/badge.svg">
+<a href="https://github.com/psf/black" rel="nofollow"><img alt="Code Style: Black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="https://gitter.im/lektor/lektor?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" rel="nofollow"><img alt="Join the chat at https://gitter.im/lektor/lektor" src="https://badges.gitter.im/lektor/lektor.svg"></a></p>
+<p>Builds one or more Atom XML feeds for your <a href="https://www.getlektor.com/" rel="nofollow">Lektor</a>-based site.</p>
+<p>Inspired by the <a href="https://github.com/lektor/lektor-website/tree/master/packages/atom-feed-support" rel="nofollow">atom-feed-support</a> plugin Armin Ronacher wrote for the Lektor official blog.</p>
+<h2>Installation</h2>
+<p>Add lektor-atom to your project from command line:</p>
+<pre>lektor plugins add lektor-atom
+</pre>
+<p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor documentation for more instructions on installing plugins</a>.</p>
+<h2>Configuration</h2>
+<p>Here is a basic configuration:</p>
+<pre><span class="k">[feed]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Site&#39;s Blog</span><span class="w"></span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span><span class="w"></span>
+<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span><span class="w"></span>
+</pre>
+<p>For each feed you want to publish, add a section to <code>configs/atom.ini</code>. For example, a blog with a feed of all recent posts, and a feed of recent posts about coffee:</p>
+<pre><span class="k">[blog]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog</span><span class="w"></span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span><span class="w"></span>
+<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span><span class="w"></span>
+<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/&#39;).filter(F.type == &#39;post&#39;)</span><span class="w"></span>
+<span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span><span class="w"></span>
+
+<span class="k">[coffee]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog: Articles About Coffee</span><span class="w"></span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span><span class="w"></span>
+<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/category/coffee/feed.xml</span><span class="w"></span>
+<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/blog&#39;).filter(F.categories.contains(&#39;coffee&#39;))</span><span class="w"></span>
+<span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span><span class="w"></span>
+</pre>
+<p>The section names, like <code>blog</code> and <code>coffee</code>, are just used as internal identifiers.</p>
+<h3>Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>source_path</td>
+<td>/</td>
+<td>Where in the content directory to find items' parent source</td>
+</tr>
+<tr>
+<td>name</td>
+<td>config section name</td>
+<td>Feed name</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>feed.xml</td>
+<td>Name of generated Atom feed file</td>
+</tr>
+<tr>
+<td>url_path</td>
+<td>source_path + filename</td>
+<td>Feed's URL on your site</td>
+</tr>
+<tr>
+<td>blog_author_field</td>
+<td>author</td>
+<td>Name of source's author field</td>
+</tr>
+<tr>
+<td>blog_summary_field</td>
+<td>summary</td>
+<td>Name of source's summary field</td>
+</tr>
+<tr>
+<td>items</td>
+<td>source_path's children</td>
+<td>A query expression: e.g. <code>site.query('/').filter(F.type == 'post')</code></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>50</td>
+<td>How many recent items to include</td>
+</tr>
+<tr>
+<td>item_title_field</td>
+<td>title</td>
+<td>Name of items' title field</td>
+</tr>
+<tr>
+<td>item_body_field</td>
+<td>body</td>
+<td>Name of items' content body field</td>
+</tr>
+<tr>
+<td>item_author_field</td>
+<td>author</td>
+<td>Name of items' author field</td>
+</tr>
+<tr>
+<td>item_date_field</td>
+<td>pub_date</td>
+<td>Name of items' publication date field</td>
+</tr>
+<tr>
+<td>item_model</td>
+<td>None</td>
+<td>Filters <code>items</code> on name of items' model</td>
+</tr>
+</tbody>
+</table>
+<h3>Customizing the plugin for your models</h3>
+<p>Use the field options to tell lektor-atom how to read your items. For example, if your site's model is:</p>
+<pre><span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span><span class="w"></span>
+
+<span class="k">[fields.writer]</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+
+<span class="k">[fields.short_description]</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+</pre>
+<p>Then add to atom.ini:</p>
+<pre><span class="k">[main]</span><span class="w"></span>
+<span class="na">blog_author_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">writer</span><span class="w"></span>
+<span class="na">blog_summary_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">short_description</span><span class="w"></span>
+</pre>
+<p>See <a href="https://github.com/ajdavis/lektor-atom/blob/master/tests/demo-project/configs/atom.ini" rel="nofollow">tests/demo-project/configs/atom.ini</a> for a complete example.</p>
+<h3>Filtering items</h3>
+<p>By default, lektor-atom gets the source at <code>source_path</code> and includes all its children in the feed. If you set <code>item_model</code>, lektor-atom includes only the children with that data model.</p>
+<p>Set <code>items</code> to any query expression to override the default. If <code>items_model</code> is <em>also</em> specified, lektor-atom applies it as a filter to <code>items</code>.</p>
+<h2>Use In Templates</h2>
+<p>You can link to a specific feed in your template. If your <code>atom.ini</code> contains a feed like this:</p>
+<pre><span class="k">[main]</span><span class="w"></span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span><span class="w"></span>
+</pre>
+<p>Link to the feed in a template like this:</p>
+<pre><code>{{ '/blog@atom/main'|url }}
+</code></pre>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-atom"; this.page.url = "https://www.getlektor.com/plugins/lektor-atom/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-atom/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

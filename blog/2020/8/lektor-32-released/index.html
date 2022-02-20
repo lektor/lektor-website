@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Lektor 3.2 Released | The Transcript | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li><a href="../../../../docs/">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li class="active"><a href="../../../">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  <div class="blog-post">
+    
+  
+  
+    
+      
+<div class="page-banner page-banner-500" style="background-image: url(coffee-ground-1171092-1599x1066.jpg)"></div>
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+      <div class="meta-bar">
+        <h1>Lektor 3.2 Released</h1>
+        <p class="meta">
+          by
+          
+            Andreas Runfalk
+          
+          on Thursday, August 20, 2020
+        </p>
+      </div>
+    
+      </div>
+    </div>
+  </div>
+
+    
+  
+    
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="text-block text-block-default">
+  <p>It's been a long time in the making, and on behalf of the Lektor Team I'm happy to introduce the 3.2 release of Lektor. As some of you may have noticed the development pace of Lektor has slowed down over the past two years. Those of you who have had open PRs for a long time, sorry for the delay and we'll try to do better going forward!</p>
+<p>Recently we've made a big push to bring the project back on its feet. Our focus besides merging PRs and fixing various issues has been to streamline the CI and release process. The biggest change was the <a href="https://github.com/lektor/lektor/pull/734">switch from Travis and Appveyor to GitHub actions</a> which should make the release process a lot easier going forward.</p>
+<p>We have also promoted <a href="https://github.com/lektor/lektor-tags">lektor-tags</a> and <a href="https://github.com/lektor/lektor-atom">lektor-atom</a> to official plugins. This represents our commitment to keep them up to date. We have also deployed a <a href="https://github.com/lektor/lektor-atom/pull/28">new CI workflow</a> that can publish new versions using tags. This will be something all plugin authors can use in their own projects. Thank you <a href="https://github.com/goanpeca">Gonzalo Peña-Castellanos</a> for spearheading the CI improvements.</p>
+<p>A big shoutout to all the contributors who help make Lektor awesome!</p>
+<div class="admonition admonition-info"><p>Since Python 2 is EOL and its <a href="https://blog.python.org/2020/04/python-2718-last-release-of-python-2.html">final release ever</a> happened on April 20th, 2020, this will be the last Lektor release with Python 2 support. This is also the last release supporting Python 3.5 since it is <a href="https://devguide.python.org/#status-of-python-branches">very near EOL</a> and we want to have opportunity to work with several benefits of Python 3.6 going forward.</p></div><div class="admonition admonition-warning"><p>The slugify change may mean that your URLs will change when you update to Lektor 3.2. This could lead to broken links from external sites such as search engines. This can be fixed by providing a custom slug for the necessary pages.</p></div><h1 id="changelog">Changelog</h1><h2 id="bugfixes">Bugfixes</h2><ul>
+<li>Fix to correctly calculate relative urls from slugs that contain dots. (thank you <a href="https://github.com/f-seven">f-seven</a>)</li>
+<li>Fix to allow negative integers in integer fields in the admin UI. (thank you <a href="https://github.com/davidferguson">David Ferguson</a>)</li>
+<li>Fix <code>lektor plugins reinstall</code> triggered <code>on_setup_env</code> instead of just reinstalling plugins. (thank you <a href="https://github.com/germn">Mikhail Gerasimov</a>)</li>
+<li>Fix failing dimensions detection for some JPEG thumbnails. (thank you <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li>Fix mismatch between reported thumbnail size and on-disk image when both width &amp; height are provided. (thank you <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li>Return JPEG dimensions swapped when EXIF rotation is in effect. (thank you <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li>Fix off-by-1px rounding discrepancy between reported thumbnail dimensions and actual dimensions. (thank you <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li>Fix off-by-one error in pagination's iter_pages in the interpretation of the right_current argument, and adding an appropriate trailing <code>None</code> for some uses. (thank you <a href="https://github.com/dairiki">Jeff Dairiki</a>)</li>
+</ul>
+<h2 id="new-features">New features</h2><ul>
+<li>Added the ability to <a href="/docs/templates/videoops/">generate video thumbnails</a> with ffmpeg. (thank you <a href="https://github.com/runfalk">Andreas Runfalk</a>)</li>
+</ul>
+<h2 id="improvements">Improvements</h2><ul>
+<li>Added support for setting the output_path in the project file. (thank you <a href="https://github.com/georgeyk">George Kussumoto</a>)</li>
+<li>Added support for deleting and excluding files for the rsync deployment publisher. (thank you <a href="https://github.com/m-lib">m-lib</a>)</li>
+<li>Several modernization and performance improvements to the admin UI (thank you <a href="https://github.com/yagebu">Jakob Schnitzer</a>)</li>
+<li>Improved speed of source info updates. (thank you <a href="https://github.com/dairiki">Jeff Dairiki</a>)</li>
+<li>Set colorspace to sRGB for thumbnails. This should result in significantly reduced thumbnail file size when the source image uses a more exotic colorspace. (thank you <a href="https://github.com/skorokithakis">Stavros Korokithakis</a>)</li>
+<li>Now stripping profiles and comments from thumbnails, for even smaller file size. (thank you <a href="https://github.com/skorokithakis">Stavros Korokithakis</a>)</li>
+<li>Improved speed of flow rendering in the admin UI. (thank you <a href="https://github.com/davidferguson">David Ferguson</a>)</li>
+<li>Improved image-heavy build speeds by reducing the amount of data extracted from EXIFs. (thank you <a href="https://github.com/tgpfeiffer">Tobias Pfeiffer</a>)</li>
+<li>Added the ability to collapse flow elements in the admin UI. (thank you <a href="https://github.com/jtraub91">Jason Traub</a>)</li>
+<li>Now <code>extra_flags</code> is passed to all plugin events. (thank you <a href="https://github.com/nixjdm">Joseph Nix</a>)</li>
+<li>Extra flags can now be passed to the <code>clean</code> and <code>dev shell</code> CLI commands. (thank you <a href="https://github.com/nixjdm">Joseph Nix</a>)</li>
+<li>Deprecate the <code>crop</code> thumbnail argument in favor of the new <code>mode</code> argument, which can be one of <code>fit</code> (the default), <code>crop</code>, or <code>stretch</code>. (thank you <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li><code>upscale=False</code> for thumbnails can now prevent up scaling. (thank you <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li>Added a new CLI command <code>lektor dev new-theme</code>. (thank you <a href="https://github.com/nixjdm">Joseph Nix</a>)</li>
+<li>Made admin use full UTF-8 version of RobotoSlab. Fixes missing glyphs for some languages (thank you <a href="https://github.com/yagebu">Jakob Schnitzer</a>)</li>
+<li>Bumped minimum Jinja2 version to 2.11 (thank you <a href="https://github.com/nixjdm">Joseph Nix</a>)</li>
+<li>Bumped filetype dependency to 1.0.7 because of API changes (thank you <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li>Relative urls are now as short as possible. (thank you <a href="https://github.com/relikd">Oleg Geier</a> and <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+<li>Automatically include setup.cfg configured for universal wheels when creating plugins (thank you <a href="https://github.com/georgeyk">George Kussumoto</a>)</li>
+<li>Changed default slug creation to use <a href="https://github.com/un33k/python-slugify">python-slugify</a>. This should mean greater language support, but this may produce slightly different results than before for some users (thank you <a href="https://github.com/nixjdm">Joseph Nix</a> and <a href="https://github.com/xlotlu">Ionuț Ciocîrlan</a>)</li>
+</ul>
+
+</div>
+      </div>
+    </div>
+  </div>
+
+    
+  
+
+
+    
+    
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        
+          <div class="nav-prev">
+            <a href="../../../2018/5/plugin-play/">Previous: Plugin Play</a>
+          </div>
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/blog/lektor-32-released/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

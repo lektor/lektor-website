@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>server | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../">Command Line</a>
+            
+            <ul>
+          <li><a href="../build/">build</a>
+            
+        
+          <li><a href="../clean/">clean</a>
+            
+        
+          <li><a href="../content-file-info/">content-file-info</a>
+            
+        
+          <li><a href="../deploy/">deploy</a>
+            
+        
+          <li><a href="../dev/">dev</a>
+            
+        
+          <li><a href="../plugins/">plugins</a>
+            
+        
+          <li><a href="../project-info/">project-info</a>
+            
+        
+          <li><a href="../quickstart/">quickstart</a>
+            
+        
+          <li class="active"><a href="./">server</a>
+            
+            <ul></ul>
+            
+        </ul>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#options">Options</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1><i class="glyphicon glyphicon-console"></i> <code class="obj">server</code></h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p><code>lektor server</code></p>
+<p>The server command will launch a local server for development.</p>
+<p>Lektor's developemnt server will automatically build all files into
+pages similar to how the build command with the <code>--watch</code> switch
+works, but also at the same time serve up the website on a local
+HTTP server.</p>
+<h2 id="options">Options</h2><ul>
+<li><code>-h, --host TEXT</code>: The network interface to bind to.  The default is the
+loopback device, but by setting it to 0.0.0.0 it becomes available on
+all network interfaces.</li>
+<li><code>-p, --port INTEGER</code>: The port to bind to.</li>
+<li><code>-O, --output-path PATH</code>: The dev server will build into the same folder
+as the build command by default.</li>
+<li><code>-v, --verbose</code>: Increases the verbosity of the logging.</li>
+<li><code>-f, --build-flag TEXT</code>: Defines an arbitrary build flag.  These can be
+used by plugins to customize the build process.  More information can be
+found in the documentation of affected plugins.</li>
+<li><code>--help</code>: print this help page.</li>
+</ul>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/cli/server"; this.page.url = "https://www.getlektor.com/docs/cli/server/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/cli/server/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

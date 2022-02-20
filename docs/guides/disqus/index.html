@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Disqus Comments | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../">Guides</a>
+            
+            <ul>
+          <li><a href="../blog/">Blog</a>
+            
+        
+          <li><a href="../categories/">Categories</a>
+            
+        
+          <li class="active"><a href="./">Disqus Comments</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../error-pages/">Error Pages</a>
+            
+        
+          <li><a href="../page-order/">Page Order</a>
+            
+        
+          <li><a href="../pagination/">Pagination</a>
+            
+        
+          <li><a href="../portfolio/">Portfolio Sites</a>
+            
+        
+          <li><a href="../redirects/">Redirects</a>
+            
+        
+          <li><a href="../single-page/">Single-Page</a>
+            
+        
+          <li><a href="../sitemap/">Sitemap</a>
+            
+        
+          <li><a href="../webpack/">Webpack</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#enabling-the-plugin">Enabling the Plugin</a></li>
+        
+          <li><a href="#configuring-the-plugin">Configuring the Plugin</a></li>
+        
+          <li><a href="#in-templates">In Templates</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Disqus Comments</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>The <code>disqus-comments</code> plugin adds support for Disqus comments to Lektor and
+with its help you can have comments on your pages in no time.  Once the plugin
+is enabled a <code>render_disqus_comments</code> function is available for templates which
+can render a disqus comment box.  All you need to do for this is to create your
+own Disqus community at <a href="https://publishers.disqus.com/engage" class="ext">Disqus Engage</a>.</p>
+<p>Once you have created your community there you will be given a "short name"
+which can then be used with this plugin.</p>
+<h2 id="enabling-the-plugin">Enabling the Plugin</h2><p>First you need to enable the plugin.  The following command will do that
+for you:</p>
+<pre><code>$ lektor plugins add disqus-comments
+</code></pre>
+<h2 id="configuring-the-plugin">Configuring the Plugin</h2><p>The plugin has a config file that is needed to inform it about your
+website.  Just create a file named <code>disqus-comments.ini</code> into your
+<code>configs/</code> folder and configure the <code>shortname</code> key with the name of
+your disqus community:</p>
+<div class="hll"><pre><span></span><span class="na">shortname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">YOUR_SHORTNAME</span><span class="w"></span>
+</pre></div>
+<h2 id="in-templates">In Templates</h2><p>Now you can add a discussion box to any of your templates by just using
+the <code>render_disqus_comments</code> function.  Just calling it is enough to
+get the comment box:</p>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;comments&quot;</span><span class="p">&gt;</span>{{ render_disqus_comments() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+<p>Optionally the function accepts two arguments: <code>identifier</code> and
+<code>url</code> to override the defaults.  For more information have a look at
+the disqus widget documentation.</p>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/guides/disqus"; this.page.url = "https://www.getlektor.com/docs/guides/disqus/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/guides/disqus/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

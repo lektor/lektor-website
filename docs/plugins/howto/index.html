@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>How To | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../">Plugins</a>
+            
+            <ul>
+          <li><a href="../dev/">Development</a>
+            
+        
+          <li class="active"><a href="./">How To</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../publishing/">Publishing</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#expose-functionality">Expose Functionality</a></li>
+        
+          <li><a href="#configure-plugins">Configure Plugins</a></li>
+        
+          <li><a href="#dependency-tracking">Dependency Tracking</a></li>
+        
+          <li><a href="#adding-new-field-types">Adding New Field Types</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>How To</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>So you want to build a plugin but it's not quite clear how you would structure
+a plugin to accomplish this?  This part of the documentation should help you
+find answers to those questions.</p>
+<h2 id="expose-functionality">Expose Functionality</h2><p>Most plugins will provide functionality of sorts.  There are two places where
+functionality is typically needed: in templates or for other plugins to use.
+Plugins can import from each other just like this, but functionality exposed
+into templates should follow some basic rules:</p>
+<ul>
+<li>modify <code>jinja_env.globals</code> or <code>jinja_env.filters</code> and do not use
+<code>process-template-context</code> unless you absolutely know what you are doing.</li>
+<li>expose as few global variables as possible.  If you have a lot you want to
+provide then consider registering an object with the templates and to
+attach multiple attributes on it.</li>
+<li>use clear names for template globals.  This is a shared space that all
+plugins and Lektor itself modify so do not provide a function called
+<code>get_script</code> but for instance call it <code>get_my_plugin_script</code>.</li>
+</ul>
+<p>A simple example of a plugin that implements <a href="https://en.gravatar.com/" class="ext">Gravatar</a> support:</p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
+<span class="kn">from</span> <span class="nn">werkzeug.urls</span> <span class="kn">import</span> <span class="n">url_encode</span>
+<span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s1">&#39;https://secure.gravatar.com/avatar/&#39;</span>
+
+<span class="k">def</span> <span class="nf">get_gravatar</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="n">fn</span> <span class="o">=</span> <span class="n">md5</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">?</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">BASE_URL</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">url_encode</span><span class="p">(</span><span class="n">options</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">GravatarPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Gravatar&#39;</span>
+    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s1">&#39;gravatar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_gravatar</span>
+</pre></div>
+<h2 id="configure-plugins">Configure Plugins</h2><p>Plugins can come with their own config files and it's encouraged that plugins
+take advantage of this.  Each plugin has exactly one INI file called
+<code>&lt;plugin-id&gt;.ini</code> inside the <code>configs</code> folder.</p>
+<p>To get access to the plugin the <code>get_config</code> function can be used which
+returns a dict like object to access the ini file.</p>
+<div class="hll"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;section.key&#39;</span><span class="p">,</span> <span class="s1">&#39;default_value&#39;</span><span class="p">)</span>
+</pre></div>
+<p>This would correspond to this config in <code>configs/my-plugin.ini</code>:</p>
+<div class="hll"><pre><span></span><span class="k">[section]</span><span class="w"></span>
+<span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">the value</span><span class="w"></span>
+</pre></div>
+<h2 id="dependency-tracking">Dependency Tracking</h2><p>While a lot of dependencies are tracked automatically, when you develop a
+plugin you probably will discover that sometimes you need to track your own
+ones.  There are different ways in which dependency tracking can work and
+depending on the situation you might have to use two different mechanisms.</p>
+<ol>
+<li><strong>Dependency tracking by association</strong>: while a build of a source object
+into an artifact is active more dependencies for that artifact can be
+registered with the <a href="../../api/build/context/record-dependency/" class="ref">record_dependency</a>
+method of the context.  It takes a filename that should be recorded as
+additional dependency for the current artifact</li>
+<li><strong>Dependency tracking as artifact source</strong>: if you build your own artifact
+you need to define the source files that make up the artifact (if you have
+such a thing).  For instance if you build a thumbnail you will need to
+track those source files that are the source images.  This can be done
+through the <a href="../../api/build/context/sub-artifact/" class="ref">sub_artifact</a>
+method which declares a new artifact.</li>
+</ol>
+<p>Here is an example of both ways in one plugin:</p>
+<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">json</span>
+<span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+
+<span class="k">def</span> <span class="nf">dump_exif</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">posixpath</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;-exif.json&#39;</span><span class="p">)</span>
+    <span class="nd">@ctx</span><span class="o">.</span><span class="n">sub_artifact</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">source_filename</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">include_file</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">record_dependency</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">artifact</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">exif</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+<span class="k">class</span> <span class="nc">ExifDumpPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s1">&#39;dump_exif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dump_exif</span>
+</pre></div>
+<p>This dumps out the EXIF data into a JSON file and returns the artifact name.
+The source image is tracked as direct source for the artifact and within the
+function we also track the plugin's filename to rebuild if the plugin changes.</p>
+<h2 id="adding-new-field-types">Adding New Field Types</h2><p>Let's say you want to add an "asciidoc"
+<a href="../../api/db/types/" class="ref">field type</a> so you can write with <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> markup.</p>
+<p>First <a href="http://www.methods.co.nz/asciidoc/INSTALL.html">install AsciiDoc</a> so its command-line program is available. Then update <code>blog-post.ini</code> from the <a href="../../guides/blog" class="ref">blog guide</a> like so:</p>
+<div class="hll"><pre><span></span><span class="k">[fields.body]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">asciidoc  # Custom type.</span><span class="w"></span>
+</pre></div>
+<p>In a blog post's <code>contents.lr</code>, write some AsciiDoc like:</p>
+<pre><code>body:
+
+== Header 1
+
+Some text.
+
+----
+code here
+----
+</code></pre>
+<p>You can add your "asciidoc" type to Lektor with a plugin:</p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">PIPE</span><span class="p">,</span> <span class="n">Popen</span>
+
+<span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+<span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>
+
+
+<span class="k">def</span> <span class="nf">asciidoc_to_html</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1"># The &quot;-&quot; at the end tells asciidoc to read from stdin.</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">&#39;asciidoc&#39;</span><span class="p">,</span> <span class="s1">&#39;--no-header-footer&#39;</span><span class="p">,</span> 
+         <span class="s1">&#39;--backend=html5&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">],</span>
+        <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">returncode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;asciidoc: &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">err</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="c1"># Wrapper with an __html__ method prevents</span>
+<span class="c1"># Lektor from escaping HTML tags.</span>
+<span class="k">class</span> <span class="nc">HTML</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">html</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">html</span> <span class="o">=</span> <span class="n">html</span>
+
+    <span class="k">def</span> <span class="nf">__html__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">html</span>
+
+
+<span class="k">class</span> <span class="nc">AsciiDocType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
+    <span class="n">widget</span> <span class="o">=</span> <span class="s1">&#39;multiline-text&#39;</span>
+
+    <span class="k">def</span> <span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="n">asciidoc_to_html</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="ow">or</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">AsciiDocPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;AsciiDoc&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;Adds AsciiDoc field type to Lektor.&#39;</span>
+
+    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="c1"># Derives type name &quot;asciidoc&quot; from class name.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">AsciiDocType</span><span class="p">)</span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/plugins/howto"; this.page.url = "https://www.getlektor.com/docs/plugins/howto/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/plugins/howto/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

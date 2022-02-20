@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title>Command Line | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../">Welcome</a></li>
+        
+        
+          <li><a href="../what/">What is Lektor</a>
+            
+        
+          <li><a href="../installation/">Installation</a>
+            
+        
+          <li><a href="../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../project/">Project</a>
+            
+        
+          <li><a href="../content/">Content</a>
+            
+        
+          <li><a href="../templates/">Templates</a>
+            
+        
+          <li><a href="../themes/">Themes</a>
+            
+        
+          <li><a href="../guides/">Guides</a>
+            
+        
+          <li><a href="../deployment/">Deployment</a>
+            
+        
+          <li><a href="../plugins/">Plugins</a>
+            
+        
+          <li><a href="../models/">Data Modelling</a>
+            
+        
+          <li class="active"><a href="./">Command Line</a>
+            
+            <ul>
+          <li><a href="build/">build</a>
+            
+        
+          <li><a href="clean/">clean</a>
+            
+        
+          <li><a href="content-file-info/">content-file-info</a>
+            
+        
+          <li><a href="deploy/">deploy</a>
+            
+        
+          <li><a href="dev/">dev</a>
+            
+        
+          <li><a href="plugins/">plugins</a>
+            
+        
+          <li><a href="project-info/">project-info</a>
+            
+        
+          <li><a href="quickstart/">quickstart</a>
+            
+        
+          <li><a href="server/">server</a>
+            
+        </ul>
+            
+        
+          <li><a href="../api/">API</a>
+            
+        
+          <li><a href="../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#options">Options</a></li>
+        
+          <li><a href="#environment-variables">Environment Variables</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Command Line</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Lektor comes with a handy <code>lektor</code> command line executable you can use from
+your terminal to manage all of Lektor in addition to the GUI.  If you do
+not have the Lektor command available because you only installed the GUI,
+have a look at <a href="../installation/" class="ref">Installation Documentation</a> to see
+how to remedy this.</p>
+<p>All the commands documented here show up as subcommands to the global
+<code>lektor</code> command.  So to invoke <code>build</code> you would write <code>lektor build</code>.</p>
+<h2 id="options">Options</h2><p>There are some general options that can be set on the <code>lektor</code> command
+to change the behavior.</p>
+<ul>
+<li><code>--project PATH</code>: explicitly provide the path to the project to work on.
+If this is not provided then the project is searched upwards from the
+current working directory until a folder is found with a single
+<code>.lektorproject</code> file in it.</li>
+<li><code>--language LANG</code>: admin interface language, defaults to <code>en</code>. Available
+options are: <code>ca</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>ja</code>, <code>ko</code>, <code>nl</code>, <code>pl</code>,
+<code>pt</code>, <code>ru</code>, <code>zh</code>.</li>
+<li><code>--version</code>: if this is passed it prints out the version of Lektor and
+aborts further execution.</li>
+<li><code>--help</code>: prints out help about the command line interface.</li>
+</ul>
+<h2 id="environment-variables">Environment Variables</h2><p>There are a few environment variables which control how Lektor executes:</p>
+<p><code>LEKTOR_PROJECT</code></p>
+<blockquote><p>This can be used alternatively to <code>--project</code> to set the path to a
+project that Lektor should be using.  If neither this variable nor
+<code>--project</code> is set, Lektor will look for a project upwards from the current
+working directory.</p>
+</blockquote>
+<p><code>LEKTOR_OUTPUT_PATH</code></p>
+<blockquote><p>Overrides the default output path with a different path.  By default the
+output path will be a path unique to the project but in a default cache
+folder under Lektor's control.  <code>--output-path</code> on some commands overrides
+this value.</p>
+</blockquote>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="build/">build</a>
+              </h4>
+              
+                <p class="summary">Builds the entire project into the final...</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="clean/">clean</a>
+              </h4>
+              
+                <p class="summary">Cleans the entire build folder.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="content-file-info/">content-file-info</a>
+              </h4>
+              
+                <p class="summary">Provides information for a set of lektor files.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="deploy/">deploy</a>
+              </h4>
+              
+                <p class="summary">Deploy the website.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="dev/">dev</a>
+              </h4>
+              
+                <p class="summary">Development commands.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="plugins/">plugins</a>
+              </h4>
+              
+                <p class="summary">Manages plugins.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="project-info/">project-info</a>
+              </h4>
+              
+                <p class="summary">Shows the info about a project.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="quickstart/">quickstart</a>
+              </h4>
+              
+                <p class="summary">Starts a new empty project.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-console"></i>
+                <a href="server/">server</a>
+              </h4>
+              
+                <p class="summary">Launch a local server.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/cli"; this.page.url = "https://www.getlektor.com/docs/cli/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/cli/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-npm-support 0.1.4</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Adds support for using npm/yarn to build assets in Lektor using tools such as <a href="https://parceljs.org/" class="ext">Parcel</a>, <a href="https://webpack.js.org/" class="ext">webpack</a>, etc.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="http://github.com/sterin/lektor-npm-support" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="http://github.com/sterin/lektor-npm-support" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-npm-support on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="http://github.com/sterin/lektor-npm-support/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="http://github.com/sterin/lektor-npm-support/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.1.4</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:lektor-npm-support@bsterin.com">Baruch Sterin</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/Babel/">Babel</a>, 
+          
+            
+            <a href="../tag/before-build-all/">before-build-all</a>, 
+          
+            
+            <a href="../tag/Browserify/">Browserify</a>, 
+          
+            
+            <a href="../tag/Node/">Node</a>, 
+          
+            
+            <a href="../tag/npm/">npm</a>, 
+          
+            
+            <a href="../tag/Parcel/">Parcel</a>, 
+          
+            
+            <a href="../tag/Sass/">Sass</a>, 
+          
+            
+            <a href="../tag/server-spawn/">server-spawn</a>, 
+          
+            
+            <a href="../tag/server-stop/">server-stop</a>, 
+          
+            
+            <a href="../tag/webpack/">webpack</a>, 
+          
+            and 
+            <a href="../tag/Yarn/">Yarn</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>lektor-npm-support</h1>
+<p><a href="https://travis-ci.org/sterin/lektor-npm-support" rel="nofollow"><img alt="Build Status" src="https://travis-ci.org/sterin/lektor-npm-support.svg"></a>
+<a href="https://ci.appveyor.com/project/sterin/lektor-npm-support" rel="nofollow"><img alt="Build status" src="https://ci.appveyor.com/api/projects/status/6op1csefpi9l8hbg?svg=true"></a>
+<a href="https://codecov.io/gh/sterin/lektor-npm-support" rel="nofollow"><img alt="Code Coverage" src="https://codecov.io/gh/sterin/lektor-npm-support/branch/master/graph/badge.svg"></a></p>
+<p><code>lektor-npm-support</code> makes it easy to use <a href="https://parcel.js.org" rel="nofollow">Parcel</a>, <a href="https://webpack.js.org" rel="nofollow">webpack</a>, <a href="http://browserify.org/" rel="nofollow">browserify</a>, or any other tool to build assets for <a href="https://github.com/lektor/lektor" rel="nofollow">Lektor</a> projects.</p>
+<h2>Enabling the Plugin</h2>
+<p>To enable the plugin, run this command while inside your Lektor project directory:</p>
+<pre>lektor plugins add lektor-npm-support
+</pre>
+<h2>Example: Creating a <a href="https://parceljs.org/" rel="nofollow">Parcel</a> Project</h2>
+<p>Create a <code>parcel/</code> folder and inside that folder create the following files:</p>
+<h3><code>configs/npm-support.ini</code></h3>
+<p>This file instructs the plugin how to generate the assets:</p>
+<pre><span class="k">[parcel]</span><span class="w"></span>
+<span class="na">npm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yarn</span><span class="w"></span>
+<span class="na">watch_script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">watch</span><span class="w"></span>
+<span class="na">build_script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">build</span><span class="w"></span>
+</pre>
+<ul>
+<li>The section name <code>[parcel]</code> is the name of the folder where the Parcel project is located.</li>
+<li><code>npm</code> is the package manager command used to build the project. This example will use <a href="https://yarnpkg.com" rel="nofollow">Yarn</a>.</li>
+<li><code>watch_script</code> is the npm script used in <code>lektor server -f npm</code>,</li>
+<li><code>build_script</code> is the npm script used in <code>lektor build -f npm</code>.</li>
+</ul>
+<p>This plugin supports more than one such entry.</p>
+<h3><code>parcel/package.json</code></h3>
+<p>This is a standard <code>package.json</code> file. It should contain two entries in the <code>scripts</code> section. The <code>build</code> script is used during <code>lektor build -f npm</code>, and the <code>watch</code> script is used during <code>lektor server -f npm</code>.</p>
+<pre><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-parcel-project&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;watch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NODE_ENV=development parcel --out-dir=../assets/static/gen --out-file=main.js --public-url=./assets/ main.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NODE_ENV=production parcel build --out-dir=../assets/static/gen --out-file=main.js --public-url=./assets/ main.js&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre>
+<p>Now we can use <code>yarn add</code> to add Parcel, <a href="https://babeljs.io/" rel="nofollow">Babel</a> and <a href="https://sass-lang.com/" rel="nofollow">Sass</a>:</p>
+<pre><code>$ cd &lt;/path/to/your/lektor/project&gt;/parcel
+$ yarn add parcel-bundler babel-preset-env node-sass
+</code></pre>
+<h3><code>parcel/babelr.rc</code></h3>
+<p>Next up is a simple Babel config file, using the recommended <code>env</code> preset.</p>
+<pre><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;presets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;env&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre>
+<h3><code>parcel/main.scss</code></h3>
+<p>A simple SCSS file.</p>
+<pre><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">border</span><span class="nd">:</span><span class="w"> </span><span class="nt">10px</span><span class="w"> </span><span class="nt">solid</span><span class="w"> </span><span class="nt">red</span><span class="o">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre>
+<h3><code>parcel/main.js</code></h3>
+<p>A simple Javascript file that imports the SCSS file so that Parcel will know to include it as well.</p>
+<pre><span class="k">import</span> <span class="s1">&#39;./main.scss&#39;</span><span class="p">;</span>
+</pre>
+<h2>Running the Server</h2>
+<p>Now you're ready to go.  When you run <code>lektor server</code> nothing wil happen,
+instead you need to now run it as <code>lektor server -f npm</code> which
+will enable the Parcel build.  Parcel will automatically build your files
+into <code>assets/static/gen</code> and this is where Lektor will then pick up the
+files.  This is done so that you can ship the generated assets
+to others that might not have these tools, which simplifies using a
+Lektor website that use this plugin.</p>
+<h2>Manual Builds</h2>
+<p>To manually trigger a build that also invokes webpack you can use <code>lektor build -f npm</code>.</p>
+<h2>Including The Files</h2>
+<p>Now you need to include the files in your template.  This will do it:</p>
+<pre><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ &#39;/static/gen/main.css&#39;| asseturl }}&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">text/javascript</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ &#39;/static/gen/main.js&#39;| asseturl }}&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre>
+<h2>Complete Working Example</h2>
+<p>The <code>examples</code> folder of this repository contains working projects.</p>
+<h2>Credits</h2>
+<p>This plugin is based on the official <a href="https://github.com/lektor/lektor-webpack-support" rel="nofollow">lektor-webpack-support</a> Lektor plugin by <a href="http://lucumr.pocoo.org/about/" rel="nofollow">Armin Ronacher</a>.</p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-npm-support"; this.page.url = "https://www.getlektor.com/plugins/lektor-npm-support/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-npm-support/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

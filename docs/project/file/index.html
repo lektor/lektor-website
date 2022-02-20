@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Project File | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../">Project</a>
+            
+            <ul>
+          <li><a href="../structure/">Folder Structure</a>
+            
+        
+          <li class="active"><a href="./">Project File</a>
+            
+            <ul></ul>
+            
+        </ul>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#config-sections">Config Sections</a><ul>
+          <li><a href="#project"><code>[project]</code></a></li>
+        
+          <li><a href="#packages"><code>[packages]</code></a></li>
+        
+          <li><a href="#servers.*]`"><code>[servers.*]</code></a></li>
+        
+          <li><a href="#alternatives.*]`"><code>[alternatives.*]</code></a></li>
+        
+          <li><a href="#attachment-types"><code>[attachment_types]</code></a></li>
+        </ul></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Project File</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>The project file holds the main configuration of the project and is used to
+identify the project for the user interface.  The project file is an INI file
+(UTF-8 encoded like everything else in Lektor) and the minimal content is the
+name of the project:</p>
+<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Fancy Project</span><span class="w"></span>
+</pre></div>
+<p>The name of the file can be arbitrary but must have the <code>.lektorproject</code>
+extension or Lektor will not be able to find it.  When Lektor looks for a
+project it looks upwards from the current folder until it finds a single
+file with the <code>.lektorproject</code> extension and that's then the root of the project.</p>
+<div class="admonition admonition-info"><p>It's possible to build a Lektor project in the absence of a Project file,
+but this usage is heavily discouraged.  It exists primarily for quick
+testing situations.  But don't be confused if you encounter a Lektor project
+that does not come with a corresponding project file.</p></div><h2 id="config-sections">Config Sections</h2><p>Within the project file there are various configuration sections.  The
+following sections currently exist:</p>
+<h3 id="project"><code>[project]</code></h3><p>This section controls some basics about the project:</p>
+<p><code>name</code></p>
+<blockquote><p>This is the human readable name of the project.  It's used in various
+places where the system wants to show the context of the operations.  For
+instance the admin panel will display this to indicate which project is
+being worked on.</p>
+</blockquote>
+<p><code>locale</code></p>
+<blockquote><p>This is the default locale of the website.  This defaults to <code>en_US</code> and
+can be changed to many others.  Most locales of the CLDR project are
+supported.  This information is for instance used to format dates.</p>
+</blockquote>
+<p><code>url</code></p>
+<blockquote><p>This is the full URL of the website.  If set this information can be used
+to enable the <code>external</code> URL generation parameter.  Lektor tries hard to
+make websites work in a way where this information is not necessary but
+some systems might need it.  For instance sitemaps require full URLs and
+not having them would be a violation of the specification.</p>
+</blockquote>
+<p><code>url_style</code></p>
+<blockquote><p>This controls the style of generated URL references through the
+<a href="../../api/utils/url-to/" class="ref">url_to</a> function or filters.  The default
+value for this is <code>relative</code>.  The following values are possible:</p>
+<table>
+<thead><tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>relative</code></td>
+<td>URLs are generated relative to the currently active page.</td>
+</tr>
+<tr>
+<td><code>absolute</code></td>
+<td>URLs are generated absolute (relative to root page)</td>
+</tr>
+<tr>
+<td><code>external</code></td>
+<td>URLs are generated with the fully canonical URL (external).</td>
+</tr>
+</tbody>
+</table>
+<p>There are advantages and disadvantages to all styles.  <code>relative</code> has the
+benefit that it works without any configuration no matter where you deploy
+to.  The downside is that you cannot have a page appear on multiple paths
+which for instance breaks custom error pages.  <code>absolute</code> is useful for
+situations where you have custom error pages and you generally know a bit
+about the server you are deploying to.  <code>external</code> generally makes not a lot
+of sense as default setting but exists for consistency's sake.</p>
+<p>For individual URLs that are generated with the <a href="../../api/utils/url-to/" class="ref">url_to</a> function it's possible to override the
+default URL style.</p>
+</blockquote>
+<p><code>path</code></p>
+<blockquote><p>This setting can be used to configure a different path for the project
+tree.  This requires a bit of explanation:</p>
+<p>If this is not set (which is the default) then Lektor will find the
+content files right next to the project file.  However in some situations
+you might want to move a project file to a completely different location
+for instance because you want to have settings in there that you do not
+want to put into version control.  In that case you can set the <code>path</code>
+in the file to a path (absolute or relative to the project file) which
+resolves to the project tree.</p>
+<p>Note that if this setting is used some functionality in the desktop app
+might no longer work (for instance opening <code>.lr</code> files with a double click).</p>
+</blockquote>
+<p><code>output_path</code></p>
+<blockquote><p>Configure the build path for your project. By default, Lektor will detect a
+proper location depeding on your operation system, only use this setting if
+you want to set a custom path.
+The path is relative to the project file, absolute paths are allowed but not
+portable between distinct filesystems.</p>
+</blockquote>
+<p><code>excluded_assets</code></p>
+<blockquote><p>A list of file names or Unix shell-style wildcards, separated by commas.
+The wildcard syntax follows <a href="https://docs.python.org/2/library/fnmatch.html">fnmatch</a>.</p>
+<p>By default, filenames beginning with "_" or "." are not copied from the
+<code>assets</code> directory to the output directory. Exclude <em>additional</em> files with
+the <code>excluded_assets</code> option.</p>
+</blockquote>
+<p><code>included_assets</code></p>
+<blockquote><p>A comma-separated list of file names or Unix shell-style wildcards, specifying
+files that should be copied from the <code>assets</code> directory to the output
+directory even if they begin with "_" or "." (the default exclusion patterns)
+or match your custom <code>excluded_assets</code> pattern. The wildcard syntax follows
+<a href="https://docs.python.org/2/library/fnmatch.html">fnmatch</a>.</p>
+</blockquote>
+<p>Example:</p>
+<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Website</span><span class="w"></span>
+<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://www.mywebsite.invalid/</span><span class="w"></span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">de_DE</span><span class="w"></span>
+<span class="na">excluded_assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">*.backup, *~</span><span class="w"></span>
+<span class="na">included_assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_special_file</span><span class="w"></span>
+</pre></div>
+<h3 id="packages"><code>[packages]</code></h3><p>This section controls the packages (plugins) that should be installed for
+this project.  It's a simple key/value list where the key is the plugin
+name and the value is the version number.</p>
+<p>Example:</p>
+<div class="hll"><pre><span></span><span class="k">[packages]</span><span class="w"></span>
+<span class="na">lektor-webpack-support</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1</span><span class="w"></span>
+</pre></div>
+<h3 id="servers.*]`"><code>[servers.*]</code></h3><p>This section can be repeated and each instance sets up a server.  The <code>*</code>
+needs to be replaced with the ID of the server.  This ID is used by the
+command line tool to select the server to deploy to.  For more information
+about this see the <a href="../../deployment/" class="ref">Deployment Guide</a></p>
+<p><code>name</code></p>
+<blockquote><p>Human readable name for this server (shown in the UI)</p>
+</blockquote>
+<p><code>target</code></p>
+<blockquote><p>The target URL for the server.  This URL is specific to the deployment
+method that is being used.  For a list of which URLs are supported refer
+to the deployment guides.</p>
+</blockquote>
+<p><code>enabled</code></p>
+<blockquote><p>This setting can be used to enable/disable the server.  The default is <code>yes</code>.</p>
+</blockquote>
+<p><code>default</code></p>
+<blockquote><p>This can be used to set a server to be used by default.  If only one server
+is configured it's an implicit default.</p>
+</blockquote>
+<p>Example:</p>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span><span class="w"></span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder</span><span class="w"></span>
+</pre></div>
+<h3 id="alternatives.*]`"><code>[alternatives.*]</code></h3><p>This configures <a href="../../content/alts/" class="ref">Alternatives</a>.  It is repeated for
+each intended alternative.  The default behavior is that alternatives are
+disabled.</p>
+<p><code>name</code></p>
+<blockquote><p>The human readable name for the alternative.  The admin interface uses this.</p>
+</blockquote>
+<p><code>url_prefix</code></p>
+<blockquote><p>A prefix that is added in front of all URLs to identify this alternative.</p>
+</blockquote>
+<p><code>url_suffix</code></p>
+<blockquote><p>A suffix that is added behind all URLs to enable this alternative.  This is
+currently discouraged compared to the URL prefix as it might not yet work
+in all situations properly.</p>
+</blockquote>
+<p><code>primary</code></p>
+<blockquote><p>If this is set to <code>true</code> then the alternative is selected as primary.  For
+more information about this refer to the guide.</p>
+</blockquote>
+<p><code>locale</code></p>
+<blockquote><p>This setting can override the global site locale for a specific alternative.</p>
+</blockquote>
+<p>Example:</p>
+<div class="hll"><pre><span></span><span class="k">[alternatives.en]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">English</span><span class="w"></span>
+<span class="na">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">en_US</span><span class="w"></span>
+
+<span class="k">[alternatives.fr]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">French</span><span class="w"></span>
+<span class="na">url_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/fr/</span><span class="w"></span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">fr</span><span class="w"></span>
+</pre></div>
+<h3 id="attachment-types"><code>[attachment_types]</code></h3><p>Lektor does some basic attachment type detection based on file extension. This is what powers the <code>this.attachemnts.images</code> and <code>this.attachments.videos</code> attributes for instance. If the built-in map does not cover your file extension you can extend it or add new attachement types on a project by project basis.</p>
+<p>Example:</p>
+<div class="hll"><pre><span></span><span class="k">[attachment_types]</span><span class="w"></span>
+<span class="c1">; &lt;.file-ext&gt; = &lt;type&gt;</span><span class="w"></span>
+<span class="na">.gpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gpx</span><span class="w"></span>
+<span class="na">.ogv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">video</span><span class="w"></span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/project/file"; this.page.url = "https://www.getlektor.com/docs/project/file/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/project/file/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

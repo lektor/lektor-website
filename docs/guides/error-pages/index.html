@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Error Pages | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../">Guides</a>
+            
+            <ul>
+          <li><a href="../blog/">Blog</a>
+            
+        
+          <li><a href="../categories/">Categories</a>
+            
+        
+          <li><a href="../disqus/">Disqus Comments</a>
+            
+        
+          <li class="active"><a href="./">Error Pages</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../page-order/">Page Order</a>
+            
+        
+          <li><a href="../pagination/">Pagination</a>
+            
+        
+          <li><a href="../portfolio/">Portfolio Sites</a>
+            
+        
+          <li><a href="../redirects/">Redirects</a>
+            
+        
+          <li><a href="../single-page/">Single-Page</a>
+            
+        
+          <li><a href="../sitemap/">Sitemap</a>
+            
+        
+          <li><a href="../webpack/">Webpack</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#urls-on-404-pages">URLs on 404 Pages</a></li>
+        
+          <li><a href="#creating-an-error-page">Creating an Error Page</a></li>
+        
+          <li><a href="#server-configuration">Server Configuration</a><ul>
+          <li><a href="#apache">Apache</a></li>
+        
+          <li><a href="#nginx">nginx</a></li>
+        
+          <li><a href="#lighttpd">lighttpd</a></li>
+        </ul></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Error Pages</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Because Lektor renders out static pages the question comes up what happens if a
+page cannot be found.  This is typically achieved by a special page that a
+server will then use as a stand-in for a page that otherwise cannot be found.</p>
+<p>In Lektor as a convention this page should be called <code>404.html</code>.  While in
+reality the name of this page largely depends on how you deploy your pages we
+are sticking with the generally accepted location of calling it <code>404.html</code>.
+This will work on GitHub Pages and some other environments where this cannot
+be otherwise configured and most web servers can be configured to use this file
+for URLs that are not found.</p>
+<div class="admonition admonition-note"><p>In versions of Lektor before 2.0 custom 404 pages will not be honored by the
+development server.  To test those you will need to explicitly navigate to
+<code>/404.html</code>.</p></div><h2 id="urls-on-404-pages">URLs on 404 Pages</h2><p>If you are using 404 pages then these pages can appear at any URL.  This means
+that relative URLs <em>will not work</em>.  If you want to use custom error pages you
+will have to set the <code>url_style</code> to <code>absolute</code> as otherwise URLs on an error
+page will not work.  Just add this to your project file:</p>
+<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<span class="na">url_style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">absolute</span><span class="w"></span>
+</pre></div>
+<p>For more information about this you can read the <a href="../../project/file/" class="ref">Project File Documentation</a>.</p>
+<h2 id="creating-an-error-page">Creating an Error Page</h2><p>You can easily add a 404 page by creating a <code>404.html/contents.lr</code>
+file.  If you do not care much about the contents and structure of the file
+you can just point it to an empty model (<code>none</code>) and manually select a
+<code>404.html</code> template like this:</p>
+<pre><code>_model: none
+---
+_template: 404.html
+</code></pre>
+<p>Then just create a <code>404.html</code> template with the intended contents.</p>
+<h2 id="server-configuration">Server Configuration</h2><p>If you are deploying such pages to your own servers you will need to ensure
+that the error pages are activated.  Depending on the server used this will
+work slightly differently.</p>
+<h3 id="apache">Apache</h3><p>Making custom error pages work is easiest with Apache.  If <code>.htaccess</code> files
+are enabled you can just put a file with that name into your <code>assets</code> folder
+and add the following line to it:</p>
+<div class="hll"><pre><span></span><span class="nb">ErrorDocument</span><span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="sx">/404.html</span><span class="w"></span>
+</pre></div>
+<p>Alternatively you can add the above line into a <code>VirtualHost</code> or <code>Directory</code>
+section in your main config file.</p>
+<h3 id="nginx">nginx</h3><p>For nginx you need to enable the error document in your main config file.  Just
+add it to your <code>server</code> section:</p>
+<div class="hll"><pre><span></span><span class="k">error_page</span><span class="w"> </span><span class="mi">404</span><span class="w"> </span><span class="s">/404.html</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+<h3 id="lighttpd">lighttpd</h3><p>If you are using lighttpd you can configure an error page for 404 this way:</p>
+<div class="hll"><pre><span></span><span class="na">server.error-handler-404</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/404.html&quot;</span><span class="w"></span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/guides/error-pages"; this.page.url = "https://www.getlektor.com/docs/guides/error-pages/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/guides/error-pages/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

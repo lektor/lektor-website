@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Development | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../">Plugins</a>
+            
+            <ul>
+          <li class="active"><a href="./">Development</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../howto/">How To</a>
+            
+        
+          <li><a href="../publishing/">Publishing</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#enable-development-mode">Enable Development Mode</a></li>
+        
+          <li><a href="#creating-a-package">Creating A Package</a></li>
+        
+          <li><a href="#creating-the-plugin">Creating The Plugin</a></li>
+        
+          <li><a href="#hooking-events">Hooking Events</a></li>
+        
+          <li><a href="#what-plugins-can-do">What Plugins Can Do</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Development</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>If you want to dive into plugin development yourself, this guide will get you
+going quickly.  Before we can get started you need to have a Lektor project
+we can temporarily add the plugin to and you need to have the <code>lektor</code>
+<a href="../../cli/">command line tool</a> installed.</p>
+<h2 id="enable-development-mode">Enable Development Mode</h2><p>When developing plugins it's very useful to enable Lektor's development
+mode before starting the server.  This can be achieved by exporting the
+<code>LEKTOR_DEV</code> environment variable and setting it to <code>1</code>:</p>
+<pre><code>$ export LEKTOR_DEV=1
+$ lektor server
+</code></pre>
+<p>With that in place, Lektor will automatically restart the development server
+when the plugin is changing.</p>
+<h2 id="creating-a-package">Creating A Package</h2><p>Plugins come in packages.  To make one, just create a folder with a sensible
+name (typically the name of your plugin minus the <code>lektor-</code> prefix) in your
+<code>packages/</code> folder.</p>
+<p>You can either do this manually or you can use the <code>lektor dev new-plugin</code>
+command (see <a href="../../cli/dev/new-plugin/" class="ref">new-plugin</a>) which will create
+this folder structure for you:</p>
+<pre><code>$ lektor dev new-plugin
+</code></pre>
+<p>This will guide you through a flow which ends up creating a new plugin
+package in the packages folder.</p>
+<p>Alternatively you can manually create a <code>packages/hello-world/</code> folder.</p>
+<p>Once that is done, we need to create a <code>setup.py</code> file which tells Lektor
+what your plugin needs to run.  This will already be created for you if
+you used the wizard.</p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;lektor-hello-world&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
+    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lektor_hello_world&#39;</span><span class="p">],</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;lektor.plugins&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;hello-world = lektor_hello_world:HelloWorldPlugin&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[]</span>
+<span class="p">)</span>
+</pre></div>
+<p>So going line by line, these are what the things mean:</p>
+<ul>
+<li><code>setuptools</code> is a module that helps us install the package with the
+Python interpreter that Lektor uses.  We only need the setup function
+from it for this example.</li>
+<li><code>name</code> is the name of the plugin when it's published to the Python package
+index where all Lektor plugins go.  As such it should be prefixed with
+<code>lektor-</code> to make it not clash with other packages on the index.</li>
+<li><code>version</code> identifies the version.  During local development it does not
+matter what you write here, but it will play a role once you start
+publishing your packages.  Users need to reference exact versions of these
+plugins when using them.</li>
+<li><code>py_modules</code>: this is a list of modules that your plugin needs to run.
+This should always be exactly one module named <code>lektor_XXX</code> where <code>XXX</code>
+is your plugin name with underscores instead of dashes as separators.
+If you need more than one module you should use a package instead.  This is
+not covered here, but you can find this in the <a href="https://pythonhosted.org/setuptools/" class="ext">setuptools documentation</a>.</li>
+<li><code>entry_points</code>: this is meta data that is needed to associate our package
+with Lektor.  Lektor will load all plugins in the <code>lektor.plugins</code> list.
+It can be a list of definitions in the form <code>plugin-name = import_path</code>.
+The plugin name is what will show up in the plugin list in Lektor,
+the import path should be the dotted import path to the module that contains
+the plugin followed by a colon (<code>:</code>) with the class name afterwards.</li>
+<li><code>install_requires</code>: this is a list of dependencies for our plugin.  We
+leave it empty here as we do not depend on anything in this simple
+example.</li>
+</ul>
+<h2 id="creating-the-plugin">Creating The Plugin</h2><p>Now it's time to create our first plugin that does absolutely nothing.  We
+create a new file with the name <code>lektor_hello_world.py</code> next to our
+<code>setup.py</code> and put the following things in:</p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is a demo plugin for testing purposes.&#39;</span>
+</pre></div>
+<p>If you now start your lektor server with <code>lektor server</code> you should
+see some output that indicates that the plugin was loaded.  You can also
+get a list with <code>lektor plugins list</code>:</p>
+<pre><code>$ lektor plugins list
+hello-world: Hello World
+  This is a demo plugin for testing purposes.
+  path: /Users/john/demo/packages/hello-world
+  import-name: lektor_hello_world:HelloWorldPlugin
+</code></pre>
+<h2 id="hooking-events">Hooking Events</h2><p>Plugins in Lektor are based on the concept of hooking events.  There are many
+events that can be hooked but we will only cover a very basic one here,
+the <code>setup-env</code> event.  To respond to it, we need to implement
+a function named <code>on_setup_env</code>:</p>
+<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">MESSAGES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Reticulating splines&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Populating slots&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Possessing pawns&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">get_random_message</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">MESSAGES</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is a demo plugin for testing purposes.&#39;</span>
+
+    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="n">get_random_message</span><span class="o">=</span><span class="n">get_random_message</span>
+        <span class="p">)</span>
+</pre></div>
+<p>This will inject a function with the name <code>get_random_message</code> into our
+template globals when the environment is initialized.  This means that we
+can access this function from templates then:</p>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Message of the page: <span class="cp">{{</span> <span class="nv">get_random_message</span><span class="o">()</span> <span class="cp">}}</span>
+</pre></div>
+<p>There are many events that can be hooked and they can be found in the
+<a href="../../api/plugins/events/" class="ref">Event Documentation</a>.  All events need
+to be subscribed with an extra <code>**extra</code> argument to catch down additional
+arguments that might be supplied in the future.</p>
+<h2 id="what-plugins-can-do">What Plugins Can Do</h2><p>To understand what you can do with plugins have a look at the
+<a href="../../api/plugins/" class="ref">Plugin API</a>.</p>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/plugins/dev"; this.page.url = "https://www.getlektor.com/docs/plugins/dev/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/plugins/dev/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

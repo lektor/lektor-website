@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Lektor 2.0 Released | The Transcript | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li><a href="../../../../docs/">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li class="active"><a href="../../../">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  <div class="blog-post">
+    
+  
+  
+    
+      
+<div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"></div>
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+      <div class="meta-bar">
+        <h1>Lektor 2.0 Released</h1>
+        <p class="meta">
+          by
+          
+            <a href="https://twitter.com/mitsuhiko">Armin Ronacher</a>
+          
+          on Monday, April 11, 2016
+        </p>
+      </div>
+    
+      </div>
+    </div>
+  </div>
+
+    
+  
+    
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="text-block text-block-default">
+  <p>After quite a bit of wait, I'm happy to announce the 2.0 release of Lektor.
+Some things that previously were supposed to go into this release were pushed
+out a bit more because the wait just was too long and quite a few features
+were already in this release.</p>
+<p>Here is the changelog of what's in this release:</p>
+<ul>
+<li>Added <code>_discoverable</code> system field which controls if a page should show
+up in <code>children</code>.  The default is that a page is discoverable.  Setting it
+to <code>False</code> means in practical terms that someone needs to know the URL as
+all collection operations will not return it.</li>
+<li>Added <code>for_page</code> function to pagination that returns the pagiantion for a
+specific page.</li>
+<li>Make pagination next_page and prev_page be None on the edges.</li>
+<li>Allow plugins to provide publishers.</li>
+<li>Added <code>|markdown</code> filter.</li>
+<li>Added French translations.</li>
+<li>Unicode filenames as final build artifacts are now explicitly disallowed.</li>
+<li>Serve up a 404.html as an error page in the dev server.</li>
+<li>Improvements to the path normalization and alt handling.  This should support
+URL generation in more complex cases between alts now.</li>
+<li>Show a clearer error message when URL generation fails because a source
+object is virtual (does not have a path).</li>
+<li>Empty text is now still valid markdown.</li>
+<li>Lektor clean now loads the plugins as well.</li>
+<li>Basic support for type customization.</li>
+<li>Fields that are absent in a content file from an alternative are now pulled
+from the primary content file.</li>
+<li>Development server now resolves index.html for assets as well.</li>
+<li>Markdown processing now correctly adjusts links relative to where the
+rendered output is rendered.</li>
+<li>Added Dutch translations.</li>
+<li>Added Record.get_siblings()</li>
+<li>Added various utilties: build_url, join_path, parse_path</li>
+<li>Added support for virtual paths and made pagination work with it.</li>
+<li>Added support for Query.distinct</li>
+<li>Add support for pagination url resolving on root URL.</li>
+<li>Server information can now also contain extra key/value pairs that
+can be used by publishers to affect the processing.</li>
+<li>The thumbnails will now always have the correct width and height set
+as an attribute.</li>
+<li>added datetime type</li>
+<li>added support for the process_image utility functions so that plugins
+can use it directly.</li>
+<li>added support for included_assets and excluded_assets in the project file.</li>
+<li>added Spanish translations.</li>
+<li>added Japanese translations.</li>
+<li>added support for discovering existing alts of sources.</li>
+<li>added support for image cropping.</li>
+<li>added preliminary support for publishing on windows.</li>
+<li>children and attachments can now have a hidden flag configured explicitly.
+Attachments will also no longer inherit the hidden flag of the parent
+record as that is not a sensible default.</li>
+<li>changed internal sqlite consistency mode to improve performance on HDDs.</li>
+<li>allow SVG files to be treated as images.  This is something that does not
+work in all situations yet (in particular thumbnailing does not actually
+do anything for those)</li>
+</ul>
+<p>As always you can install the release as mentioned in the release notes.
+If you had a previous version of Lektor the install process should auto
+upgrade.  If you use the OS X desktop build, just drag the new application over
+the already existing one.</p>
+
+</div>
+      </div>
+    </div>
+  </div>
+
+    
+  
+
+
+    
+    
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        
+          <div class="nav-prev">
+            <a href="../../3/lektor-at-rails-girls-summer-of-code/">Previous: Lektor at Rails Girls Summer of Code 2016</a>
+          </div>
+        
+        
+          <div class="nav-next">
+            <a href="../../../2018/1/lektor-31-released/">Next: Lektor 3.1 Released</a>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/blog/lektor-2-released/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

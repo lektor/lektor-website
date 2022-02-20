@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Children &amp; Pagination | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../">Data Modelling</a>
+            
+            <ul>
+          <li><a href="../attachments/">Attachments</a>
+            
+        
+          <li class="active"><a href="./">Children &amp; Pagination</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../selection/">Default Model Selection</a>
+            
+        
+          <li><a href="../flow/">Flow Block Models</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#child-configuration">Child Configuration</a></li>
+        
+          <li><a href="#child-slug-behavior">Child Slug Behavior</a></li>
+        
+          <li><a href="#pagination">Pagination</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Children &amp; Pagination</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>By default each model can have child pages.  This is what enables the
+hierarchical structure of the Lektor database.  Children are configured
+together with a model that encloses it.  This is typically called the
+“collection model”.  For instance you can have a collection model called
+<code>pages</code> which is the parent to a few <code>page</code> children.</p>
+<h2 id="child-configuration">Child Configuration</h2><p>Most configuration related to child pages goes into <code>[children]</code>.  It
+configures how children of the model should be handled.  In particular it
+controls if a page can have children to begin with, if the children can be of
+any format or have to match specific models and more.</p>
+<p>Here are the most important options below <code>[children]</code>:</p>
+<ul>
+<li><code>enabled</code>: this can enable or disable children.  The default is that a
+page can have children.</li>
+<li><code>slug_format</code>: this key controls the URL key for children.  By default
+the URL key is the ID of the page.  However in some cases you might
+want to change that.  For instance blog-posts might want to pull in
+parts of the date into the URL.  This is a template expression.</li>
+<li><code>model</code>: if this is set to a string, then all children are automatically
+forced to the same model and the UI will not give a way to select a
+model when creating a new child page.  This allows specific parts of
+the website to use the correct models automatically.  For instance you
+can force all pages below <code>/projects</code> to use the <code>project</code> model.</li>
+<li><code>order_by</code>: a comma separated list of fields that indicate the default
+sort order.  If a field is prefixed with a minus sign, the order is
+inversed.</li>
+<li><code>replaced_with</code>: this allows a page to simulate that it has children
+when it really has not.  This can be a query expression and the result
+is then used as the children of the model.  This for instance can be
+used to implement categories with filtering.</li>
+<li><code>hidden</code>: if this is set it can override the parent's hidden flag for
+all children.  This is particularly useful if you want to have a folder
+for error pages or other special pages where the parent itself should not
+be rendered but all children are.  The default is not set.</li>
+</ul>
+<div class="admonition admonition-info"><p>The <code>hidden</code> flag was added in Lektor 2.0</p></div><h2 id="child-slug-behavior">Child Slug Behavior</h2><p>Slugs are the URL paths or more correctly: parts of it.  The URL paths
+always are the concatenation from the parent's page URL path plus the
+children's slug.  If not configured the default slug of children is the
+page's <code>_id</code>.  A slug can contain slashes to navigate into folders.  This
+also allows pages to overlap into other pages.  For instance if you have
+a model called <code>categories</code> which is used by a folder named <code>categories/</code>,
+that folder could set the <code>_slug</code> to <code>blog/categories</code> and then the URL
+for categories would be <code>blog/categories/example</code> instead of
+<code>categories/example</code>.</p>
+<p>The default slug can be changed with the <code>slug_format</code> parameter in the
+<code>[children]</code> section which can be a template expression.  For instance a
+common way to format slugs would be to include some date components.  What's
+important about this is that the slug expression must not fail even if fields
+are empty!  This is necessary because new pages will start out with the
+fields not being filled in.</p>
+<p>This for instance includes a date in the URL if set:</p>
+<div class="hll"><pre><span></span><span class="na">slug_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ (this.date|dateformat(&#39;YYYY/M/&#39;) if this.date) ~ this._id }}</span><span class="w"></span>
+</pre></div>
+<h2 id="pagination">Pagination</h2><p>In general a source document renders into a single page.  The exception to
+that rule are pages with children which show the children on the rendered
+page and have pagination enabled.  In that case it becomes possible to
+slide the range of children into smaller pieces and render those slides
+instead.</p>
+<p>Pagination is controlled from the <code>[pagination]</code> section.  The following
+keys are available:</p>
+<ul>
+<li><code>enabled</code>: if set to <code>yes</code> pagination becomes enabled.  It's off by
+default.</li>
+<li><code>per_page</code>: this controls how many children are shown per page.  If
+pagination is enabled and this is not set, an implicit default of <code>20</code>
+is assumed.</li>
+<li><code>items</code>: if this is set to a query then the pagination's items will be
+overridden by it.  This can be used to make the pagination work over a
+subset of items.</li>
+</ul>
+<p>If pagination is enabled then the <a href="../../api/db/record/pagination/" class="ref">pagination attribute</a> of a record becomes available.  For
+more information have a look at the <a href="../../guides/pagination/" class="ref">pagination guide</a>.</p>
+<div class="admonition admonition-info"><p>The <code>items</code> property was added in Lektor 2.0</p></div>
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/models/children"; this.page.url = "https://www.getlektor.com/docs/models/children/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/models/children/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

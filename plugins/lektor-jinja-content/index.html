@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-jinja-content 0.4.3</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Render content fields with Jinja2.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/terminal-labs/lektor-jinja-content" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/terminal-labs/lektor-jinja-content" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-jinja-content on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/terminal-labs/lektor-jinja-content/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/terminal-labs/lektor-jinja-content/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.4.3</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:solutions@terminallabs.com">Terminal Labs, Joseph Nix</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/content/">content</a>, 
+          
+            
+            <a href="../tag/context/">context</a>, 
+          
+            
+            <a href="../tag/Jinja/">Jinja</a>, 
+          
+            
+            <a href="../tag/Markdown/">Markdown</a>, 
+          
+            
+            <a href="../tag/process-template-context/">process-template-context</a>, 
+          
+            and 
+            <a href="../tag/templates/">templates</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>lektor-jinja-content</h1>
+<p><a href="https://travis-ci.org//terminal-labs/lektor-jinja-content" rel="nofollow"><img alt="Build Status" src="https://api.travis-ci.org/terminal-labs/lektor-jinja-content.svg?branch=master"></a>
+<a href="https://codecov.io/gh//terminal-labs/lektor-jinja-content" rel="nofollow"><img alt="Code Coverage" src="https://codecov.io/gh/terminal-labs/lektor-jinja-content/branch/master/graph/badge.svg"></a>
+<a href="https://pypi.org/project/lektor-jinja-content/" rel="nofollow"><img alt="PyPI version" src="https://badge.fury.io/py/lektor-jinja-content.svg"></a>
+<a href="https://pypi.org/project/lektor-jinja-content/" rel="nofollow"><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/lektor-jinja-content.svg"></a>
+<a href="https://github.com/ambv/black" rel="nofollow"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a></p>
+<p>This is a Lektor plugin that allows you to render Jinja2 inside your content fields that are string-like. For example, this means that inside your content fields that are of type string or Markdown, you can write Jinja logic, and access Lektor's <a href="https://www.getlektor.com/docs/templates/#template-context" rel="nofollow">Template Context</a>, and has access to all normal Jinja filters, including those provided by <a href="https://github.com/terminal-labs/lektor-slugify" rel="nofollow">other plugins</a>. In a Markdown field (or other field that is rendered - like <a href="https://github.com/fschulze/lektor-rst" rel="nofollow">rst</a>), the <strong>Jinja is processed first</strong>, then the formatting processor.</p>
+<p>You can set and use Jinja variables, but they will only have meaning within their field that is being rendered.</p>
+<p>With this plugin, you'll have to make sure the content that is rendered <strong>is valid Jinja</strong>. Jinja syntax erros will throw an exception. Don't forget about the handy <code>{% raw %} {% endraw %}</code> tags if you want content that is not valid Jinja.</p>
+<p><strong>N.B.</strong> Using this plugin is rendering many more items with Jinja, and your build process will slow down as a result. As an early benchmark and anecdote, my small website's build time rose from 4.89s to 5.39s even while I actually had no Jinja-Content that needed rendering. I plan on adding the ability to configure this plugin later so that you don't have to run <em>everything</em> through Jinja if you don't want to.</p>
+<h2>Examples</h2>
+<p>Querying context: <code>{{ site.get('/').title }}</code> or <code>{{ this.path }}</code></p>
+<p>Logic:</p>
+<pre><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_life</span><span class="o">,</span> <span class="nv">meaning_of_universe</span> <span class="o">=</span> <span class="nv">this.life</span><span class="o">,</span> <span class="nv">this.universe</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">meaning_of_life</span> <span class="o">==</span> <span class="nv">meaning_of_universe</span> <span class="o">==</span> <span class="m">42</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_it_all</span> <span class="o">=</span> <span class="nv">meaning_of_life</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_it_all</span> <span class="o">=</span> <span class="s1">&#39;Undefined&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">meaning_of_it_all</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+<p>Jinja in Markdown:</p>
+<pre><span class="x">[link text](</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">)</span>
+</pre>
+<p>Jinja in reStructuredText:</p>
+<pre><span class="x">`link text &lt;</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&gt;`_</span>
+</pre>
+<p>Try running the <a href="https://github.com/terminal-labs/lektor-jinja-content/blob/master/tests/demo-project/" rel="nofollow">test site</a> for more examples.</p>
+<h2>Possible future of this plugin.</h2>
+<p>This Plugin opens the door to some pretty powerful and pretty funky functionality. Here's some food for though:</p>
+<ul>
+<li>Currently every every string-like field in <code>_data</code> and <code>_blocks</code> is processed, even things like <code>_slug</code> and <code>_template</code>. Can these other things be used?</li>
+<li><a href="https://github.com/lektor/lektor/issues/541" rel="nofollow">Some people want to be able to include markdown in content files / declarations</a>. This plugin might pave the way toward that with <a href="https://github.com/terminal-labs/lektor-jinja-content/issues/3" rel="nofollow">includes and extends</a>.</li>
+<li>Could we Jinjaify static files?</li>
+<li><a href="https://github.com/terminal-labs/lektor-jinja-content/issues/4" rel="nofollow">Databags?</a></li>
+<li><a href="https://github.com/terminal-labs/lektor-jinja-content/issues/2" rel="nofollow">What about modularity?</a></li>
+</ul>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-jinja-content"; this.page.url = "https://www.getlektor.com/plugins/lektor-jinja-content/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-jinja-content/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

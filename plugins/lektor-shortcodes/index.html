@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-shortcodes 0.2.5</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Allows you to use shortcodes (something like tags) in your model fields.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/skorokithakis/lektor-shortcodes" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/skorokithakis/lektor-shortcodes" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-shortcodes on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/skorokithakis/lektor-shortcodes/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/skorokithakis/lektor-shortcodes/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.2.5</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:hi@stavros.io">Stavros Korokithakis,,,</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/Jinja-filters/">Jinja filters</a>, 
+          
+            
+            <a href="../tag/Markdown/">Markdown</a>, 
+          
+            
+            <a href="../tag/markdown-config/">markdown-config</a>, 
+          
+            
+            <a href="../tag/setup-env/">setup-env</a>, 
+          
+            and 
+            <a href="../tag/shortcodes/">shortcodes</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          Lektor Shortcodes<br>=================<br><br>[![PyPI](https://img.shields.io/pypi/v/lektor-shortcodes.svg)](https://pypi.python.org/pypi/lektor-shortcodes)<br><br>The Lektor Shortcodes plugin allows you to use shortcodes (shortcodes are<br>something like custom tags) in your fields (not templates), so your content<br>doesn&#x27;t have to have repetitive snippets over and over.<br><br>For example, my blog has some specific HTML that I add when I want an image with<br>a border and caption to be displayed.  The HTML looks like this:<br><br><br>~~~html<br>    &lt;div class=&quot;alignright&quot;&gt;<br>        &lt;a href=&quot;image-large.jpg&quot;&gt;<br>            &lt;img src=&quot;image.jpg&quot; /&gt;<br>            &lt;span class=&quot;caption&quot;&gt;The caption&lt;/span&gt;<br>        &lt;/a&gt;<br>    &lt;/div&gt;<br>~~~<br><br>Copy-pasting this every time gets tedious, and I have to search and replace it<br>in all the content files every time I want to make a change.  With the<br>shortcodes plugin, this can be written as:<br><br>~~~<br>[% image align=right link=&quot;image-large.jpg&quot; image=image.jpg caption=&quot;The caption&quot; %]<br>~~~<br><br>Much easier, cleaner and less repetitive.<br><br><br>Installation<br>------------<br><br>To install the plugin, just add `lektor-shortcodes` to your plugins from the<br>command line:<br><br>~~~<br>lektor plugins add lektor-shortcodes<br>~~~<br><br><br>Usage<br>-----<br><br>Using the plugin is simple. Just create a config file called `shortcodes.ini` in<br>your `configs` directory and specify some shortcode templates. The templates are<br>full Jinja templates, although (due to some limitations of ini files) they need<br>to be on one line.<br><br>For instance, for the example above, the config file could be:<br><br>~~~ini<br>[global]<br>image = &#x27;&lt;div class=&quot;align{{ align }}&quot;&gt;{% if link %}&lt;a href=&quot;{{ link }}&quot;{% if not link.startswith(&quot;http&quot;) %} data-lightbox=&quot;gallery&quot;{% endif %}&gt;{% endif %}&lt;img src=&quot;{{ image }}&quot;&gt;{% if link %}&lt;/a&gt;{% endif %}{% if caption %}&lt;span class=&quot;caption&quot;&gt;{{ caption }}&lt;/span&gt;{% endif %}&lt;/div&gt;&#x27;<br>~~~<br><br>This will allow you to use shortcodes with optional arguments, like so:<br><br>~~~<br># An image with no caption or link:<br>[% image align=right image=hello.jpg %]<br><br><br># An image with a link:<br>[% image align=right link=http://www.example.com image=hello.jpg %]<br><br># Link and caption:<br>[% image align=right link=http://www.example.com image=hello.jpg caption=&quot;Hello!&quot; %]<br>~~~<br><br>Shortcodes defined within the section named `global` will be processed<br>automatically inside any of your site’s Markdown content. It is also possible to<br>define shortcodes which are only expanded when the Jinja2 template for a page<br>explicitly requests it. Shortcodes defined in any section not named `global`<br>will only be applied when the template passed the content through a Jinja2<br>filter named `shortcode`. For example, if your HTML template references a field<br>called `body`, you may request expanding shortcodes defined within the<br>`body-only` section of your config file, like so:<br><br>~~~<br>{{ body|shortcodes(section=&quot;body-only&quot;) }}<br>~~~<br><br>This will enable all shortcodes from the specified section, in addition to all<br>globally defined shortcodes. If no section is specified, the filter defaults to<br>the section named `main`.<br><br><br>Miscellanea<br>-----------<br><br>If you find a bug or have a feature request, please open an issue or file a PR.<br>Thanks!<br> 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-shortcodes"; this.page.url = "https://www.getlektor.com/plugins/lektor-shortcodes/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-shortcodes/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

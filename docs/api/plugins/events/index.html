@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Events | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../../">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li><a href="../../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../">Welcome</a></li>
+        
+        
+          <li><a href="../../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../../installation/">Installation</a>
+            
+        
+          <li><a href="../../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../../project/">Project</a>
+            
+        
+          <li><a href="../../../content/">Content</a>
+            
+        
+          <li><a href="../../../templates/">Templates</a>
+            
+        
+          <li><a href="../../../themes/">Themes</a>
+            
+        
+          <li><a href="../../../guides/">Guides</a>
+            
+        
+          <li><a href="../../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../">API</a>
+            
+            <ul>
+          <li><a href="../../build/">Build System</a>
+            
+        
+          <li><a href="../../databags/">Databags</a>
+            
+        
+          <li><a href="../../db/">Database</a>
+            
+        
+          <li><a href="../../environment/">Environment</a>
+            
+        
+          <li><a href="../">Plugins</a>
+            
+            <ul>
+          <li class="active"><a href="./">Events</a>
+            
+            <ul>
+          <li><a href="after-build/">after-build</a>
+            
+        
+          <li><a href="after-build-all/">after-build-all</a>
+            
+        
+          <li><a href="after-prune/">after-prune</a>
+            
+        
+          <li><a href="before-build/">before-build</a>
+            
+        
+          <li><a href="before-build-all/">before-build-all</a>
+            
+        
+          <li><a href="before-prune/">before-prune</a>
+            
+        
+          <li><a href="markdown-config/">markdown-config</a>
+            
+        
+          <li><a href="markdown-lexer-config/">markdown-lexer-config</a>
+            
+        
+          <li><a href="markdown-meta-init/">markdown-meta-init</a>
+            
+        
+          <li><a href="markdown-meta-postprocess/">markdown-meta-postprocess</a>
+            
+        
+          <li><a href="process-template-context/">process-template-context</a>
+            
+        
+          <li><a href="server-spawn/">server-spawn</a>
+            
+        
+          <li><a href="server-stop/">server-stop</a>
+            
+        
+          <li><a href="setup-env/">setup-env</a>
+            
+        </ul>
+            
+        
+          <li><a href="../get-plugin/">get_plugin()</a>
+            
+        
+          <li><a href="../plugin/">Plugin</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../publisher/">Publisher</a>
+            
+        
+          <li><a href="../../templates/">Template API</a>
+            
+        
+          <li><a href="../../utils/">Utilities</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#handling-events">Handling Events</a></li>
+        
+          <li><a href="#emitting-events">Emitting Events</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Events</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>As Lektor executes and builds it emits various events that plugins can
+respond to.  This gives a list of all of those events.</p>
+<h2 id="handling-events">Handling Events</h2><p>Events are handled by implementing a method with the name of the event and
+the prefix <code>on_</code> on the plugin and underscores instead of dashes.  So for
+instance if the event is called <a href="process-template-context/" class="ref">process-template-context</a> the method to implement is
+<code>on_process_template_context</code>.  It's important to additionally <em>always</em>
+catch extra parameters in a <code>**extra</code> parameter so that the plugin does
+not break if an event starts sending additional parameters in the future.</p>
+<h2 id="emitting-events">Emitting Events</h2><p>If you want to emit your own events you can do that from the environment's
+plugin controller:</p>
+<div class="hll"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;your-signal&#39;</span><span class="p">,</span> <span class="n">parameter</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+</pre></div>
+<p>This emits a signal named <code>your-plugin-your-signal</code>.  The signal prefix is
+taken from the plugin ID which is set in <code>setup.py</code>.</p>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="after-build/">after-build</a>
+              </h4>
+              
+                <p class="summary">This event is emitted after an individual source is built.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="after-build-all/">after-build-all</a>
+              </h4>
+              
+                <p class="summary">This event is emitted after all sources are built.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="after-prune/">after-prune</a>
+              </h4>
+              
+                <p class="summary">This event is emitted after unused data in the build folder is removed.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="before-build/">before-build</a>
+              </h4>
+              
+                <p class="summary">This event is emitted before an individual source is built.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="before-build-all/">before-build-all</a>
+              </h4>
+              
+                <p class="summary">This event is emitted before all sources are built.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="before-prune/">before-prune</a>
+              </h4>
+              
+                <p class="summary">This event is emitted before unused data in the build folder is removed.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="markdown-config/">markdown-config</a>
+              </h4>
+              
+                <p class="summary">This event is emitted while the Markdown renderer is configured.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="markdown-lexer-config/">markdown-lexer-config</a>
+              </h4>
+              
+                <p class="summary">This event is emitted after the renderer is made, but before it is used.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="markdown-meta-init/">markdown-meta-init</a>
+              </h4>
+              
+                <p class="summary">This event is emitted before the markdown meta information is set.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="markdown-meta-postprocess/">markdown-meta-postprocess</a>
+              </h4>
+              
+                <p class="summary">This event is emitted after the markdown meta information is set.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="process-template-context/">process-template-context</a>
+              </h4>
+              
+                <p class="summary">An event that can be handled to customize the template context.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="server-spawn/">server-spawn</a>
+              </h4>
+              
+                <p class="summary">Emitted right after the server was started.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="server-stop/">server-stop</a>
+              </h4>
+              
+                <p class="summary">Emitted right before the server stops.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="setup-env/">setup-env</a>
+              </h4>
+              
+                <p class="summary">Emitted right after the plugin is associated with the environment.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/api/plugins/events"; this.page.url = "https://www.getlektor.com/docs/api/plugins/events/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/plugins/events/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

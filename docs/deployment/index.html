@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title>Deployment | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../">Welcome</a></li>
+        
+        
+          <li><a href="../what/">What is Lektor</a>
+            
+        
+          <li><a href="../installation/">Installation</a>
+            
+        
+          <li><a href="../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../project/">Project</a>
+            
+        
+          <li><a href="../content/">Content</a>
+            
+        
+          <li><a href="../templates/">Templates</a>
+            
+        
+          <li><a href="../themes/">Themes</a>
+            
+        
+          <li><a href="../guides/">Guides</a>
+            
+        
+          <li class="active"><a href="./">Deployment</a>
+            
+            <ul>
+          <li><a href="ftp/">FTP</a>
+            
+        
+          <li><a href="ghpages/">GitHub Pages</a>
+            
+        
+          <li><a href="glpages/">GitLab Pages</a>
+            
+        
+          <li><a href="rsync/">rsync</a>
+            
+        
+          <li><a href="travisci/">Travis-CI</a>
+            
+        </ul>
+            
+        
+          <li><a href="../plugins/">Plugins</a>
+            
+        
+          <li><a href="../models/">Data Modelling</a>
+            
+        
+          <li><a href="../cli/">Command Line</a>
+            
+        
+          <li><a href="../api/">API</a>
+            
+        
+          <li><a href="../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#deploying-in-two-steps">Deploying in Two Steps:</a></li>
+        
+          <li><a href="#the-build-pipeline">The Build Pipeline</a></li>
+        
+          <li><a href="#lektor-assisted-deployments">Lektor Assisted Deployments</a></li>
+        
+          <li><a href="#manual-deployments">Manual Deployments</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Deployment</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>A website is only a website if other people can look at it.  While you are
+developing locally that's not really all that helpful.  So how do you get
+your changes up to your favorite web host?  This is where <a href="../cli/deploy/" class="ref">lektor deploy</a> comes in.</p>
+<h2 id="deploying-in-two-steps">Deploying in Two Steps:</h2><p>Deploying a website in Lektor is a two step process:</p>
+<ol>
+<li>build</li>
+<li>deploy</li>
+</ol>
+<p>Keep this in mind.  A deploy will not implicitly build!  This means that if
+you deploy without building first you might send up a completely wrong
+version!  Also more importantly: <em>never deploy unless the build finished
+successfully</em>.</p>
+<h2 id="the-build-pipeline">The Build Pipeline</h2><p>So let's cover the building first.  When you use the Lektor server locally,
+Lektor constantly builds out your website into static HTML files behind the
+scenes into the default build folder.  This folder is in an operating system
+specific location.  If you want to know where that folder is, you can use this
+command:</p>
+<pre><code>$ lektor project-info --output-path
+</code></pre>
+<p>Additionally you can manually provide a different path if you kick off a
+manual build:</p>
+<pre><code>$ lektor build --output-path my-folder
+</code></pre>
+<p>Generally we strongly recommend to use the default build folder when deploying
+from your own machine because it will be faster since the build can reuse
+what the development server already did.  If you want to deploy from a build
+server it might make more sense to provide absolute paths.</p>
+<h2 id="lektor-assisted-deployments">Lektor Assisted Deployments</h2><p>Currently Lektor can deploy via <code>rsync</code> and <code>ftp</code> automatically.  To enable
+this functionality you need to configure this in the config file.  For each
+potential deployment target add a <code>[servers.NAME]</code> section.  The supported
+keys are <code>name</code> for an optional human readable name of the server, <code>enabled</code> to
+enable or disable it (defaults to <code>true</code>) and <code>target</code> which is the URL to
+publish to.  Additionally one of the servers can have <code>default</code> set to <code>yes</code>
+to set it as default.  Here is an example:</p>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span><span class="w"></span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder</span><span class="w"></span>
+</pre></div>
+<p>To trigger a deploy you can use the <a href="../cli/deploy/" class="ref">deploy</a> command:</p>
+<pre><code>$ lektor deploy production
+</code></pre>
+<p>Or because it's the default server, you can just do this:</p>
+<pre><code>$ lektor deploy
+</code></pre>
+<p>This deploys the latest state of what was built from the default build
+folder.  It does not build itself!  So to do both in one go, do something like
+this:</p>
+<pre><code>$ lektor build &amp;&amp; lektor deploy
+</code></pre>
+<p>If you want to provide a different build folder, provide it explicitly with
+<code>--output-path</code> to both <code>build</code> and <code>deploy</code>.  This can also be set with
+the <code>LEKTOR_OUTPUT_PATH</code> environment variable, or provided in 
+<a href="../project/file/" class="ref">the project file</a>.</p>
+<div class="admonition admonition-warning"><p><strong>Note on credentials</strong>: For FTP and other systems it is possible to embed
+the credentials directly in the URL.  If you do this, please ensure that
+you keep your project file secure as loss of the project file can mean that
+people get access to your server.  Alternatively you can also provide username
+and password through the command line or environment variables.</p></div><p>The following targets are supported for the <code>target</code> field natively:</p>
+<ul>
+<li><a href="rsync/">rsync</a></li>
+<li><a href="ftp/">FTP</a></li>
+<li><a href="ghpages/">GitHub Pages</a></li>
+</ul>
+<p><strong>In addition</strong>, there are <a href="../../plugins/categories/deploy/" class="ref">third-party plugins</a> available for additional deploy targets.</p>
+<h2 id="manual-deployments">Manual Deployments</h2><p>If you want to manually deploy something through the favorite tool of yours
+you can do that easily as well.  For instance if you want to deploy to S3
+with <a href="http://s3tools.org/s3cmd-sync">s3cmd</a> you could do this:</p>
+<pre><code>$ lektor build &amp;&amp; s3cmd sync "$(lektor project-info --output-path)"/* "s3://my-bucket/some/path"
+</code></pre>
+<p>Assisted deployments are also supported directly from the admin UI.  There is a
+publish button that can be used to send the changes up.</p>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="ftp/">FTP</a>
+              </h4>
+              
+                <p class="summary">Automatic deployments via FTP</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="ghpages/">GitHub Pages</a>
+              </h4>
+              
+                <p class="summary">Deploys to GitHub Pages.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="glpages/">GitLab Pages</a>
+              </h4>
+              
+                <p class="summary">Deploys to GitLab Pages.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="rsync/">rsync</a>
+              </h4>
+              
+                <p class="summary">Automatic deployments with SSH and rsync.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="travisci/">Travis-CI</a>
+              </h4>
+              
+                <p class="summary">Automated deployments via Travis-CI.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/deployment"; this.page.url = "https://www.getlektor.com/docs/deployment/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/deployment/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

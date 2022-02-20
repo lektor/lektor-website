@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
+  <title>exif | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../../../">Documentation</a></li>
+          
+            <li><a href="../../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../../community/">Community</a></li>
+          
+            <li><a href="../../../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../../">Welcome</a></li>
+        
+        
+          <li><a href="../../../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../../../installation/">Installation</a>
+            
+        
+          <li><a href="../../../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../../../project/">Project</a>
+            
+        
+          <li><a href="../../../../content/">Content</a>
+            
+        
+          <li><a href="../../../../templates/">Templates</a>
+            
+        
+          <li><a href="../../../../themes/">Themes</a>
+            
+        
+          <li><a href="../../../../guides/">Guides</a>
+            
+        
+          <li><a href="../../../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../../">API</a>
+            
+            <ul>
+          <li><a href="../../../build/">Build System</a>
+            
+        
+          <li><a href="../../../databags/">Databags</a>
+            
+        
+          <li><a href="../../">Database</a>
+            
+            <ul>
+          <li><a href="../../types/">Builtin Field Types</a>
+            
+        
+          <li><a href="../../expression/">Expression</a>
+            
+        
+          <li><a href="../../f/">F</a>
+            
+        
+          <li><a href="../../get-alts/">get_alts()</a>
+            
+        
+          <li><a href="../../pad/">Pad</a>
+            
+        
+          <li><a href="../../query/">Query</a>
+            
+        
+          <li><a href="../">Record</a>
+            
+            <ul>
+          <li><a href="../getitem/">[]</a>
+            
+        
+          <li><a href="../attachments/">attachments</a>
+            
+        
+          <li><a href="../children/">children</a>
+            
+        
+          <li><a href="../contents/">contents</a>
+            
+        
+          <li class="active"><a href="./">exif</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../format/">format</a>
+            
+        
+          <li><a href="../get_siblings/">get_siblings()</a>
+            
+        
+          <li><a href="../has_next/">has_next()</a>
+            
+        
+          <li><a href="../has_prev/">has_prev()</a>
+            
+        
+          <li><a href="../height/">height</a>
+            
+        
+          <li><a href="../is-attachment/">is_attachment</a>
+            
+        
+          <li><a href="../pagination/">pagination</a>
+            
+        
+          <li><a href="../record-label/">record_label</a>
+            
+        
+          <li><a href="../thumbnail/">thumbnail()</a>
+            
+        
+          <li><a href="../width/">width</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../obj/">SourceObject</a>
+            
+        
+          <li><a href="../../system-fields/">System Fields</a>
+            
+        
+          <li><a href="../../type/">Type</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../environment/">Environment</a>
+            
+        
+          <li><a href="../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../project/">Project</a>
+            
+        
+          <li><a href="../../../publisher/">Publisher</a>
+            
+        
+          <li><a href="../../../templates/">Template API</a>
+            
+        
+          <li><a href="../../../utils/">Utilities</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#example">Example</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1><i class="glyphicon glyphicon-info-sign"></i> <code class="obj">exif</code></h1>
+  
+
+
+      <ul class=page-meta>
+      
+        <li>Property of <a href="../">Record</a></li>
+      
+      
+      
+      </ul>
+
+      <p>This property gives access to some of the EXIF information that might be
+embedded in the picture.  Not all pictures might contain that information
+and some information might be unavailable.  In those cases the attribute
+will be <code>null</code>.</p>
+<p>In addition the <code>to_dict()</code> method can be used to convert the EXIF data
+into a dictionary that can be dumped to JSON for instance.</p>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artist</code></td>
+<td>The name of the photographer</td>
+</tr>
+<tr>
+<td><code>copyright</code></td>
+<td>The embedded copyright message</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>The timestamp of the image</td>
+</tr>
+<tr>
+<td><code>camera</code></td>
+<td>Combined name of camera make and model</td>
+</tr>
+<tr>
+<td><code>camera_make</code></td>
+<td>The name of the camera manufacturer</td>
+</tr>
+<tr>
+<td><code>camera_model</code></td>
+<td>The name of the camera model</td>
+</tr>
+<tr>
+<td><code>lens</code></td>
+<td>Combined name of the lense make and model</td>
+</tr>
+<tr>
+<td><code>lens_make</code></td>
+<td>The name of the lense manufacturer</td>
+</tr>
+<tr>
+<td><code>lens_model</code></td>
+<td>The name of the lense model</td>
+</tr>
+<tr>
+<td><code>aperture</code></td>
+<td>The aperture value as floating point number</td>
+</tr>
+<tr>
+<td><code>f_num</code></td>
+<td>The F-number as actual number</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>The f-number as string (<code>ƒ/2.2</code> for instance)</td>
+</tr>
+<tr>
+<td><code>iso</code></td>
+<td>The ISO speed as integer</td>
+</tr>
+<tr>
+<td><code>exposure_time</code></td>
+<td>The exposure time as string</td>
+</tr>
+<tr>
+<td><code>shutter_speed</code></td>
+<td>The shutter speed as string</td>
+</tr>
+<tr>
+<td><code>focal_length</code></td>
+<td>The focal length as string</td>
+</tr>
+<tr>
+<td><code>focal_length_35mm</code></td>
+<td>The focal length as string in the 35mm equivalent</td>
+</tr>
+<tr>
+<td><code>flash_info</code></td>
+<td>Information text about the flash usage</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>Longitude and latitude as floating point tuple.</td>
+</tr>
+<tr>
+<td><code>latitude</code></td>
+<td>The longitude as floating point value.</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td>The longitude as floating point value.</td>
+</tr>
+<tr>
+<td><code>altitude</code></td>
+<td>The altitude in meters as floating point value.</td>
+</tr>
+<tr>
+<td><code>documentname</code></td>
+<td>The image document name as a string.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>The image description as a string.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">image.exif.location</span> <span class="cp">%}</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Picture Location<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;600&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;450&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;border:0&quot;</span>
+    <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.google.com/maps/embed/v1/place?q=</span><span class="cp">{{</span>
+    <span class="o">(</span><span class="nv">image.exif.latitude</span> <span class="o">~</span> <span class="s1">&#39;, &#39;</span> <span class="o">~</span>
+     <span class="nv">image.exif.longitude</span><span class="o">)|</span><span class="nf">urlencode</span> <span class="cp">}}</span><span class="s">&amp;key=...&quot;</span>
+    <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/api/db/record/exif"; this.page.url = "https://www.getlektor.com/docs/api/db/record/exif/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/db/record/exif/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../../license/">License & Copyright</a> •
+          <a href="../../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

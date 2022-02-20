@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-gulp 0.3.2</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>A simple Lektor plugin for gulp<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/SoftInstigate/lektor-gulp" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/SoftInstigate/lektor-gulp" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-gulp on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/SoftInstigate/lektor-gulp/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/SoftInstigate/lektor-gulp/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.3.2</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:maurizio@softinstigate.com">Maurizio Turatti</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/before-build-all/">before-build-all</a>, 
+          
+            
+            <a href="../tag/CSS/">CSS</a>, 
+          
+            
+            <a href="../tag/gulp/">gulp</a>, 
+          
+            
+            <a href="../tag/HTML/">HTML</a>, 
+          
+            
+            <a href="../tag/JavaScript/">JavaScript</a>, 
+          
+            
+            <a href="../tag/server-spawn/">server-spawn</a>, 
+          
+            and 
+            <a href="../tag/server-stop/">server-stop</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <p>This plugin for <a href="https://www.getlektor.com" rel="nofollow">Lektor CMS</a> adds <a href="http://gulpjs.com" rel="nofollow">gulp</a> support to projects. When
+enabled with the <tt><span class="pre">-f</span> gulp</tt> flag it runs <tt>npm install</tt> and then the
+gulp <tt>default</tt> or <tt>watch</tt> tasks as they are defined into your own
+<tt>gulpfile.js</tt>.</p>
+<p>The general documentation about Lektor plugins is <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">here</a>.</p>
+<div id="lektor-build">
+<h2>lektor build</h2>
+<p>The command <tt>lektor build <span class="pre">-f</span> gulp</tt> runs the <strong>``default``</strong> gulp task,
+for example defined as something like:</p>
+<pre>gulp.task('build', ['clean', 'copy', 'js', 'css', 'imagemin'], () =&gt; { });
+gulp.task('default', ['build'], () =&gt; { });
+</pre>
+<p>In the above example the <tt>default</tt> task points to a <tt>build</tt> task,
+which is usually composed by several other gulp tasks, etc.</p>
+</div>
+<div id="lektor-server">
+<h2>lektor server</h2>
+<p>The command <tt>lektor server <span class="pre">-f</span> gulp</tt> runs the Lektor embedded server on
+<a href="http://localhost:5000" rel="nofollow">http://localhost:5000</a>, starting a gulp <strong>``watch``</strong> task in background.
+For example, you can define something such as:</p>
+<pre>gulp.task('watch', () =&gt; {
+    gulp.watch('lib/js/**/*.js', ['js']);
+    gulp.watch('lib/css/**/*.css', ['css']);
+});
+</pre>
+<p>In the above example, each time one touches Javascript or CSS files in
+the <tt>lib/</tt> folder then assets could be minified, concatenated and
+copied into the standard <tt>assets/static/</tt> lektor folder, or whatever
+is defined into your own <tt>gulpfile.js</tt>.</p>
+</div>
+<div id="credits">
+<h2>Credits</h2>
+<p>This plugin is based on the official <a href="https://github.com/lektor/lektor-webpack-support" rel="nofollow">Webpack plugin</a> with very little
+differences.</p>
+</div>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-gulp"; this.page.url = "https://www.getlektor.com/plugins/lektor-gulp/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-gulp/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

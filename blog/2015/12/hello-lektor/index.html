@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Hello Lektor! | The Transcript | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li><a href="../../../../docs/">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li class="active"><a href="../../../">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  <div class="blog-post">
+    
+  
+  
+    
+      
+<div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"></div>
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+      <div class="meta-bar">
+        <h1>Hello Lektor!</h1>
+        <p class="meta">
+          by
+          
+            <a href="https://twitter.com/mitsuhiko">Armin Ronacher</a>
+          
+          on Monday, December 21, 2015
+        </p>
+      </div>
+    
+      </div>
+    </div>
+  </div>
+
+    
+  
+    
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="text-block text-block-default">
+  <p>About <a href="http://w3techs.com/technologies/details/cm-wordpress/all/all">25% of the Internet uses
+Wordpress</a> and
+it's estimated that about 50% of Wordpress installations out there are
+vulnerable to security problems because they have not been updated.  This is a
+very high number.</p>
+<p>Because I know how much work it can be to keep software updated and my own
+terrible track record of spending time of updating everything I'm running
+I kept getting increasingly frustrated with the lack of software that would
+allow me to run a simple website in a secure manner without having to resort
+to all kinds of user-unfriendly hackery.</p>
+<p>While there are many static site generators none of them really matched what I
+actually wanted: a content management system that just happens to run
+on the client.  Most static website generators are too “hacker focused” in the
+sense that they could not be used by people without programming experiences or
+they are full fledged content management systems that need a server to run on
+or require regular maintenance for security updates.</p>
+<p>There the hacker's favorite projects like
+<a href="https://github.com/getpelican/pelican">Pelican</a> or
+<a href="https://jekyllrb.com/">Jekyll</a> which support generating websites out of static
+files that are tracked through version control and there are CMS systems like
+<a href="http://statamic.com/">Statamic</a> which store all of its data in flat files
+— but as mentioned — needs PHP.</p>
+<p>None of those were what I was looking for.  Static file generators like Jekyll
+are nice in a way but not just end user unfriendly, but also very limited in
+what you can do with them.  They are more suited for building blogs than
+more complex sites.  I tried a bunch of them and built different things
+with them, but ultimately always felt like something was missing.</p>
+<p>After about two years of frustration with that situation I finally sat down
+and spend some time working on a system to solve this problem.  May I
+introduce: Lektor.</p>
+<h2 id="what-is-lektor">What is Lektor?</h2><p>Lektor combines the experience of using a content management system like
+Wordpress with a static website generator like Jekyll and has some of the
+flexibility of a web development framework like Django.  It can run locally
+on your computer and deploy to remote servers.  All source assets are stored
+either in version control or Dropbox and when you are satisfied with the end
+results, you can push them online from the UI to a remote server.</p>
+<p>And this is what it roughly looks like when you look at the admin panel:</p>
+<div class="screenshot-frame"><img src="admin.png"></div><h2 id="how-do-i-use-it">How do I use it?</h2><p>That depends on who you are.  Lektor is based on the idea that there are
+two parties to a website: the web developers and the editors.  The former
+create the design, layout, data layout and configures Lektor in general.  The
+latter change the contents of the website according to the general setup.</p>
+<p>If you are a web developer you can install two versions of Lektor: you can
+use the command line client or if you are on a Mac, you can install the
+desktop version.  Either version comes with a handy web interface that
+can be used to preview and edit all pages.</p>
+<p>Once you have configured Lektor to your liking you can put the project into
+version control (or just Dropbox) and let your users modify the contents.  All
+they have to do is to install the Desktop version of Lektor, double click the
+project in their Dropbox and start changing it.</p>
+<p>If you just want to edit the contents of a project you can install the
+Desktop version or maybe in the future use a cloud hosted version.</p>
+<h2 id="project-layout">Project Layout</h2><p>To get an idea how it works, you can have a look at the <a href="https://github.com/lektor/lektor-website/">github repository of
+this website</a> which contains the
+project for this website and blog and have a look at the introduction
+documentation: <a href="../../../../docs/quickstart/" class="ref">Getting Started</a>.  You can
+also find a screencast there.</p>
+<p>On a very basic level Lektor takes <code>.lr</code> files which are basic text files
+with a super simple format and generates out HTML files.  The <code>.lr</code> files
+correspond to a previously set up data model.  They are pure text format for
+key/value pairs.  Each pair is separated by three dashes (<code>---</code>):</p>
+<pre><code>field_1: value
+---
+field_2:
+
+a longer value
+</code></pre>
+<p>You can set up data models for simple things like blog posts but also more
+elaborate ones if you want to build portfolio sites.  For instance you could
+set up models for your projects and then access that data in the templates.</p>
+<p>The content files are stored in folders in a tree like structure and at any
+level you can add other files as attachments:</p>
+<div class="screenshot-frame"><img src="structure.png"></div><h2 id="an-open-source-project">An Open Source Project</h2><p>Lektor is available under <a href="../../../../license/">a BSD license</a> and run as a
+community Open Source project <a href="https://github.com/lektor/lektor/" class="ext">on github</a>.
+The build system is written in Python, the UI in JavaScript with React and
+the GUI components use Electron.</p>
+<h2 id="feedback-appreciated">Feedback Appreciated</h2><p>Lektor took two attempts to get into a usable application and I'm sure that
+there is more that needs to be done to scratch the needs of most users.
+However I also know that there is no point in delaying an initial release
+unnecessarily.  What's being released today is the application as it exists
+today and I think it's in a good shape to build really cool websites with
+it.  I welcome you to give it a try and give feedback on what you think
+about it.</p>
+
+</div>
+      </div>
+    </div>
+  </div>
+
+    
+  
+
+
+    
+    
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        
+        
+          <div class="nav-next">
+            <a href="../travis-and-ghpages/">Next: Lektor Loves Travis-CI and GitHub Pages</a>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/blog/hello-lektor/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

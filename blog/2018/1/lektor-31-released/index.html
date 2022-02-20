@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Lektor 3.1 Released | The Transcript | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li><a href="../../../../docs/">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li class="active"><a href="../../../">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  <div class="blog-post">
+    
+  
+  
+    
+      
+<div class="page-banner page-banner-500-tall" style="background-image: url(pancakes-2020863.jpg)"></div>
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+      <div class="meta-bar">
+        <h1>Lektor 3.1 Released</h1>
+        <p class="meta">
+          by
+          
+            <a href="https://twitter.com/nixjdm">Joseph Nix</a>
+          
+          on Monday, January 29, 2018
+        </p>
+      </div>
+    
+      </div>
+    </div>
+  </div>
+
+    
+  
+    
+      
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="text-block text-block-default">
+  <p>Lektor continues to be discovered and used by more people, and many of these fine people have given back. Lektor is now a little easier to use, and more robust with plenty of bugfixes and added support for Python 3. Let's take a brief look at what's been done, and what we want next.</p>
+<h2 id="lektor-themes">Lektor Themes</h2><p>Perhaps the most eye-catching change is the introduction of the ability for Lektor to use <a href="/docs/themes/">themes</a>. This can become a very powerful tool, allowing people to make beautiful sites even more quickly by standing on the shoulders of those who have gone before them. Why spend more time fiddling with your CSS, or template queries than you need to? If there's a theme that's similar to yours in either design or function, you can start from there. Assets, templates, models, and flowblocks are all able to be themed, offering a lot of flexibility in what they could provide.</p>
+<p>This is a very new and experimental feature. We'd love to add more support for themes so that making them and using them is easy, but it may be a bit rough around the edges at the moment. The <a href="https://github.com/rlaverde">contributor</a> who gave Lektor its initial theming ability also created the <a href="https://github.com/rlaverde/lektor-theme-nix">first theme</a>, which is a simple theme based on the <a href="https://themes.gohugo.io/hugo-theme-nix/">Nix Hugo theme</a>.</p>
+<p>I think this feature has a lot of potential. It's pretty exciting.</p>
+<h2 id="improved-support-and-testing">Improved Support and Testing</h2><p>If you take a look at the changelog since version 2.0, you'll notice many references to bugfixes and dependency updates. We now support Python 3, and have a more extensive automated testing environment. We have upgraded the versions of Mistune (our current Markdown parser), and several JavaScript dependencies that drive the admin interface. Windows users have a few bugfixes to help them out, and added automated testing to catch more bugs before they reach a release.</p>
+<h2 id="other-features">Other Features</h2><ul>
+<li>Templates now have greater control of image quality and rotation.</li>
+<li>Fixed and expanded handling of image EXIF data.</li>
+<li>Improved date handling in the admin interface.</li>
+<li>Added ability to publish from different file systems.</li>
+<li>Fields can now be disabled for alternatives in the admin interface.</li>
+<li>Another Plugin hook added between instantiating the Renderer and creating the Markdown Processor.</li>
+<li><code>lektor dev shell</code> now uses IPython if it's installed.</li>
+</ul>
+<h2 id="support-for-mac-installer-paused">Support for Mac Installer Paused</h2><p>The code that was used to create the Mac installer for the Desktop App has <a href="https://github.com/lektor/lektor/issues/420">some problems</a>. We're (hopefully temporarily) pulling support for the desktop app because of this. If you have modern experience making executables (especially cross-platform) and would like to contribute, we'd love to have your support. We generally want to make Lektor as easy to use as possible, and a new desktop app could really help with that.</p>
+<h2 id="want-to-contribute">Want to Contribute?</h2><p>Open Source Software lives and dies by the communities that use them, love them, and support them. If you're a developer looking to get your feet wet in OSS, we'd love to review your pull request. &lt;3</p>
+<p>A larger task, if you're someone with React (and Python) knowledge, is our admin interface. It has served us pretty well so far, but it also has <a href="https://github.com/lektor/lektor/issues/458">some issues</a>. It could use some TLC.</p>
+
+</div>
+      </div>
+    </div>
+  </div>
+
+    
+  
+
+
+    
+    
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        
+          <div class="nav-prev">
+            <a href="../../../2016/4/lektor-2-released/">Previous: Lektor 2.0 Released</a>
+          </div>
+        
+        
+          <div class="nav-next">
+            <a href="../../5/plugin-play/">Next: Plugin Play</a>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/blog/lektor-31-released/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

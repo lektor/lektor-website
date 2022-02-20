@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-index-pages 1.0.0</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Lektor plugin to generate blog-like index pages<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/dairiki/lektor-index-pages" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-index-pages" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-index-pages on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-index-pages/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-index-pages/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 1.0.0</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:dairiki@dairiki.org">Jeff Dairiki</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/before-build/">before-build</a>, 
+          
+            
+            <a href="../tag/blog/">blog</a>, 
+          
+            
+            <a href="../tag/indexing/">indexing</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>Lektor Index Pages Plugin</h1>
+<p><a href="https://pypi.org/project/lektor-index-pages/" rel="nofollow"><img alt="PyPI version" src="https://img.shields.io/pypi/v/lektor-index-pages.svg"></a>
+<a href="https://pypi.python.org/pypi/lektor-index-pages/" rel="nofollow"><img alt="PyPI Supported Python Versions" src="https://img.shields.io/pypi/pyversions/lektor-index-pages.svg"></a>
+<a href="https://github.com/dairiki/lektor-index-pages/blob/master/LICENSE" rel="nofollow"><img alt="GitHub license" src="https://img.shields.io/github/license/dairiki/lektor-index-pages"></a>
+<a href="https://lektor-index-pages.readthedocs.io/en/latest/?badge=latest" rel="nofollow"><img alt="Documentation Status" src="https://readthedocs.org/projects/lektor-index-pages/badge/?version=latest"></a>
+<a href="https://github.com/dairiki/lektor-index-pages" rel="nofollow"><img alt="GitHub Actions (Tests)" src="https://github.com/dairiki/lektor-index-pages/workflows/Tests/badge.svg"></a></p>
+<p>This <a href="https://www.getlektor.com/" rel="nofollow" title="Lektor Static Content Management System">Lektor</a> plugin can be used to generate “index pages” for a
+blog or similar collection of pages.  These index pages list the blog posts
+segregated by some key, with each index page containing only those posts
+which match that key.</p>
+<p>Examples of what this can be used for include:</p>
+<ul>
+<li>
+<p><em>Category Indexes</em>: A set of index pages, one for each category,
+which lists all the posts in that category.  (Multi-valued index keys
+are also supported, so that each post can appear on more than a single
+index page: e.g. <em>keyword indexes</em>.)</p>
+</li>
+<li>
+<p><em>Date Indexes</em>: A set of index pages, one for each year (say), which
+list all the posts in that year.  (Sub-indexes are supported
+subindexes — e.g., each year index may have as children a sequence
+of month indexes.)</p>
+</li>
+</ul>
+<p>Behind the scenes, judicious caching of indexing results, and careful
+control of Lektor’s dependency tracking prevent all this from slowing
+the build process down too excruciatingly much.</p>
+<h2>Project Links</h2>
+<ul>
+<li><a href="https://lektor-index-pages.rtfd.io/en/latest/" rel="nofollow">Documentation</a></li>
+<li><a href="https://github.com/dairiki/lektor-index-pages/" rel="nofollow">Github</a></li>
+<li><a href="https://pypi.org/project/lektor-index-pages/" rel="nofollow">PyPI</a></li>
+</ul>
+<h2>Author</h2>
+<p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org">dairiki@dairiki.org</a></p>
+<h2>Changelog</h2>
+<h3>Release 1.0 (2022-01-28)</h3>
+<ul>
+<li>Drop support for python 2.7 and 3.6.</li>
+<li>Fix deprecation warning from <code>jinja2</code>. Jinja2 version 3 is now required.</li>
+</ul>
+<h4>Documentation</h4>
+<ul>
+<li>
+<p>Documentation clarifications, updates and fixes.
+(PR <a href="https://github.com/dairiki/lektor-index-pages/pull/2" rel="nofollow">#2</a> — Thank you Bart Van Loon!)</p>
+</li>
+<li>
+<p>Add missing requirement <code>recommonmark</code> to <code>docs/requirements.txt</code>.</p>
+</li>
+<li>
+<p>Add <code>docs</code> enviroment to <code>tox.ini</code> to test that docs will build cleanly.</p>
+</li>
+</ul>
+<h4>Testing</h4>
+<ul>
+<li>Test under python 3.10 and lektor&lt;3.3</li>
+</ul>
+<h3>Release 0.1 (2021-02-05)</h3>
+<p>No code changes.</p>
+<p>Update development status classifier to &quot;stable&quot;.</p>
+<h3>Release 0.1a3 (2020-05-08)</h3>
+<h4>API changes</h4>
+<ul>
+<li>
+<p>Added a <code>key</code> field on the index virtual source object.  It is an
+alias to <code>_id</code>, but is syntactically more self-explanatory.</p>
+</li>
+<li>
+<p>The <code>keys</code> configuration key has been renamed to <code>key</code>.</p>
+</li>
+<li>
+<p>When the <code>key</code> expression is being evaluted, the record whose key(s)
+is(are) to be be computed is now available in the jinja context as
+<code>item</code> rather than <code>this</code>.</p>
+</li>
+</ul>
+<h4>Documentation</h4>
+<ul>
+<li>Documentation moved from README to Sphinx docs at RTFD.io</li>
+</ul>
+<h3>Release 0.1a2 (2020-05-06)</h3>
+<h4>API changes</h4>
+<ul>
+<li>
+<p>The <code>record</code> argument has been dropped from the (jinja) global
+<code>index_pages</code> function.  (Since indexes can not have multiple
+parents, it is not necessary.)</p>
+</li>
+<li>
+<p>The <code>parent</code> configuration key has been renamed to <code>parent_path</code>.</p>
+</li>
+<li>
+<p>The <code>slug</code> configuration key has been renamed to <code>slug_format</code>.</p>
+</li>
+<li>
+<p>The <code>attributes</code> config section has been renamed to <code>fields</code>.</p>
+<p>Though they are not quite like regular Lektor Record fields, they
+are more field-like than attribute-like.  (I.e. access is via
+<em><strong>getitem</strong></em> rather than <em>getattr</em>.)</p>
+</li>
+</ul>
+<h3>Release 0.1a1 (2020-05-05)</h3>
+<p>Initial release.</p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-index-pages"; this.page.url = "https://www.getlektor.com/plugins/lektor-index-pages/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-index-pages/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

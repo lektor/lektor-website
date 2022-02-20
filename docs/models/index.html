@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title>Data Modelling | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../">Welcome</a></li>
+        
+        
+          <li><a href="../what/">What is Lektor</a>
+            
+        
+          <li><a href="../installation/">Installation</a>
+            
+        
+          <li><a href="../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../project/">Project</a>
+            
+        
+          <li><a href="../content/">Content</a>
+            
+        
+          <li><a href="../templates/">Templates</a>
+            
+        
+          <li><a href="../themes/">Themes</a>
+            
+        
+          <li><a href="../guides/">Guides</a>
+            
+        
+          <li><a href="../deployment/">Deployment</a>
+            
+        
+          <li><a href="../plugins/">Plugins</a>
+            
+        
+          <li class="active"><a href="./">Data Modelling</a>
+            
+            <ul>
+          <li><a href="attachments/">Attachments</a>
+            
+        
+          <li><a href="children/">Children &amp; Pagination</a>
+            
+        
+          <li><a href="selection/">Default Model Selection</a>
+            
+        
+          <li><a href="flow/">Flow Block Models</a>
+            
+        </ul>
+            
+        
+          <li><a href="../cli/">Command Line</a>
+            
+        
+          <li><a href="../api/">API</a>
+            
+        
+          <li><a href="../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#models">Models</a></li>
+        
+          <li><a href="#fields">Fields</a></li>
+        
+          <li><a href="#model-options">Model Options</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Data Modelling</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>What makes Lektor so powerful is the ability to model your data and to then use
+this data to generate the final results.  Getting this part right will make it
+easier later to generate beautiful looking HTML.</p>
+<h2 id="models">Models</h2><p>Models are the blueprints for your pages.  They define which fields exist and
+what goes into them.  Models are stored in the <code>models</code> folder in your project
+and are basic UTF-8 encoded INI files.  Models can have any name but if no
+model has been explicitly selected, a default model will be selected.  For
+most situations this will be the model with the name <code>page</code>.  Detailed
+information can be found under <a href="selection/" class="ref">Default Model Selection</a>.</p>
+<p>Here is an example of a very basic model (<code>models/page.ini</code>):</p>
+<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Page</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
+
+<span class="k">[fields.title]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Title</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">large</span><span class="w"></span>
+
+<span class="k">[fields.body]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+</pre></div>
+<p>In this particular case, we have a model with the id <code>page</code> (as defined by the
+filename) and a name <code>Page</code> which will appear like that in the UI.  Pages that
+use this model will use the template expression <code>{{ this.title }}</code> to be
+displayed in the UI.  In this case, it uses the title of the page.</p>
+<p>There are two fields defined: a <code>title</code> and a <code>body</code>.  The former is just an
+unformatted string which is shown larger in the UI (<code>size = large</code>) and the
+latter uses markdown for rendering.  This will give it a text area in the admin
+panel.</p>
+<h2 id="fields">Fields</h2><p>Fields for models are ordered in the UI in the order they appear in the model.
+Most options in the field are specific to the type that is selected, but some
+are the same for all of them.</p>
+<p>Fields not only define the behavior of the data (for instance strings and
+integers are sorted differently) but also how it's shown in the UI and what
+can be done with it in general.</p>
+<p>The following options are used for all types:</p>
+<ul>
+<li><code>label</code>: the label for the field.  This is shown in the UI in larger letters</li>
+<li><code>description</code>: an optional string that provides some description for the
+field that is shown in the UI to give a bit more explanation.</li>
+<li><code>addon_label</code>: an optional string that is supported by all types that are
+rendered as an input field.  This string is shown as an UI label on the 
+right side of the input field to give it more context.  For instance, it can
+be used to clarify units of a field (pixel, percent etc.).</li>
+<li><code>width</code>: defines the width of the input in the admin as a fraction.  For
+instance <code>1/4</code> sets it to a quarter of the width, <code>1/2</code> to a half etc.</li>
+<li><code>size</code> can be set to <code>normal</code>, <code>small</code> or <code>large</code> to affect the size a
+field is rendered in the admin UI.</li>
+<li><code>type</code>: defines the type of the field.  Depending on the type more options
+can become available.</li>
+</ul>
+<p>There are many different field types that are available and they are documented
+extensively in the <a href="../api/db/types/" class="ref">types documentation</a>.</p>
+<h2 id="model-options">Model Options</h2><p>Models have the following options that can customize the model itself:</p>
+<ul>
+<li><code>name</code>: the name of the model itself.  Usually a more capitalized form of
+the filename which is the ID of the model.</li>
+<li><code>label</code>: a template expression that should be used for pages that use this
+model.  Typically this expression refers to the title but not always.  For
+instance blog posts might also want to refer to the date.</li>
+<li><code>hidden</code>: a boolean value that indicates if the model should be hidden from
+the UI or not.  If set to <code>yes</code> then new pages cannot select this model.
+This is very useful for models that are implied through configuration.</li>
+<li><code>protected</code>: if a model is set to protected then all of its instances
+cannot be deleted once created.</li>
+<li><code>inherits</code>: if you want to inherit all fields and model option settings from another model then this
+can be set to the name of another model.</li>
+</ul>
+<p>In addition to that, there are some configuration sections in the model file
+that can customize more behavior.</p>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="attachments/">Attachments</a>
+              </h4>
+              
+                <p class="summary">Describes behavior of attachments for records.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="children/">Children &amp; Pagination</a>
+              </h4>
+              
+                <p class="summary">Explains how child records and pagination works.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="selection/">Default Model Selection</a>
+              </h4>
+              
+                <p class="summary">Explains how Lektor decides on the model to use.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="flow/">Flow Block Models</a>
+              </h4>
+              
+                <p class="summary">Explains how to model flow blocks.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/models"; this.page.url = "https://www.getlektor.com/docs/models/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/models/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

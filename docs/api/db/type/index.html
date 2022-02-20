@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Type | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../../">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li><a href="../../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../">Welcome</a></li>
+        
+        
+          <li><a href="../../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../../installation/">Installation</a>
+            
+        
+          <li><a href="../../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../../project/">Project</a>
+            
+        
+          <li><a href="../../../content/">Content</a>
+            
+        
+          <li><a href="../../../templates/">Templates</a>
+            
+        
+          <li><a href="../../../themes/">Themes</a>
+            
+        
+          <li><a href="../../../guides/">Guides</a>
+            
+        
+          <li><a href="../../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../">API</a>
+            
+            <ul>
+          <li><a href="../../build/">Build System</a>
+            
+        
+          <li><a href="../../databags/">Databags</a>
+            
+        
+          <li><a href="../">Database</a>
+            
+            <ul>
+          <li><a href="../types/">Builtin Field Types</a>
+            
+        
+          <li><a href="../expression/">Expression</a>
+            
+        
+          <li><a href="../f/">F</a>
+            
+        
+          <li><a href="../get-alts/">get_alts()</a>
+            
+        
+          <li><a href="../pad/">Pad</a>
+            
+        
+          <li><a href="../query/">Query</a>
+            
+        
+          <li><a href="../record/">Record</a>
+            
+        
+          <li><a href="../obj/">SourceObject</a>
+            
+        
+          <li><a href="../system-fields/">System Fields</a>
+            
+        
+          <li class="active"><a href="./">Type</a>
+            
+            <ul>
+          <li><a href="to-json/">to_json()</a>
+            
+        
+          <li><a href="value-from-raw/">value_from_raw()</a>
+            
+        
+          <li><a href="widget/">widget</a>
+            
+        </ul>
+            
+        </ul>
+            
+        
+          <li><a href="../../environment/">Environment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../publisher/">Publisher</a>
+            
+        
+          <li><a href="../../templates/">Template API</a>
+            
+        
+          <li><a href="../../utils/">Utilities</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1><i class="glyphicon glyphicon-leaf"></i> <code class="mod">lektor.types.</code><code class="obj">Type</code> <span class="sig">(<code>env, options</code>)</span></h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+        <li>New in Lektor Version <em>2.0</em></li>
+      
+      </ul>
+
+      <p>The fields in <a href="../record/" class="ref">Records</a> use types to specify the behavior of
+the values.  Lektor comes with a wide range of <a href="../types/" class="ref">built-in field types</a> but it is possible to build your own by subclassing types
+class.  A type is instantiated with two parameters: a reference to the
+<a href="../../environment/" class="ref">Environment</a> that it belongs to and a dictionary
+with configuration options from the ini file.</p>
+<p>A field type has to implement the <a href="value-from-raw/" class="ref">value_from_raw</a>
+method and set the <code>widget</code> property as a very basic requirement.</p>
+<p>To create a type you need to create a subclass.  The name of the class needs
+to match the type name.  If you want to name your type <code>mything</code> then it
+needs to be called <code>MyThingType</code>.  Afterwards you can register it with the
+environment in <a href="../../plugins/events/setup-env/" class="ref">setup_env</a>:</p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>
+
+<span class="k">class</span> <span class="nc">MyThingType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
+    <span class="n">widget</span> <span class="o">=</span> <span class="s1">&#39;singleline-text&#39;</span>
+
+    <span class="k">def</span> <span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+
+<span class="k">def</span> <span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">MyThingType</span><span class="p">)</span>
+</pre></div>
+<p>For more information see <a href="value-from-raw/" class="ref">value_from_raw</a>.</p>
+<p>There is a more complete example in the
+<a href="../../../plugins/howto/#adding-new-field-types" class="ref">Plugin How To</a>.</p>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="to-json/">to_json()</a>
+              </h4>
+              
+                <p class="summary">Returns the type information as JSON.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="value-from-raw/">value_from_raw()</a>
+              </h4>
+              
+                <p class="summary">Main method to override to implement the value conversion.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="widget/">widget</a>
+              </h4>
+              
+                <p class="summary">An attribute that identifies the widget to use in the admin panel.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/api/db/type"; this.page.url = "https://www.getlektor.com/docs/api/db/type/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/db/type/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

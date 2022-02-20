@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Portfolio Sites | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../">Guides</a>
+            
+            <ul>
+          <li><a href="../blog/">Blog</a>
+            
+        
+          <li><a href="../categories/">Categories</a>
+            
+        
+          <li><a href="../disqus/">Disqus Comments</a>
+            
+        
+          <li><a href="../error-pages/">Error Pages</a>
+            
+        
+          <li><a href="../page-order/">Page Order</a>
+            
+        
+          <li><a href="../pagination/">Pagination</a>
+            
+        
+          <li class="active"><a href="./">Portfolio Sites</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../redirects/">Redirects</a>
+            
+        
+          <li><a href="../single-page/">Single-Page</a>
+            
+        
+          <li><a href="../sitemap/">Sitemap</a>
+            
+        
+          <li><a href="../webpack/">Webpack</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#the-models">The Models</a><ul>
+          <li><a href="#projects.ini`"><code>projects.ini</code></a></li>
+        
+          <li><a href="#project.ini`"><code>project.ini</code></a></li>
+        </ul></li>
+        
+          <li><a href="#templates">Templates</a><ul>
+          <li><a href="#projects.html`"><code>projects.html</code></a></li>
+        
+          <li><a href="#project.html`"><code>project.html</code></a></li>
+        </ul></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Portfolio Sites</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Because Lektor lets you customize your data model entirely it's the perfect
+tool for building portfolio websites.  No matter what it is you're building,
+you can structure the data exactly like you want.  In this example we will
+assume we build a website for someone who wants to showcase their art projects.</p>
+<h2 id="the-models">The Models</h2><p>The way we want to go about this is that we have a site where all the
+projects show up and then a detail page for each project in particular.</p>
+<h3 id="projects.ini`"><code>projects.ini</code></h3><p>First we set up the project overview page.  This model instructs Lektor that
+all of the pages below it will be of type <code>project</code>.  We also set it to
+<code>hidden</code> and <code>protected</code> which will make it unavailable in the admin (<code>hidden</code>)
+for new pages and make it impossible to delete (<code>protected</code>).  This means we
+need to manually create the one page later which will use this.</p>
+<p>Because we only have a single page for the projects overview we give it a
+static label manually (<code>label = Projects</code>).</p>
+<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+
+<span class="k">[children]</span><span class="w"></span>
+<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span><span class="w"></span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-date, name</span><span class="w"></span>
+</pre></div>
+<h3 id="project.ini`"><code>project.ini</code></h3><p>Next up is the model for the project.  This is completely up to you, we will go
+with some things here that might appear on such a portfolio page.  In addition
+we will do something with the attachments of this page, but more about that
+later.  For now we just order them by their filename (<code>_id</code>):</p>
+<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span><span class="w"></span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+
+<span class="k">[attachments]</span><span class="w"></span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_id</span><span class="w"></span>
+
+<span class="k">[fields.name]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">large</span><span class="w"></span>
+
+<span class="k">[fields.date]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Date</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">date</span><span class="w"></span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/4</span><span class="w"></span>
+
+<span class="k">[fields.type]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project type</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/4</span><span class="w"></span>
+
+<span class="k">[fields.website]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Website</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">url</span><span class="w"></span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/2</span><span class="w"></span>
+
+<span class="k">[fields.description]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Description</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+</pre></div>
+<h2 id="templates">Templates</h2><p>So now that we have models, we should probably go over what we can do with the
+attachments.  Because each page in Lektor can have attachments added we can
+automatically reference those in our templates.  Here is what we're going to
+do: we will take all the attached images, order them by their filename and then
+render thumbnails for them in the detail page.  Additionally we want to show
+one of the images on the overview page if it's available.</p>
+<h3 id="projects.html`"><code>projects.html</code></h3><p>So here we just render out all projects in the order defined in our
+models and if there is an image attached, we pick the first one and make
+a thumbnail.</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Projects<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Projects<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;projects&quot;</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">this.children</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;project&quot;</span><span class="p">&gt;</span>
+      <span class="cp">{%</span> <span class="k">set</span> <span class="nv">image</span> <span class="o">=</span> <span class="nv">project.attachments.images.first</span><span class="o">()</span> <span class="cp">%}</span>
+      <span class="cp">{%</span> <span class="k">if</span> <span class="nv">image</span> <span class="cp">%}</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image.thumbnail</span><span class="o">(</span><span class="m">320</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+      <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">project</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>(<span class="cp">{{</span> <span class="nv">project.date.year</span> <span class="cp">}}</span>)<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">project.type</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+<h3 id="project.html`"><code>project.html</code></h3><p>For the detail page we show all information we know about:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.name</span> <span class="cp">}}</span> (<span class="cp">{{</span> <span class="nv">this.date.year</span> <span class="cp">}}</span>)<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Date
+    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.date</span><span class="o">|</span><span class="nf">dateformat</span> <span class="cp">}}</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.website</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Website
+    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">this.website</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.website.host</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Project type
+    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.type</span> <span class="cp">}}</span>
+  <span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;description&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.description</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">set</span> <span class="nv">images</span> <span class="o">=</span> <span class="nv">this.attachments.images.all</span><span class="o">()</span> <span class="cp">%}</span>
+  <span class="cp">{%</span> <span class="k">if</span> <span class="nv">images</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Images<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">images</span> <span class="cp">%}</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;image&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image.thumbnail</span><span class="o">(</span><span class="m">640</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+        <span class="cp">{%</span> <span class="k">if</span> <span class="nv">image.exif</span> <span class="cp">%}</span>
+        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">meta</span><span class="p">&gt;</span>
+          <span class="cp">{{</span> <span class="nv">image.exif.camera</span> <span class="cp">}}</span>
+          <span class="cp">{%</span> <span class="k">if</span> <span class="nv">image.exif.created_at</span> <span class="cp">%}</span>
+            (<span class="cp">{{</span> <span class="nv">image.exif.created_at</span><span class="o">|</span><span class="nf">dateformat</span> <span class="cp">}}</span>)
+          <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+  <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+<p>Some notes on what's maybe not entirely obvious:</p>
+<ul>
+<li>a <code>url</code> field does not just give access to the stored URL but also provides
+some properties such as <code>.host</code> to just get the host of the website.</li>
+<li>we can use the <code>|dateformat</code> filter to format out dates nicely</li>
+<li>by calling <code>.all()</code> on our images we get the images back as a list where we
+can then check if any images exist with <code>if images</code>.</li>
+<li>we can access embedded EXIF information by using the <code>.exif</code> property.</li>
+</ul>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/guides/portfolio"; this.page.url = "https://www.getlektor.com/docs/guides/portfolio/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/guides/portfolio/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

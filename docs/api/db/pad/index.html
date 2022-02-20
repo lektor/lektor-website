@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Pad | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../../">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li><a href="../../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../">Welcome</a></li>
+        
+        
+          <li><a href="../../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../../installation/">Installation</a>
+            
+        
+          <li><a href="../../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../../project/">Project</a>
+            
+        
+          <li><a href="../../../content/">Content</a>
+            
+        
+          <li><a href="../../../templates/">Templates</a>
+            
+        
+          <li><a href="../../../themes/">Themes</a>
+            
+        
+          <li><a href="../../../guides/">Guides</a>
+            
+        
+          <li><a href="../../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../">API</a>
+            
+            <ul>
+          <li><a href="../../build/">Build System</a>
+            
+        
+          <li><a href="../../databags/">Databags</a>
+            
+        
+          <li><a href="../">Database</a>
+            
+            <ul>
+          <li><a href="../types/">Builtin Field Types</a>
+            
+        
+          <li><a href="../expression/">Expression</a>
+            
+        
+          <li><a href="../f/">F</a>
+            
+        
+          <li><a href="../get-alts/">get_alts()</a>
+            
+        
+          <li class="active"><a href="./">Pad</a>
+            
+            <ul>
+          <li><a href="databags/">databags</a>
+            
+        
+          <li><a href="get/">get()</a>
+            
+        
+          <li><a href="get-root/">get_root()</a>
+            
+        
+          <li><a href="query/">query()</a>
+            
+        
+          <li><a href="resolve-url-path/">resolve_url_path()</a>
+            
+        
+          <li><a href="root/">root</a>
+            
+        </ul>
+            
+        
+          <li><a href="../query/">Query</a>
+            
+        
+          <li><a href="../record/">Record</a>
+            
+        
+          <li><a href="../obj/">SourceObject</a>
+            
+        
+          <li><a href="../system-fields/">System Fields</a>
+            
+        
+          <li><a href="../type/">Type</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../environment/">Environment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../publisher/">Publisher</a>
+            
+        
+          <li><a href="../../templates/">Template API</a>
+            
+        
+          <li><a href="../../utils/">Utilities</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#template-usage">Template Usage</a></li>
+        
+          <li><a href="#plugin-usage">Plugin Usage</a></li>
+        
+          <li><a href="#manual-pad-creation">Manual Pad Creation</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1><i class="glyphicon glyphicon-leaf"></i> <code class="mod">lektor.db.</code><code class="obj">Pad</code></h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+        <li>Template variable: <a href="../../templates/globals/site/"><code>site</code></a></li>
+      
+      
+      </ul>
+
+      <p>The <code>Pad</code> is a helper class that provides basic access to querying the
+database.  Inside templates an instance of it is available under the
+<code>site</code> variable automatically.</p>
+<p>To understand what the pad does you need to consider what it is.  The
+pad is similar to a <code>connection</code> in a regular database.  Whenever you
+load a record it's temporarily cached on the pad.  So unless you overflow
+the cache, loading the object a second time will most likely return an
+already loaded instance from the pad.  This also means that the pad
+is not threadsafe.  So if you want (for whatever reason) use multiple
+threads you have to create a separate pad for each thread.</p>
+<p>This typically only comes up in the context of plugins or more complex
+command line scripts.</p>
+<h2 id="template-usage">Template Usage</h2><p>A ready-configured pad is always available under the <code>site</code> name which
+allows you to easily discover other pages.  Here is a basic example of
+how to do this through the <a href="get/" class="ref">get</a> method:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">root</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.title</span> <span class="cp">}}</span> | <span class="cp">{{</span> <span class="nv">root.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</pre></div>
+<h2 id="plugin-usage">Plugin Usage</h2><p>Within plugins it's typically not a good idea to construct a new Pad.
+Instead you can get access to the current pad from the active context:</p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.context</span> <span class="kn">import</span> <span class="n">get_ctx</span>
+
+<span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">pad</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span><span class="o">.</span><span class="n">pad</span>
+</pre></div>
+<p>Note that you can only get access to a pad if a context is available.  This
+will not be the case when the plugin is currently being initialized for
+instance.</p>
+<h2 id="manual-pad-creation">Manual Pad Creation</h2><p>If you want to work with the database from a script, you can create a
+pad from the <a href="../../environment/" class="ref">Environment</a> with the help of
+the <a href="../../environment/new-pad/" class="ref">new_pad</a> method:</p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.project</span> <span class="kn">import</span> <span class="n">Project</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Project</span><span class="o">.</span><span class="n">discover</span><span class="p">()</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">make_env</span><span class="p">()</span>
+<span class="n">pad</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">new_pad</span><span class="p">()</span>
+<span class="n">root_record</span> <span class="o">=</span> <span class="n">pad</span><span class="o">.</span><span class="n">root</span>
+</pre></div>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="databags/">databags</a>
+              </h4>
+              
+                <p class="summary">Provides access to the databags system.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="get/">get()</a>
+              </h4>
+              
+                <p class="summary">Loads a single record.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="get-root/">get_root()</a>
+              </h4>
+              
+                <p class="summary">Returns the root object of a specific alternative.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="query/">query()</a>
+              </h4>
+              
+                <p class="summary">Creates a query at a specific path.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="resolve-url-path/">resolve_url_path()</a>
+              </h4>
+              
+                <p class="summary">Resolves a URL path to a into a source object.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="root/">root</a>
+              </h4>
+              
+                <p class="summary">Returns the root object of the primary alternative.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/api/db/pad"; this.page.url = "https://www.getlektor.com/docs/api/db/pad/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/db/pad/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

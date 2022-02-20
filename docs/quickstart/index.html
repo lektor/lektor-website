@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title>Quickstart | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../">Welcome</a></li>
+        
+        
+          <li><a href="../what/">What is Lektor</a>
+            
+        
+          <li><a href="../installation/">Installation</a>
+            
+        
+          <li class="active"><a href="./">Quickstart</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../project/">Project</a>
+            
+        
+          <li><a href="../content/">Content</a>
+            
+        
+          <li><a href="../templates/">Templates</a>
+            
+        
+          <li><a href="../themes/">Themes</a>
+            
+        
+          <li><a href="../guides/">Guides</a>
+            
+        
+          <li><a href="../deployment/">Deployment</a>
+            
+        
+          <li><a href="../plugins/">Plugins</a>
+            
+        
+          <li><a href="../models/">Data Modelling</a>
+            
+        
+          <li><a href="../cli/">Command Line</a>
+            
+        
+          <li><a href="../api/">API</a>
+            
+        
+          <li><a href="../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#creating-a-new-project">Creating a New Project</a></li>
+        
+          <li><a href="#screencast">Screencast</a></li>
+        
+          <li><a href="#running-your-project">Running your Project</a></li>
+        
+          <li><a href="#accessing-the-admin">Accessing the Admin</a></li>
+        
+          <li><a href="#building">Building</a></li>
+        
+          <li><a href="#next-steps">Next Steps</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Quickstart</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>The best way to get started with Lektor is to use the <code>quickstart</code> command to
+let Lektor generate a basic project layout for you.  This requires the use of
+the command line client which is the recommended way to do development until
+the website is ready for end user management.</p>
+<p>If you do not have the <code>lektor</code> <a href="../cli/" class="ref">command line executable</a>
+available yet just consult the <a href="../installation" class="ref">Installation</a> section of
+the documentation.</p>
+<h2 id="creating-a-new-project">Creating a New Project</h2><p>To create a new project open a terminal and navigate to the preferred location
+of your project.  Then execute the quickstart command to create a new project:</p>
+<pre><code>$ lektor quickstart
+</code></pre>
+<p>This will ask you a few questions and then create a new Lektor project with
+some basic configuration for you.</p>
+<h2 id="screencast">Screencast</h2><p>If you want a video walkthrough you can have a look at the screencast which
+explains the quickstart project a bit:</p>
+<iframe width="100%" height="410" frameborder="0" allowfullscreen="allowfullscreen"
+  src="https://www.youtube.com/embed/lTWTCwuPdrU?autoplay=0&fs=1">
+</iframe><h2 id="running-your-project">Running your Project</h2><p>Now that you have a project you can run it.  As a developer the easiest way to
+do that is to use the <code>server</code> which runs the project on your local machine
+as if it was a dynamic website.</p>
+<p>All you have to do is to enter your project directory and run it:</p>
+<pre><code>$ cd yourproject
+$ lektor server
+</code></pre>
+<p>This will automatically start the server and you can navigate to
+<a href="http://localhost:5000/">localhost:5000</a> to open the project.</p>
+<p>You can keep the server running, it will automatically rebuild your files as
+they change.</p>
+<h2 id="accessing-the-admin">Accessing the Admin</h2><p>While the development server is running you can use the built-in admin
+interface.  It can be accessed by clicking on the pencil symbol on a page
+or by manually navigating to <code>/admin/</code>.</p>
+<p><img src="admin.png" class="screenshot" alt="screenshot of the admin"></p>
+<h2 id="building">Building</h2><p>When you want to build the website for distribution you can make Lektor build
+everything into static files.  In fact, that's already happening in the
+background while the development server is running.  If you want to trigger
+a build you can use the <code>build</code> command.  By default it builds into a lektor
+cache directory.</p>
+<pre><code>$ lektor build
+</code></pre>
+<p>You can also explicitly provide a path if you are not satisfied with the
+default directory.  To see where this directory is you can use the
+<code>project-info</code> command:</p>
+<pre><code>$ lektor project-info --output-path
+/Users/john/.../build-cache/6fdaeecab78d6aa99f86f586ab15da06
+</code></pre>
+<p>All your generated files will end up in that folder for easy publishing.</p>
+<h2 id="next-steps">Next Steps</h2><p>Now that you have done that, you might be interested in diving deeper into
+Lektor.  These might be good next steps:</p>
+<ul>
+<li>The <a href="../guides/" class="ref">Guides</a> which cover common setups.</li>
+<li>The <a href="../deployment/" class="ref">Deployment Documentation</a> which shows how to
+deploy a website to production.</li>
+<li><a href="../models/" class="ref">Data Modelling</a> for everything about how to model your
+data.</li>
+</ul>
+<div class="admonition admonition-tip"><p>This website is built on Lektor as well.  You can find the sources of it
+<a href="https://github.com/lektor/lektor-website/" class="ext">on GitHub</a> and you can click
+at any point on the source symbol (<i class="fa fa-code"></i>) on the bottom
+to see the source for the current page.</p></div>
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/quickstart"; this.page.url = "https://www.getlektor.com/docs/quickstart/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/quickstart/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

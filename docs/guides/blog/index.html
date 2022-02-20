@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Blog | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../">Guides</a>
+            
+            <ul>
+          <li class="active"><a href="./">Blog</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../categories/">Categories</a>
+            
+        
+          <li><a href="../disqus/">Disqus Comments</a>
+            
+        
+          <li><a href="../error-pages/">Error Pages</a>
+            
+        
+          <li><a href="../page-order/">Page Order</a>
+            
+        
+          <li><a href="../pagination/">Pagination</a>
+            
+        
+          <li><a href="../portfolio/">Portfolio Sites</a>
+            
+        
+          <li><a href="../redirects/">Redirects</a>
+            
+        
+          <li><a href="../single-page/">Single-Page</a>
+            
+        
+          <li><a href="../sitemap/">Sitemap</a>
+            
+        
+          <li><a href="../webpack/">Webpack</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#the-models">The Models</a><ul>
+          <li><a href="#blog.ini`"><code>blog.ini</code></a></li>
+        
+          <li><a href="#blog-post.ini`"><code>blog-post.ini</code></a></li>
+        </ul></li>
+        
+          <li><a href="#the-templates">The Templates</a><ul>
+          <li><a href="#blog.html`"><code>blog.html</code></a></li>
+        
+          <li><a href="#blog-post.html`"><code>blog-post.html</code></a></li>
+        </ul></li>
+        
+          <li><a href="#initializing-the-blog">Initializing The Blog</a></li>
+        
+          <li><a href="#changing-the-url-structure">Changing the URL Structure</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Blog</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Blogging is what spawned many content management systems and static site
+generators.  We're living in a world where many people like to share what's
+on their minds and the best way to do that turns out to be pages ordered by
+the date of publication.  That's basically what a blog is.  Here we will
+build our own blog with Lektor.</p>
+<h2 id="the-models">The Models</h2><p>For a blog we want two models.  The model for the <code>blog</code> itself and the model
+for the <code>blog-post</code>.  The idea is that we have a folder called <code>blog</code> which
+uses the <code>blog</code> model which contains all the blog posts.  Each of the blog
+posts will use the <code>blog-post</code> model.</p>
+<h3 id="blog.ini`"><code>blog.ini</code></h3><p>This is the model for the blog itself.  It instructs Lektor that all of the
+pages below it will be blog posts, how many blog posts we want to show per
+page and what the order is.  We also set it to <code>hidden</code> and <code>protected</code> which
+will make it unavailable in the admin (<code>hidden</code>) for new pages and make it
+impossible to delete (<code>protected</code>).  This means we need to manually create the
+one page later which will use this.</p>
+<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span><span class="w"></span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+
+<span class="k">[children]</span><span class="w"></span>
+<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span><span class="w"></span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-pub_date, title</span><span class="w"></span>
+
+<span class="k">[pagination]</span><span class="w"></span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">per_page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10</span><span class="w"></span>
+</pre></div>
+<h3 id="blog-post.ini`"><code>blog-post.ini</code></h3><p>Each blog post has a title, publication date, author and body.  The publication
+date and title are also used for sorting if you look into the <code>blog.ini</code>.
+Lastly we set up the label of the page to be the title of the blog post.  We
+can also set it to <code>hidden</code> as the model is automatically selected in the
+admin whenever a page is created in the blog.</p>
+<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog Post</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+
+<span class="k">[fields.title]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Title</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">large</span><span class="w"></span>
+
+<span class="k">[fields.pub_date]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Publication date</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">date</span><span class="w"></span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/2</span><span class="w"></span>
+
+<span class="k">[fields.author]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Author</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/2</span><span class="w"></span>
+
+<span class="k">[fields.body]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+</pre></div>
+<h2 id="the-templates">The Templates</h2><p>Now that we have the models set up, we want to create the templates.</p>
+<h3 id="blog.html`"><code>blog.html</code></h3><p>Let's start with the blog overview page.  This template is used for our <code>blog</code>
+model.  In this example we just want to show the titles of the post on the
+overview page with the author and date and a controller for the pagination.
+Because pagination is enabled we can iterate over <code>this.pagination.items</code>
+instead of <code>this.children</code> which will return only the items for the intended
+page.</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros/pagination.html&quot;</span> <span class="k">import</span> <span class="nv">render_pagination</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>My Blog<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My Blog<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;blog-index&quot;</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">this.pagination.items</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">post</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> —
+      by <span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span>
+      on <span class="cp">{{</span> <span class="nv">post.pub_date</span><span class="o">|</span><span class="nf">dateformat</span> <span class="cp">}}</span>
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+
+  <span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.pagination.pages</span> <span class="o">&gt;</span> <span class="m">1</span> <span class="cp">%}</span>
+    <span class="cp">{{</span> <span class="nv">render_pagination</span><span class="o">(</span><span class="nv">this.pagination</span><span class="o">)</span> <span class="cp">}}</span>
+  <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+<p>For the pagination macro have a look at the <a href="../pagination/" class="ref">pagination guide</a> which covers that part.</p>
+<h3 id="blog-post.html`"><code>blog-post.html</code></h3><p>Now we just need a template for our blog post.  This (<code>blog-post.html</code>) will
+do:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.title</span> <span class="cp">}}</span> | My Blog<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.title</span> <span class="cp">}}</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;meta&quot;</span><span class="p">&gt;</span>
+    by <span class="cp">{{</span> <span class="nv">this.author</span> <span class="cp">}}</span>
+    on <span class="cp">{{</span> <span class="nv">this.pub_date</span><span class="o">|</span><span class="nf">dateformat</span><span class="o">(</span><span class="s1">&#39;full&#39;</span><span class="o">)</span> <span class="cp">}}</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;body&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.body</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+<h2 id="initializing-the-blog">Initializing The Blog</h2><p>Now that we have models and templates we just need to designate a part of the
+website as blog.  For that create a new folder in your <code>content/</code> folder
+with the name of your blog.  For instance just <code>content/blog</code> and put a
+<code>contents.lr</code> file with this content in:</p>
+<pre><code>_model: blog
+</code></pre>
+<p>Now you can head to the admin UI to create new blog posts.</p>
+<h2 id="changing-the-url-structure">Changing the URL Structure</h2><p>With the above settings the blog will live at <code>blog/</code> and the posts at
+<code>blog/&lt;post-slug&gt;</code>.  But what if you want to put the date of the blog post
+into the URL?  That's thankfully very easy.  All you need to do is to set up
+a new URL format for the children.  Just edit <code>blog.ini</code> and add this to
+the <code>[children]</code> section:</p>
+<div class="hll"><pre><span></span><span class="na">slug_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ (this.pub_date|dateformat(&#39;YYYY/M/&#39;) if this.pub_date) ~ this._id }}</span><span class="w"></span>
+</pre></div>
+<p>What this does is that it will prepend the year (<code>YYYY</code>) and month (<code>M</code>) to
+the ID of the page if the publication date is configured.  Otherwise it will
+just use the ID of the page.  With this change our blog post will move from
+for instance <code>blog/hello/</code> to <code>blog/2015/12/hello/</code>.</p>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/guides/blog"; this.page.url = "https://www.getlektor.com/docs/guides/blog/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/guides/blog/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

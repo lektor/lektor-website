@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>Record | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../../">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li><a href="../../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../">Welcome</a></li>
+        
+        
+          <li><a href="../../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../../installation/">Installation</a>
+            
+        
+          <li><a href="../../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../../project/">Project</a>
+            
+        
+          <li><a href="../../../content/">Content</a>
+            
+        
+          <li><a href="../../../templates/">Templates</a>
+            
+        
+          <li><a href="../../../themes/">Themes</a>
+            
+        
+          <li><a href="../../../guides/">Guides</a>
+            
+        
+          <li><a href="../../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../">API</a>
+            
+            <ul>
+          <li><a href="../../build/">Build System</a>
+            
+        
+          <li><a href="../../databags/">Databags</a>
+            
+        
+          <li><a href="../">Database</a>
+            
+            <ul>
+          <li><a href="../types/">Builtin Field Types</a>
+            
+        
+          <li><a href="../expression/">Expression</a>
+            
+        
+          <li><a href="../f/">F</a>
+            
+        
+          <li><a href="../get-alts/">get_alts()</a>
+            
+        
+          <li><a href="../pad/">Pad</a>
+            
+        
+          <li><a href="../query/">Query</a>
+            
+        
+          <li class="active"><a href="./">Record</a>
+            
+            <ul>
+          <li><a href="getitem/">[]</a>
+            
+        
+          <li><a href="attachments/">attachments</a>
+            
+        
+          <li><a href="children/">children</a>
+            
+        
+          <li><a href="contents/">contents</a>
+            
+        
+          <li><a href="exif/">exif</a>
+            
+        
+          <li><a href="format/">format</a>
+            
+        
+          <li><a href="get_siblings/">get_siblings()</a>
+            
+        
+          <li><a href="has_next/">has_next()</a>
+            
+        
+          <li><a href="has_prev/">has_prev()</a>
+            
+        
+          <li><a href="height/">height</a>
+            
+        
+          <li><a href="is-attachment/">is_attachment</a>
+            
+        
+          <li><a href="pagination/">pagination</a>
+            
+        
+          <li><a href="record-label/">record_label</a>
+            
+        
+          <li><a href="thumbnail/">thumbnail()</a>
+            
+        
+          <li><a href="width/">width</a>
+            
+        </ul>
+            
+        
+          <li><a href="../obj/">SourceObject</a>
+            
+        
+          <li><a href="../system-fields/">System Fields</a>
+            
+        
+          <li><a href="../type/">Type</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../environment/">Environment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../publisher/">Publisher</a>
+            
+        
+          <li><a href="../../templates/">Template API</a>
+            
+        
+          <li><a href="../../utils/">Utilities</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#accessing-data">Accessing Data</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1><i class="glyphicon glyphicon-leaf"></i> <code class="mod">lektor.db.</code><code class="obj">Record</code></h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Records are <a href="../obj/" class="ref">Source Objects</a> that come from the <code>content/</code>
+folder and correspond to <a href="../../../models/" class="ref">Data Models</a>.  They provide
+a wider range of functionality compared to a standard source object but
+they also provide all the functionality a regular source object does.</p>
+<p>In addition to the functionality here, they also expose all the configured
+fields.</p>
+<h2 id="accessing-data">Accessing Data</h2><p>Most of the time things will just work as you expect.  If you access these
+objects from templates they give access to their built-in attributes as well
+as custom fields through the attribute syntax.  If however a built-in
+attribute overlaps with your custom field, you need to access the fields
+with the subscript syntax (<code>[]</code>):</p>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Built-in Path: <span class="cp">{{</span> <span class="nv">obj.path</span> <span class="cp">}}</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Path field: <span class="cp">{{</span> <span class="nv">obj</span><span class="o">[</span><span class="s1">&#39;path&#39;</span><span class="o">]</span> <span class="cp">}}</span>
+</pre></div>
+
+      
+
+      
+
+      
+      <div class="child-pages nocontent">
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-flash"></i>
+                <a href="getitem/">[]</a>
+              </h4>
+              
+                <p class="summary">Looks up a field from the type.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="attachments/">attachments</a>
+              </h4>
+              
+                <p class="summary">Returns a query to the attachments of a page.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="children/">children</a>
+              </h4>
+              
+                <p class="summary">Returns a query to the children of a page.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="contents/">contents</a>
+              </h4>
+              
+                <p class="summary">Provides access to the raw contents of a record or attachment.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="exif/">exif</a>
+              </h4>
+              
+                <p class="summary">Provides access to the EXIF information of an image.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="format/">format</a>
+              </h4>
+              
+                <p class="summary">Returns the format of a supported attachment.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="get_siblings/">get_siblings()</a>
+              </h4>
+              
+                <p class="summary">The previous and next children of this page&#39;s parent.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="has_next/">has_next()</a>
+              </h4>
+              
+                <p class="summary">Whether the record has a next sibling.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="has_prev/">has_prev()</a>
+              </h4>
+              
+                <p class="summary">Whether the record has a previous sibling.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="height/">height</a>
+              </h4>
+              
+                <p class="summary">Returns the height of an image in pixels.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="is-attachment/">is_attachment</a>
+              </h4>
+              
+                <p class="summary">Indicates if the record is a page or attachment.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="pagination/">pagination</a>
+              </h4>
+              
+                <p class="summary">Provides access to the pagination information.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="record-label/">record_label</a>
+              </h4>
+              
+                <p class="summary">Returns the configured label for this record.</p>
+              
+            </div>
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-cog"></i>
+                <a href="thumbnail/">thumbnail()</a>
+              </h4>
+              
+                <p class="summary">Creates a thumbnail for an image.</p>
+              
+            </div>
+            
+          </div>
+        
+          <div class="row">
+            
+            <div class="col-md-6 child">
+              <h4>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <a href="width/">width</a>
+              </h4>
+              
+                <p class="summary">Returns the width of an image in pixels.</p>
+              
+            </div>
+            
+          </div>
+        
+      </div>
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/api/db/record"; this.page.url = "https://www.getlektor.com/docs/api/db/record/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/db/record/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-scss 1.4.1</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Lektor plugin to compile css out of sass - based on libsass<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/chaos-bodensee/lektor-scss.git" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/chaos-bodensee/lektor-scss.git" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-scss on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/chaos-bodensee/lektor-scss.git/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/chaos-bodensee/lektor-scss.git/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 1.4.1</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:l3d@c3woc.de">L3D</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/before-build-all/">before-build-all</a>, 
+          
+            
+            <a href="../tag/HTML/">HTML</a>, 
+          
+            
+            <a href="../tag/Sass/">Sass</a>, 
+          
+            
+            <a href="../tag/SCSS/">SCSS</a>, 
+          
+            
+            <a href="../tag/server-spawn/">server-spawn</a>, 
+          
+            and 
+            <a href="../tag/server-stop/">server-stop</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>SCSS compiler for lektor</h1>
+<p><a href="https://badge.fury.io/py/lektor-scss" rel="nofollow"><img alt="PyPI version" src="https://badge.fury.io/py/lektor-scss.svg"></a>
+<a href="https://pepy.tech/project/lektor-scss" rel="nofollow"><img alt="Downloads" src="https://pepy.tech/badge/lektor-scss"></a>
+<img alt="Upload Python Package" src="https://github.com/chaos-bodensee/lektor-scss/workflows/Upload%20Python%20Package/badge.svg">
+<img alt="Linting Python package" src="https://github.com/chaos-bodensee/lektor-scss/workflows/Linting%20Python%20package/badge.svg"></p>
+<p>SCSS compiler for <a href="https://getlektor.com" rel="nofollow">Lektor</a> that compiles css from sass.</p>
+<h2>How does it actually work?</h2>
+<ul>
+<li>It uses <a href="https://github.com/sass/libsass-python" rel="nofollow">libsass</a></li>
+<li>It looks for <code>.scss</code> and <code>.sass</code> files <em>(ignores part files that begin with a underscore e.g. '_testfile.scss') and compiles them as part of the build process.</em></li>
+<li>It only rebuilds the css when it's needed (file changed, a file it imports changed or the config changed).</li>
+<li>When starting the the development server it watches the files for changes in the background and rebuilds them when needed.</li>
+</ul>
+<h2>Installation</h2>
+<p>You can install the plugin with Lektor's installer:</p>
+<pre>lektor plugins add lektor-scss
+</pre>
+<p>Or by hand, adding the plugin to the packages section in your lektorproject file:</p>
+<pre><span class="k">[packages]</span><span class="w"></span>
+<span class="na">lektor-scss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1.4.1</span><span class="w"></span>
+</pre>
+<h2>Usage</h2>
+<p>To enable the plugin, pass the <code>scss</code> flag when starting the development
+server or when running a build:</p>
+<pre><span class="c1"># build and compile css from scss</span>
+lektor build -f scss
+
+<span class="c1"># edit site with new generated css</span>
+lektor server -f scss
+</pre>
+<h2>Python3</h2>
+<p>It is highly recommended to use this plugin with a python3 version of lektor.</p>
+<p>Since lektor can be used as a python module it is possible to enforce this <em>(after lektor is installed eg. with <code>pip3 install --user --upgrade lektor</code>)</em> with the following command:</p>
+<pre><span class="c1"># run a python3 lektor server with new generated css</span>
+python3 -m lektor server -f scss
+</pre>
+<h2>Configuration</h2>
+<p>The Plugin has the following settings you can adjust to your needs:</p>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>source_dir</td>
+<td>assets/scss/</td>
+<td>the directory in which the plugin searchs for sass files (subdirectories are included)</td>
+</tr>
+<tr>
+<td>output_dir</td>
+<td>assets/css/</td>
+<td>the directory the compiled css files get place at</td>
+</tr>
+<tr>
+<td>output_style</td>
+<td>compressed</td>
+<td>coding style of the compiled result. choose one of: 'nested', 'expanded', 'compact', 'compressed'</td>
+</tr>
+<tr>
+<td>source_comments</td>
+<td>False</td>
+<td>whether to add comments about source lines</td>
+</tr>
+<tr>
+<td>precision</td>
+<td>5</td>
+<td>precision for numbers</td>
+</tr>
+<tr>
+<td>include_paths</td>
+<td></td>
+<td>If you want to include SASS libraries from a different directory, libsass's compile function has a parameter called <code>include_paths</code> to add those directories to the search path.</td>
+</tr>
+</tbody>
+</table>
+<p>An example file with the default config can be found at <code>configs/scss.ini</code>. For every parameter that is not specified in the config file the default value is used by the plugin.</p>
+<h2>Development</h2>
+<p>To test and/or develop on this plugin in your running lektor installation, simply place it in the <code>packages/</code> Folder and have a look at the <a href="https://www.getlektor.com/docs/plugins/dev/" rel="nofollow">Lektor Doku</a></p>
+
+
+
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-scss"; this.page.url = "https://www.getlektor.com/plugins/lektor-scss/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-scss/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

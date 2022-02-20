@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Installing a Theme | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../">Themes</a>
+            
+            <ul>
+          <li class="active"><a href="./">Installing a Theme</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../customizing/">Customizing a Theme</a>
+            
+        
+          <li><a href="../creating/">Creating a Theme</a>
+            
+        
+          <li><a href="../packages/">Installing Plugins with a Theme.</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#installing-multiple-themes">Installing Multiple Themes</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Installing a Theme</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>For installing a theme you just need to copy it to the <code>themes/</code> folder. Create the <code>themes/</code> folder if it does not already exist.</p>
+<pre><code>project
+├── assets
+├── models
+├── content
+...
+└── themes
+    └── lektor-theme-nix
+</code></pre>
+<p>Themes are normally distributed by public Git repositories, so you could install a theme by
+cloning the repo:</p>
+<div class="hll"><pre><span></span><span class="nb">cd</span> themes
+git clone URL_TO_THEME_REPO
+</pre></div>
+<p>For example, for installing <code>lektor-theme-nix</code>:</p>
+<div class="hll"><pre><span></span><span class="nb">cd</span> themes
+git clone https://github.com/rlaverde/lektor-theme-nix.git
+</pre></div>
+<p>If you download several themes, setting <code>themes</code> variable will allow you to only load
+a particular theme.</p>
+<div class="admonition admonition-warning"><p>Not implemented yet.</p></div><p>You could add the <code>themes</code> variable to the <code>.lektorproject</code> file and Lektor will
+search in the <a href="/themes">community themes</a> and automatically install it.</p>
+<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<span class="na">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor-theme-nix</span><span class="w"></span>
+</pre></div>
+<h2 id="installing-multiple-themes">Installing Multiple Themes</h2><p>Lektor also supports installing several themes. Copy them to the <code>themes/</code>
+folder, and set the <code>themes</code> variable to indicate the precedence (optional).</p>
+<pre><code>project
+├── assets
+├── models
+├── content
+...
+└── themes
+    ├── lektor-theme-other-theme/
+    └── lektor-theme-nix/
+</code></pre>
+<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<span class="na">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor-theme-nix, lektor-theme-other-theme</span><span class="w"></span>
+</pre></div>
+<p>This will make <code>lektor-theme-nix</code>, because it's listed first, have a higher precedence.
+Files present in multiple themes will be loaded from right to left, so that the first (left-most)
+theme is preferred over the theme(s) to its right.</p>
+<div class="admonition admonition-info"><p>If you don't set the <code>themes</code> variable, all themes will be loaded, but the order
+isn't preserved.</p></div>
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/themes/installing"; this.page.url = "https://www.getlektor.com/docs/themes/installing/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/themes/installing/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

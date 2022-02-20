@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-creative-commons 0.6.0</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Lektor plugin to add Creative Commons license to your pages<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/humrochagf/lektor-creative-commons" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/humrochagf/lektor-creative-commons" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-creative-commons on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/humrochagf/lektor-creative-commons/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/humrochagf/lektor-creative-commons/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.6.0</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:humrochagf@gmail.com">Humberto Rocha</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/Creative-Commons/">Creative Commons</a>, 
+          
+            
+            <a href="../tag/i18n/">i18n</a>, 
+          
+            
+            <a href="../tag/Jinja-globals/">Jinja globals</a>, 
+          
+            
+            <a href="../tag/Licensing/">Licensing</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>Lektor Creative Commons</h1>
+<p><a href="https://github.com/humrochagf/lektor-creative-commons/blob/master/LICENSE" rel="nofollow"><img alt="License: MIT" src="https://img.shields.io/pypi/l/lektor-creative-commons.svg"></a>
+<a href="https://pypi.python.org/pypi/lektor-creative-commons" rel="nofollow"><img alt="Current version at PyPI" src="https://img.shields.io/pypi/v/lektor-creative-commons.svg"></a>
+<a href="https://pypi.python.org/pypi/lektor-creative-commons" rel="nofollow"><img alt="Downloads per month on PyPI" src="https://img.shields.io/pypi/dm/lektor-creative-commons.svg"></a></p>
+<p>Lektor plugin to add Creative Commons license to your pages</p>
+<h2>Usage</h2>
+<p>On your templates use:</p>
+<pre><code>&lt;div class=&quot;license&quot;&gt;{{ render_cc_license(type, size, template, caller) }}&lt;/div&gt;
+</code></pre>
+<ul>
+<li><code>type</code> is a <code>string</code> with the license type (e.g.: <code>'by'</code>, <code>'by-sa'</code>, <code>'by-nc-sa'</code>).</li>
+<li><code>size</code> is an optional parameter with the size <code>'normal'</code> or <code>'compact'</code>. It defaults to <code>'normal'</code>.</li>
+<li><code>template</code> is an optional parameter with the template <code>'full'</code>, <code>'image-only'</code> or <code>'text-only'</code>. It defaults to <code>'full'</code>.</li>
+<li><code>locale</code> is an optional parameter that overrides the locale at function calling time.</li>
+<li><code>caller</code> is an optional parameter that you can pass an callable to mount your own template. This argument is usually omitted. See the example of how to use it with the <a href="http://jinja.pocoo.org/docs/2.10/templates/#call" rel="nofollow">Jinja call feature</a>.</li>
+</ul>
+<h2>Examples</h2>
+<p>Simply rendering the license of your choice:</p>
+<pre><code>&lt;div class=&quot;license&quot;&gt;{{ render_cc_license('by-sa') }}&lt;/div&gt;
+</code></pre>
+<p>Using Jinja2 <a href="http://jinja.pocoo.org/docs/2.10/templates/#call" rel="nofollow">call</a> block to inject your own template:</p>
+<pre><code>{% call(license, license_url, icon_path) render_cc_license('by-sa', size='normal') %}
+  &lt;a class=&quot;nav-item&quot; rel=&quot;license&quot; target=&quot;_blank&quot; href=&quot;{{ license_url }}&quot;&gt;
+    &lt;img alt=&quot;{{ license }}&quot; style=&quot;border-width:0&quot; src=&quot;{{ icon_path }}&quot; /&gt;
+  &lt;/a&gt;
+{% endcall %} 
+</code></pre>
+<p>There are more variables, you can check which with</p>
+<pre><code>{% call() render_cc_license('by-sa', size='normal') %}
+  {{ kwargs }}
+{% endcall %} 
+</code></pre>
+<p>Notice that using the call block it injects its content as <code>caller</code> parameter to the <code>render_cc_license</code> function that skips the need of choosing a template and renders your own.</p>
+<h2>Internationalization support</h2>
+<p>This plugin has support to internationalization, and changes it language based on <code>.lektorproject</code> file.
+The Current supported locales are:</p>
+<ul>
+<li>en</li>
+<li>pt_BR</li>
+<li>de</li>
+</ul>
+<p>Any other locale will default to <code>en</code> (English).</p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-creative-commons"; this.page.url = "https://www.getlektor.com/plugins/lektor-creative-commons/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-creative-commons/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

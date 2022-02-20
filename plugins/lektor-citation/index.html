@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-citation 0.21</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>This Plugin should extend lektor with APA-styled citations using bibtex files. It was based on the known lektor-bibtex-support plugin by arunpersaud.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://git.ismus.net/homer77/lektor-citation" class="ext">Homepage</a></li>
+        </ul>
+
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.21</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:homer77@ismus.net">Homer S</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/bibliography/">bibliography</a>, 
+          
+            
+            <a href="../tag/citation/">citation</a>, 
+          
+            
+            <a href="../tag/content/">content</a>, 
+          
+            
+            <a href="../tag/Jinja-globals/">Jinja globals</a>, 
+          
+            
+            <a href="../tag/LaTeX/">LaTeX</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>lektor-citation</h1>
+<p>An APA-styled citation plugin for the lektor static content management system (<a href="https://getlektor.com" rel="nofollow">https://getlektor.com</a>).</p>
+<h2>Preparations</h2>
+<p>Install the plugin by</p>
+<pre><code>lektor plugin add lektor-citation
+</code></pre>
+<p>or by copying this repository into the <em>packages</em>-folder of your lektor-project.</p>
+<p>Create an <em>citation.ini</em> in its <em>configs</em>-folder:</p>
+<pre><code>[Bibtex]
+file = Literature.bib
+
+[default]
+priority = url
+link = /for-example/link-to-your/biblioprahy
+</code></pre>
+<p>And put a <em>Literature.bib</em> BibTex-file into the project's <em>assets</em>-folder respectively.</p>
+<h2>Jinja_env</h2>
+<h3>Bibliography</h3>
+<p>To get a formated output of your whole BibTex library you can either</p>
+<ol>
+<li>Use method citation_short_output in the template of your literature page. It creates an unordered list of entries.</li>
+</ol>
+<pre><code>  &lt;ul id=&quot;literatur&quot;&gt;
+  {% for entry in citation_entries() %}
+  {{ citation_short_output(entry)|decode|safe }}
+  {% endfor %}
+
+&lt;/ul&gt;
+</code></pre>
+<ol start="2">
+<li>Use method citation_full_output instead. This creates a more complete html-output for every entry.</li>
+</ol>
+<pre><code>  {% for entry in citation_entries() %}
+  {{ citation_full_output(entry)|decode|safe }}
+  {% endfor %}
+</code></pre>
+<p>produces</p>
+<pre><code>&lt;h2&gt;{title}&lt;/h2&gt;&lt;h3&gt;{authors} ({pubYear})&lt;/h3&gt;
+&lt;p&gt;{note}&lt;/p&gt;
+&lt;dl class=&quot;literature&quot;&gt;
+&lt;dt class=&quot;edition&quot;&gt;&lt;/dt&gt;
+&lt;dd&gt;{edition}&lt;/dd&gt;
+&lt;dt class=&quot;editors&quot;&gt;&lt;/dt&gt;
+&lt;dd&gt;{editors}&lt;/dd&gt;
+&lt;dt class=&quot;pages&quot;&gt;&lt;/dt&gt;
+&lt;dd&gt;{pages}&lt;/dd&gt;
+&lt;dt class=&quot;issbn&quot;&gt;&lt;/dt&gt;
+&lt;dd&gt;{issbn}&lt;/dd&gt;
+&lt;dt class=&quot;publisher&quot;&gt;&lt;/dt&gt;
+&lt;dd&gt;{publisher}&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<ol start="3">
+<li>You may also use the citation_entry method in combination with <a href="https://docs.pybtex.org/api/parsing.html#pybtex.database.Entry" rel="nofollow">pybtex*s <strong>Entry</strong>-class</a>. For example:</li>
+</ol>
+<pre><code>&lt;ul&gt;
+  {% for entry in citation_entries() %}
+&lt;li&gt;{{ citation_entry(entry).fields['title'] |decode }}&lt;/li&gt;
+  {% endfor %}
+  &lt;/ul&gt;
+</code></pre>
+<p>This creates an unordered list of all the titles of your bibtex file.
+Of course you can also use citation_entry without a loop and put any id of your bibtex entries into it as parameter.</p>
+<p>Alternatively to the pybtex methods you can use the following <strong>jinja_env globals</strong>:</p>
+<pre><code>citation_authors_short(entry)
+citation_authors_full(entry)
+citation_editors_short(entry)
+citation_editors_full(entry)
+citation_pubYear(entry)
+citation_edition(entry)
+citation_publisher(entry)
+citation_title(entry)
+citation_url(entry)
+citation_issbn(entry)
+citation_pages(entry)
+citation_note(entry)
+</code></pre>
+<h3>In-text Cites</h3>
+<p>To cite a certain entry in your texts you can use the <strong>jinja_env globals</strong>:</p>
+<pre><code>citation_full_cite(id, link=&quot;&quot;)
+citation_full_citeNP(id, link=&quot;&quot;)
+</code></pre>
+<p>Both methods create a complete hyperlink inside your text for the entry with <em>id</em>. You may give it any url to the <em>link</em> parameter to e.g. link it to your bibliography page. The NP in the second stands for <em>No Parantheses</em>. So you'll receive e.g.</p>
+<pre><code>AuthorI &amp; AuthorII (2019)
+</code></pre>
+<p>or</p>
+<pre><code>(AuthorI &amp; AuthorII, 2019)
+</code></pre>
+<h4>link parameter</h4>
+<p>Which url is used for your citation's link depends on what you set in the <em>citation.ini</em> file.</p>
+<ul>
+<li>If you set <em>priority</em> in the <em>default</em> section to <strong>url</strong> the link is set to the value of the <em>url</em> field of the entry.</li>
+<li>If there's no value in it the default-link you may set with <em>link</em> in the same section is used.</li>
+<li>If you set the <em>link</em> parameter of the function it overwrites the former options.</li>
+</ul>
+<p>Thanks to the <strong>lektor-jinja-content</strong> plugin which is a dependency of this plugin you might also use the globals inside your markdown or html contents, too.</p>
+ 
+        
+
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-citation/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

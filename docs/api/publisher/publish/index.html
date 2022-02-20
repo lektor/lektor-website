@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
+  <title>publish | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../../">Documentation</a></li>
+          
+            <li><a href="../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../community/">Community</a></li>
+          
+            <li><a href="../../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../">Welcome</a></li>
+        
+        
+          <li><a href="../../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../../installation/">Installation</a>
+            
+        
+          <li><a href="../../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../../project/">Project</a>
+            
+        
+          <li><a href="../../../content/">Content</a>
+            
+        
+          <li><a href="../../../templates/">Templates</a>
+            
+        
+          <li><a href="../../../themes/">Themes</a>
+            
+        
+          <li><a href="../../../guides/">Guides</a>
+            
+        
+          <li><a href="../../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../">API</a>
+            
+            <ul>
+          <li><a href="../../build/">Build System</a>
+            
+        
+          <li><a href="../../databags/">Databags</a>
+            
+        
+          <li><a href="../../db/">Database</a>
+            
+        
+          <li><a href="../../environment/">Environment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../">Publisher</a>
+            
+            <ul>
+          <li><a href="../env/">env</a>
+            
+        
+          <li><a href="../fail/">fail()</a>
+            
+        
+          <li><a href="../output-path/">output_path</a>
+            
+        
+          <li class="active"><a href="./">publish()</a>
+            
+            <ul></ul>
+            
+        </ul>
+            
+        
+          <li><a href="../../templates/">Template API</a>
+            
+        
+          <li><a href="../../utils/">Utilities</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#example">Example</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1><i class="glyphicon glyphicon-cog"></i> <code class="obj">publish</code> <span class="sig">(<code>target_url, credentials=None, **extra</code>)</span></h1>
+  
+
+
+      <ul class=page-meta>
+      
+        <li>Method of <a href="../">Publisher</a></li>
+      
+      
+      
+        <li>New in Lektor Version <em>2.0</em></li>
+      
+      </ul>
+
+      <p>This method implements the actual publishing process.  It's supposed to
+implement a generator that reports the progress of the publishing.  If at any
+point something happens that would cause an error for the deployment this can
+be signalled with the <a href="../fail/" class="ref">fail</a> method which aborts the execution
+and reports an error.</p>
+<p>The parameters to the function are as follows:</p>
+<ul>
+<li><code>target_url</code>: a URL object with the parsed URL.  This object comes from the
+Werkzeug library and gives access to the individual parts of a URL by the
+exposed attributes (<a href="http://werkzeug.pocoo.org/docs/0.11/urls/" class="ext">Read about the URL object</a>).</li>
+<li><code>credentials</code>: an optional dictionary with command line supplied credentials.
+Note that these credentials might be completely absent and the keys which are
+provided might change with future versions of Lektor.</li>
+<li><code>**extra</code>: for forwards compatibility publishers are required to ignore extra
+keyword arguments.</li>
+</ul>
+<p>Each line in the generator must be a string which is then either logged to
+the output in the console or in the deploy/publish window in the admin UI.</p>
+<h2 id="example">Example</h2><p>This example implements a simple publisher that just copies all built files
+into a new location.</p>
+<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">lektor.publisher</span> <span class="kn">import</span> <span class="n">Publisher</span>
+
+
+<span class="k">class</span> <span class="nc">CopyPublisher</span><span class="p">(</span><span class="n">Publisher</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_url</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="n">src_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_path</span>
+        <span class="n">dst_path</span> <span class="o">=</span> <span class="n">target_url</span><span class="o">.</span><span class="n">path</span>
+        <span class="n">strip</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">src_path</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">for</span> <span class="n">path</span><span class="p">,</span> <span class="n">folders</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">src_path</span><span class="p">):</span>
+            <span class="c1"># Ignore the .lektor folder.</span>
+            <span class="n">folders</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">folders</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;.lektor&#39;</span><span class="p">]</span>
+
+            <span class="c1"># Copy all files over</span>
+            <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+                <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+                <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">full_path</span><span class="p">[</span><span class="n">strip</span><span class="p">:])</span>
+
+                <span class="c1"># Make sure the destination folder exists.</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">dst</span><span class="p">))</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">IOError</span><span class="p">):</span>
+                    <span class="k">pass</span>
+
+                <span class="c1"># Copy the file</span>
+                <span class="k">yield</span> <span class="s1">&#39;Copy </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">filename</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+
+        <span class="k">yield</span> <span class="s1">&#39;Done&#39;</span>
+
+
+<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_publisher</span><span class="p">(</span><span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="n">CopyPublisher</span><span class="p">)</span>
+</pre></div>
+<p>This publisher registers with the <code>copy</code> scheme and could be used like this:</p>
+<div class="hll"><pre><span></span><span class="na">target_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">copy:///path/to/destination/folder</span><span class="w"></span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/api/publisher/publish"; this.page.url = "https://www.getlektor.com/docs/api/publisher/publish/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/publisher/publish/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../license/">License & Copyright</a> •
+          <a href="../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

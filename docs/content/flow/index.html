@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Flow | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../">Content</a>
+            
+            <ul>
+          <li><a href="../alts/">Alternatives</a>
+            
+        
+          <li><a href="../attachments/">Attachments</a>
+            
+        
+          <li><a href="../databags/">Data Bags</a>
+            
+        
+          <li class="active"><a href="./">Flow</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../paths/">Paths</a>
+            
+        
+          <li><a href="../system-fields/">System Fields</a>
+            
+        
+          <li><a href="../urls/">URLs and Slugs</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#how-does-flow-work">How does Flow Work?</a></li>
+        
+          <li><a href="#flow-block-models">Flow Block Models</a></li>
+        
+          <li><a href="#block-templating">Block Templating</a></li>
+        
+          <li><a href="#flow-templating">Flow Templating</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Flow</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Flow is a system in Lektor that allows you to have higher flexibility when
+creating pages.  The <a href="../../api/db/types/flow/" class="ref">Flow Type</a> field type
+that allows you to store multiple different formats of data within the same
+field each with its own template.</p>
+<p>This allows you to build complex pages made from individual components.</p>
+<h2 id="how-does-flow-work">How does Flow Work?</h2><p>When you add a <code>flow</code> field to one of your models you essentially gain the
+ability to attach as many blocks as you want into this field.  Each block
+corresponds to a specific <a href="../../models/flow/" class="ref">Flow Block Model</a> and
+can render a separate template.</p>
+<p>This is a very powerful feature as it allows you to be very flexible in the
+designs you want to achieve for your website.  As an example, the
+<a href="../../../">Front Page</a> of this website uses many different blocks to
+implement the slideshow, feature list and more.</p>
+<p><img src="flow-admin.png" class="screenshot" alt=""></p>
+<h2 id="flow-block-models">Flow Block Models</h2><p>To use the <code>flow</code> type you need to define some blocks.  This works pretty
+much the same as with creating <a href="../../models/" class="ref">Data Models</a> except they
+go into the <code>flowblocks</code> folder and have slightly different parameters.</p>
+<p>For more information about this see <a href="../../models/flow/" class="ref">Flow Block Models</a>.</p>
+<h2 id="block-templating">Block Templating</h2><p>Flow blocks appear as elements of the flow type.  When it's rendered in a
+template it will render each block separately one after another and connect
+them with newlines.  These blocks can also manually be accessed however.
+Each flow block renders a template named after itself from the <code>blocks</code>
+folder in the template directory.  So if you have a flow block model
+named <code>text</code> it will render from <code>templates/blocks/text.html</code>.</p>
+<p>Within a template a flow block has access to all the variables that you would
+expect.  <code>this</code> points to the current block and <code>record</code> points to the record
+the block is contained in.</p>
+<p>This is a simple example of a typical template of a flow block:</p>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-block text-block-</span><span class="cp">{{</span> <span class="nv">this.class</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+  <span class="cp">{{</span> <span class="nv">this.text</span> <span class="cp">}}</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+<p>Some more involved templates might also refer back to the page to do something
+with it.  Here for instance is a simple flow block for including a thumbnail
+of an attached image:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">img</span> <span class="o">=</span> <span class="nv">record.attachments.images.get</span><span class="o">(</span><span class="nv">this.image</span><span class="o">)</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">img</span> <span class="cp">%}</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;thumbnail-block&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">img.thumbnail</span><span class="o">(</span><span class="m">480</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+<p>This also has a safeguard that if the image does not exist nothing is rendered
+instead.  This is a good idea because someone could delete the attachments but
+not update the reference in the block.</p>
+<h2 id="flow-templating">Flow Templating</h2><p>The default behavior of rendering an entire flow is to render the templates
+of the individual blocks one after another.  Sometimes that is not flexible
+enough.  Because of that you can access the blocks individually.  This is
+particularly useful for more complex situations where you either deal with
+nested flows or where you want to wrap the individual blocks somehow.</p>
+<p>For instance in this case the blocks are wrapped before rendering:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">blk</span> <span class="k">in</span> <span class="nv">this.demo_flow.blocks</span> <span class="cp">%}</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;block block-</span><span class="cp">{{</span> <span class="nv">blk._flowblock</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    <span class="cp">{{</span> <span class="nv">blk</span> <span class="cp">}}</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+<p>The <code>_flowblock</code> field is always available on a flow block and is the name
+of the data model that defines it.  This is a good way to also specifically
+customize individual blocks in a flow without having to invoke their
+templates.  You can for instance completely manually render blocks without
+using their templates:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">blk</span> <span class="k">in</span> <span class="nv">this.demo_flow.blocks</span> <span class="cp">%}</span>
+  <span class="cp">{%</span> <span class="k">if</span> <span class="nv">blk._flowblock</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">blk.text</span> <span class="cp">}}</span>
+  <span class="cp">{%</span> <span class="k">elif</span> <span class="nv">blk._flowblock</span> <span class="o">==</span> <span class="s1">&#39;image&#39;</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">blk.image</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">blk.alt</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/content/flow"; this.page.url = "https://www.getlektor.com/docs/content/flow/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/content/flow/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

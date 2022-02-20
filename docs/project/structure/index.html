@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Folder Structure | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../">Project</a>
+            
+            <ul>
+          <li class="active"><a href="./">Folder Structure</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../file/">Project File</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#project-file">Project File</a></li>
+        
+          <li><a href="#folders">Folders</a><ul>
+          <li><a href="#content/"><code>content/</code></a></li>
+        
+          <li><a href="#models/"><code>models/</code></a></li>
+        
+          <li><a href="#templates/"><code>templates/</code></a></li>
+        
+          <li><a href="#assets/"><code>assets/</code></a></li>
+        
+          <li><a href="#flowblocks/"><code>flowblocks/</code></a></li>
+        
+          <li><a href="#packages/"><code>packages/</code></a></li>
+        
+          <li><a href="#configs/"><code>configs/</code></a></li>
+        
+          <li><a href="#databags/"><code>databags/</code></a></li>
+        </ul></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Folder Structure</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>When you start your first Lektor project it's important to understand how data
+is structured on the file system.  A Lektor project is a folder on the file
+system with a project file and a well defined structure.</p>
+<p>The most basic layout looks like this:</p>
+<pre><code>yourproject.lektorproject
+content/
+models/
+templates/
+assets/
+</code></pre>
+<p>There are a few more folders that play a role and plugins can add even more.</p>
+<h2 id="project-file">Project File</h2><p>The project file holds the main configuration of the project and is used to
+identify the project for the user interface.  The name does not matter but
+it needs to have the <code>.lektorproject</code> extension.  For more information about
+that see <a href="../file/" class="ref">Project File</a>.</p>
+<h2 id="folders">Folders</h2><h3 id="content/"><code>content/</code></h3><p>The content folder is named <code>content</code> and contains all the sources that are
+built into the final project.  Each folder within corresponds to a record
+and the data of it is stored in the file by the name <code>contents.lr</code> within
+which is a Lektor content file.  All other files are considered attachments.</p>
+<p>Here is a basic example layout to get an idea how this can look like:</p>
+<pre><code>content/
+  contents.lr
+  projects/
+    contents.lr
+    project-a/
+      contents.lr
+      thumbnail.png
+    project-b/
+      contents.lr
+      thumbnail.png
+    project-c/
+      contents.lr
+      thumbnail.png
+</code></pre>
+<p>The content folder is explained in detail in <a href="../../content/" class="ref">Content</a>.</p>
+<h3 id="models/"><code>models/</code></h3><p>This is the bread and butter of what makes Lektor powerful.  The models define
+exactly how the data from the content folder should be processed.  The <code>models</code>
+folder contains a list of INI files that each correspond to a single model.</p>
+<p>For more information about this refer to the <a href="../../models/" class="ref">Data Modelling</a>
+documentation.</p>
+<h3 id="templates/"><code>templates/</code></h3><p>Each model corresponds to a template from the <code>templates</code> folder.  So if you have a
+model named <code>page</code> the file named <code>page.html</code> from the templates folder will then
+be used to render it.</p>
+<h3 id="assets/"><code>assets/</code></h3><p>Whatever is stored in the <code>assets</code> folder is copied over verbatim to the final
+result.  So if you put a folder named <code>css</code> in there with all your static CSS
+files they will appear as such in the final output.</p>
+<div class="admonition admonition-tip"><p>This folder is not just useful for static files that are stylesheets or
+scripts, but because it overlays the entire website you can also use it to
+store things such as <code>favicon.ico</code>, <code>.htaccess</code>, <code>robots.txt</code> etc.</p></div><h3 id="flowblocks/"><code>flowblocks/</code></h3><p>The <code>flowblocks</code> folder contains models for blocks that are used by the
+<a href="../../content/flow/" class="ref">Flow System</a>.  Flow blocks split a part of a page into
+smaller pieces so those could be individually designed.  They work similar to models
+but are contained within a field of a model.</p>
+<h3 id="packages/"><code>packages/</code></h3><p>For local plugin development the <code>packages/</code> folder can be used.  Any plugin
+stored in there is automatically activated in the system.</p>
+<h3 id="configs/"><code>configs/</code></h3><p>This folder (<code>configs/</code>) contains plugin specific config files.  All the
+files in there are named <code>&lt;plugin-id&gt;.ini</code>.</p>
+<h3 id="databags/"><code>databags/</code></h3><p>Lektor also supports <a href="../../content/databags/" class="ref">Data Bags</a> which go into a
+folder named <code>databags/</code>.  These are files with some general information
+that can be accessed from templates.  For instance you could store menus and
+navigations there, API keys and much more.  This is generally just information
+you want to access from different places and maybe not keep in templates directly.</p>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/project/structure"; this.page.url = "https://www.getlektor.com/docs/project/structure/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/project/structure/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

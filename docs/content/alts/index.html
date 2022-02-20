@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Alternatives | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../">Content</a>
+            
+            <ul>
+          <li class="active"><a href="./">Alternatives</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../attachments/">Attachments</a>
+            
+        
+          <li><a href="../databags/">Data Bags</a>
+            
+        
+          <li><a href="../flow/">Flow</a>
+            
+        
+          <li><a href="../paths/">Paths</a>
+            
+        
+          <li><a href="../system-fields/">System Fields</a>
+            
+        
+          <li><a href="../urls/">URLs and Slugs</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#enabling-alternatives">Enabling Alternatives</a></li>
+        
+          <li><a href="#content-files-of-alternatives">Content Files of Alternatives</a></li>
+        
+          <li><a href="#what-s-loaded">What's Loaded</a></li>
+        
+          <li><a href="#alternatives-and-paths">Alternatives and Paths</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Alternatives</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>One particularly useful feature of Lektor is the ability to define alternatives
+to a content file.  This allows you to translate your website into many
+different languages or to customize content specifically for some languages
+or regions.</p>
+<div class="admonition admonition-warning"><p>Alternatives are a fully functional feature in Lektor but very
+underdocumented and lacking in parts.  The result of this is that it might not
+be working exactly as you expect in parts.  In particular one of the limiting
+factors is that you need to have at least one alternative at the URL root or
+the system will refuse to build the website.</p></div><h2 id="enabling-alternatives">Enabling Alternatives</h2><p>To enable alternatives you need to extend your <a href="../../project/file/" class="ref">Project File</a>.  For each alternative a new
+section has to be added.  It's important that one of the alternatives is
+marked as "primary" which informs the system which of the alternatives is
+the reference.</p>
+<div class="hll"><pre><span></span><span class="k">[alternatives.en]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">English</span><span class="w"></span>
+<span class="na">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">en_US</span><span class="w"></span>
+
+<span class="k">[alternatives.fr]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">French</span><span class="w"></span>
+<span class="na">url_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/fr/</span><span class="w"></span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">fr</span><span class="w"></span>
+</pre></div>
+<p>The <code>locale</code> key is used to define the locale that Lektor assumes for the
+alternative.  This is for instance used for date formatting.</p>
+<h2 id="content-files-of-alternatives">Content Files of Alternatives</h2><p>Once alternatives are enabled your website will be built multiple times.  Once
+for each alternative.  By default nothing will change as no content files
+exist for the non primary alternatives.  In the example of above if you
+navigate to <code>/fr/</code> you will see the same index page as if you would have
+navigated to <code>/</code>.</p>
+<p>However you can now start translating your content.  Each alternative has
+a content file named <code>contents+ALT.lr</code> where <code>ALT</code> is the short code of your
+alternative (for instance <code>fr</code> for French).  Once a file for an alternative
+exists it's loaded instead of the default <code>contents.lr</code> file.</p>
+<h2 id="what-s-loaded">What's Loaded</h2><p>To make this a bit more concrete: let's go with the example we configured
+above.  There are two alternatives: English (<code>en</code>) and French (<code>fr</code>) and
+English is configured as the primary.</p>
+<p>In that case depending on which files exist and which alternative is
+targeted, different files will be used.  This table visualizes this:</p>
+<table>
+<thead><tr>
+<th>contents.lr</th>
+<th>contents+fr.lr</th>
+<th>contents+en.lr</th>
+<th>Target</th>
+<th>File Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>en</td>
+<td>contents.lr</td>
+</tr>
+<tr>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>fr</td>
+<td>contents.lr</td>
+</tr>
+<tr>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>en</td>
+<td>contents.lr</td>
+</tr>
+<tr>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>fr</td>
+<td>contents+fr.lr</td>
+</tr>
+<tr>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>en</td>
+<td>contents+en.lr</td>
+</tr>
+<tr>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>fr</td>
+<td>contents+fr.lr</td>
+</tr>
+<tr>
+<td></td>
+<td>✓</td>
+<td></td>
+<td>en</td>
+<td><em>missing</em></td>
+</tr>
+<tr>
+<td></td>
+<td>✓</td>
+<td></td>
+<td>fr</td>
+<td>contents+fr.lr</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>en</td>
+<td>contents+en.lr</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>fr</td>
+<td><em>missing</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="alternatives-and-paths">Alternatives and Paths</h2><p>Alternatives have a special behavior with regards to paths.  The alternative
+code does not exist in the path!  This can be confusing at first, but has the
+advantage that they automatically work in most places as the paths are the
+same for different alternatives.  For more information see
+<a href="../paths/#alternatives-and-paths" class="ref">Alternatives and Paths</a>.</p>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/content/alts"; this.page.url = "https://www.getlektor.com/docs/content/alts/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/content/alts/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

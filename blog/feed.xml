@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Transcript</title><link href="https://www.getlektor.com/blog/" rel="alternate"></link><link href="https://www.getlektor.com/blog/feed.xml" rel="self"></link><id>urn:uuid:ba2c0c5f-e742-36a4-a184-2b9e5f2282bb</id><updated>2020-08-20T00:00:00Z</updated><author><name></name></author><subtitle>Lektor's blog</subtitle><entry><title>Lektor 3.2 Released</title><link href="https://www.getlektor.com/blog/2020/8/lektor-32-released/" rel="alternate"></link><updated>2020-08-20T00:00:00Z</updated><author><name>Andreas Runfalk</name></author><id>urn:uuid:c70ce082-4b32-3a99-9052-691daaf6033a</id><content type="html">
+&lt;div class="page-banner page-banner-500" style="background-image: url(coffee-ground-1171092-1599x1066.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;p&gt;It's been a long time in the making, and on behalf of the Lektor Team I'm happy to introduce the 3.2 release of Lektor. As some of you may have noticed the development pace of Lektor has slowed down over the past two years. Those of you who have had open PRs for a long time, sorry for the delay and we'll try to do better going forward!&lt;/p&gt;
+&lt;p&gt;Recently we've made a big push to bring the project back on its feet. Our focus besides merging PRs and fixing various issues has been to streamline the CI and release process. The biggest change was the &lt;a href="https://github.com/lektor/lektor/pull/734"&gt;switch from Travis and Appveyor to GitHub actions&lt;/a&gt; which should make the release process a lot easier going forward.&lt;/p&gt;
+&lt;p&gt;We have also promoted &lt;a href="https://github.com/lektor/lektor-tags"&gt;lektor-tags&lt;/a&gt; and &lt;a href="https://github.com/lektor/lektor-atom"&gt;lektor-atom&lt;/a&gt; to official plugins. This represents our commitment to keep them up to date. We have also deployed a &lt;a href="https://github.com/lektor/lektor-atom/pull/28"&gt;new CI workflow&lt;/a&gt; that can publish new versions using tags. This will be something all plugin authors can use in their own projects. Thank you &lt;a href="https://github.com/goanpeca"&gt;Gonzalo Peña-Castellanos&lt;/a&gt; for spearheading the CI improvements.&lt;/p&gt;
+&lt;p&gt;A big shoutout to all the contributors who help make Lektor awesome!&lt;/p&gt;
+&lt;div class="admonition admonition-info"&gt;&lt;p&gt;Since Python 2 is EOL and its &lt;a href="https://blog.python.org/2020/04/python-2718-last-release-of-python-2.html"&gt;final release ever&lt;/a&gt; happened on April 20th, 2020, this will be the last Lektor release with Python 2 support. This is also the last release supporting Python 3.5 since it is &lt;a href="https://devguide.python.org/#status-of-python-branches"&gt;very near EOL&lt;/a&gt; and we want to have opportunity to work with several benefits of Python 3.6 going forward.&lt;/p&gt;&lt;/div&gt;&lt;div class="admonition admonition-warning"&gt;&lt;p&gt;The slugify change may mean that your URLs will change when you update to Lektor 3.2. This could lead to broken links from external sites such as search engines. This can be fixed by providing a custom slug for the necessary pages.&lt;/p&gt;&lt;/div&gt;&lt;h1 id="changelog"&gt;Changelog&lt;/h1&gt;&lt;h2 id="bugfixes"&gt;Bugfixes&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Fix to correctly calculate relative urls from slugs that contain dots. (thank you &lt;a href="https://github.com/f-seven"&gt;f-seven&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix to allow negative integers in integer fields in the admin UI. (thank you &lt;a href="https://github.com/davidferguson"&gt;David Ferguson&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;lektor plugins reinstall&lt;/code&gt; triggered &lt;code&gt;on_setup_env&lt;/code&gt; instead of just reinstalling plugins. (thank you &lt;a href="https://github.com/germn"&gt;Mikhail Gerasimov&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix failing dimensions detection for some JPEG thumbnails. (thank you &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix mismatch between reported thumbnail size and on-disk image when both width &amp;amp; height are provided. (thank you &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Return JPEG dimensions swapped when EXIF rotation is in effect. (thank you &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix off-by-1px rounding discrepancy between reported thumbnail dimensions and actual dimensions. (thank you &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix off-by-one error in pagination's iter_pages in the interpretation of the right_current argument, and adding an appropriate trailing &lt;code&gt;None&lt;/code&gt; for some uses. (thank you &lt;a href="https://github.com/dairiki"&gt;Jeff Dairiki&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="new-features"&gt;New features&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Added the ability to &lt;a href="/docs/templates/videoops/"&gt;generate video thumbnails&lt;/a&gt; with ffmpeg. (thank you &lt;a href="https://github.com/runfalk"&gt;Andreas Runfalk&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="improvements"&gt;Improvements&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Added support for setting the output_path in the project file. (thank you &lt;a href="https://github.com/georgeyk"&gt;George Kussumoto&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Added support for deleting and excluding files for the rsync deployment publisher. (thank you &lt;a href="https://github.com/m-lib"&gt;m-lib&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Several modernization and performance improvements to the admin UI (thank you &lt;a href="https://github.com/yagebu"&gt;Jakob Schnitzer&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Improved speed of source info updates. (thank you &lt;a href="https://github.com/dairiki"&gt;Jeff Dairiki&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Set colorspace to sRGB for thumbnails. This should result in significantly reduced thumbnail file size when the source image uses a more exotic colorspace. (thank you &lt;a href="https://github.com/skorokithakis"&gt;Stavros Korokithakis&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Now stripping profiles and comments from thumbnails, for even smaller file size. (thank you &lt;a href="https://github.com/skorokithakis"&gt;Stavros Korokithakis&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Improved speed of flow rendering in the admin UI. (thank you &lt;a href="https://github.com/davidferguson"&gt;David Ferguson&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Improved image-heavy build speeds by reducing the amount of data extracted from EXIFs. (thank you &lt;a href="https://github.com/tgpfeiffer"&gt;Tobias Pfeiffer&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Added the ability to collapse flow elements in the admin UI. (thank you &lt;a href="https://github.com/jtraub91"&gt;Jason Traub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Now &lt;code&gt;extra_flags&lt;/code&gt; is passed to all plugin events. (thank you &lt;a href="https://github.com/nixjdm"&gt;Joseph Nix&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Extra flags can now be passed to the &lt;code&gt;clean&lt;/code&gt; and &lt;code&gt;dev shell&lt;/code&gt; CLI commands. (thank you &lt;a href="https://github.com/nixjdm"&gt;Joseph Nix&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Deprecate the &lt;code&gt;crop&lt;/code&gt; thumbnail argument in favor of the new &lt;code&gt;mode&lt;/code&gt; argument, which can be one of &lt;code&gt;fit&lt;/code&gt; (the default), &lt;code&gt;crop&lt;/code&gt;, or &lt;code&gt;stretch&lt;/code&gt;. (thank you &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;upscale=False&lt;/code&gt; for thumbnails can now prevent up scaling. (thank you &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Added a new CLI command &lt;code&gt;lektor dev new-theme&lt;/code&gt;. (thank you &lt;a href="https://github.com/nixjdm"&gt;Joseph Nix&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Made admin use full UTF-8 version of RobotoSlab. Fixes missing glyphs for some languages (thank you &lt;a href="https://github.com/yagebu"&gt;Jakob Schnitzer&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bumped minimum Jinja2 version to 2.11 (thank you &lt;a href="https://github.com/nixjdm"&gt;Joseph Nix&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bumped filetype dependency to 1.0.7 because of API changes (thank you &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Relative urls are now as short as possible. (thank you &lt;a href="https://github.com/relikd"&gt;Oleg Geier&lt;/a&gt; and &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Automatically include setup.cfg configured for universal wheels when creating plugins (thank you &lt;a href="https://github.com/georgeyk"&gt;George Kussumoto&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Changed default slug creation to use &lt;a href="https://github.com/un33k/python-slugify"&gt;python-slugify&lt;/a&gt;. This should mean greater language support, but this may produce slightly different results than before for some users (thank you &lt;a href="https://github.com/nixjdm"&gt;Joseph Nix&lt;/a&gt; and &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;</content></entry><entry><title>Plugin Play</title><link href="https://www.getlektor.com/blog/2018/5/plugin-play/" rel="alternate"></link><updated>2018-05-15T00:00:00Z</updated><author><name>Joseph Nix</name></author><id>urn:uuid:a10aa9d1-b8c4-381e-ae4f-17e101f15466</id><content type="html">
+&lt;div class="page-banner page-banner-300" style="background-image: url(spices.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;h2 id="get-lektor-updates"&gt;Get Lektor Updates&lt;/h2&gt;&lt;p&gt;This site just updated the way it lists available plugins! Now &lt;a href="https://www.getlektor.com/plugins/"&gt;https://www.getlektor.com/plugins/&lt;/a&gt; gives you a list of all known Lektor plugins in a much more interactive and informative way. This will hopefully make it much easier for you to discover plugins that are relevant to your project and your needs. If you are a plugin developer, this should also help you find examples from existing plugins to help you learn how to interact better with Lektor's plugin system.&lt;/p&gt;
+&lt;h3 id="categories"&gt;Categories&lt;/h3&gt;&lt;p&gt;Each plugin now falls within one of a few broad categories to help quickly narrow your search for what you're looking for.&lt;/p&gt;
+&lt;h3 id="details"&gt;Details&lt;/h3&gt;&lt;p&gt;Each plugin also now has its own dedicated page. On this page you can see the entire README for a plugin, in beautiful rendered Markdown or reStructuredText, GitHub statistics, authorship information, and tags. This page should give you all the information you need to be able to use the plugin, or to decide if it's what you're looking for as a guide to building your own.&lt;/p&gt;
+&lt;h3 id="tags"&gt;Tags&lt;/h3&gt;&lt;p&gt;Plugins are tagged with specific key words or phrases that describe what they are used for and how they work. All of a plugin's tags are listed on its page as a link. Each tag has its own page where you can see other plugins that share that tag. This offers a powerful way to navigate between related content, and another way to discover more plugins.&lt;/p&gt;
+&lt;p&gt;I think this is especially useful for plugin development when the tag is an event that the plugin hooks. This allows you to quickly find the source code of plugins that depend on the same Lektor plugin events, so that you can see many quick examples to help you write your own plugin. For instance, you can find all of the plugins that hook the &lt;code&gt;before-build-all&lt;/code&gt; event by looking at it's tag page &lt;a href="/plugins/tag/before-build-all/"&gt;here&lt;/a&gt;. Tag pages for events also have links back to the plugin documentation pages, including the page for that specific event.&lt;/p&gt;
+&lt;p&gt;Now go check out some &lt;a href="/plugins"&gt;plugins&lt;/a&gt;!&lt;/p&gt;
+
+&lt;/div&gt;</content></entry><entry><title>Lektor 3.1 Released</title><link href="https://www.getlektor.com/blog/2018/1/lektor-31-released/" rel="alternate"></link><updated>2018-01-29T00:00:00Z</updated><author><name>Joseph Nix</name></author><id>urn:uuid:eff20a81-ee57-3c93-ad4b-13ef7b6369cf</id><content type="html">
+&lt;div class="page-banner page-banner-500-tall" style="background-image: url(pancakes-2020863.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;p&gt;Lektor continues to be discovered and used by more people, and many of these fine people have given back. Lektor is now a little easier to use, and more robust with plenty of bugfixes and added support for Python 3. Let's take a brief look at what's been done, and what we want next.&lt;/p&gt;
+&lt;h2 id="lektor-themes"&gt;Lektor Themes&lt;/h2&gt;&lt;p&gt;Perhaps the most eye-catching change is the introduction of the ability for Lektor to use &lt;a href="/docs/themes/"&gt;themes&lt;/a&gt;. This can become a very powerful tool, allowing people to make beautiful sites even more quickly by standing on the shoulders of those who have gone before them. Why spend more time fiddling with your CSS, or template queries than you need to? If there's a theme that's similar to yours in either design or function, you can start from there. Assets, templates, models, and flowblocks are all able to be themed, offering a lot of flexibility in what they could provide.&lt;/p&gt;
+&lt;p&gt;This is a very new and experimental feature. We'd love to add more support for themes so that making them and using them is easy, but it may be a bit rough around the edges at the moment. The &lt;a href="https://github.com/rlaverde"&gt;contributor&lt;/a&gt; who gave Lektor its initial theming ability also created the &lt;a href="https://github.com/rlaverde/lektor-theme-nix"&gt;first theme&lt;/a&gt;, which is a simple theme based on the &lt;a href="https://themes.gohugo.io/hugo-theme-nix/"&gt;Nix Hugo theme&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I think this feature has a lot of potential. It's pretty exciting.&lt;/p&gt;
+&lt;h2 id="improved-support-and-testing"&gt;Improved Support and Testing&lt;/h2&gt;&lt;p&gt;If you take a look at the changelog since version 2.0, you'll notice many references to bugfixes and dependency updates. We now support Python 3, and have a more extensive automated testing environment. We have upgraded the versions of Mistune (our current Markdown parser), and several JavaScript dependencies that drive the admin interface. Windows users have a few bugfixes to help them out, and added automated testing to catch more bugs before they reach a release.&lt;/p&gt;
+&lt;h2 id="other-features"&gt;Other Features&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Templates now have greater control of image quality and rotation.&lt;/li&gt;
+&lt;li&gt;Fixed and expanded handling of image EXIF data.&lt;/li&gt;
+&lt;li&gt;Improved date handling in the admin interface.&lt;/li&gt;
+&lt;li&gt;Added ability to publish from different file systems.&lt;/li&gt;
+&lt;li&gt;Fields can now be disabled for alternatives in the admin interface.&lt;/li&gt;
+&lt;li&gt;Another Plugin hook added between instantiating the Renderer and creating the Markdown Processor.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lektor dev shell&lt;/code&gt; now uses IPython if it's installed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="support-for-mac-installer-paused"&gt;Support for Mac Installer Paused&lt;/h2&gt;&lt;p&gt;The code that was used to create the Mac installer for the Desktop App has &lt;a href="https://github.com/lektor/lektor/issues/420"&gt;some problems&lt;/a&gt;. We're (hopefully temporarily) pulling support for the desktop app because of this. If you have modern experience making executables (especially cross-platform) and would like to contribute, we'd love to have your support. We generally want to make Lektor as easy to use as possible, and a new desktop app could really help with that.&lt;/p&gt;
+&lt;h2 id="want-to-contribute"&gt;Want to Contribute?&lt;/h2&gt;&lt;p&gt;Open Source Software lives and dies by the communities that use them, love them, and support them. If you're a developer looking to get your feet wet in OSS, we'd love to review your pull request. &amp;lt;3&lt;/p&gt;
+&lt;p&gt;A larger task, if you're someone with React (and Python) knowledge, is our admin interface. It has served us pretty well so far, but it also has &lt;a href="https://github.com/lektor/lektor/issues/458"&gt;some issues&lt;/a&gt;. It could use some TLC.&lt;/p&gt;
+
+&lt;/div&gt;</content></entry><entry><title>Lektor 2.0 Released</title><link href="https://www.getlektor.com/blog/2016/4/lektor-2-released/" rel="alternate"></link><updated>2016-04-11T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:5588c5e7-cabd-3118-b6e8-b20b9324f814</id><content type="html">
+&lt;div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;p&gt;After quite a bit of wait, I'm happy to announce the 2.0 release of Lektor.
+Some things that previously were supposed to go into this release were pushed
+out a bit more because the wait just was too long and quite a few features
+were already in this release.&lt;/p&gt;
+&lt;p&gt;Here is the changelog of what's in this release:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Added &lt;code&gt;_discoverable&lt;/code&gt; system field which controls if a page should show
+up in &lt;code&gt;children&lt;/code&gt;.  The default is that a page is discoverable.  Setting it
+to &lt;code&gt;False&lt;/code&gt; means in practical terms that someone needs to know the URL as
+all collection operations will not return it.&lt;/li&gt;
+&lt;li&gt;Added &lt;code&gt;for_page&lt;/code&gt; function to pagination that returns the pagiantion for a
+specific page.&lt;/li&gt;
+&lt;li&gt;Make pagination next_page and prev_page be None on the edges.&lt;/li&gt;
+&lt;li&gt;Allow plugins to provide publishers.&lt;/li&gt;
+&lt;li&gt;Added &lt;code&gt;|markdown&lt;/code&gt; filter.&lt;/li&gt;
+&lt;li&gt;Added French translations.&lt;/li&gt;
+&lt;li&gt;Unicode filenames as final build artifacts are now explicitly disallowed.&lt;/li&gt;
+&lt;li&gt;Serve up a 404.html as an error page in the dev server.&lt;/li&gt;
+&lt;li&gt;Improvements to the path normalization and alt handling.  This should support
+URL generation in more complex cases between alts now.&lt;/li&gt;
+&lt;li&gt;Show a clearer error message when URL generation fails because a source
+object is virtual (does not have a path).&lt;/li&gt;
+&lt;li&gt;Empty text is now still valid markdown.&lt;/li&gt;
+&lt;li&gt;Lektor clean now loads the plugins as well.&lt;/li&gt;
+&lt;li&gt;Basic support for type customization.&lt;/li&gt;
+&lt;li&gt;Fields that are absent in a content file from an alternative are now pulled
+from the primary content file.&lt;/li&gt;
+&lt;li&gt;Development server now resolves index.html for assets as well.&lt;/li&gt;
+&lt;li&gt;Markdown processing now correctly adjusts links relative to where the
+rendered output is rendered.&lt;/li&gt;
+&lt;li&gt;Added Dutch translations.&lt;/li&gt;
+&lt;li&gt;Added Record.get_siblings()&lt;/li&gt;
+&lt;li&gt;Added various utilties: build_url, join_path, parse_path&lt;/li&gt;
+&lt;li&gt;Added support for virtual paths and made pagination work with it.&lt;/li&gt;
+&lt;li&gt;Added support for Query.distinct&lt;/li&gt;
+&lt;li&gt;Add support for pagination url resolving on root URL.&lt;/li&gt;
+&lt;li&gt;Server information can now also contain extra key/value pairs that
+can be used by publishers to affect the processing.&lt;/li&gt;
+&lt;li&gt;The thumbnails will now always have the correct width and height set
+as an attribute.&lt;/li&gt;
+&lt;li&gt;added datetime type&lt;/li&gt;
+&lt;li&gt;added support for the process_image utility functions so that plugins
+can use it directly.&lt;/li&gt;
+&lt;li&gt;added support for included_assets and excluded_assets in the project file.&lt;/li&gt;
+&lt;li&gt;added Spanish translations.&lt;/li&gt;
+&lt;li&gt;added Japanese translations.&lt;/li&gt;
+&lt;li&gt;added support for discovering existing alts of sources.&lt;/li&gt;
+&lt;li&gt;added support for image cropping.&lt;/li&gt;
+&lt;li&gt;added preliminary support for publishing on windows.&lt;/li&gt;
+&lt;li&gt;children and attachments can now have a hidden flag configured explicitly.
+Attachments will also no longer inherit the hidden flag of the parent
+record as that is not a sensible default.&lt;/li&gt;
+&lt;li&gt;changed internal sqlite consistency mode to improve performance on HDDs.&lt;/li&gt;
+&lt;li&gt;allow SVG files to be treated as images.  This is something that does not
+work in all situations yet (in particular thumbnailing does not actually
+do anything for those)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As always you can install the release as mentioned in the release notes.
+If you had a previous version of Lektor the install process should auto
+upgrade.  If you use the OS X desktop build, just drag the new application over
+the already existing one.&lt;/p&gt;
+
+&lt;/div&gt;</content></entry><entry><title>Lektor at Rails Girls Summer of Code 2016</title><link href="https://www.getlektor.com/blog/2016/3/lektor-at-rails-girls-summer-of-code/" rel="alternate"></link><updated>2016-03-17T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:e50b8ae4-067c-3841-9d45-5abad5c5455a</id><content type="html">
+&lt;div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;p&gt;I'm happy to announce that Lektor is participating as a project in this year's
+&lt;a href="http://railsgirlssummerofcode.org/"&gt;Rails Girls Summer of Code&lt;/a&gt; (RGSOC).
+Unlike what the name would suggest, RGSOC is open for all Open Source projects
+and not just Ruby.&lt;/p&gt;
+&lt;p&gt;The goal of RGSOC is to bring more women into programming.  To quote the
+website:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Rails Girls Summer of Code is a global fellowship program aimed at bringing
+more diversity into Open Source. Successful applicants are paid a monthly
+stipend, from July-September, to work on Open Source projects of their
+choice.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Lektor was accepted as a particpating project.  For more information about
+the project there refer to the &lt;a href="https://teams.railsgirlssummerofcode.org/projects/115-lektor-cms"&gt;project overview on
+RGSOC&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We want to make it as easy as possible to work on Lektor during the event which
+is why we will be very flexible with regards to which area interested
+developers want to work on.&lt;/p&gt;
+&lt;p&gt;If you are interested in working on Lektor you can reach out to us via
+Twitter at &lt;a href="https://twitter.com/getlektor"&gt;@getlektor&lt;/a&gt; or
+&lt;a href="https://gitter.im/lektor/lektor"
+class="js-gitter-toggle-chat-button"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;</content></entry><entry><title>Road to Lektor 2.0</title><link href="https://www.getlektor.com/blog/2016/3/road-to-lektor-2/" rel="alternate"></link><updated>2016-03-10T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:c3f89a5c-5503-3f0d-9725-933145c96f57</id><content type="html">
+&lt;div class="page-banner page-banner-500" style="background-image: url(header.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;p&gt;It's great to see what people have been building with Lektor so far. It also
+shows us what still needs to be built.  For a lot of things we improved for
+Lektor 2.0 which is going to release very soon indeed.  To give you some ideas
+what's going to change here is a current brief look into the changelog and
+what has been changed so far.&lt;/p&gt;
+&lt;h2 id="page-discovery"&gt;Page Discovery&lt;/h2&gt;&lt;p&gt;One of the biggest frustrations users have voiced is the inability to control
+discoverability of pages.  In Lektor 1.0 you can only hide pages entirely in
+which case the build process skips over them but there was no way to hide them
+by default from queries.  While you could always hide pages by changing the
+query, this did not work for pagination and it also required you to be quite
+careful with the queries you are writing in templates.&lt;/p&gt;
+&lt;p&gt;In Lektor 2.0 we introduced the system &lt;code&gt;_discoverable&lt;/code&gt; attribute which allows
+you to easily hide pages from any query.  Queries can explicitly include
+undiscoverable pages but you do not need to take care of this yourself.  This
+makes it possible to automatically hide drafts from blogs for instance.  Lektor
+will still build it but without knowing the URL you cannot see it on the
+overview.&lt;/p&gt;
+&lt;h2 id="virtual-paths"&gt;Virtual Paths&lt;/h2&gt;&lt;p&gt;The biggest change in Lektor 2.0 is the introduction of virtual paths and
+sources.  This is somewhat of an under the hood change but it has big
+implications on what is possible with Lektor plugins.  Each page can have
+virtual resources below it that can be provided by plugins.  These virtual
+resources are separated from the page through what is called a virtual path
+which is indicated by the at-sign (&lt;code&gt;@&lt;/code&gt;).  For instance this blog here uses
+a plugin which provides a blog archive available at &lt;code&gt;/blog@blog-archive&lt;/code&gt; and
+the year 2015 is available at &lt;code&gt;/blog@blog-archive/2015&lt;/code&gt; etc.&lt;/p&gt;
+&lt;h2 id="next/previous-page"&gt;Next / Previous Page&lt;/h2&gt;&lt;p&gt;Lektor 2.0 implements sibling support through it's virtual path system which
+allows you to refer to the next or previous record easily.  This is for
+instance used by this blog here to link between blog posts.&lt;/p&gt;
+&lt;h2 id="improved-alternative-support"&gt;Improved Alternative Support&lt;/h2&gt;&lt;p&gt;Alternatives were heavily improved.  Individual fields that are absent in
+content files now fall back to the primary content file.  In addition it is
+now possible to ask Lektor about which alternatives exist for a given source
+or in total.  This simplifies handling of internationalized pages greatly
+but more work will be done in that field.&lt;/p&gt;
+&lt;h2 id="improved-plugin-support"&gt;Improved Plugin Support&lt;/h2&gt;&lt;p&gt;Plugins now have the ability to do a few more things they could not do before:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;custom field types (want to render reStructuredText? You can now build a plugin)&lt;/li&gt;
+&lt;li&gt;custom build programs: because of the virtual source and path support you can
+now build custom build programs that build things that do not exist in the
+source tree.  For instance you can build feeds, blog archives etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;</content></entry><entry><title>Lektor Loves Travis-CI and GitHub Pages</title><link href="https://www.getlektor.com/blog/2015/12/travis-and-ghpages/" rel="alternate"></link><updated>2015-12-23T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:269329ed-591d-3721-9d49-924dccec040e</id><content type="html">
+&lt;div class="page-banner page-banner-500" style="background-image: url(header.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;p&gt;Open Source projects need websites, that's a given, and one of the most popular
+ways to host them these days is &lt;a href="https://pages.github.com/" class="ext"&gt;GitHub Pages&lt;/a&gt;.
+It's a free service provided by &lt;a href="https://github.com/" class="ext"&gt;GitHub&lt;/a&gt; which allows
+hosts a git repository as a website on a subdomain of &lt;code&gt;github.io&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Wouldn't it be nice if you could easily host Lektor projects on there?  Turns
+out you can with the help of &lt;a href="https://travis-ci.org/" class="ext"&gt;Travis-CI&lt;/a&gt;.  Because
+Lektor has built-in support for deploying to GitHub Pages pairing up the three
+is a breeze.&lt;/p&gt;
+&lt;p&gt;We &lt;a href="../../../../docs/deployment/travisci/" class="ref"&gt;created a guide&lt;/a&gt; and also recorded
+a screencast that goes with it:&lt;/p&gt;
+&lt;iframe width="100%" height=410 frameborder="0" allowfullscreen="allowfullscreen"
+  src="https://www.youtube.com/embed/3pj_EyZIL5A?autoplay=0&amp;fs=1"&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;</content></entry><entry><title>Hello Lektor!</title><link href="https://www.getlektor.com/blog/2015/12/hello-lektor/" rel="alternate"></link><updated>2015-12-21T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:7bca6045-8f90-31b1-9ed8-5757a4c665c6</id><content type="html">
+&lt;div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"&gt;&lt;/div&gt;
+
+&lt;div class="text-block text-block-default"&gt;
+  &lt;p&gt;About &lt;a href="http://w3techs.com/technologies/details/cm-wordpress/all/all"&gt;25% of the Internet uses
+Wordpress&lt;/a&gt; and
+it's estimated that about 50% of Wordpress installations out there are
+vulnerable to security problems because they have not been updated.  This is a
+very high number.&lt;/p&gt;
+&lt;p&gt;Because I know how much work it can be to keep software updated and my own
+terrible track record of spending time of updating everything I'm running
+I kept getting increasingly frustrated with the lack of software that would
+allow me to run a simple website in a secure manner without having to resort
+to all kinds of user-unfriendly hackery.&lt;/p&gt;
+&lt;p&gt;While there are many static site generators none of them really matched what I
+actually wanted: a content management system that just happens to run
+on the client.  Most static website generators are too “hacker focused” in the
+sense that they could not be used by people without programming experiences or
+they are full fledged content management systems that need a server to run on
+or require regular maintenance for security updates.&lt;/p&gt;
+&lt;p&gt;There the hacker's favorite projects like
+&lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt; or
+&lt;a href="https://jekyllrb.com/"&gt;Jekyll&lt;/a&gt; which support generating websites out of static
+files that are tracked through version control and there are CMS systems like
+&lt;a href="http://statamic.com/"&gt;Statamic&lt;/a&gt; which store all of its data in flat files
+— but as mentioned — needs PHP.&lt;/p&gt;
+&lt;p&gt;None of those were what I was looking for.  Static file generators like Jekyll
+are nice in a way but not just end user unfriendly, but also very limited in
+what you can do with them.  They are more suited for building blogs than
+more complex sites.  I tried a bunch of them and built different things
+with them, but ultimately always felt like something was missing.&lt;/p&gt;
+&lt;p&gt;After about two years of frustration with that situation I finally sat down
+and spend some time working on a system to solve this problem.  May I
+introduce: Lektor.&lt;/p&gt;
+&lt;h2 id="what-is-lektor"&gt;What is Lektor?&lt;/h2&gt;&lt;p&gt;Lektor combines the experience of using a content management system like
+Wordpress with a static website generator like Jekyll and has some of the
+flexibility of a web development framework like Django.  It can run locally
+on your computer and deploy to remote servers.  All source assets are stored
+either in version control or Dropbox and when you are satisfied with the end
+results, you can push them online from the UI to a remote server.&lt;/p&gt;
+&lt;p&gt;And this is what it roughly looks like when you look at the admin panel:&lt;/p&gt;
+&lt;div class="screenshot-frame"&gt;&lt;img src="admin.png"&gt;&lt;/div&gt;&lt;h2 id="how-do-i-use-it"&gt;How do I use it?&lt;/h2&gt;&lt;p&gt;That depends on who you are.  Lektor is based on the idea that there are
+two parties to a website: the web developers and the editors.  The former
+create the design, layout, data layout and configures Lektor in general.  The
+latter change the contents of the website according to the general setup.&lt;/p&gt;
+&lt;p&gt;If you are a web developer you can install two versions of Lektor: you can
+use the command line client or if you are on a Mac, you can install the
+desktop version.  Either version comes with a handy web interface that
+can be used to preview and edit all pages.&lt;/p&gt;
+&lt;p&gt;Once you have configured Lektor to your liking you can put the project into
+version control (or just Dropbox) and let your users modify the contents.  All
+they have to do is to install the Desktop version of Lektor, double click the
+project in their Dropbox and start changing it.&lt;/p&gt;
+&lt;p&gt;If you just want to edit the contents of a project you can install the
+Desktop version or maybe in the future use a cloud hosted version.&lt;/p&gt;
+&lt;h2 id="project-layout"&gt;Project Layout&lt;/h2&gt;&lt;p&gt;To get an idea how it works, you can have a look at the &lt;a href="https://github.com/lektor/lektor-website/"&gt;github repository of
+this website&lt;/a&gt; which contains the
+project for this website and blog and have a look at the introduction
+documentation: &lt;a href="../../../../docs/quickstart/" class="ref"&gt;Getting Started&lt;/a&gt;.  You can
+also find a screencast there.&lt;/p&gt;
+&lt;p&gt;On a very basic level Lektor takes &lt;code&gt;.lr&lt;/code&gt; files which are basic text files
+with a super simple format and generates out HTML files.  The &lt;code&gt;.lr&lt;/code&gt; files
+correspond to a previously set up data model.  They are pure text format for
+key/value pairs.  Each pair is separated by three dashes (&lt;code&gt;---&lt;/code&gt;):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;field_1: value
+---
+field_2:
+
+a longer value
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can set up data models for simple things like blog posts but also more
+elaborate ones if you want to build portfolio sites.  For instance you could
+set up models for your projects and then access that data in the templates.&lt;/p&gt;
+&lt;p&gt;The content files are stored in folders in a tree like structure and at any
+level you can add other files as attachments:&lt;/p&gt;
+&lt;div class="screenshot-frame"&gt;&lt;img src="structure.png"&gt;&lt;/div&gt;&lt;h2 id="an-open-source-project"&gt;An Open Source Project&lt;/h2&gt;&lt;p&gt;Lektor is available under &lt;a href="../../../../license/"&gt;a BSD license&lt;/a&gt; and run as a
+community Open Source project &lt;a href="https://github.com/lektor/lektor/" class="ext"&gt;on github&lt;/a&gt;.
+The build system is written in Python, the UI in JavaScript with React and
+the GUI components use Electron.&lt;/p&gt;
+&lt;h2 id="feedback-appreciated"&gt;Feedback Appreciated&lt;/h2&gt;&lt;p&gt;Lektor took two attempts to get into a usable application and I'm sure that
+there is more that needs to be done to scratch the needs of most users.
+However I also know that there is no point in delaying an initial release
+unnecessarily.  What's being released today is the application as it exists
+today and I think it's in a good shape to build really cool websites with
+it.  I welcome you to give it a try and give feedback on what you think
+about it.&lt;/p&gt;
+
+&lt;/div&gt;</content></entry></feed>

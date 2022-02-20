@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>rsync | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../">Deployment</a>
+            
+            <ul>
+          <li><a href="../ftp/">FTP</a>
+            
+        
+          <li><a href="../ghpages/">GitHub Pages</a>
+            
+        
+          <li><a href="../glpages/">GitLab Pages</a>
+            
+        
+          <li class="active"><a href="./">rsync</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../travisci/">Travis-CI</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#example">Example</a></li>
+        
+          <li><a href="#credentials">Credentials</a></li>
+        
+          <li><a href="#deletion-support">Deletion Support</a></li>
+        
+          <li><a href="#exclusion-support">Exclusion Support</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>rsync</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p><code>rsync://username@server/path/to/folder</code></p>
+<p>This deploys via SSH and rsync to a remote server.  This is the recommended
+way to deploy if the system supports it as it is a very fast and reliable
+way.  It uses the system's SSH config so for authentication just configure
+SSH as you would normally do.  The <code>username</code> part is optional and defaults
+to the current user that is signed into the machine or whatever is picked up
+as default from the <code>.ssh/config</code>.</p>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://deploy@example.com/var/www/example.com</span><span class="w"></span>
+</pre></div>
+<h2 id="credentials">Credentials</h2><p>The <code>rsync</code> deploy method supports both username and password parameter
+though it's recommended to use <code>.ssh/config</code> and an SSH agent to secure
+the deployment.  The <code>--password</code> parameter is not supported!  Instead you
+need to use <code>--key-file</code> (<code>LEKTOR_DEPLOY_KEY_FILE</code>) or <code>--key</code>
+(<code>LEKTOR_DEPLOY_KEY</code>).  The <code>--key-file</code> is the path to an OpenSSH private
+key.</p>
+<p>If you are using <code>--key</code> you can directly copy paste the contents of a key
+into a string.  This is useful if you want to use it as an environment
+variable.  The format for the string is <code>KEY_TYPE:BASE64</code> where <code>KEY_TYPE</code>
+is the type of the key (<code>RSA</code>, <code>EC</code>, etc.) and <code>BASE64</code> is the base64 encoded
+private key without newlines or whitespace.  To find out which type your
+key is look at the first line of the key marker.  For instance <code>BEGIN EC
+PRIVATE KEY</code> indicates an <code>EC</code> key.  If no key type is defined <code>RSA</code> is
+assumed.</p>
+<h2 id="deletion-support">Deletion Support</h2><div class="admonition admonition-info"><p>New in version 3.2.</p></div><p>To keep two directories truly in sync when deploying with <code>rsync</code>,
+it's necessary to explicitly tell <code>rsync</code> to remove files or directories
+on target that don't exist on source anymore. This can be done using the
+<code>?delete</code> URL parameter:</p>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder?delete</span><span class="w"></span>
+</pre></div>
+<p>If the parameter is provided Lektor will issue a <code>rsync --delete-delay</code>,
+which performs deletions after all other transfers ended, and only in case
+there were no failures.</p>
+<div class="admonition admonition-warning"><p>Note that the <code>?delete</code> option will remove <strong>any file or directory</strong>
+on target that does not exist on source. This means that if you have files
+in the target tree that are not managed by lektor, they will get removed.</p></div><h2 id="exclusion-support">Exclusion Support</h2><p>You can exclude items from being synced by using one or more <code>exclude</code>
+parameters. This is also useful in combination with <code>delete</code> to prevent
+removal of files in the target tree that are not managed by lektor:</p>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder?delete&amp;exclude=target_item_1&amp;exclude=target_item_2</span><span class="w"></span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/deployment/rsync"; this.page.url = "https://www.getlektor.com/docs/deployment/rsync/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/deployment/rsync/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

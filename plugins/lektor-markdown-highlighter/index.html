@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-markdown-highlighter 0.3.1</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Lektor plugin that adds syntax highlighting for markdown blocks with Pygments.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="http://github.com/lektor/lektor-markdown-highlighter" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="http://github.com/lektor/lektor-markdown-highlighter" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-markdown-highlighter on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="http://github.com/lektor/lektor-markdown-highlighter/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="http://github.com/lektor/lektor-markdown-highlighter/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.3.1</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:armin.ronacher@active-4.com">Armin Ronacher</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/Markdown/">Markdown</a>, 
+          
+            
+            <a href="../tag/markdown-config/">markdown-config</a>, 
+          
+            
+            <a href="../tag/official/">official</a>, 
+          
+            
+            <a href="../tag/Pygments/">Pygments</a>, 
+          
+            
+            <a href="../tag/setup-env/">setup-env</a>, 
+          
+            and 
+            <a href="../tag/syntax-highlighting/">syntax highlighting</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>lektor-markdown-highlighter</h1>
+<p>This plugin adds support for syntax highlighting through Pygments to
+Lektor's markdown support.</p>
+<h2>Enabling the Plugin</h2>
+<p>To enable the plugin run this command:</p>
+<pre>lektor plugins add markdown-highlighter
+</pre>
+<h2>Configuring the Plugin</h2>
+<p>The plugin has a config file that is used to configure a few things
+for Pygments.  Just create a file named <code>markdown-highlighter.ini</code> into your
+<code>configs/</code> folder.  Currently only <code>pygments.style</code> is used:</p>
+<pre><span class="k">[pygments]</span><span class="w"></span>
+<span class="na">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tango</span><span class="w"></span>
+</pre>
+<p>You can use this to select any of the built-in Pygments styles.  Support for
+custom styles will come in the future.</p>
+<p>The config file is considered the &quot;source&quot; for the Pygments stylesheet, so you must create the configuration file (it can be empty) or Lektor's build will prune <code>pygments.css</code>.</p>
+<h2>In Markdown</h2>
+<p>To use the syntax highlighter you need to use fenced blocks and pass the name
+of the pygments lexer after the opening fence:</p>
+<pre><code>```python
+print(&quot;Hello World!&quot;)
+```
+</code></pre>
+<h2>In Templates</h2>
+<p>In templates the plugin provides the <code>get_pygments_stylesheet</code> function which
+can be used to generate and retrieve a link to the pygments stylesheet:</p>
+<pre><span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">get_pygments_stylesheet</span><span class="o">()|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+</pre>
+<p>In addition the <code>|pygmentize</code> filter can be used to highlight code from
+templates.  It takes one argument which is the lexer name:</p>
+<pre><span class="cp">{{</span> <span class="s1">&#39;print &quot;Hello World!&quot;&#39;</span><span class="o">|</span><span class="nf">pygmentize</span><span class="o">(</span><span class="s1">&#39;python&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-markdown-highlighter"; this.page.url = "https://www.getlektor.com/plugins/lektor-markdown-highlighter/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-markdown-highlighter/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>Travis-CI | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../../content/">Content</a>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../">Deployment</a>
+            
+            <ul>
+          <li><a href="../ftp/">FTP</a>
+            
+        
+          <li><a href="../ghpages/">GitHub Pages</a>
+            
+        
+          <li><a href="../glpages/">GitLab Pages</a>
+            
+        
+          <li><a href="../rsync/">rsync</a>
+            
+        
+          <li class="active"><a href="./">Travis-CI</a>
+            
+            <ul></ul>
+            
+        </ul>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#travis-config">Travis Config</a></li>
+        
+          <li><a href="#project-server-config">Project Server Config</a></li>
+        
+          <li><a href="#enabling-travis">Enabling Travis</a></li>
+        
+          <li><a href="#access-credentials">Access Credentials</a></li>
+        
+          <li><a href="#committer-information">Committer Information</a></li>
+        
+          <li><a href="#private-repositories">Private Repositories</a></li>
+        
+          <li><a href="#speeding-up-builds-with-caching">Speeding up Builds with Caching</a></li>
+        
+          <li><a href="#restricting-branches">Restricting Branches</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Travis-CI</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>For certain websites it can be interesting to use
+<a href="https://travis-ci.org/">Travis-CI</a> to automatically deploy the latest version
+of a website from a github repository.  This is particularly useful when
+coupled with the <a href="../ghpages/" class="ref">GitHub Pages</a> deployment method which is
+what we're going to cover in this guide.  But you can easily adjust it to
+any other method.</p>
+<p>This assumes you already signed up for Travis-CI.  If you have not, just
+head to <a href="https://travis-ci.org/" class="ext">travis-ci.org</a> and sign up with your
+GitHub account.</p>
+<p>This guide is also available as a <a href="https://www.youtube.com/embed/3pj_EyZIL5A">7 minute screencast</a>.</p>
+<h2 id="travis-config">Travis Config</h2><p>Once you have signed up for Travis-CI you need to add a <code>.travis.yml</code> config
+file into your repository.  You can copy paste this over:</p>
+<div class="hll"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span><span class="w"></span>
+<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor&quot;</span><span class="w"></span>
+<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">build&quot;</span><span class="w"></span>
+<span class="nt">deploy</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span><span class="w"></span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages&quot;</span><span class="w"></span>
+</pre></div>
+<p>Because Travis already comes with all dependencies we need other than
+Lektor itself we just need to pip install Lektor and we're ready to go.  For
+the build step we invoke <code>lektor build</code>, and for the deploy step we invoke
+<code>lektor deploy ghpages</code> to ship it to the ghpages server.  We still need
+to configure that.</p>
+<h2 id="project-server-config">Project Server Config</h2><p>For the above example the best way to configure the server for the deployment
+in the project file would be to use <code>ghpages+https</code> like this:</p>
+<div class="hll"><pre><span></span><span class="k">[servers.ghpages]</span><span class="w"></span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ghpages+https://username/repository</span><span class="w"></span>
+</pre></div>
+<p>You need to add this to your <code>.lektorproject</code> file.</p>
+<p>Whenever Travis builds it will automatically throw the end result into the
+<code>gh-pages</code> branch and the website updates.  We do however still need to
+configure the access credentials.  We will get to that.</p>
+<h2 id="enabling-travis">Enabling Travis</h2><p>So now that we have all that configured we need to tell travis to build the
+repository.  For that just head to your <a href="https://travis-ci.org/profile" class="ext">Travis-CI Profile</a> and enable the repository.  If it does not
+show up yet, you can force a sync with the click of a button.</p>
+<h2 id="access-credentials">Access Credentials</h2><p>So how do you safely provide your credentials?  Lektor accepts username and
+password for the <code>ghpages+https</code> transport via the <code>LEKTOR_DEPLOY_USERNAME</code>
+and <code>LEKTOR_DEPLOY_PASSWORD</code> environment variables.  These can be set in the
+Travis-CI settings of your repository on travis-ci.org in secret so they are
+not stored anywhere else and will not show up in the build output.  However one
+thing you need to be careful with is that they still give access to your entire
+account!</p>
+<p>To solve this problem we recommend two things:</p>
+<ol>
+<li><a href="https://github.com/settings/tokens" class="ext">Create a personal access token</a>
+and use that instead.  Just provide the token instead of your password on
+sign-in.  This makes it easily possible to just revoke that token if
+something goes wrong.  Note that you only need the <code>repo</code> scope for this
+to work.  This also works if you have 2FA activated on an account.</li>
+<li><a href="https://developer.github.com/guides/managing-deploy-keys/#machine-users" class="ext">Create a deployment (machine) user</a>.
+This allows you to use a user that is exclusively used for just the
+purpose of updating the website.</li>
+</ol>
+<p>Once you have done that travis will start deploying the website on every
+commit.</p>
+<div class="admonition admonition-warning"><p>When copy/pasting username and password into travis please ensure that
+you do not copy any leading or trailing whitespace with it.  This will not
+just break the build but also reveal the password in the process.  For
+more information see <a href="https://github.com/travis-ci/travis-ci/issues/4139" class="ext">travis-ci#4139</a>.</p></div><h2 id="committer-information">Committer Information</h2><p>By default the commits to the <code>gh-pages</code> branch will be authored by a user
+named “Lektor Bot”.  If you want to override this you can export the
+<code>GIT_COMMITTER_NAME</code> and <code>GIT_COMMITTER_EMAIL</code> environment variables and
+set them to something else.  This is best done in the travis settings.</p>
+<h2 id="private-repositories">Private Repositories</h2><p>If you are using private repositories you will need the commercial version of
+travis.  It has the advantage that you can also set up SSH keys on there which
+means that authentication becomes easier.  For more information see <a href="https://docs.travis-ci.com/user/private-dependencies/" class="ext">Private
+Dependencies</a> in
+the Travis CI documentation.</p>
+<h2 id="speeding-up-builds-with-caching">Speeding up Builds with Caching</h2><p>In the default setting Travis will have to rebuild everything because between
+builds it does not cache the build results.  You can change this by enabling
+caching.  Adjust your <code>.travis.yml</code> file to look like this:</p>
+<div class="hll"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span><span class="w"></span>
+<span class="nt">cache</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">directories</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pip</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/lektor/builds</span><span class="w"></span>
+<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor&quot;</span><span class="w"></span>
+<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">build&quot;</span><span class="w"></span>
+<span class="nt">deploy</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span><span class="w"></span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages&quot;</span><span class="w"></span>
+</pre></div>
+<h2 id="restricting-branches">Restricting Branches</h2><p>If you plan on having different branches and contributors you should disable
+the deployment to the master branch only.  You can do this with the following
+config:</p>
+<div class="hll"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span><span class="w"></span>
+<span class="nt">cache</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">directories</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pip</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/lektor/builds</span><span class="w"></span>
+<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor&quot;</span><span class="w"></span>
+<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">build&quot;</span><span class="w"></span>
+<span class="nt">deploy</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span><span class="w"></span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">on</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span><span class="w"></span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/deployment/travisci"; this.page.url = "https://www.getlektor.com/docs/deployment/travisci/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/deployment/travisci/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

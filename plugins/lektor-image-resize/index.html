@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-image-resize 1.0.0</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Generate JPG and WEBP Images and Thumbnails in predefined sizes.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/chaos-bodensee/lektor-image-resize.git" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/chaos-bodensee/lektor-image-resize.git" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-image-resize on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/chaos-bodensee/lektor-image-resize.git/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/chaos-bodensee/lektor-image-resize.git/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 1.0.0</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:l3d@c3woc.de">L3D</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/images/">images</a>, 
+          
+            
+            <a href="../tag/thumbnails/">thumbnails</a>, 
+          
+            and 
+            <a href="../tag/webp/">webp</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>lektor image resize plugin</h1>
+<p><a href="https://badge.fury.io/py/lektor-image-resize" rel="nofollow"><img alt="PyPI version" src="https://badge.fury.io/py/lektor-image-resize.svg"></a>
+<a href="https://pepy.tech/project/lektor-image-resize" rel="nofollow"><img alt="Downloads" src="https://pepy.tech/badge/lektor-image-resize"></a>
+<a href="https://github.com/chaos-bodensee/lektor-image-resize/actions/workflows/pythonpackage.yml" rel="nofollow"><img alt="Linting Python package" src="https://github.com/chaos-bodensee/lektor-image-resize/actions/workflows/pythonpackage.yml/badge.svg"></a>
+<a href="https://github.com/chaos-bodensee/lektor-image-resize/actions/workflows/pythonpublish.yml" rel="nofollow"><img alt="Upload Python Package" src="https://github.com/chaos-bodensee/lektor-image-resize/actions/workflows/pythonpublish.yml/badge.svg"></a>
+<a href="https://github.com/chaos-bodensee/lektor-image-resize/blob/main/LICENSE" rel="nofollow"><img alt="MIT License" src="https://raw.githubusercontent.com/chaos-bodensee/lektor-image-resize/main/.github/license.svg?sanitize=true"></a></p>
+<p>This plugin generates JPG and WEBP Images and Thumbnails in predefined sizes for any images in your <a href="https://getlektor.com" rel="nofollow">Lektor</a> content.
+The difference between this plugin and the lektor <a href="https://www.getlektor.com/docs/api/db/record/thumbnail/" rel="nofollow">thumbnail</a> filter is that this plugin is converting all images and you don't need to have any references to the images in your templates.</p>
+<h2>TL;DR: What does this plugin do?</h2>
+<ul>
+<li>It will generate <code>JPEG</code> images in the sizes you configured of all images in your Lektor content using <code>imagemagic</code>.</li>
+<li>It will generate <code>WEBP</code> images in the same sizes using <code>imagemagic</code>.</li>
+</ul>
+<h2>Usage</h2>
+<p>Use this plugin if you want to be able to link to full-size images in your content, but still want thumbnails to be generated for the link itself.
+For example, you may have an image called <code>waffle.jpg</code>, and to link to it in the content (not the template), but also show a thumbnail.
+All images will be converted to webp using <a href="https://pypi.org/project/Pillow/" rel="nofollow">Pillow</a>.</p>
+<p>You can use the images like that:</p>
+<pre><span class="cm">&lt;!-- Simple example --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;waffle.jpg&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;waffle-small.jpg&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+
+<span class="cm">&lt;!-- example with srcset --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;waffle-small.webp&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;waffle-small.webp&quot;</span>
+    <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;waffle-small.webp  640w,   // Viewport bis zu 640</span>
+<span class="s">            waffle-medium.webp 1280w,  // Viewport größer als 1280</span>
+<span class="s">            waffle-woowee.webp 1920w&quot;</span>  <span class="err">//</span> <span class="na">Viewport</span> <span class="na">größer</span> <span class="na">als</span> <span class="na">1920</span>
+  <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre>
+<h2>Installation</h2>
+<p>To install the plugin, add <code>lektor-image-resize</code> to your plugins from the command line and create a config file:</p>
+<pre><span class="c1"># add the plugin to lektor</span>
+lektor plugins add lektor-image-resize
+</pre>
+<p>If you have trouble, see the <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">plugin
+installation</a> section of the Lektor
+documentation.</p>
+<p>Create a config file called <code>configs/image-resize.ini</code> and add
+a few sections for images. The section names can be whatever you want, the
+final images will be called <code>$(imagename)-$(sectionname).jpg</code> and <code>$(imagename)-$(sectionname).webp</code>.</p>
+<p>Here is a example config file:</p>
+<pre><span class="k">[small]</span><span class="w"></span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">640</span><span class="w"></span>
+<span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">360</span><span class="w"></span>
+
+<span class="k">[medium]</span><span class="w"></span>
+<span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">720</span><span class="w"></span>
+
+<span class="k">[woowee]</span><span class="w"></span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1920</span><span class="w"></span>
+</pre>
+<p>Will take a file called <code>waffle.jpg</code> and create the files <code>waffle-small.jpg</code>,
+<code>waffle-medium.jpg</code> and <code>waffle-woowee.jpg</code> as well as <code>waffle-small.webp</code>,
+<code>waffle-medium.webp</code> and <code>waffle-woowee.webp</code> All the files will be created,
+regardless of whether the original file is smaller, so you can link without worrying
+whether a file will exist or not. If the original file is smaller than the width
+you have specified, the file will only be copied, and will not be resized.</p>
+<p>The <code>max_width</code>/<code>max_height</code> parameters work like for the <a href="https://www.getlektor.com/docs/api/db/record/thumbnail/" rel="nofollow">Lektor
+thumbnail</a> command.</p>
+<h2>Good to know</h2>
+<p>There is a filter plugin avaliable at <a href="https://github.com/chaos-bodensee/lektor-image-filter.git" rel="nofollow">lektor-image-filter</a> available, that can help you to use the image in all configured sizes,</p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-image-resize"; this.page.url = "https://www.getlektor.com/plugins/lektor-image-resize/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-image-resize/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

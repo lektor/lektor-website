@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
+  <title>System Fields | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../">Documentation</a></li>
+          
+            <li><a href="../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../community/">Community</a></li>
+          
+            <li><a href="../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../">Welcome</a></li>
+        
+        
+          <li><a href="../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../installation/">Installation</a>
+            
+        
+          <li><a href="../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../project/">Project</a>
+            
+        
+          <li><a href="../">Content</a>
+            
+            <ul>
+          <li><a href="../alts/">Alternatives</a>
+            
+        
+          <li><a href="../attachments/">Attachments</a>
+            
+        
+          <li><a href="../databags/">Data Bags</a>
+            
+        
+          <li><a href="../flow/">Flow</a>
+            
+        
+          <li><a href="../paths/">Paths</a>
+            
+        
+          <li class="active"><a href="./">System Fields</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../urls/">URLs and Slugs</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../templates/">Templates</a>
+            
+        
+          <li><a href="../../themes/">Themes</a>
+            
+        
+          <li><a href="../../guides/">Guides</a>
+            
+        
+          <li><a href="../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../api/">API</a>
+            
+        
+          <li><a href="../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#hidden"><code>_hidden</code></a></li>
+        
+          <li><a href="#discoverable"><code>_discoverable</code></a></li>
+        
+          <li><a href="#model"><code>_model</code></a></li>
+        
+          <li><a href="#slug"><code>_slug</code></a></li>
+        
+          <li><a href="#template"><code>_template</code></a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>System Fields</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>In addition to the fields that are defined through the <a href="../../models/" class="ref">Data Model</a> there are a lot of fields that come directly from Lektor.
+They can be easily recognized because they are prefixed by a leading underscore
+(<code>_</code>).</p>
+<p>These fields influence how Lektor treats pages and attachment.  Here we will
+just go over the most important ones but for a full list you can have a look
+<a href="../../api/db/system-fields/" class="ref">at the API Documentation</a>.</p>
+<h2 id="hidden"><code>_hidden</code></h2><p>This field is a boolean value and controls if a page is hidden or not.  If a
+page is hidden all of its children will automatically also be hidden.  A page
+that is hidden will not be processed by Lektor's build system.  This means such
+pages can be discovered through the query API but they are not rendered
+themselves.  This is useful for situations where you want to have information
+stored but not rendered.  This is for instance used to <a href="../../guides/single-page/" class="ref">implement Single-Page
+websites</a>.</p>
+<p><em>To read more read <a href="../../api/db/system-fields/hidden/" class="ref">the field documentation</a>.</em></p>
+<h2 id="discoverable"><code>_discoverable</code></h2><p>This fields in many ways is similar to <code>_hidden</code> but instead makes a page
+be only hidden from queries.  In particular this means that it will still be
+processed and built, but that it becomes harder for code to reference it.
+Pages that are not set to discoverable can only be found through queries if
+they are <a href="../../api/db/query/include-undiscoverable/" class="ref">explicitly included</a>.</p>
+<div class="admonition admonition-info"><p>This field was added in Lektor 2.0.  In earlier versions this feature is
+unavailable.</p></div><p><em>To read more read <a href="../../api/db/system-fields/discoverable/" class="ref">the field documentation</a>.</em></p>
+<h2 id="model"><code>_model</code></h2><p>This key sets the <a href="../../models/" class="ref">Data Model</a> that is used for the record.
+If not set this defaults to one of different choices depending on configuration
+or name.  Parent models can pre-define the model for children, which is then used if
+this key is not set. If not set this will be picked up by an algorithm.
+See <a href="../../models/selection/" class="ref">Default Model Selection</a> for more information.</p>
+<p><em>To learn more read <a href="../../api/db/system-fields/model/" class="ref">the field documentation</a>.</em></p>
+<h2 id="slug"><code>_slug</code></h2><p>This field can override the default URL slug.  For more information about this
+feature see <a href="../urls/" class="ref">URLs and Slugs</a>.</p>
+<h2 id="template"><code>_template</code></h2><p>This field can be used to override the default template selection which is
+just the model name with the <code>.html</code> extension.</p>
+<p><em>To learn more read <a href="../../api/db/system-fields/template/" class="ref">the field documentation</a>.</em></p>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/content/system-fields"; this.page.url = "https://www.getlektor.com/docs/content/system-fields/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/content/system-fields/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License & Copyright</a> •
+          <a href="../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

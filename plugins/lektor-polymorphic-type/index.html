@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-polymorphic-type 0.1</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Add polymorphic field type to Lektor<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/dairiki/lektor-polymorphic-type" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-polymorphic-type" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-polymorphic-type on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-polymorphic-type/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-polymorphic-type/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.1</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:dairiki@dairiki.org">Jeff Dairiki</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/field-type/">field type</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>Lektor Polymorphic Type</h1>
+<p><a href="https://pypi.org/project/lektor-polymorphic-type/" rel="nofollow"><img alt="PyPI version" src="https://img.shields.io/pypi/v/lektor-polymorphic-type.svg"></a>
+<a href="https://pypi.python.org/pypi/lektor-polymorphic-type/" rel="nofollow"><img alt="PyPI Supported Python Versions" src="https://img.shields.io/pypi/pyversions/lektor-polymorphic-type.svg"></a>
+<a href="https://github.com/dairiki/lektor-polymorphic-type/blob/master/LICENSE" rel="nofollow"><img alt="GitHub license" src="https://img.shields.io/github/license/dairiki/lektor-polymorphic-type"></a>
+<a href="https://github.com/dairiki/lektor-polymorphic-type" rel="nofollow"><img alt="GitHub Actions (Tests)" src="https://github.com/dairiki/lektor-polymorphic-type/workflows/Tests/badge.svg"></a></p>
+<p>This plugin adds a new polymorphic <a href="https://www.getlektor.com/" rel="nofollow" title="Lektor Static Content Management System">lektor</a> field type, <code>polymorphic</code>.
+The determination of the actual type implementation of the field value
+is deferred until evaluation time.</p>
+<p>A motivating use case is to support having a “body” field whose
+formatting can be switched between, e.g., <code>markdown</code>, and <code>html</code> (or
+some other formatted type, such as <a href="https://pypi.org/project/lektor-rst/" rel="nofollow" title="The lektor-rst plugin">reStructuredText</a>.)</p>
+<h2>Installation</h2>
+<p>Add lektor-polymorphic-type to your project from command line:</p>
+<pre><code>lektor plugins add lektor-polymorphic-type
+</code></pre>
+<p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor plugin documentation</a> for more information.</p>
+<h2>How It Works</h2>
+<p>If the field has a <code>polymorphic_type</code> option set, that value is evaluated
+and the result is interpreted as the name of the final type for the
+field.</p>
+<p>If no <code>polymorphic_type</code> option is set for the field, then we look for a
+field on the current record whose name is name of the current field
+with “<code>_type</code>” appended.</p>
+<h2>Examples</h2>
+<h3>Simple Example</h3>
+<p>Here is an example model file for a simple page, with a selectable body format:</p>
+<pre><span class="c1"># page.ini</span><span class="w"></span>
+
+<span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Page</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
+
+<span class="k">[fields.title]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Title</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+
+<span class="k">[fields.body]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">polymorphic</span><span class="w"></span>
+
+<span class="k">[fields.body_type]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body Type</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">select</span><span class="w"></span>
+<span class="na">choices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown, html, text</span><span class="w"></span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+</pre>
+<p>Here, the value of the <code>body_type</code> field on a particular page will
+determine whether the <code>body</code> field is interpreted as being <code>markdown</code>,
+<code>html</code> or <code>text</code>.</p>
+<h3>Contrived Example</h3>
+<p>Here is a contrived example showing the use of the <code>polymorphic_type</code> option:</p>
+<pre><span class="c1"># page.ini</span><span class="w"></span>
+
+<span class="k">[model]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Page</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
+
+<span class="k">[fields.title]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Title</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+
+<span class="k">[fields.body]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">polymorphic</span><span class="w"></span>
+<span class="na">polymorphic_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;html&#39; if this.body.lstrip().startswith(&#39;&lt;&#39;) else &#39;markdown&#39;</span><span class="w"></span>
+</pre>
+<p>In this case, the <code>body</code> field will be interpreted as raw HTML if the
+content of that field starts with a “<code>&lt;</code>”, otherwise it will be
+interpreted as <em>Markdown</em> text.</p>
+<h2>Author</h2>
+<p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org">dairiki@dairiki.org</a></p>
+<h2>Changelog</h2>
+<h3>0.1 — 2021-02-05</h3>
+<p>No code changes.</p>
+<p>Update development status classifier to &quot;stable&quot;.</p>
+<p>Test under python 3.9.  Stop testing under 3.5.</p>
+<h3>0.1b1 — 2020-05-04</h3>
+<p>Initial release.</p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-polymorphic-type"; this.page.url = "https://www.getlektor.com/plugins/lektor-polymorphic-type/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-polymorphic-type/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

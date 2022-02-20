@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../../static/pygments.css">
+  <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
+  <title>get | Documentation | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../../../../downloads/">Download</a></li>
+          
+            <li class="active"><a href="../../../../">Documentation</a></li>
+          
+            <li><a href="../../../../../showcase/">Showcase</a></li>
+          
+            <li><a href="../../../../../plugins/">Plugins</a></li>
+          
+            <li><a href="../../../../../community/">Community</a></li>
+          
+            <li><a href="../../../../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../../">Welcome</a></li>
+        
+        
+          <li><a href="../../../../what/">What is Lektor</a>
+            
+        
+          <li><a href="../../../../installation/">Installation</a>
+            
+        
+          <li><a href="../../../../quickstart/">Quickstart</a>
+            
+        
+          <li><a href="../../../../project/">Project</a>
+            
+        
+          <li><a href="../../../../content/">Content</a>
+            
+        
+          <li><a href="../../../../templates/">Templates</a>
+            
+        
+          <li><a href="../../../../themes/">Themes</a>
+            
+        
+          <li><a href="../../../../guides/">Guides</a>
+            
+        
+          <li><a href="../../../../deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../../models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../../cli/">Command Line</a>
+            
+        
+          <li><a href="../../../">API</a>
+            
+            <ul>
+          <li><a href="../../../build/">Build System</a>
+            
+        
+          <li><a href="../../../databags/">Databags</a>
+            
+        
+          <li><a href="../../">Database</a>
+            
+            <ul>
+          <li><a href="../../types/">Builtin Field Types</a>
+            
+        
+          <li><a href="../../expression/">Expression</a>
+            
+        
+          <li><a href="../../f/">F</a>
+            
+        
+          <li><a href="../../get-alts/">get_alts()</a>
+            
+        
+          <li><a href="../">Pad</a>
+            
+            <ul>
+          <li><a href="../databags/">databags</a>
+            
+        
+          <li class="active"><a href="./">get()</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../get-root/">get_root()</a>
+            
+        
+          <li><a href="../query/">query()</a>
+            
+        
+          <li><a href="../resolve-url-path/">resolve_url_path()</a>
+            
+        
+          <li><a href="../root/">root</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../query/">Query</a>
+            
+        
+          <li><a href="../../record/">Record</a>
+            
+        
+          <li><a href="../../obj/">SourceObject</a>
+            
+        
+          <li><a href="../../system-fields/">System Fields</a>
+            
+        
+          <li><a href="../../type/">Type</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../environment/">Environment</a>
+            
+        
+          <li><a href="../../../plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../project/">Project</a>
+            
+        
+          <li><a href="../../../publisher/">Publisher</a>
+            
+        
+          <li><a href="../../../templates/">Template API</a>
+            
+        
+          <li><a href="../../../utils/">Utilities</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../../search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>This Page</h4>
+        <ul class="toc">
+        
+          <li><a href="#examples">Examples</a></li>
+        
+          <li><a href="#virtual-paths">Virtual Paths</a></li>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1><i class="glyphicon glyphicon-cog"></i> <code class="obj">get</code> <span class="sig">(<code>id, alt=&#39;_primary&#39;, page_num=None</code>)</span></h1>
+  
+
+
+      <ul class=page-meta>
+      
+        <li>Method of <a href="../">Pad</a></li>
+      
+      
+      
+      </ul>
+
+      <p>This can look up a single <a href="../../record/" class="ref">Record</a> and return it.  In templates this method
+is particularly useful when having to work with other pages that are well
+known to the system but some information should be pulled from.  Note that
+this loads by default the "primary" <a href="../../../../content/alts/" class="ref">Alternative</a>.</p>
+<p>The path needs to be absolute with folder separated by slashes.</p>
+<p>The default behavior is to load the unpaginated version of a record.  If you
+want to select a specific page for pagination, then you need to pass
+<code>page_num</code> with a valid page number or you use the virtual path (<code>@1</code> for the
+first page for instance).</p>
+<h2 id="examples">Examples</h2><p>This is a simple example that shows how to use the method in a template:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">root</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.title</span> <span class="cp">}}</span> | <span class="cp">{{</span> <span class="nv">root.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</pre></div>
+<p>Here another example that loads the current page but in another language:</p>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">other_lang</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="nv">this._path</span><span class="o">,</span> <span class="nv">alt</span><span class="o">=</span><span class="s1">&#39;ru&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This page in Russian: <span class="cp">{{</span> <span class="nv">other_lang.title</span> <span class="cp">}}</span>
+</pre></div>
+<h2 id="virtual-paths">Virtual Paths</h2><p>This method can also be used to look up <a href="../../../../content/paths/" class="ref">virtual paths</a>.  For instance to fetch a specific version of a
+pagination you can use a virtual path instead of using the <code>page_num</code>
+parameter:</p>
+<div class="hll"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pad</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/blog@3&#39;</span><span class="p">)</span>
+<span class="go">&lt;Page model=u&#39;blog&#39; path=&#39;/blog&#39; page_num=3&gt;</span>
+</pre></div>
+
+      
+
+      
+
+      
+
+      
+      <div class="comment-box">
+        <h2>Comments</h2>
+        
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/docs/api/db/pad/get"; this.page.url = "https://www.getlektor.com/docs/api/db/pad/get/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/db/pad/get/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../../../license/">License & Copyright</a> •
+          <a href="../../../../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

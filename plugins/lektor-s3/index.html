@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-s3 0.5.1</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Publish to <a href="https://aws.amazon.com/s3/">S3</a> buckets and <a href="https://aws.amazon.com/cloudfront/">Cloudfront</a>.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/spenczar/lektor-s3" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/spenczar/lektor-s3" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-s3 on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/spenczar/lektor-s3/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/spenczar/lektor-s3/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.5.1</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:s@spenczar.com">Spencer Nelson</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/AWS/">AWS</a>, 
+          
+            
+            <a href="../tag/CloudFront/">CloudFront</a>, 
+          
+            
+            <a href="../tag/publisher/">publisher</a>, 
+          
+            
+            <a href="../tag/S3/">S3</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>lektor-s3</h1>
+<p><a href="https://travis-ci.org/spenczar/lektor-s3" rel="nofollow"><img alt="Build Status" src="https://travis-ci.org/spenczar/lektor-s3.svg?branch=master"></a></p>
+<p>lektor-s3 makes it easy to deploy your
+<a href="https://github.com/lektor/lektor" rel="nofollow">Lektor</a> project to an S3 bucket.</p>
+<h2>Before you start</h2>
+<p>You're going to be storing your website's data in an S3 bucket. The code
+here won't do anything to create or configure that bucket. You'll have to
+create the S3 bucket and set it up yourself.</p>
+<p>AWS has a <a href="http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html" rel="nofollow">pretty good guide</a>
+for how to set up a bucket to host a static website. You'll need to both
+create the bucket and set its permissions to allow global read access.
+Remember to do this <strong>first</strong> because lektor-s3 won't do it automatically.</p>
+<h2>Installation and Usage</h2>
+<p>Install with the usual Lektor toolchain. Within your project, run</p>
+<pre><span class="go">lektor plugins add lektor-s3</span>
+</pre>
+<p>You should see a message saying lektor-s3 has been added to the project.</p>
+<p>Next, add an S3 bucket to your project's servers. In your project file
+(like <code>blog.lektorproject</code>), add the following:</p>
+<pre><span class="k">[servers.s3]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">S3</span><span class="w"></span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3://&lt;YOUR-BUCKET&gt;</span><span class="w"></span>
+</pre>
+<p>For example, if you wanted to deploy to a bucket named 'huntedwumpus',
+you'd make that last line</p>
+<pre><span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3://huntedwumpus</span><span class="w"></span>
+</pre>
+<p>Now, if you call <code>lektor deploy s3</code>, Lektor will upload your built
+website to S3 in the bucket you targeted.</p>
+<h2>CloudFront</h2>
+<p>Optionally, you can also provide a <a href="https://aws.amazon.com/cloudfront/" rel="nofollow">CloudFront</a>
+distribution ID. If you do, Lektor will invalidate all objects in that CloudFront
+distribution after every deploy.</p>
+<pre><span class="na">cloudfront</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;YOUR-DISTRIBUTION-ID&gt;</span><span class="w"></span>
+</pre>
+<h2>Credentials</h2>
+<p>You need to prove to S3 that you have permission to upload to the
+bucket you've chosen.</p>
+<p>lektor-s3 uses boto, which means it will obey
+<a href="http://boto3.readthedocs.org/en/latest/guide/configuration.html" rel="nofollow">boto's usual flow for gathering credentials</a>.</p>
+<p>For a refresher, that means you have two options: you can store your
+credentials in an INI file at <code>~/.aws/credentials</code>, or you can pass
+credentials in through the environment variables <code>AWS_ACCESS_KEY_ID</code>
+and <code>AWS_SECRET_ACCESS_KEY</code>.</p>
+<p>If you have multiple sets of credentials, you can group them into profiles in
+your credentials file and choose the right one using the <code>AWS_PROFILE</code>
+environment variable. Your <code>~/.aws/credenials</code> file might look like this:</p>
+<pre><span class="k">[work]</span><span class="w"></span>
+<span class="na">aws_access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;...&gt;</span><span class="w"></span>
+<span class="na">aws_secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;...&gt;</span><span class="w"></span>
+
+<span class="k">[personal]</span><span class="w"></span>
+<span class="na">aws_access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;...&gt;</span><span class="w"></span>
+<span class="na">aws_secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;...&gt;</span><span class="w"></span>
+</pre>
+<p>And then you can invoke <code>lektor</code> with the environment variable:</p>
+<pre><span class="gp">$ </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>personal lektor deploy<span class="sb">`</span>
+</pre>
+<h2>Configuration</h2>
+<p>You can specify headers to be attached to particular files when uploading them
+to S3. These can be configured in an INI file at <code>configs/s3.ini</code> under your
+project root.</p>
+<p>You can name the sections anything that makes sense to you, but every section
+must have either a <code>match</code> or an <code>extensions</code> item to specify which files the
+configuration applies to. If using <code>match</code>, you should write this as a regular
+expression that will be applied against the filename using the regular
+expression's search method. If using <code>extensions</code>, write a comma-separated list
+of the file extensions to which the configuration applies. Both <code>match</code> and
+<code>extensions</code> may be specified.</p>
+<p>The rest of the items in each section should specify one or more headers and
+their values. A list of valid headers is defined in the boto documentation as
+<a href="https://boto3.readthedocs.io/en/latest/reference/customizations/s3.html#boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" rel="nofollow"><code>ALLOWED_UPLOAD_ARGS</code></a>.</p>
+<p>Defaults can be defined via the usual INI file way, in a <code>[DEFAULTS]</code> section.</p>
+<p>For example, your configuration file might look like this:</p>
+<pre><span class="k">[DEFAULT]</span><span class="w"></span>
+<span class="na">CacheControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">public,max-age=3600</span><span class="w"></span>
+
+<span class="k">[static files]</span><span class="w"></span>
+<span class="na">match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\.(css|js|woff|woff2)$</span><span class="w"></span>
+<span class="na">CacheControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">public,max-age=31536000</span><span class="w"></span>
+
+<span class="k">[media]</span><span class="w"></span>
+<span class="na">extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">jpg,jpeg,png,mp4</span><span class="w"></span>
+<span class="na">CacheControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">public,max-age=259200</span><span class="w"></span>
+
+<span class="k">[fonts]</span><span class="w"></span>
+<span class="na">extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">woff2</span><span class="w"></span>
+<span class="na">ContentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">application/font-woff2</span><span class="w"></span>
+
+<span class="k">[documents]</span><span class="w"></span>
+<span class="na">extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">html,txt</span><span class="w"></span>
+<span class="na">ContentLanguage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">en</span><span class="w"></span>
+</pre>
+<h2>Contributing</h2>
+<p>Pull requests are super useful and encouraged! Once accepted, changes
+are published using lektor with <code>lektor dev publish-plugin</code>.</p>
+<p>Run your tests by invoking <code>python setup.py test</code>.</p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-s3"; this.page.url = "https://www.getlektor.com/plugins/lektor-s3/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-s3/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>

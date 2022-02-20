@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-git-timestamp 0.1.post1</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Lektor type to deduce page modification time from git<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://github.com/dairiki/lektor-git-timestamp" class="ext">Homepage</a></li>
+        </ul>
+
+        
+          <div class="separator">
+            <h4>GitHub Statistics</h4>
+          </div>
+          <ul class="button-nav">
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-git-timestamp" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-git-timestamp on GitHub" target="_blank">Star</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-git-timestamp/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
+            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-git-timestamp/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
+          </ul>
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.1.post1</p>
+        <p><strong>Author:</strong>
+          
+            <a href = "mailto:dairiki@dairiki.org">Jeff Dairiki</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/git/">git</a>, 
+          
+            
+            <a href="../tag/metadata/">metadata</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>Lektor-Git-Timestamp</h1>
+<p><a href="https://pypi.org/project/lektor-git-timestamp/" rel="nofollow"><img alt="PyPI version" src="https://img.shields.io/pypi/v/lektor-git-timestamp.svg"></a>
+<a href="https://pypi.python.org/pypi/lektor-git-timestamp/" rel="nofollow"><img alt="PyPI Supported Python Versions" src="https://img.shields.io/pypi/pyversions/lektor-git-timestamp.svg"></a>
+<a href="https://github.com/dairiki/lektor-git-timestamp/blob/master/LICENSE" rel="nofollow"><img alt="GitHub license" src="https://img.shields.io/github/license/dairiki/lektor-git-timestamp"></a>
+<a href="https://github.com/dairiki/lektor-git-timestamp" rel="nofollow"><img alt="GitHub Actions (Tests)" src="https://github.com/dairiki/lektor-git-timestamp/workflows/Tests/badge.svg"></a></p>
+<p>This Lektor plugin implements a new datetime-like type,
+<code>gittimestamp</code>, which gets it's default value from git timestamps.
+This can be used to implement auto-updating <code>pub_date</code> and <code>last_mod</code>
+fields in Lektor datamodels.</p>
+<h2>Description</h2>
+<p>The <code>gittimestamp</code> type behaves just like the built-in <code>datetime</code>
+type, except that if the field is left blank in <code>contents.lr</code> a
+default value will be deduced from git timestamps for the file (or
+possibly the file’s filesystem mtime.)</p>
+<p>If an explicit value for the field is not found, the git log for the
+source file (typically <code>contents.lr</code>) is searched using <code>git log --follow --remove-empty -- &lt;source_filename&gt;</code>, and the author
+timestamp of all matching commits are considered.  Additionally, if
+the source file is dirty with respect to git’s HEAD, or if the file is
+not checked into the git tree, the file’s mtime is prepended to that
+list of timestamps.  That list of timestamps is filtered based on the
+<code>ignore_commits</code> and <code>skip_first_commit</code> options (see below); then,
+finally, a timestamp is selected from those that remain based on the
+setting of the <code>strategy</code> option.</p>
+<h3>Options</h3>
+<p>The <code>gittimestamp</code> type supports the following options.</p>
+<h4><code>ignore_commits</code></h4>
+<p>This can be set to a string, which is interpreted as a regular
+expression.  Any git commits whose commit message matches this pattern
+are ignored when computing a default timestamp value for the field.
+(The matching is performed using <code>re.search</code>.)</p>
+<h4><code>skip_first_commit</code></h4>
+<p>If this boolean option is set, the first commit in the git log for the
+source file will be ignored.  This is useful for implementing a
+<code>last_mod</code> field which has a defined value only if the source file has
+actually been modified since the initial commit.</p>
+<h4><code>strategy</code></h4>
+<p>This option determines which timestamp is selected from the git log
+(and/or the file mtime).  This can be set to one of four values:</p>
+<ul>
+<li>
+<p><code>last</code>: If the source file is dirty (with respect to the git HEAD
+tree), the mtime of the file is used.  Otherwise, the timestamp of
+the last (nominally the most recent) non-ignored git commit is
+used. This is the default strategy.</p>
+</li>
+<li>
+<p><code>first</code>: The timestamp of the first (nominally the earliest) commit
+is used.</p>
+</li>
+<li>
+<p><code>latest</code>: The latest timestamp is used.  Normally this produces the same
+result at <code>last</code>, however due to rebasing, cherry-picking, etc. the git timestamps
+may not be monotonically increasing, in which case this option causes the
+greatest (most recent) timestamp remaining after any filtering to be selected.</p>
+</li>
+<li>
+<p><code>earliest</code>: The earliest timestamp is used.  Normally this produces the same
+result at <code>first</code>, but if the timestamps in the git log are not monotonic,
+this will select the minimum of all the timestamps remaining after any filtering.</p>
+</li>
+</ul>
+<h2>Examples</h2>
+<p>Here is a simple example excerpt from a datamodel file:</p>
+<pre><span class="na">&lt;...&gt;</span><span class="w"></span>
+
+<span class="k">[fields.last_mod]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time last modified</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span><span class="w"></span>
+</pre>
+<p>On a page using the above datamodel, so long as the <code>last_mod</code> field
+is left blank in the <code>contents.lr</code> file, the page modification time
+will be deduced from timestamp of the most recent git commit which
+affected that <code>contents.lr</code>.  (Or if that file is dirty, the value of
+<code>last_mod</code> will be taken from the file’s filesystem mtime.)</p>
+<hr>
+<p>Here is a more complicated example which demonstrates the use of all the options.</p>
+<pre><span class="na">&lt;...&gt;</span><span class="w"></span>
+
+<span class="k">[fields.pub_date]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time first published</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span><span class="w"></span>
+<span class="na">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">first</span><span class="w"></span>
+
+<span class="k">[fields.last_mod]</span><span class="w"></span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time last modified</span><span class="w"></span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span><span class="w"></span>
+<span class="na">ignore_commits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\[nochange\]</span><span class="w"></span>
+<span class="na">skip_first_commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
+</pre>
+<p>This will get the default value of the <code>pub_date</code> field from the
+timestamp of the first (earliest) git commit for the source file.</p>
+<p>The default value for <code>last_mod</code> will, as in the previous example, be taken from the
+most recent commit for the file, except that:</p>
+<ul>
+<li>any commits whose commit message include the tag <code>[nochange]</code> will be ignored</li>
+<li>the first commit (the one whose timestamp is used for <code>pub_date</code>) is ignored</li>
+</ul>
+<p>If there has only been one commit of the source file, <code>last_mod</code> will not have
+a default value.  (It will evaluate to a jinja2 Undefined instance.)</p>
+<h2>Warning: On sorting by <code>gittimestamp</code> in <code>Lektor &lt;= 3.2</code></h2>
+<p>A common use case for timestamps is for sorting records.
+E.g. in a blog one generally wants to display posts in reverse
+chronological order by post date.  This generally won't work using
+<code>gittimestamp</code> timestamps under any currently released version of Lektor.</p>
+<p>The <code>gittimestamp</code> type is implemented using a <em>field
+descriptor</em>. (This is required in order to defer computation of the
+field value until after the record for the page is available.) In
+<code>lektor&lt;=3.2</code>, field descriptors are supported for most usages, the
+<em>one glaring exception</em> being when sorting records.</p>
+<p>This was fixed in Lektor PR
+<a href="https://github.com/lektor/lektor/pull/789" rel="nofollow">#789</a> which was merged to
+the master branch on February 6, 2021.
+Unfortunately, the last released version of Lektor (as of August 12,
+2021) is version 3.2, released August 20, 2020.  For now, you'll have
+to install Lektor from git if you want to be able to sort records by
+<code>gittimestamp</code>.</p>
+<h2>Author</h2>
+<p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org">dairiki@dairiki.org</a></p>
+<h2>Changelog</h2>
+<h3>Release 0.1.0.post1 (2021-08-12)</h3>
+<p>No code changes.</p>
+<p>Add warning to README about <code>lektor &gt; 3.2</code> (not yet released) being
+required in order to be able to sort records by <code>gittimestamp</code> fields.</p>
+<h3>Release 0.1 (2021-02-05)</h3>
+<p>No code changes.</p>
+<p>Update development status classifier to &quot;stable&quot;.</p>
+<p>Add functional tests.</p>
+<h3>Release 0.1a2 (2021-02-03)</h3>
+<h4>Bugs Fixed</h4>
+<p>Fixed attrocious typo which prevented the use of anything other than the
+default <code>strategy=last</code> for picking timestamps.</p>
+<h3>Release 0.1a1 (2020-06-16)</h3>
+<p>Initial release.</p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-git-timestamp"; this.page.url = "https://www.getlektor.com/plugins/lektor-git-timestamp/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-git-timestamp/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>
