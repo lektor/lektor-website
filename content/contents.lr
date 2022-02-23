@@ -27,9 +27,6 @@ contents:
         ><i class="glyphicon glyphicon-download-alt"></i> Download</a></div>
     </div>
   </div>
-  <div class="install-row hide-for-windows">
-    <pre>curl -sf https://www.getlektor.com/installer.py | sudo python3</pre>
-  </div>
 </div>
 #### text-block ####
 text:

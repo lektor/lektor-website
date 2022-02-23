@@ -15,46 +15,51 @@ text:
 
 Lektor is an [Open Source Project](../license/) and freely available to
 download.  It's currently still under heavy development and not all platforms
-are equally well supported.
+are equally well supported, although closer to it.
 
 ## Command Line Interface
 
-If you are on Linux or Mac you can install the command line version of
+You can install the command line version of
 Lektor by copy/pasting a command into your terminal.
 
-!!! Scared about copy/pasting this into a terminal?  We will not do anything
-before asking you for confirmation and you can download [the script](https://www.getlektor.com/installer.py)
-upfront to see what it's doing.
+!!! Scared about copy/pasting this into a terminal? We now use standard tools 
+to install lektor. `pipx` is the recommended method to install standalone
+command line interface python packages as recommended by [PyPA](https://packaging.python.org/guides/installing-stand-alone-command-line-tools/).
 
-### Mac/Linux
+### First Install PipX
 
-This will install Lektor in your `HOME`. Running it with `sudo` will result in
-a system installation instead.
+Let's first install `pipx`.
+
+__Ubuntu__
+```
+sudo apt install python3-pip python3-venv
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+
+__macOS__
+```
+bew install pipx
+pipx ensurepath
+```
+
+__Windows__
+```
+python -m pip install --user pipx
+python -m pipx ensurepath
+```
+
+For more information on `pipx` installation go to [pypa.github.io/pipx/installation/](https://pypa.github.io/pipx/installation/)
+
+### Let's install Lektor now
+
+Close and reopen terminal (`Powershell` or `cmd` on Windows), then install `lektor`:
 
 ```
-curl -sf https://www.getlektor.com/installer.py | python3
+pipx install lektor
 ```
 
 You might need additional dependencies for this installation.  For more
 information see [Installation](../docs/installation/).
-
-### Windows
-
-If you are on Windows copy/paste this command into `Powershell`:
-
-```
-(new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python
-```
-
-or alternatively use this in `command prompt`:
-
-```
-@powershell -NoProfile -Command "(new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python"
-```
-
-
-## Desktop Application
-
-Lektor supported an installable version of Lektor on OSX. The current build process for these installers is [old and in need of refactoring](https://github.com/lektor/lektor/issues/420). Temporarily until this is resolved, as of version 3.1, this installer is no longer supported.
 ----
 class: default
