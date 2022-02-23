@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Blog | Documentation | Lektor Static Content Management System</title>
@@ -188,7 +188,7 @@ page and what the order is.  We also set it to <code>hidden</code> and <code>pro
 will make it unavailable in the admin (<code>hidden</code>) for new pages and make it
 impossible to delete (<code>protected</code>).  This means we need to manually create the
 one page later which will use this.</p>
-<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -207,7 +207,7 @@ date and title are also used for sorting if you look into the <code>blog.ini</co
 Lastly we set up the label of the page to be the title of the blog post.  We
 can also set it to <code>hidden</code> as the model is automatically selected in the
 admin whenever a page is created in the blog.</p>
-<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog Post</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -238,7 +238,7 @@ overview page with the author and date and a controller for the pagination.
 Because pagination is enabled we can iterate over <code>this.pagination.items</code>
 instead of <code>this.children</code> which will return only the items for the intended
 page.</p>
-<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros/pagination.html&quot;</span> <span class="k">import</span> <span class="nv">render_pagination</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>My Blog<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
@@ -262,7 +262,7 @@ page.</p>
 <p>For the pagination macro have a look at the <a href="../pagination/" class="ref">pagination guide</a> which covers that part.</p>
 <h3 id="blog-post.html`"><code>blog-post.html</code></h3><p>Now we just need a template for our blog post.  This (<code>blog-post.html</code>) will
 do:</p>
-<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.title</span> <span class="cp">}}</span> | My Blog<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.title</span> <span class="cp">}}</span>
@@ -284,7 +284,7 @@ with the name of your blog.  For instance just <code>content/blog</code> and put
 into the URL?  That's thankfully very easy.  All you need to do is to set up
 a new URL format for the children.  Just edit <code>blog.ini</code> and add this to
 the <code>[children]</code> section:</p>
-<div class="hll"><pre><span></span><span class="na">slug_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ (this.pub_date|dateformat(&#39;YYYY/M/&#39;) if this.pub_date) ~ this._id }}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="na">slug_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ (this.pub_date|dateformat(&#39;YYYY/M/&#39;) if this.pub_date) ~ this._id }}</span><span class="w"></span>
 </pre></div>
 <p>What this does is that it will prepend the year (<code>YYYY</code>) and month (<code>M</code>) to
 the ID of the page if the publication date is configured.  Otherwise it will
@@ -357,7 +357,7 @@ for instance <code>blog/hello/</code> to <code>blog/2015/12/hello/</code>.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

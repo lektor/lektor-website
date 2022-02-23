@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Installing a Theme | Documentation | Lektor Static Content Management System</title>
@@ -149,18 +149,18 @@
 </code></pre>
 <p>Themes are normally distributed by public Git repositories, so you could install a theme by
 cloning the repo:</p>
-<div class="hll"><pre><span></span><span class="nb">cd</span> themes
+<div class="highlight"><pre><span></span><span class="nb">cd</span> themes
 git clone URL_TO_THEME_REPO
 </pre></div>
 <p>For example, for installing <code>lektor-theme-nix</code>:</p>
-<div class="hll"><pre><span></span><span class="nb">cd</span> themes
+<div class="highlight"><pre><span></span><span class="nb">cd</span> themes
 git clone https://github.com/rlaverde/lektor-theme-nix.git
 </pre></div>
 <p>If you download several themes, setting <code>themes</code> variable will allow you to only load
 a particular theme.</p>
 <div class="admonition admonition-warning"><p>Not implemented yet.</p></div><p>You could add the <code>themes</code> variable to the <code>.lektorproject</code> file and Lektor will
 search in the <a href="/themes">community themes</a> and automatically install it.</p>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[project]</span><span class="w"></span>
 <span class="na">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor-theme-nix</span><span class="w"></span>
 </pre></div>
 <h2 id="installing-multiple-themes">Installing Multiple Themes</h2><p>Lektor also supports installing several themes. Copy them to the <code>themes/</code>
@@ -174,7 +174,7 @@ folder, and set the <code>themes</code> variable to indicate the precedence (opt
     ├── lektor-theme-other-theme/
     └── lektor-theme-nix/
 </code></pre>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[project]</span><span class="w"></span>
 <span class="na">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor-theme-nix, lektor-theme-other-theme</span><span class="w"></span>
 </pre></div>
 <p>This will make <code>lektor-theme-nix</code>, because it's listed first, have a higher precedence.
@@ -248,7 +248,7 @@ isn't preserved.</p></div>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

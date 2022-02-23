@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Error Pages | Documentation | Lektor Static Content Management System</title>
@@ -184,7 +184,7 @@ development server.  To test those you will need to explicitly navigate to
 that relative URLs <em>will not work</em>.  If you want to use custom error pages you
 will have to set the <code>url_style</code> to <code>absolute</code> as otherwise URLs on an error
 page will not work.  Just add this to your project file:</p>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[project]</span><span class="w"></span>
 <span class="na">url_style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">absolute</span><span class="w"></span>
 </pre></div>
 <p>For more information about this you can read the <a href="../../project/file/" class="ref">Project File Documentation</a>.</p>
@@ -203,16 +203,16 @@ work slightly differently.</p>
 <h3 id="apache">Apache</h3><p>Making custom error pages work is easiest with Apache.  If <code>.htaccess</code> files
 are enabled you can just put a file with that name into your <code>assets</code> folder
 and add the following line to it:</p>
-<div class="hll"><pre><span></span><span class="nb">ErrorDocument</span><span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="sx">/404.html</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="nb">ErrorDocument</span><span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="sx">/404.html</span><span class="w"></span>
 </pre></div>
 <p>Alternatively you can add the above line into a <code>VirtualHost</code> or <code>Directory</code>
 section in your main config file.</p>
 <h3 id="nginx">nginx</h3><p>For nginx you need to enable the error document in your main config file.  Just
 add it to your <code>server</code> section:</p>
-<div class="hll"><pre><span></span><span class="k">error_page</span><span class="w"> </span><span class="mi">404</span><span class="w"> </span><span class="s">/404.html</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">error_page</span><span class="w"> </span><span class="mi">404</span><span class="w"> </span><span class="s">/404.html</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 <h3 id="lighttpd">lighttpd</h3><p>If you are using lighttpd you can configure an error page for 404 this way:</p>
-<div class="hll"><pre><span></span><span class="na">server.error-handler-404</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/404.html&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="na">server.error-handler-404</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/404.html&quot;</span><span class="w"></span>
 </pre></div>
 
       
@@ -281,7 +281,7 @@ add it to your <code>server</code> section:</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

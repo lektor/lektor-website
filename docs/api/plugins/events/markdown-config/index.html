@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
   <title>markdown-config | Documentation | Lektor Static Content Management System</title>
@@ -210,7 +210,7 @@
 
       <div class="admonition admonition-note"><p>Future versions of Lektor may change its Markdown parser away from <a href="https://github.com/lepture/mistune">Mistune</a>, and the various markdown related event hooks may be completely removed or work differently if that happens.</p></div><p>This event is emitted right after MarkdownConfig is instantiated, in which configuration can be set. This is done before the renderer is made.</p>
 <h2 id="example">Example</h2><p><a href="https://github.com/lektor/lektor-markdown-header-anchors" class="ext">lektor-markdown-header-anchors</a> uses this to register a renderer mixin:</p>
-<div class="hll"><pre><span></span><span class="k">def</span> <span class="nf">on_markdown_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_markdown_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="k">class</span> <span class="nc">HeaderAnchorMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">header</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;anchor-type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;random&quot;</span><span class="p">:</span>
@@ -293,7 +293,7 @@
   </footer>
   
 
-  <script type=text/javascript src="../../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

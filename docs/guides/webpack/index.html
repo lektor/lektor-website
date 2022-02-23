@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Webpack | Documentation | Lektor Static Content Management System</title>
@@ -200,7 +200,7 @@ values) and then generate a <code>package.json</code> file for you.</p>
 <p>It should look similar to the following example. Please <strong>do not</strong> just
 copy-paste this! Instead run the tool, so that your <code>package.json</code> meets
 the latest format specification.</p>
-<div class="hll"><pre><span></span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lektor-example&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
@@ -232,7 +232,7 @@ installed for as long as someone else ran it before.</p>
 <li>all built files will go to <code>assets/static/gen</code></li>
 <li>there will be a <code>gen/app.js</code> and a <code>gen/styles.css</code> file to include</li>
 </ul>
-<div class="hll"><pre><span></span><span class="kd">var</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">ExtractTextPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;extract-text-webpack-plugin&#39;</span><span class="p">);</span>
 
@@ -293,7 +293,7 @@ the <code>webpack</code> flag there:</p>
 <pre><code>$ lektor build -f webpack
 </code></pre>
 <h2 id="including-the-files">Including The Files</h2><p>Now you need to include the files in your template.  This will do it:</p>
-<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span>
   <span class="s1">&#39;/static/gen/styles.css&#39;</span><span class="o">|</span><span class="nf">asseturl</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">text/javascript</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span>
   <span class="s1">&#39;/static/gen/app.js&#39;</span><span class="o">|</span><span class="nf">asseturl</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -365,7 +365,7 @@ the <code>webpack</code> flag there:</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

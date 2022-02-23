@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
   <title>markdown-meta-postprocess | Documentation | Lektor Static Content Management System</title>
@@ -210,7 +210,7 @@
 
       <div class="admonition admonition-note"><p>Future versions of Lektor may change its Markdown parser away from <a href="https://github.com/lepture/mistune">Mistune</a>, and the various markdown related event hooks may be completely removed or work differently if that happens.</p></div><p>This event is emitted after the markdown has been rendered. This can be used to change the markdown object meta information after the fact.</p>
 <h2 id="example">Example</h2><p><a href="https://github.com/lektor/lektor-markdown-header-anchors" class="ext">lektor-markdown-header-anchors</a> uses this to populate a meta var:</p>
-<div class="hll"><pre><span></span><span class="k">def</span> <span class="nf">on_markdown_meta_postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_markdown_meta_postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="n">prev_level</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">toc</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">toc</span><span class="p">]</span>
@@ -302,7 +302,7 @@
   </footer>
   
 
-  <script type=text/javascript src="../../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

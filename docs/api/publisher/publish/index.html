@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
   <title>publish | Documentation | Lektor Static Content Management System</title>
@@ -191,7 +191,7 @@ keyword arguments.</li>
 the output in the console or in the deploy/publish window in the admin UI.</p>
 <h2 id="example">Example</h2><p>This example implements a simple publisher that just copies all built files
 into a new location.</p>
-<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">from</span> <span class="nn">lektor.publisher</span> <span class="kn">import</span> <span class="n">Publisher</span>
 
@@ -230,7 +230,7 @@ into a new location.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_publisher</span><span class="p">(</span><span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="n">CopyPublisher</span><span class="p">)</span>
 </pre></div>
 <p>This publisher registers with the <code>copy</code> scheme and could be used like this:</p>
-<div class="hll"><pre><span></span><span class="na">target_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">copy:///path/to/destination/folder</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="na">target_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">copy:///path/to/destination/folder</span><span class="w"></span>
 </pre></div>
 
       
@@ -299,7 +299,7 @@ into a new location.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

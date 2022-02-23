@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Video Operations | Documentation | Lektor Static Content Management System</title>
@@ -145,7 +145,7 @@
       </ul>
 
       <p>Just like <a href="../imageops/">images</a>, videos are separate files that are embedded into HTML files. Since they are media files, it's often desirable to read metadata or manipulate them in some way.</p>
-<div class="admonition admonition-info"><p>Video metadata access is powered by <a href="https://ffmpeg.org/">FFmpeg</a>. In order to use it FFmpeg must be installed on your system and detected by Lektor. If Lektor is unable to find FFmpeg you will see the error message <code>Unable to locate ffmpeg or ffprobe executable. Is it installed?</code> in your console output if you try to use functionality that requires it.</p></div><h2 id="accessing-videos">Accessing videos</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">video</span> <span class="k">in</span> <span class="nv">this.attachments.videos</span> <span class="cp">%}</span>
+<div class="admonition admonition-info"><p>Video metadata access is powered by <a href="https://ffmpeg.org/">FFmpeg</a>. In order to use it FFmpeg must be installed on your system and detected by Lektor. If Lektor is unable to find FFmpeg you will see the error message <code>Unable to locate ffmpeg or ffprobe executable. Is it installed?</code> in your console output if you try to use functionality that requires it.</p></div><h2 id="accessing-videos">Accessing videos</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">video</span> <span class="k">in</span> <span class="nv">this.attachments.videos</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;video&quot;</span><span class="p">&gt;&lt;</span><span class="nt">video</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
@@ -173,7 +173,7 @@
 </tbody>
 </table>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">video</span> <span class="o">=</span> <span class="nv">this.attachments.videos.first</span><span class="o">()</span> <span class="cp">%}</span>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">video</span> <span class="o">=</span> <span class="nv">this.attachments.videos.first</span><span class="o">()</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">video</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Width:<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
@@ -208,12 +208,12 @@
 </table>
 <p>Calling this method will return a <code>VideoFrame</code> instance, which is not usable by itself. It does however just like an image have a thumbnail method.</p>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">video</span> <span class="o">=</span> <span class="nv">this.attachments.videos.first</span><span class="o">()</span> <span class="cp">%}</span>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">video</span> <span class="o">=</span> <span class="nv">this.attachments.videos.first</span><span class="o">()</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.frame</span><span class="o">()</span><span class="nv">.thumbnail</span><span class="o">(</span><span class="m">300</span><span class="o">,</span> <span class="m">200</span><span class="o">,</span> <span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;crop&quot;</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.frame</span><span class="o">(</span><span class="m">0.1</span><span class="o">)</span><span class="nv">.thumbnail</span><span class="o">(</span><span class="m">300</span><span class="o">,</span> <span class="m">200</span><span class="o">,</span> <span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;crop&quot;</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
 </pre></div>
 <p>Note that unlike images it is not possible to get an URL to a video frame directly:</p>
-<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">video</span> <span class="o">=</span> <span class="nv">this.attachments.videos.first</span><span class="o">()</span> <span class="cp">%}</span>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">video</span> <span class="o">=</span> <span class="nv">this.attachments.videos.first</span><span class="o">()</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.frame</span><span class="o">()|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span> <span class="cm">&lt;!-- This is not valid --&gt;</span>
 </pre></div>
 
@@ -283,7 +283,7 @@
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

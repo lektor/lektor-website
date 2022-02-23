@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../static/styles.css?h=7041cc50">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Project File | Documentation | Lektor Static Content Management System</title>
@@ -146,7 +146,7 @@
 identify the project for the user interface.  The project file is an INI file
 (UTF-8 encoded like everything else in Lektor) and the minimal content is the
 name of the project:</p>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[project]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Fancy Project</span><span class="w"></span>
 </pre></div>
 <p>The name of the file can be arbitrary but must have the <code>.lektorproject</code>
@@ -247,7 +247,7 @@ or match your custom <code>excluded_assets</code> pattern. The wildcard syntax f
 <a href="https://docs.python.org/2/library/fnmatch.html">fnmatch</a>.</p>
 </blockquote>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[project]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Website</span><span class="w"></span>
 <span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://www.mywebsite.invalid/</span><span class="w"></span>
 <span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">de_DE</span><span class="w"></span>
@@ -258,7 +258,7 @@ or match your custom <code>excluded_assets</code> pattern. The wildcard syntax f
 this project.  It's a simple key/value list where the key is the plugin
 name and the value is the version number.</p>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[packages]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[packages]</span><span class="w"></span>
 <span class="na">lektor-webpack-support</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1</span><span class="w"></span>
 </pre></div>
 <h3 id="servers.*]`"><code>[servers.*]</code></h3><p>This section can be repeated and each instance sets up a server.  The <code>*</code>
@@ -281,7 +281,7 @@ to the deployment guides.</p>
 is configured it's an implicit default.</p>
 </blockquote>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span><span class="w"></span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
 <span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -309,7 +309,7 @@ more information about this refer to the guide.</p>
 <blockquote><p>This setting can override the global site locale for a specific alternative.</p>
 </blockquote>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[alternatives.en]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[alternatives.en]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">English</span><span class="w"></span>
 <span class="na">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
 <span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">en_US</span><span class="w"></span>
@@ -321,7 +321,7 @@ more information about this refer to the guide.</p>
 </pre></div>
 <h3 id="attachment-types"><code>[attachment_types]</code></h3><p>Lektor does some basic attachment type detection based on file extension. This is what powers the <code>this.attachemnts.images</code> and <code>this.attachments.videos</code> attributes for instance. If the built-in map does not cover your file extension you can extend it or add new attachement types on a project by project basis.</p>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[attachment_types]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">[attachment_types]</span><span class="w"></span>
 <span class="c1">; &lt;.file-ext&gt; = &lt;type&gt;</span><span class="w"></span>
 <span class="na">.gpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gpx</span><span class="w"></span>
 <span class="na">.ogv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">video</span><span class="w"></span>
@@ -393,7 +393,7 @@ more information about this refer to the guide.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',
