@@ -72,24 +72,31 @@
         <div class="text-block text-block-default">
   <p>Lektor is an <a href="../license/">Open Source Project</a> and freely available to
 download.  It's currently still under heavy development and not all platforms
-are equally well supported.</p>
-<h2 id="command-line-interface">Command Line Interface</h2><p>If you are on Linux or Mac you can install the command line version of
+are equally well supported, although closer to it.</p>
+<h2 id="command-line-interface">Command Line Interface</h2><p>You can install the command line version of
 Lektor by copy/pasting a command into your terminal.</p>
-<div class="admonition admonition-tip"><p>Scared about copy/pasting this into a terminal?  We will not do anything
-before asking you for confirmation and you can download <a href="https://www.getlektor.com/installer.py">the script</a>
-upfront to see what it's doing.</p></div><h3 id="mac/linux">Mac/Linux</h3><p>This will install Lektor in your <code>HOME</code>. Running it with <code>sudo</code> will result in
-a system installation instead.</p>
-<pre><code>curl -sf https://www.getlektor.com/installer.py | python3
+<div class="admonition admonition-tip"><p>Scared about copy/pasting this into a terminal? We now use standard tools 
+to install lektor. <code>pipx</code> is the recommended method to install standalone
+command line interface python packages as recommended by <a href="https://packaging.python.org/guides/installing-stand-alone-command-line-tools/">PyPA</a>.</p></div><h3 id="first-install-pipx">First Install PipX</h3><p>Let's first install <code>pipx</code>.</p>
+<p><strong>Ubuntu</strong></p>
+<pre><code>sudo apt install python3-pip python3-venv
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+</code></pre>
+<p><strong>macOS</strong></p>
+<pre><code>bew install pipx
+pipx ensurepath
+</code></pre>
+<p><strong>Windows</strong></p>
+<pre><code>python -m pip install --user pipx
+python -m pipx ensurepath
+</code></pre>
+<p>For more information on <code>pipx</code> installation go to <a href="https://pypa.github.io/pipx/installation/">pypa.github.io/pipx/installation/</a></p>
+<h3 id="let-s-install-lektor-now">Let's install Lektor now</h3><p>Close and reopen terminal (<code>Powershell</code> or <code>cmd</code> on Windows), then install <code>lektor</code>:</p>
+<pre><code>pipx install lektor
 </code></pre>
 <p>You might need additional dependencies for this installation.  For more
 information see <a href="../docs/installation/">Installation</a>.</p>
-<h3 id="windows">Windows</h3><p>If you are on Windows copy/paste this command into <code>Powershell</code>:</p>
-<pre><code>(new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python
-</code></pre>
-<p>or alternatively use this in <code>command prompt</code>:</p>
-<pre><code>@powershell -NoProfile -Command "(new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python"
-</code></pre>
-<h2 id="desktop-application">Desktop Application</h2><p>Lektor supported an installable version of Lektor on OSX. The current build process for these installers is <a href="https://github.com/lektor/lektor/issues/420">old and in need of refactoring</a>. Temporarily until this is resolved, as of version 3.1, this installer is no longer supported.</p>
 
 </div>
       </div>

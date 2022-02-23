@@ -104,9 +104,11 @@
         <h4>This Page</h4>
         <ul class="toc">
         
-          <li><a href="#desktop-application">Desktop Application</a></li>
+          <li><a href="#requirements">Requirements</a></li>
         
-          <li><a href="#command-line-application">Command Line Application</a></li>
+          <li><a href="#install-pipx">Install pipx</a><ul>
+          <li><a href="#finally-install-lektor">Finally Install Lektor</a></li>
+        </ul></li>
         
           <li><a href="#pip">pip</a></li>
         
@@ -130,65 +132,77 @@
       
       </ul>
 
-      <p>Lektor comes in two flavors: as a command line executable and as a
-desktop application.  The desktop version also contains the command
-line executable, but it also bundles together all dependencies of Lektor
-in an easy to use package which heavily simplifies installation.</p>
-<h2 id="desktop-application">Desktop Application</h2><div class="admonition admonition-info"><p>Info: Support for the Mac Desktop Application is paused as of version 3.1. See <a href="/blog/2018/1/lektor-31-released/#support-for-mac-installer-paused">note</a>.</p></div><p>Currently the desktop application is only available for OS X and can be
-<a href="../../downloads/">downloaded from the Lektor website</a>.  It comes as a downloadable
-disk image that you can mount which contains one application by the name of
-<code>Lektor.app</code>.  Just drag it into your <code>Applications</code> folder and you are good to
-go.</p>
-<p>If you also want access to the command line tools just launch <code>Lektor.app</code>
-and then click in the menu bar on <em>Lektor ➤ Install Shell Command</em>.</p>
-<h2 id="command-line-application">Command Line Application</h2><p>If you do not want to install the desktop app then you can just install the command
-line executable.  This runs on most operating systems (OSX, Linux and Windows) but
-the installation is a bit more involved.</p>
-<p>You need to make sure you have the following software installed on your computer:</p>
+      <p>Lektor is a command line utility, and requires some terminal or command line work 
+to install. If you can read and follow instructions, you will most likely have no 
+issues.</p>
+<h2 id="requirements">Requirements</h2><p>Although <code>lektor</code> would work without Imagemagick or FFmpeg, you would be missing on 
+significant parts of its capabilities. Therefore, you need to make sure you have the 
+following software installed on your computer:</p>
 <ul>
-<li>Python 3 is recommended (but 2.7 is also supported)
-On Ubuntu <code>python3-dev</code>, <code>libssl-dev</code> and <code>libffi-dev</code> are also required
-<code>sudo apt-get install python3-dev libssl-dev libffi-dev</code></li>
-<li>ImageMagick (<code>brew install imagemagick</code> can get you this on OS X and  <code>sudo apt-get install imagemagick</code>
-on Ubuntu the <code>imagemagick</code> package needs to be installed. 
-On Windows do <code>choco install imagemagick</code>, which requires <a href="https://chocolatey.org/" class="ext">chocolatey</a>,
+<li>Python 3.6+ is required. If you got an older version, look at
+{Python 3 Installation &amp; Setup Guide}(<a href="https://realpython.com/installing-python/">https://realpython.com/installing-python/</a>).<ul>
+<li>On Ubuntu you basically don't need anything new.</li>
+<li>On macOS you're done as well.</li>
+<li>On Windows, make sure that Python is in your <code>PATH</code>.</li>
+</ul>
+</li>
+<li>ImageMagick. <ul>
+<li>On macOS <code>brew install imagemagick</code> can get you this.</li>
+<li>On Ubuntu <code>sudo apt install imagemagick</code> will solve it.</li>
+<li>On Windows do <code>choco install imagemagick</code>, which requires <a href="https://chocolatey.org/" class="ext">chocolatey</a>,
 or <a href="http://www.imagemagick.org" class="ext">download from here</a>).</li>
 </ul>
-<p>Once you have those installed and have made sure that they are on your <code>PATH</code>, you can
-get Lektor installed with our installation script:</p>
-<pre><code># curl -sf https://www.getlektor.com/installer.py | python3
+</li>
+<li>FFmpeg (mostly for video thumbnailing).<ul>
+<li>On Ubuntu you get it through <code>sudo apt install ffmpeg.</code></li>
+<li>On macOS <code>brew install ffmpeg</code> will do the trick.</li>
+<li>On Windows you'll have to put a little <a href="https://www.wikihow.com/Install-FFmpeg-on-Windows">work</a> in.</li>
+</ul>
+</li>
+</ul>
+<h2 id="install-pipx">Install pipx</h2><p>Once you have those installed and have made sure that they are on your <code>PATH</code>, you can
+get Lektor installed with <code>pipx</code>. Selcet the <code>pipx</code> install method of your preference:</p>
+<p><strong>On Ubuntu through <code>apt</code>.</strong></p>
+<pre><code>apt update
+sudo apt install python3-venv pipx
+pipx ensurepath
 </code></pre>
-<p>This will attempt to install lektor in your user's <code>HOME</code>. If you want a system-wide installation, try this instead:</p>
-<pre><code>$ curl -sf https://www.getlektor.com/installer.py | sudo python3
+<p><strong>On Ubuntu through <code>pip</code>.</strong></p>
+<pre><code>sudo apt install python3-pip python3-venv
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
 </code></pre>
-<p>If you would like to install Lektor without being prompted, set LEKTOR_SILENT before running the prior command.</p>
-<p>For Windows, make sure that Python is in your <code>PATH</code> and run in <code>Powershell</code>:</p>
-<pre><code>PS C:\&gt; (new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python
+<p><strong>On macOS</strong></p>
+<pre><code>brew install pipx
+pipx ensurepath
 </code></pre>
-<p>or you can use the <code>command prompt</code> instead:</p>
-<pre><code>C:\&gt; @powershell -NoProfile -Command "(new-object net.webclient).DownloadString('https://www.getlektor.com/installer.py') | python"
+<p><strong>On Windows</strong></p>
+<pre><code>python -m pip install --user pipx
+python -m pipx ensurepath
+</code></pre>
+<p>For more information on <code>pipx</code> installation go to <a href="https://pypa.github.io/pipx/installation/">pypa.github.io/pipx/installation/</a></p>
+<h3 id="finally-install-lektor">Finally Install Lektor</h3><p>Once installed, close terminal (or <code>Powershell</code> or  <code>command prompt</code>) for those 
+changes to take effect. Then proceed to reopen and install Lektor with pipx:</p>
+<pre><code>pipx install lektor
 </code></pre>
 <h2 id="pip">pip</h2><p>Alternatively you can manually install the command line version with
-<code>virtualenv</code> if you know how that works.  Note that this method is <em>heavily
-discouraged</em> for anything other than advanced use cases such as build servers.</p>
-<pre><code>$ virtualenv venv
-$ . venv/bin/activate
-$ pip install Lektor
+<code>pip</code> after creating a virtual environment, if you know how that works. <code>pipx</code> technically does this for you,
+then if you need something particular and you know this will make it easier, 
+go for it.</p>
+<pre><code>virtualenv venv
+. venv/bin/activate
+pip install Lektor
 </code></pre>
-<div class="admonition admonition-warning"><p>When we say this installation type is discouraged we mean it.  The reason
-is that it encourages uses of Lektor which are entirely unsupported by us.
-Lektor actively manages virtualenvs for plugin installations in very specific
-ways and this might or might not work in your setup.  We support pip
-installations for deployment environments and local development only.</p></div><h2 id="development-version">Development Version</h2><p>If you want to install the development version of Lektor you can do so.  It's
+<h2 id="development-version">Development Version</h2><p>If you want to install the development version of Lektor you can do so.  It's
 the same as with installing the command line application but instead of
 using PyPI you install directly from git and you need to have <code>npm</code> installed
 to build the admin UI:</p>
-<pre><code>$ git clone https://github.com/lektor/lektor
-$ cd lektor
-$ make build-js
-$ virtualenv venv
-$ . venv/bin/activate
-$ pip install --editable .
+<pre><code>git clone https://github.com/lektor/lektor
+cd lektor
+make build-js
+virtualenv venv
+. venv/bin/activate
+pip install --editable .
 </code></pre>
 
       

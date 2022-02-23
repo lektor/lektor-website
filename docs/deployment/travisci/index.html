@@ -239,6 +239,9 @@ caching.  Adjust your <code>.travis.yml</code> file to look like this:</p>
 <span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span><span class="w"></span>
 <span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages&quot;</span><span class="w"></span>
 </pre></div>
+<p>Note that it is also possible to set the cache directory of Lektor using the
+environment variable <code>XDG_CACHE_HOME</code>, and cache this directory instead,
+as done with <a href="../glpages/">Gitlab pages</a>.</p>
 <h2 id="restricting-branches">Restricting Branches</h2><p>If you plan on having different branches and contributors you should disable
 the deployment to the master branch only.  You can do this with the following
 config:</p>
