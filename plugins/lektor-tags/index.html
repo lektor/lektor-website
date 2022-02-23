@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../static/styles.css?h=7041cc50">
+  <link rel="stylesheet" href="../../static/styles.css?h=ca3aba42">
   <link rel="stylesheet" href="../../static/pygments.css">
   <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
   <title> | Lektor Static Content Management System</title>
@@ -62,7 +62,7 @@
   <div class="plugin">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Plugin &ndash; lektor-tags 0.4.1</h1>
+        <h1>Plugin &ndash; lektor-tags 0.5.0</h1>
       </div>
     </div>
 
@@ -96,7 +96,7 @@
         <div class="separator">
           <h4>Meta</h4>
         </div>
-        <p><strong>Version:</strong> 0.4.1</p>
+        <p><strong>Version:</strong> 0.5.0</p>
         <p><strong>Author:</strong>
           
             <a href = "mailto:jesse@emptysquare.net">A. Jesse Jiryu Davis</a>
@@ -122,7 +122,9 @@
             <a href="../tag/virtual-paths/">virtual paths</a>
           
         
-        <p>View <a href="/plugins/tags" class="ref">all tags</a>.</p>
+        <p>
+          View <a href="../tags/" class="ref">all tags</a>.
+        </p>
       </div>
 
       <div class="col-sm-9 doc-styling">
@@ -264,6 +266,61 @@ tea
 </pre>
 <p>See <a href="https://www.getlektor.com/docs/api/db/query/" rel="nofollow">the Lektor documentation for queries</a>.</p>
 <p>Tags are always deduplicated. Tags are sorted in the order listed in the contents.lr / admin, allowing you to control their order manually. Since <code>{{ tags }}</code> simply returns a list, you can always apply any Jinja2 filter on that list such as sort, slice, or rejectattr.</p>
+<h2>Tag cloud &amp; tag weights</h2>
+<p>This plugin won't automatically build a tag cloud, but it provides the tools to build it.</p>
+<p>The Jinja2 context has a <code>tagweights()</code> function, which returns a dictionary that maps tags to their weight using several attributes or functions. Here are those attributes and functions, with examples of how they can be used in a template.</p>
+<p>Unused tags are ignored.</p>
+<h3>TL;DR Which weight function should I use?</h3>
+<ul>
+<li>To get the number of pages tagged by each tag, use <code>count</code>.</li>
+<li>To map tags to numbers, use <code>log(lower, upper)</code>.</li>
+<li>To map tags to everything else, use <code>loggroup(list)</code>.</li>
+</ul>
+<h3><code>count</code> — Number of pages tagged with this tag</h3>
+<p>This is the basic weight, used as a base for the following tags.</p>
+<h4>Example: Tags (with tag count) sorted by tag count (most used first)</h4>
+<pre><span class="x">&lt;ul&gt;</span>
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="o">(</span><span class="nv">tagweights</span><span class="o">()</span> <span class="o">|</span> <span class="nf">dictsort</span><span class="o">(</span><span class="nv">by</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="o">,</span> <span class="nv">reverse</span><span class="o">=</span><span class="kp">true</span><span class="o">))</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;li&gt;</span><span class="cp">{{</span> <span class="nv">tag</span> <span class="cp">}}</span><span class="x"> (</span><span class="cp">{{</span> <span class="nv">weight.count</span> <span class="cp">}}</span><span class="x"> articles).&lt;/li&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;/ul&gt;</span>
+</pre>
+<h3><code>linear</code> — Tags are mapped with a number between <code>lower</code> and <code>upper</code>.</h3>
+<p>The less used tag is mapped <code>lower</code>, the most used tag is mapped <code>upper</code> (<code>lower</code> and <code>upper</code> can be equal, <code>upper</code> can be smaller than <code>lower</code>).</p>
+<p>Mapping is done using a linear function.</p>
+<p>The result is a float: you might want to convert them to integers first (see example for <code>log</code>).</p>
+<p>Unless you know what you are doing, you should use <code>log</code> instead.</p>
+<h3><code>log</code> — Logarithm of tag counts are mapped with a number between <code>lower</code> and <code>upper</code>.</h3>
+<p>The less used tag is mapped <code>lower</code>, the most used tag is mapped <code>upper</code> (<code>lower</code> and <code>upper</code> can be equal, <code>upper</code> can be smaller than <code>lower</code>).</p>
+<p>Mapping is done using a linear function over the logarithm of tag counts.</p>
+<p>The result is a float: you might want to convert them to integers first (see example).</p>
+<h4>Example: Most used tag is twice as big as least used tag</h4>
+<pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="nv">tagweights</span><span class="o">()|</span><span class="nf">dictsort</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;a</span>
+<span class="x">    href=&quot;</span><span class="cp">{{</span> <span class="o">(</span><span class="s1">&#39;/blog@tag/&#39;</span> <span class="o">~</span> <span class="nv">tag</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">    style=&quot;font-size: </span><span class="cp">{{</span> <span class="nv">weight.log</span><span class="o">(</span><span class="m">100</span><span class="o">,</span> <span class="m">200</span><span class="o">)|</span><span class="nf">round</span><span class="o">|</span><span class="nf">int</span> <span class="cp">}}</span><span class="x">%;&quot;</span>
+<span class="x">    &gt;</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">tag</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    &lt;/a&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+<h3><code>lineargroup</code> — Map each tag with an item of the list given in argument</h3>
+<p>The less used tag is mapped with the first item, the most used tag is mapped with the last item.</p>
+<p>Mapping is done using a linear function.</p>
+<p>Unless you know what you are doing, you should use <code>loggroup</code> instead.</p>
+<h3><code>loggroup</code> — Logarithm of tag counts are mapped with an item of the list given in argument</h3>
+<p>The less used tag is mapped with the first item, the most used tag is mapped with the last item.</p>
+<p>Mapping is done using a linear function over the logarithm of tag counts.</p>
+<h4>Example: Tags are given CSS classes <code>tagcloud-tiny</code>, <code>tagcloud-small</code>, etc.</h4>
+<pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="nv">tagweights</span><span class="o">()|</span><span class="nf">dictsort</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;a</span>
+<span class="x">    href=&quot;</span><span class="cp">{{</span> <span class="o">(</span><span class="s1">&#39;/blog@tag/&#39;</span> <span class="o">~</span> <span class="nv">tag</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">    class=&quot;tagcloud-</span><span class="cp">{{</span> <span class="nv">weight.loggroup</span><span class="o">([</span><span class="s2">&quot;tiny&quot;</span><span class="o">,</span> <span class="s2">&quot;small&quot;</span><span class="o">,</span> <span class="s2">&quot;normal&quot;</span><span class="o">,</span> <span class="s2">&quot;big&quot;</span><span class="o">,</span> <span class="s2">&quot;large&quot;</span><span class="o">])</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">    &gt;</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">tag</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    &lt;/a&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
  
         
 
@@ -329,7 +386,7 @@ tea
   </footer>
   
 
-  <script type=text/javascript src="../../static/app.js?h=d85eb4b1" charset="utf-8"></script>
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',
