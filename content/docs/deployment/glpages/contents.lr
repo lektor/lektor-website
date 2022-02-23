@@ -52,6 +52,39 @@ just name the branch differently and adjust the `only` entry.
 Whenever you commit to the repository now, GitLab will automatically start
 a job on the public infrastructure and deploy your website.
 
+## Cache directory
+
+You can enable caching to reuse build results between compilation.
+To do so, you have to:
+
+- set the cache directory using the environment variable `XDG_CACHE_HOME`;
+- configure Gitlab to cache this directory.
+
+See the example below.
+
+```yaml
+image: python:latest
+
+default:
+  cache:
+    paths:
+      - .cache/lektor
+      - .cache/pip
+
+variables:
+  XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
+
+pages:
+  script:
+    - pip install lektor
+    - lektor build --output-path public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+```
+
 ## CNAME Support
 
 If you want to use a [CNAME :ext](https://en.wikipedia.org/wiki/CNAME) with

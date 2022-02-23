@@ -127,6 +127,10 @@ deploy:
   script: "lektor deploy ghpages"
 ```
 
+Note that it is also possible to set the cache directory of Lektor using the
+environment variable `XDG_CACHE_HOME`, and cache this directory instead,
+as done with [Gitlab pages](../glpages/).
+
 ## Restricting Branches
 
 If you plan on having different branches and contributors you should disable
