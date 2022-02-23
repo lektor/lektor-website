@@ -6,13 +6,13 @@ url_style = relative
 [servers.ghpages]
 enabled = yes
 name = Github pages on repo
-target = ghpages://lektor/lektor-website
+target = ghpages://lektor/lektor-website?cname=www.getlektor.com
 default = yes
 
 [servers.ghpages-https]
 enabled = yes
 name = Github pages on repo
-target = ghpages+https://lektor/lektor-website
+target = ghpages+https://lektor/lektor-website?cname=www.getlektor.com
 default = not
 
 
