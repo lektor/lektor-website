@@ -18,7 +18,6 @@ $ lektor server -f webpack
 
 ## Notes
 
-Changes here get deployed automatically by travis.
+Changes made here get deployed automatically by [this workflow](https://github.com/lektor/lektor-website/blob/master/.github/workflows/deploy.yml).
 
-Building lektor-website requires the "master" version of lektor, see the [development install instructions](https://github.com/lektor/lektor)
-
+Building lektor-website requires the latest stable release of [Lektor](https://pypi.org/project/Lektor/).
