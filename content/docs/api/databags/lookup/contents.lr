@@ -19,5 +19,5 @@ to the main [databags :ref](../) documentation.
 
 ```python
 def translate(pad, alt, key):
-    return pad.databags.get('i18n.%s.%s' % (alt, key), key)
+    return pad.databags.lookup('i18n.%s.%s' % (alt, key), key)
 ```
