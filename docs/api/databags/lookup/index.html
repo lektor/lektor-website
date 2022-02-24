@@ -168,7 +168,7 @@ Python code.  Within templates you can also use the <a href="../../templates/glo
 <p>The key is in dotted notation.  For more information about this refer
 to the main <a href="../" class="ref">databags</a> documentation.</p>
 <h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">pad</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">pad</span><span class="o">.</span><span class="n">databags</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;i18n.</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">alt</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="n">key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pad</span><span class="o">.</span><span class="n">databags</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s1">&#39;i18n.</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">alt</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="n">key</span><span class="p">)</span>
 </pre></div>
 
       
