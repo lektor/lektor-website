@@ -1,0 +1,11 @@
+title: children
+---
+summary: Returns a query to the children of a page.
+---
+type: property
+---
+body:
+
+[Assets :ref](../) that correspond to directories can have children
+below them.  The `children` attribute provides a convenient way to access
+those. It returns an iterable of child assets.

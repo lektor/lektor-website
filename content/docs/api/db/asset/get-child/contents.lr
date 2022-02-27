@@ -1,0 +1,13 @@
+title: get_child
+---
+body:
+
+Lookup a child of the asset.  Returns `None` if no child exists with the specified name.
+
+Naturally, this method always returns `None` unless the asset is a directory.
+---
+signature: name, from_url=False
+---
+summary: Get child asset
+---
+type: method

@@ -1,0 +1,14 @@
+title: Asset
+---
+summary: Static assets, copied verbatim to the output.
+---
+module: lektor.assets
+---
+type: class
+---
+body:
+
+Assets are [Source Objects :ref](../obj/) that correspond to static files that
+are copied verbatim from the `/assets` folder to the output directory.
+
+Usually, there is no need to manipulate Asset objects directly.
