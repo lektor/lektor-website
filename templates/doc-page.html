@@ -43,7 +43,7 @@
       {% endif %}
       {% if this.template_var %}
         <li>Template variable: <a href="{{ (
-          '/docs/api/templates/globals/' ~ this.template_var|lower ~ '/')|url
+          '/docs/api/templates/globals/' ~ this.template_var|lower|replace('_', '-') ~ '/')|url
           }}"><code>{{ this.template_var }}</code></a></li>
       {% endif %}
       {% if this.version_added %}
