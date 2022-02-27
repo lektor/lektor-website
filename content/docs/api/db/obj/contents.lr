@@ -2,7 +2,7 @@ title: SourceObject
 ---
 summary: The basic interface of all source objects.
 ---
-module: lektor.db
+module: lektor.sourceobj
 ---
 type: class
 ---
