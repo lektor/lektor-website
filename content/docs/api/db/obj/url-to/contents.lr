@@ -24,6 +24,10 @@ the path fails, then the path is interpreted as a URL-path, or, if
 If the path starts with a leading bang (``!``) then no resolving is
 performed.  This is equivalent to passing `resolve=False`.
 
+An explicit value for `alt` may be specified via the `alt` parameter to `url_to`.
+Alternatively, an `alt` query arg may be included in the `path` parameter.
+For example, `src.url_to('/', alt='de')` is equivalent to `src.url_to('/?alt=de')` — both return the URL to the root of the site with `alt=de`. 
+
 If no `alt` is provided the `alt` of the page is used.
 
 
