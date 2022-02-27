@@ -14,7 +14,7 @@ Just like [images](../imageops/), videos are separate files that are embedded in
 {% endfor %}
 ```
 
-Just like images you can also access them using `site.get('/myfolder').attachments.videos` or `site.get('/myfolder').attachments.get('examplevideo.mp4')`. Note that not all formats are detected as videos (see [attachments](../../content/attachments/)). If your format is not in the list you may still be able to get it detected as a video by adding it to your [Lektor project file](../../project/file/#[attachment_types]).
+Just like images you can also access them using `site.get('/myfolder').attachments.videos` or `site.get('/myfolder').attachments.get('examplevideo.mp4')`. Note that not all formats are detected as videos (see [attachments](../../content/attachments/)). If your format is not in the list you may still be able to get it detected as a video by adding it to your [Lektor project file](../../project/file/#attachment-types).
 
 
 ## Accessing metadata

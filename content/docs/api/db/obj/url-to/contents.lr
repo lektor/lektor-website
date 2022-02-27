@@ -20,7 +20,7 @@ relative to the current page and `external` can be used to also add the
 domain part to the URL (if configured).  The default behavior is to use the
 configured URL style (which is `relative`) unless absolute or external were
 explicitly provided.  For more information read about this in the
-[Project Configuration :ref](../../../../project/file/#[project]).
+[Project Configuration :ref](../../../../project/file/#project).
 
 ## Example
 
