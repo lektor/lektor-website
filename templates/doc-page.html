@@ -53,10 +53,13 @@
 
       {{ this.body }}
       {% if this.parent._slug == 'events' %}
-        <br>
-        <p>
-          <a href="{{ ('/plugins/tag/' ~ this._slug ~ '/')|url }}" class="ref">Plugins That Use This Event</a>
-        </p>
+        {% if this._slug in site.query('/plugins').distinct('tags') %}
+          <br>
+          <p>
+            A list of some plugins that make use of this event is available
+            <a href="{{ ('/plugins/tag/' ~ this._slug ~ '/')|url }}" class="ref">here</a>.
+          </p>
+        {% endif %}
       {% endif %}
 
       {% if this.version_history %}
