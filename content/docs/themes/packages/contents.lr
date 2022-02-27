@@ -8,7 +8,7 @@ body:
 
 !!!! Not implemented yet.
 
-Themes could depend on [plugins](../../plugins), and they will be loaded along
+Themes could depend on [plugins](../../plugins/), and they will be loaded along
 the theme.
 
 1. You could use the `[packages]` section of the `theme.ini` to install

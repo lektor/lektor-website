@@ -12,7 +12,7 @@ the command line client which is the recommended way to do development until
 the website is ready for end user management.
 
 If you do not have the `lektor` [command line executable :ref](../cli/)
-available yet just consult the [Installation :ref](../installation) section of
+available yet just consult the [Installation :ref](../installation/) section of
 the documentation.
 
 ## Creating a New Project

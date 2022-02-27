@@ -37,6 +37,6 @@ Plugins are tagged with specific key words or phrases that describe what they ar
 
 I think this is especially useful for plugin development when the tag is an event that the plugin hooks. This allows you to quickly find the source code of plugins that depend on the same Lektor plugin events, so that you can see many quick examples to help you write your own plugin. For instance, you can find all of the plugins that hook the `before-build-all` event by looking at it's tag page [here](/plugins/tag/before-build-all/). Tag pages for events also have links back to the plugin documentation pages, including the page for that specific event.
 
-Now go check out some [plugins](/plugins)! 
+Now go check out some [plugins](/plugins/)! 
 ----
 class: default
