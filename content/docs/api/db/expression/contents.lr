@@ -17,7 +17,7 @@ of it can create more expressive expressions.  `F.name` literally just means
 that a field by that name exists and is set to a value.
 
 The query syntax is mostly the same in Python as well as in the Jinja 2
-templates, the main difference are [and :ref](../and/) and [or :ref](../or/).
+templates, the main difference are [and :ref](and/) and [or :ref](or/).
 
 ## Example
 

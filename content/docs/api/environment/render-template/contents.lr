@@ -14,7 +14,7 @@ method.  Here are the parameters and what they mean:
 * `name`: this is the name of the template that should be rendered.  It's
   the local filename relative to the `templates` folder and uses slashes
   for paths.
-* `pad`: when a [Pad :ref](../../pad/) is available, it should be provided
+* `pad`: when a [Pad :ref](../../db/pad/) is available, it should be provided
   so that the `site` variable can be populated.  If a context is available
   then the pad will also be pulled from the context if needed.
 * `this`: the value of the `this` variable in templates.  This should always
