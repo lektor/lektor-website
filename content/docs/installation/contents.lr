@@ -16,8 +16,8 @@ Although `lektor` would work without Imagemagick or FFmpeg, you would be missing
 significant parts of its capabilities. Therefore, you need to make sure you have the 
 following software installed on your computer:
 
-* Python 3.6+ is required. If you got an older version, look at
-  {Python 3 Installation & Setup Guide}(https://realpython.com/installing-python/).
+* Python 3.6+ is required. If you got an older version, look at the
+  [Python 3 Installation & Setup Guide :ext](https://realpython.com/installing-python/).
   * On Ubuntu you basically don't need anything new.
   * On macOS you're done as well.
   * On Windows, make sure that Python is in your `PATH`.
@@ -29,7 +29,7 @@ following software installed on your computer:
 * FFmpeg (mostly for video thumbnailing).
   * On Ubuntu you get it through `sudo apt install ffmpeg.`
   * On macOS `brew install ffmpeg` will do the trick.
-  * On Windows you'll have to put a little [work](https://www.wikihow.com/Install-FFmpeg-on-Windows) in.
+  * On Windows you'll have to put a little [work :ext](https://www.wikihow.com/Install-FFmpeg-on-Windows) in.
 
 ## Install pipx
 
@@ -59,7 +59,7 @@ python -m pip install --user pipx
 python -m pipx ensurepath
 ```
 
-For more information on `pipx` installation go to [pypa.github.io/pipx/installation/](https://pypa.github.io/pipx/installation/)
+For more information on `pipx` installation see the [documentation for pipx :ext](https://pypa.github.io/pipx/installation/)
 
 ### Finally Install Lektor
 
