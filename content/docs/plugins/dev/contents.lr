@@ -81,7 +81,7 @@ So going line by line, these are what the things mean:
   is your plugin name with underscores instead of dashes as separators.
   If you need more than one module you should use a package instead.  This is
   not covered here, but you can find this in the [setuptools documentation
-  :ext](https://pythonhosted.org/setuptools/).
+  :ext](https://setuptools.pypa.io/en/latest/).
 * `entry_points`: this is meta data that is needed to associate our package
   with Lektor.  Lektor will load all plugins in the `lektor.plugins` list.
   It can be a list of definitions in the form `plugin-name = import_path`.
