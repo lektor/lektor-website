@@ -7,16 +7,15 @@ body:
 * `ghpages://username/repository`
 * `ghpages+https://username/repository`
 
-A popular way to host websites for Open Source projects is the GitHub pages.
-It's a free service provided by [GitHub :ext](http://github.com/) which allows
-to host completely static websites through GitHub.
+A popular way to host websites for Open Source projects is [GitHub Pages :ext][github-pages].
+It's a service provided by GitHub which allows one to host static websites for free.
 
-The way this is implemented in Lektor currently is that Lektor will force-push
-a website into a repository of choice.  There are two ways to push it up:
-`ghpages` (which uses SSH) or `ghpages+https` (which uses HTTPS).  The latter
-can also accept `username:password@` in the URL to hold the credentials in
-addition to accepting username and password from the command line or
-environment variables.
+[github-pages]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages
+
+<!-- FIXME: this is not right, I think. -->The way this is implemented in Lektor currently is that Lektor will force-push
+the lektor output to a specific branch in a repository of choice.
+There are two ways to push it up:
+`ghpages` (which uses SSH) or `ghpages+https` (which uses HTTPS). 
 
 Example:
 
@@ -25,24 +24,44 @@ Example:
 target = ghpages://your-user/your-repository
 ```
 
+
+
 ## Credentials
 
 This deployment method has two implementations: `ghpages` (also known as
 `ghpages+ssh`) which uses SSH and `ghpages+https` which uses HTTPS.  They
-use different methods for credentials.  For the SSH transport the same
-rules apply as for the [rsync deployment method :ref](../rsync/).  The HTTPS
-transport on the other hand accepts `--username` and `--password` which
-override the values in the URL.
+use different methods for credentials.
+
+For the SSH transport the same
+rules apply as for the [rsync deployment method :ref](../rsync/).
+
+For the HTTPS transport, there are three ways in which to provide credentials. In order of precedence (first one found wins):
+- By passing  `--username` and `--password` parameters to the `lektor deploy` command.
+- By setting the  `$LEKTOR_DEPLOY_USERNAME` and `$LEKTOR_DEPLOY_PASSWORD` environment variables.
+- In the _userinfo_ part of the target URL.  E.g. `target = ghpages+https://user:pw@owner/repo-name`.
 
 ! If you have 2-factor authentication set up and you're using HTTPS, instead of your normal password, you will need to use a [personal access token :ext](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
 ## Behavior
 
-The way this deployment support works is that it commits a new commit into a
-temporary location and pushes it into the `gh-pages` or `master` branch
-depending on the name of the repository.  If you push to `username.github.io`
-then it commits to `master`, otherwise to `gh-pages`.  This is consistent
-with behavior for GitHub Pages.
+The way this deployment support works is that it makes a pushes a new commit,
+containing the current Lektor output, to a specific branch in a specified Github repository.
+
+## Pushing To An Explicit Branch
+
+You may explicitly specify which branch to push to by supplying a `?branch`
+query parameter to target URL.
+
+```ini
+[servers.production]
+target = ghpages://your-user/your-user.github.io?branch=main
+```
+
+If no branch is explicitly specified, then, when pushing to _owner_ or _organization_ sites
+(where the repository name is of the form _owner_`.github.io`) the branch defaults to `master`.
+For _project_ sites, the branch defaults to `gh-pages`.
+
+! Around October 1, 2020, GitHub changed the default name of the default branch for newly created repositories from `master` to `main`.  If you are deploying to a _user_ or _organization_ GitHub pages site that was created since then, you will likely have to explicitly specify which branch to push to.
 
 ## CNAME Support
 
