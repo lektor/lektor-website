@@ -1,10 +1,10 @@
-title: GitLab Pages using Github Actions
+title: GitHub Pages using Github Actions
 ---
-summary: Deploys to GitLab Pages.
+summary: Deploys to GitHub Pages.
 ---
 body:
 
-> Here we will get to know how to easily deploy our beloved `Lektor` website on ghpages aka github pages.
+# Here we will get to know how to easily deploy our beloved `Lektor` website on ghpages aka github pages.
 
 #### step 1 :
 Create your lektor app using `lektor quickstart` and push that to your favourite repository. Don't forget to add an `readme.md` :)
