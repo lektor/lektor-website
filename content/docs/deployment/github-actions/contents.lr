@@ -1,0 +1,72 @@
+title: GitLab Pages using Github Actions
+---
+summary: Deploys to GitLab Pages.
+---
+body:
+
+> Here we will get to know how to easily deploy our beloved `Lektor` website on ghpages aka github pages.
+
+#### step 1 :
+Create your lektor app using `lektor quickstart` and push that to your favourite repository. Don't forget to add an `readme.md` :)
+
+#### step 2:
+Now create the `.github` folder in the root of the app you just pushed into the brand new repo. Inside the `.github` folder create another folder called `workflows`.
+
+#### step 3:
+Inside the `workflows` folder create a file called `deploy.yml`, (it is not mandatory that the file name has to be exact same, again the extension also can be yaml instead of yml)
+
+#### step 4:
+Paste the following code inside that file and save it.
+```
+name: AnyName
+
+on:
+  push:
+    branches:
+    - 'main'
+
+jobs:
+  deployAppName:
+    name: DeployAppName
+    runs-on: ubuntu-latest
+    env:
+      LEKTOR_DEPLOY_USERNAME: anyusername
+      LEKTOR_DEPLOY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install Lektor
+        run: |
+          python -m pip install --upgrade pip setuptools
+          python -m pip install lektor
+      - run: lektor build
+      - run: lektor deploy ghpages-https
+```
+
+Here you can replace your app name with `AppName` and you can put your name on `anyusername`
+
+#### step 5:
+Go to the `.lektorproject` file and paste the code.
+```
+[servers.ghpages-https]
+enabled = yes
+name = Github pages on repo
+target = ghpages+https://your_github_username/the_repository_you_have_pushed_your_file_minutes_ago
+```
+#### step 6:
+Now run 
+`git add .`
+`git commit -am "Deploy Our beloved Lektor App"
+`git push`
+
+Here, if you check the `actions` tab on your repo. YOu will see it is now build and deploying your site. Hold on for a minute.
+
+#### step 7:
+Now goto the settings of your repo and after scrolling down a while you will see a section for Github Pages. Enter there. Then you will see the link for your website there. 
+
+#### step 8: (final step)
+Now you have to select `gh-pages` as your branch for github pages and save it.
+Now make some minor changes to contents of your app and push it to the repo. Now if you check the link, you can see your beloved app is now published.
+
+
+Congratulations !!!
