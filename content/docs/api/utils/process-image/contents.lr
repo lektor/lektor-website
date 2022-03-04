@@ -18,7 +18,7 @@ width and/or height, and the operation mode.
 In the default mode, if width or height are `None`, they are calculated
 from the source image's dimensions so that the image is scaled proportionally.
 
-Used internally for the implementation of [thumbnail :ref](../../db/record/thumbnail), and exposed as an API for image-processing plugins.
+Used internally for the implementation of [thumbnail :ref](../../db/record/thumbnail/), and exposed as an API for image-processing plugins.
 
 ## Example
 

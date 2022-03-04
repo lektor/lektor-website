@@ -38,7 +38,10 @@ a particular theme.
 !!!! Not implemented yet.
 
 You could add the `themes` variable to the `.lektorproject` file and Lektor will
-search in the [community themes](/themes) and automatically install it.
+search in the
+<!-- FIXME: use this link when theme showcase exists [community themes](/themes/) -->
+[community themes :ext](https://github.com/lektor/lektor-themes)
+and automatically install it.
 
 ```ini
 [project]

@@ -5,7 +5,7 @@ summary: Deploys to GitLab Pages.
 body:
 
 [GitLab](https://gitlab.com/) supports Lektor on their [GitLab
-Pages](http://doc.gitlab.com/ee/pages/) infrastructure.  Effectively
+Pages](https://docs.gitlab.com/ee/user/project/pages/) infrastructure.  Effectively
 GitLab can build your website out of any repository on GitLab and hosts it
 up on either a subdomain or a custom domain (including SSL).
 
@@ -90,7 +90,7 @@ pages:
 If you want to use a [CNAME :ext](https://en.wikipedia.org/wiki/CNAME) with
 GitLab pages you can configure it in the GitLab settings:
 
-* [Configure CNAME](http://doc.gitlab.com/ee/pages/#add-a-custom-domain-to-your-pages-website)
+* [Configure CNAME](https://docs.gitlab.com/ee/user/project/pages/custom_domains_ssl_tls_certification/#set-up-pages-with-a-custom-domain)
 
 ## SSL/TLS Support
 
@@ -98,7 +98,7 @@ If you have an SSL certificate and a custom domain, you can upload your private
 key and certificate to GitLab and SSL will become available on your custom
 domain as well.
 
-* [Configure SSL/TLS](http://doc.gitlab.com/ee/pages/#secure-your-custom-domain-website-with-tls)
+* [Configure SSL/TLS](https://docs.gitlab.com/ee/user/project/pages/custom_domains_ssl_tls_certification/#adding-an-ssltls-certificate-to-pages)
 
 ## 404 Pages
 

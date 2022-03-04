@@ -117,7 +117,7 @@ function we also track the plugin's filename to rebuild if the plugin changes.
 Let's say you want to add an "asciidoc"
 [field type :ref](../../api/db/types/) so you can write with [AsciiDoc](http://www.methods.co.nz/asciidoc) markup.
 
-First [install AsciiDoc](http://www.methods.co.nz/asciidoc/INSTALL.html) so its command-line program is available. Then update `blog-post.ini` from the [blog guide :ref](../../guides/blog) like so:
+First [install AsciiDoc](http://www.methods.co.nz/asciidoc/INSTALL.html) so its command-line program is available. Then update `blog-post.ini` from the [blog guide :ref](../../guides/blog/) like so:
 
 ```ini
 [fields.body]

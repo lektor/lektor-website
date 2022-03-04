@@ -32,9 +32,9 @@ website:
 > stipend, from July-September, to work on Open Source projects of their
 > choice.
 
-Lektor was accepted as a particpating project.  For more information about
+Lektor was accepted as a participating project.  For more information about
 the project there refer to the [project overview on
-RGSOC](https://teams.railsgirlssummerofcode.org/projects/115-lektor-cms).
+RGSOC :ext](https://railsgirlssummerofcode.org/blog/page/36/).
 
 We want to make it as easy as possible to work on Lektor during the event which
 is why we will be very flexible with regards to which area interested
@@ -44,3 +44,5 @@ If you are interested in working on Lektor you can reach out to us via
 Twitter at [@getlektor](https://twitter.com/getlektor) or
 <a href="https://gitter.im/lektor/lektor"
 class="js-gitter-toggle-chat-button">Gitter</a>.
+----
+class: default

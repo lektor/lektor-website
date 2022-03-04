@@ -86,7 +86,7 @@ credentials for `pypi`.  Next time it will have remembered them.
 
 ### Guide
 
-We'd love to see your new plugin listed on [our plugins page  :ref](/plugins). To do that, submit a pull request to [this repository :ext](https://github.com/lektor/lektor-website) that adds your plugin as a sub-page of /plugins. To have your plugin page look it's best and be found more easily here and on [PyPI :ext](https://pypi.org/), please [fill out your setup.py :ext](https://packaging.python.org/tutorials/distributing-packages/) completely (as in [the above snippet :ref](/docs/plugins/publishing/#enhance-your-setup.py)), including
+We'd love to see your new plugin listed on [our plugins page  :ref](/plugins/). To do that, submit a pull request to [this repository :ext](https://github.com/lektor/lektor-website) that adds your plugin as a sub-page of /plugins. To have your plugin page look it's best and be found more easily here and on [PyPI :ext](https://pypi.org/), please [fill out your setup.py :ext](https://packaging.python.org/tutorials/distributing-packages/) completely (as in [the above snippet :ref](/docs/plugins/publishing/#enhance-your-setup.py)), including
 
 * `author` and `author_email`
 * `classifiers`, (optional) such as

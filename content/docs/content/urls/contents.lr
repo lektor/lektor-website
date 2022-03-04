@@ -103,7 +103,7 @@ to be configured.
 
 You can pick the default for URL generation in the project configuration.
 For more information read about the [Project Configuration
-:ref](../../project/file/#[project]).
+:ref](../../project/file/#project).
 
 The default of `relative`, a relative URL style, means that you can deploy a
 website to a sub folder without any configuration, however most likely custom

@@ -20,7 +20,7 @@ The parameters to the function are as follows:
 
 * `target_url`: a URL object with the parsed URL.  This object comes from the
   Werkzeug library and gives access to the individual parts of a URL by the
-  exposed attributes ([Read about the URL object :ext](http://werkzeug.pocoo.org/docs/0.11/urls/)).
+  exposed attributes ([Read about the URL object :ext](https://werkzeug.palletsprojects.com/en/2.0.x/urls/)).
 * `credentials`: an optional dictionary with command line supplied credentials.
   Note that these credentials might be completely absent and the keys which are
   provided might change with future versions of Lektor.

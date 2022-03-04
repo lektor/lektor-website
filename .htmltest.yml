@@ -1,0 +1,8 @@
+IgnoreAltMissing: true
+IgnoreURLs:
+  - "^http://localhost:"
+
+# htmltest does not like quotes around URL in meta refresh
+CheckMetaRefresh: false
+# our redirect page doesn't have a doctype
+CheckDoctype: false
