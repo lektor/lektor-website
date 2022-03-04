@@ -101,6 +101,9 @@
   <url><loc>https://www.getlektor.com/docs/api/databags/get-bag/</loc></url>
   <url><loc>https://www.getlektor.com/docs/api/databags/lookup/</loc></url>
   <url><loc>https://www.getlektor.com/docs/api/db/</loc></url>
+  <url><loc>https://www.getlektor.com/docs/api/db/asset/</loc></url>
+  <url><loc>https://www.getlektor.com/docs/api/db/asset/children/</loc></url>
+  <url><loc>https://www.getlektor.com/docs/api/db/asset/get-child/</loc></url>
   <url><loc>https://www.getlektor.com/docs/api/db/types/</loc></url>
   <url><loc>https://www.getlektor.com/docs/api/db/types/boolean/</loc></url>
   <url><loc>https://www.getlektor.com/docs/api/db/types/checkboxes/</loc></url>

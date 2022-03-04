@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../../static/styles.css?h=ca3aba42">
   <link rel="stylesheet" href="../../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
-  <title>!= | Documentation | Lektor Static Content Management System</title>
+  <title>get_child | Documentation | Lektor Static Content Management System</title>
 </head>
 <body class="default">
   <nav class="navbar navbar-inverse navbar-static-top">
@@ -101,56 +101,23 @@
           <li><a href="../../">Database</a>
             
             <ul>
-          <li><a href="../../asset/">Asset</a>
+          <li><a href="../">Asset</a>
+            
+            <ul>
+          <li><a href="../children/">children</a>
+            
+        
+          <li class="active"><a href="./">get_child()</a>
+            
+            <ul></ul>
+            
+        </ul>
             
         
           <li><a href="../../types/">Builtin Field Types</a>
             
         
-          <li><a href="../">Expression</a>
-            
-            <ul>
-          <li class="active"><a href="./">!=</a>
-            
-            <ul></ul>
-            
-        
-          <li><a href="../lt/">&lt;</a>
-            
-        
-          <li><a href="../le/">&lt;=</a>
-            
-        
-          <li><a href="../eq/">==</a>
-            
-        
-          <li><a href="../gt/">&gt;</a>
-            
-        
-          <li><a href="../ge/">&gt;=</a>
-            
-        
-          <li><a href="../and/">and()</a>
-            
-        
-          <li><a href="../contains/">contains()</a>
-            
-        
-          <li><a href="../endswith/">endswith()</a>
-            
-        
-          <li><a href="../endswith-cs/">endswith_cs()</a>
-            
-        
-          <li><a href="../or/">or()</a>
-            
-        
-          <li><a href="../startswith/">startswith()</a>
-            
-        
-          <li><a href="../startswith-cs/">startswith_cs()</a>
-            
-        </ul>
+          <li><a href="../../expression/">Expression</a>
             
         
           <li><a href="../../f/">F</a>
@@ -205,41 +172,25 @@
       </ul>
 
       
-      <div class="visible-md-block visible-lg-block">
-        <h4>This Page</h4>
-        <ul class="toc">
-        
-          <li><a href="#example">Example</a></li>
-        
-        </ul>
-      </div>
-      
     </div>
 
     <div class="col-sm-9 doc-styling">
       
   
-    <h1><i class="glyphicon glyphicon-flash"></i> <code class="obj">!=</code></h1>
+    <h1><i class="glyphicon glyphicon-cog"></i> <code class="obj">get_child</code> <span class="sig">(<code>name, from_url=False</code>)</span></h1>
   
 
 
       <ul class=page-meta>
       
-        <li>Operator of <a href="../">Expression</a></li>
+        <li>Method of <a href="../">Asset</a></li>
       
       
       
       </ul>
 
-      <p>This checks if the left side of the expression does not match the right side
-by doing an exact comparison:</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Everything Other Than Houses<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-<span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">this.children.filter</span><span class="o">(</span><span class="nv">F.type</span> <span class="o">!=</span> <span class="s1">&#39;house&#39;</span><span class="o">)</span> <span class="cp">%}</span>
-  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-</pre></div>
+      <p>Lookup a child of the asset.  Returns <code>None</code> if no child exists with the specified name.</p>
+<p>Naturally, this method always returns <code>None</code> unless the asset is a directory.</p>
 
       
 
@@ -253,7 +204,7 @@ by doing an exact comparison:</p>
         
 <div id="disqus_thread"></div>
 <script>
-  var disqus_config = function() { this.page.identifier = "/docs/api/db/expression/ne"; this.page.url = "https://www.getlektor.com/docs/api/db/expression/ne/"; };
+  var disqus_config = function() { this.page.identifier = "/docs/api/db/asset/get-child"; this.page.url = "https://www.getlektor.com/docs/api/db/asset/get-child/"; };
   (function() {
     var d = document, s = d.createElement('script');
     s.src = '//lektordocumentation.disqus.com/embed.js';
@@ -295,7 +246,7 @@ by doing an exact comparison:</p>
             ><i class="fa fa-twitter"></i></a>
           <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
             ><i class="fa fa-comment"></i></a>
-          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/db/expression/ne/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/api/db/asset/get-child/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
         </div>
         <div class="col-sm-8">
           <a href="../../../../../license/">License & Copyright</a> •

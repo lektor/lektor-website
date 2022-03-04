@@ -227,7 +227,7 @@ The source image is tracked as direct source for the artifact and within the
 function we also track the plugin's filename to rebuild if the plugin changes.</p>
 <h2 id="adding-new-field-types">Adding New Field Types</h2><p>Let's say you want to add an "asciidoc"
 <a href="../../api/db/types/" class="ref">field type</a> so you can write with <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> markup.</p>
-<p>First <a href="http://www.methods.co.nz/asciidoc/INSTALL.html">install AsciiDoc</a> so its command-line program is available. Then update <code>blog-post.ini</code> from the <a href="../../guides/blog" class="ref">blog guide</a> like so:</p>
+<p>First <a href="http://www.methods.co.nz/asciidoc/INSTALL.html">install AsciiDoc</a> so its command-line program is available. Then update <code>blog-post.ini</code> from the <a href="../../guides/blog/" class="ref">blog guide</a> like so:</p>
 <div class="highlight"><pre><span></span><span class="k">[fields.body]</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">asciidoc  # Custom type.</span><span class="w"></span>

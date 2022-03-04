@@ -101,6 +101,9 @@
           <li><a href="../">Database</a>
             
             <ul>
+          <li><a href="../asset/">Asset</a>
+            
+        
           <li><a href="../types/">Builtin Field Types</a>
             
         
@@ -231,7 +234,7 @@ which will return an expression that points to a field.  Further manipulation
 of it can create more expressive expressions.  <code>F.name</code> literally just means
 that a field by that name exists and is set to a value.</p>
 <p>The query syntax is mostly the same in Python as well as in the Jinja 2
-templates, the main difference are <a href="../and/" class="ref">and</a> and <a href="../or/" class="ref">or</a>.</p>
+templates, the main difference are <a href="and/" class="ref">and</a> and <a href="or/" class="ref">or</a>.</p>
 <h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">F</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="go">[&lt;Page model=u&#39;page&#39; id=u&#39;bar&#39;&gt;, &lt;Page model=u&#39;page&#39; id=u&#39;foo&#39;&gt;]</span>
 </pre></div>

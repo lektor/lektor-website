@@ -149,7 +149,7 @@
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;video&quot;</span><span class="p">&gt;&lt;</span><span class="nt">video</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
-<p>Just like images you can also access them using <code>site.get('/myfolder').attachments.videos</code> or <code>site.get('/myfolder').attachments.get('examplevideo.mp4')</code>. Note that not all formats are detected as videos (see <a href="../../content/attachments/">attachments</a>). If your format is not in the list you may still be able to get it detected as a video by adding it to your <a href="../../project/file/#[attachment_types]">Lektor project file</a>.</p>
+<p>Just like images you can also access them using <code>site.get('/myfolder').attachments.videos</code> or <code>site.get('/myfolder').attachments.get('examplevideo.mp4')</code>. Note that not all formats are detected as videos (see <a href="../../content/attachments/">attachments</a>). If your format is not in the list you may still be able to get it detected as a video by adding it to your <a href="../../project/file/#attachment-types">Lektor project file</a>.</p>
 <h2 id="accessing-metadata">Accessing metadata</h2><p>Video objects are sub-classes of Attachments but with a few extra properties.</p>
 <table>
 <thead><tr>

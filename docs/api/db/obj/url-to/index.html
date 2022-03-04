@@ -101,6 +101,9 @@
           <li><a href="../../">Database</a>
             
             <ul>
+          <li><a href="../../asset/">Asset</a>
+            
+        
           <li><a href="../../types/">Builtin Field Types</a>
             
         
@@ -235,7 +238,7 @@ relative to the current page and <code>external</code> can be used to also add t
 domain part to the URL (if configured).  The default behavior is to use the
 configured URL style (which is <code>relative</code>) unless absolute or external were
 explicitly provided.  For more information read about this in the
-<a href="../../../../project/file/#[project]" class="ref">Project Configuration</a>.</p>
+<a href="../../../../project/file/#project" class="ref">Project Configuration</a>.</p>
 <h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">downloads</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/downloads&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 Path from downloads to here: <span class="cp">{{</span> <span class="nv">downloads.url_to</span><span class="o">(</span><span class="nv">this</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>

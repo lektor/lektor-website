@@ -52,7 +52,7 @@
 &lt;h3 id="details"&gt;Details&lt;/h3&gt;&lt;p&gt;Each plugin also now has its own dedicated page. On this page you can see the entire README for a plugin, in beautiful rendered Markdown or reStructuredText, GitHub statistics, authorship information, and tags. This page should give you all the information you need to be able to use the plugin, or to decide if it's what you're looking for as a guide to building your own.&lt;/p&gt;
 &lt;h3 id="tags"&gt;Tags&lt;/h3&gt;&lt;p&gt;Plugins are tagged with specific key words or phrases that describe what they are used for and how they work. All of a plugin's tags are listed on its page as a link. Each tag has its own page where you can see other plugins that share that tag. This offers a powerful way to navigate between related content, and another way to discover more plugins.&lt;/p&gt;
 &lt;p&gt;I think this is especially useful for plugin development when the tag is an event that the plugin hooks. This allows you to quickly find the source code of plugins that depend on the same Lektor plugin events, so that you can see many quick examples to help you write your own plugin. For instance, you can find all of the plugins that hook the &lt;code&gt;before-build-all&lt;/code&gt; event by looking at it's tag page &lt;a href="/plugins/tag/before-build-all/"&gt;here&lt;/a&gt;. Tag pages for events also have links back to the plugin documentation pages, including the page for that specific event.&lt;/p&gt;
-&lt;p&gt;Now go check out some &lt;a href="/plugins"&gt;plugins&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Now go check out some &lt;a href="/plugins/"&gt;plugins&lt;/a&gt;!&lt;/p&gt;
 
 &lt;/div&gt;</content></entry><entry><title>Lektor 3.1 Released</title><link href="https://www.getlektor.com/blog/2018/1/lektor-31-released/" rel="alternate"></link><updated>2018-01-29T00:00:00Z</updated><author><name>Joseph Nix</name></author><id>urn:uuid:9fdb673f-5a8c-3eab-90df-cd6d57657cbc</id><content type="html">
 &lt;div class="page-banner page-banner-500-tall" style="background-image: url(pancakes-2020863.jpg)"&gt;&lt;/div&gt;
@@ -157,8 +157,8 @@ more diversity into Open Source. Successful applicants are paid a monthly
 stipend, from July-September, to work on Open Source projects of their
 choice.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Lektor was accepted as a particpating project.  For more information about
-the project there refer to the &lt;a href="https://teams.railsgirlssummerofcode.org/projects/115-lektor-cms"&gt;project overview on
+&lt;p&gt;Lektor was accepted as a participating project.  For more information about
+the project there refer to the &lt;a href="https://railsgirlssummerofcode.org/blog/page/36/" class="ext"&gt;project overview on
 RGSOC&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;We want to make it as easy as possible to work on Lektor during the event which
 is why we will be very flexible with regards to which area interested
