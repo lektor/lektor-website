@@ -21,7 +21,7 @@ from lektor.pluginsystem import Plugin
 
 class MyPlugin(Plugin):
 
-    def on_env_setup(self, **extra):
+    def on_setup_env(self, **extra):
         color = self.get_config().get('color')
         self.env.jinja_env.globals['my_color'] = color
 ```
