@@ -19,7 +19,7 @@ from lektor.pluginsystem import Plugin
 
 class MyPlugin(Plugin):
 
-    def on_env_setup(self, **extra):
+    def on_setup_env(self, **extra):
         self.emit('setup', foo=42)
 ```
 
