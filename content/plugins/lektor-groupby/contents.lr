@@ -1,0 +1,21 @@
+_model: plugin
+---
+name: lektor-groupby
+---
+categories: content
+---
+tags:
+
+tags
+cluster
+page generation
+virtual paths
+setup-env
+before-build-all
+after-build-all
+after-prune
+urlresolver
+virtualpathresolver
+generator
+add-build-program
+get-config
