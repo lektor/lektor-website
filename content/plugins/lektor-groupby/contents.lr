@@ -12,6 +12,7 @@ page generation
 virtual paths
 setup-env
 before-build-all
+before-build
 after-build-all
 after-prune
 urlresolver
