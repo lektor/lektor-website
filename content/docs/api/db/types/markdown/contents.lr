@@ -74,7 +74,7 @@ resolve_links = never
 ## Linking to a Specific Alt
 
 When links are resolved through the Lektor database, URLs to specific _alt_s may be obtained by adding an `alt` query arg to the link.
-For example, to link to the current page, but in the German alt:
+For example, to link to the current page, but in the French alt:
 ```md
 Here is the [French version of the blog](/blog?alt=fr).
 ```
