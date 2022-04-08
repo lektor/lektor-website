@@ -128,10 +128,10 @@
         <h2>Project Description</h2>
         
           <h1>Lektor Limit Dependencies</h1>
-<p><a href="https://pypi.org/project/lektor-limit-dependencies/" rel="nofollow"><img alt="PyPI version" src="https://img.shields.io/pypi/v/lektor-limit-dependencies.svg"></a>
-<a href="https://pypi.python.org/pypi/lektor-limit-dependencies/" rel="nofollow"><img alt="PyPI Supported Python Versions" src="https://img.shields.io/pypi/pyversions/lektor-limit-dependencies.svg"></a>
-<a href="https://github.com/dairiki/lektor-limit-dependencies/blob/master/LICENSE" rel="nofollow"><img alt="GitHub license" src="https://img.shields.io/github/license/dairiki/lektor-limit-dependencies"></a>
-<a href="https://github.com/dairiki/lektor-limit-dependencies" rel="nofollow"><img alt="GitHub Actions (Tests)" src="https://github.com/dairiki/lektor-limit-dependencies/workflows/Tests/badge.svg"></a></p>
+<p><a href="https://pypi.org/project/lektor-limit-dependencies/" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-limit-dependencies.svg" alt="PyPI version"></a>
+<a href="https://pypi.python.org/pypi/lektor-limit-dependencies/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-limit-dependencies.svg" alt="PyPI Supported Python Versions"></a>
+<a href="https://github.com/dairiki/lektor-limit-dependencies/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-limit-dependencies" alt="GitHub license"></a>
+<a href="https://github.com/dairiki/lektor-limit-dependencies" rel="nofollow"><img src="https://github.com/dairiki/lektor-limit-dependencies/workflows/Tests/badge.svg" alt="GitHub Actions (Tests)"></a></p>
 <p>This is an experimental <a href="https://www.getlektor.com/" rel="nofollow">Lektor</a> plugin which aims to provide tools (or,
 at least, a tool) to help keep Lektor’s dependency tracking under
 control.</p>
@@ -164,12 +164,12 @@ dependent on other pages; it only records that they <em>are</em>
 dependent, so Lektor has no option but to rebuild everything.</p>
 <h3>A Solution?</h3>
 <p>This plugin introduces a Jinja filter, <code>limit_dependencies</code>.  It
-expects, as input, a Lektor <a href="https://www.getlektor.com/docs/api/db/query/" rel="nofollow" title="Lektor documentation on the Query class">query</a> instance.  It iterates through the
+expects, as input, a Lektor <a href="https://www.getlektor.com/docs/api/db/query/" title="Lektor documentation on the Query class" rel="nofollow">query</a> instance.  It iterates through the
 input query, and returns a new query instance which will yield the
 same results.  While it is doing its iteration, it — essentially —
 monkey-patches Lektor’s dependency tracking machinery to prevent it
 from recording any dependencies.</p>
-<p>At the end, <code>limit_dependencies</code> records one dependency on a <a href="https://www.getlektor.com/docs/api/db/obj/#virtual-source-objects" rel="nofollow" title="Lektor documentation on Virtual Source Objects">virtual
+<p>At the end, <code>limit_dependencies</code> records one dependency on a <a href="https://www.getlektor.com/docs/api/db/obj/#virtual-source-objects" title="Lektor documentation on Virtual Source Objects" rel="nofollow">virtual
 source object</a> which depends only on the sequence of the identities
 of the records in the query result.  (Lektor provides a means by which
 virtual source objects can report checksums.  The
