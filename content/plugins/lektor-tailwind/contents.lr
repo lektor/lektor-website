@@ -1,0 +1,13 @@
+_model: plugin
+---
+name: lektor-tailwind
+---
+categories: build
+---
+summary: A Lektor plugin that adds Tailwind CSS to your project seamlessly.
+---
+tags:
+
+CSS
+server-spawn
+before-build-all
