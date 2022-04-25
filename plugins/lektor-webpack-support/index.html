@@ -182,43 +182,43 @@ setup that's good enough to cover most things you will encounter. The
 idea is to build the files from <code>webpack/scss</code> and <code>webpack/js</code> into
 <code>assets/static/gen</code> so that we can use it even if we do not have webpack
 installed for as long as someone else ran it before.</p>
-<pre><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">MiniCssExtractPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mini-css-extract-plugin&quot;</span><span class="p">);</span>
+<pre><span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mini-css-extract-plugin&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">app</span><span class="o">:</span> <span class="s2">&quot;./js/main.js&quot;</span><span class="p">,</span>
-    <span class="nx">styles</span><span class="o">:</span> <span class="s2">&quot;./scss/main.scss&quot;</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">),</span> <span class="s2">&quot;assets&quot;</span><span class="p">,</span> <span class="s2">&quot;static&quot;</span><span class="p">,</span> <span class="s2">&quot;gen&quot;</span><span class="p">),</span>
-    <span class="nx">filename</span><span class="o">:</span> <span class="s2">&quot;[name].js&quot;</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="nx">devtool</span><span class="o">:</span> <span class="s2">&quot;source-map&quot;</span><span class="p">,</span>
-  <span class="nx">mode</span><span class="o">:</span> <span class="s2">&quot;production&quot;</span><span class="p">,</span>
-  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.js$/</span><span class="p">,</span>
-        <span class="nx">exclude</span><span class="o">:</span> <span class="sr">/node_modules/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;babel-loader&quot;</span><span class="p">],</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.scss$/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="nx">MiniCssExtractPlugin</span><span class="p">.</span><span class="nx">loader</span><span class="p">,</span> <span class="s2">&quot;css-loader&quot;</span><span class="p">,</span> <span class="s2">&quot;sass-loader&quot;</span><span class="p">],</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.css$/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="nx">MiniCssExtractPlugin</span><span class="p">.</span><span class="nx">loader</span><span class="p">,</span> <span class="s2">&quot;css-loader&quot;</span><span class="p">],</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(woff2?|ttf|eot|svg|png|jpe?g|gif)$/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">],</span>
-      <span class="p">},</span>
-    <span class="p">],</span>
-  <span class="p">},</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="ow">new</span> <span class="nx">MiniCssExtractPlugin</span><span class="p">({</span> <span class="nx">filename</span><span class="o">:</span> <span class="s2">&quot;styles.css&quot;</span> <span class="p">})],</span>
-<span class="p">};</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">entry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./js/main.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">styles</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./scss/main.scss&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;assets&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gen&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[name].js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">devtool</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;source-map&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">module</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.js$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">exclude</span><span class="o">:</span><span class="w"> </span><span class="sr">/node_modules/</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;babel-loader&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.scss$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">MiniCssExtractPlugin</span><span class="p">.</span><span class="nx">loader</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;css-loader&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sass-loader&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.css$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">MiniCssExtractPlugin</span><span class="p">.</span><span class="nx">loader</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;css-loader&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.(woff2?|ttf|eot|svg|png|jpe?g|gif)$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="p">({</span><span class="w"> </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;styles.css&quot;</span><span class="w"> </span><span class="p">})],</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre>
 <h2>Creating the App</h2>
 <p>Now we can start building our app. We configured at least two files

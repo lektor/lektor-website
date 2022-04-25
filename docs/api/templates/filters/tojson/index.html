@@ -195,8 +195,8 @@ supported by JSON directly and the return value will be in a format that
 allows safe embedding in HTML.  However if you want to use this value in an
 attribute of an element it needs to use single quotes otherwise it will
 generate a syntax error due to the embedded quotes.</p>
-<h2 id="examples">Examples</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
-  <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="cp">{{</span> <span class="o">{</span><span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="o">}|</span><span class="nf">tojson</span> <span class="cp">}}</span><span class="p">;</span>
+<h2 id="examples">Examples</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cp">{{</span> <span class="o">{</span><span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="o">}|</span><span class="nf">tojson</span> <span class="cp">}}</span><span class="p">;</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 <p>If used in attributes, single quotes are required:</p>
