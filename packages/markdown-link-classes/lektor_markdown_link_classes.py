@@ -21,7 +21,7 @@ class MarkdownLinkClassesPlugin(Plugin):
 
     def on_markdown_config(self, config, **extra):
         class LinkClassesMixin(object):
-            def link(renderer, link, title, text):
+            def link(renderer, link, text, title):
                 text, classes = split_classes(text)
                 if link.startswith('javascript:'):
                     link = ''
