@@ -188,7 +188,7 @@
 
       <p>This method can be used to emit an event that other plugins can hook.  The
 event name is prefixed with the plugin ID.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
 
 
 <span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
@@ -197,7 +197,7 @@ event name is prefixed with the plugin ID.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;setup&#39;</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 <p>Another plugin can then hook this:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
 
 
 <span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>

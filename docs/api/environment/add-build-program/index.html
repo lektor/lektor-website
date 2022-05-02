@@ -195,7 +195,7 @@ custom source objects.  This can be used to implement virtual items.  This
 works in combination with <a href="../generator/" class="ref">generator</a> and
 <a href="../urlresolver/" class="ref">urlresolver</a> and is responsible for generating
 artifacts out of source objects.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.sourceobj</span> <span class="kn">import</span> <span class="n">VirtualSourceObject</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.sourceobj</span> <span class="kn">import</span> <span class="n">VirtualSourceObject</span>
 <span class="kn">from</span> <span class="nn">lektor.build_programs</span> <span class="kn">import</span> <span class="n">BuildProgram</span>
 <span class="kn">from</span> <span class="nn">lektor.utils</span> <span class="kn">import</span> <span class="n">build_url</span>
 
@@ -233,7 +233,7 @@ artifacts out of source objects.</p>
         <span class="k">return</span> <span class="n">Source</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
 </pre></div>
 <p>And here the example <code>view_source.html</code> template:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Source for <span class="cp">{{</span> <span class="nv">this.parent.path</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Source for <span class="cp">{{</span> <span class="nv">this.parent.path</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.source_content</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
 </pre></div>
 

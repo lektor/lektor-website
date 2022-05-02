@@ -190,7 +190,7 @@ evaluated in but the following are always available:</p>
 to work with called <code>page</code>, otherwise just add one with the format shown
 in the <a href="../models/" class="ref">Data Modelling Documentation</a>.</p>
 <p>With that we can create a page template named <code>templates/page.html</code>:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.title</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
@@ -214,7 +214,7 @@ us.</li>
 supports template inheritance where one template can inherit code from
 another.  In this case we configured our page template to inherit from
 <code>layout.html</code>.  Let's create it:</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<div class="hll"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
 <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Welcome<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span> — My Website<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>

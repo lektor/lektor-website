@@ -200,7 +200,7 @@ will look at the context to decide on further operations to perform.</p>
 <p>The current context can be discovered by calling the <a href="../get-ctx/" class="ref">get_ctx</a>
 function which will return it.  If there is no artifact build ongoing then
 the return value will be <code>None</code>.</p>
-<h2 id="basic-example">Basic Example</h2><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.context</span> <span class="kn">import</span> <span class="n">get_ctx</span>
+<h2 id="basic-example">Basic Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.context</span> <span class="kn">import</span> <span class="n">get_ctx</span>
 
 <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The current source is </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ctx</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>

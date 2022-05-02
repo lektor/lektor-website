@@ -258,13 +258,13 @@ default which means that the record's configured title will be used as
 label.</li>
 </ul>
 <p>In the contents file the values are stored as comma separated list.</p>
-<h2 id="field-usage">Field Usage</h2><div class="highlight"><pre><span></span><span class="k">[fields.slideshow]</span><span class="w"></span>
+<h2 id="field-usage">Field Usage</h2><div class="hll"><pre><span></span><span class="k">[fields.slideshow]</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Slideshow</span><span class="w"></span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkboxes</span><span class="w"></span>
 <span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Attached images to include in the slidehow</span><span class="w"></span>
 <span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">record.attachments.images</span><span class="w"></span>
 </pre></div>
-<h2 id="template-usage">Template Usage</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">this.attachments.images</span> <span class="cp">%}</span>
+<h2 id="template-usage">Template Usage</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">this.attachments.images</span> <span class="cp">%}</span>
   <span class="cp">{%</span> <span class="k">if</span> <span class="nv">image._id</span> <span class="k">in</span> <span class="nv">this.slideshow</span> <span class="cp">%}</span>
     <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image.thumbnail</span><span class="o">(</span><span class="m">500</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slide&quot;</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>

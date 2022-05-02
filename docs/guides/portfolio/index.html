@@ -182,7 +182,7 @@ for new pages and make it impossible to delete (<code>protected</code>).  This m
 need to manually create the one page later which will use this.</p>
 <p>Because we only have a single page for the projects overview we give it a
 static label manually (<code>label = Projects</code>).</p>
-<div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -196,7 +196,7 @@ static label manually (<code>label = Projects</code>).</p>
 with some things here that might appear on such a portfolio page.  In addition
 we will do something with the attachments of this page, but more about that
 later.  For now we just order them by their filename (<code>_id</code>):</p>
-<div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -237,7 +237,7 @@ one of the images on the overview page if it's available.</p>
 <h3 id="projects.html`"><code>projects.html</code></h3><p>So here we just render out all projects in the order defined in our
 models and if there is an image attached, we pick the first one and make
 a thumbnail.</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Projects<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Projects<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -257,7 +257,7 @@ a thumbnail.</p>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 <h3 id="project.html`"><code>project.html</code></h3><p>For the detail page we show all information we know about:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.name</span> <span class="cp">}}</span> (<span class="cp">{{</span> <span class="nv">this.date.year</span> <span class="cp">}}</span>)<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>

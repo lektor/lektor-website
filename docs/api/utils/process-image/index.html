@@ -181,7 +181,7 @@ width and/or height, and the operation mode.
 In the default mode, if width or height are <code>None</code>, they are calculated
 from the source image's dimensions so that the image is scaled proportionally.</p>
 <p>Used internally for the implementation of <a href="../../db/record/thumbnail/" class="ref">thumbnail</a>, and exposed as an API for image-processing plugins.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.build_programs</span> <span class="kn">import</span> <span class="n">AttachmentBuildProgram</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.build_programs</span> <span class="kn">import</span> <span class="n">AttachmentBuildProgram</span>
 <span class="kn">from</span> <span class="nn">lektor.context</span> <span class="kn">import</span> <span class="n">get_ctx</span>
 <span class="kn">from</span> <span class="nn">lektor.db</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">from</span> <span class="nn">lektor.imagetools</span> <span class="kn">import</span> <span class="n">process_image</span><span class="p">,</span> <span class="n">ThumbnailMode</span>

@@ -179,7 +179,7 @@
 
       <p>In some situations it can be very useful to generate a unique ID in templates.
 This is particularly useful when creating templates for the <a href="../../../../content/flow/" class="ref">Flow</a> system and you need unique IDs for the DOM.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">id</span> <span class="o">=</span> <span class="nv">get_random_id</span><span class="o">()</span> <span class="cp">%}</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">id</span> <span class="o">=</span> <span class="nv">get_random_id</span><span class="o">()</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">id</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">id</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;toggle&quot;</span><span class="p">&gt;</span>Hide This<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>

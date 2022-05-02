@@ -180,7 +180,7 @@ into the file to hide it from <code>.children</code>.  This is useful for such s
 pages which should be excluded from navigation or automatic link generation.</p></div><h2 id="template-file">Template File</h2><p>The template loaded will be <code>templates/sitemap.xml</code>.  In this file we just
 iterate over all pages of the site recursively.  This also automatically
 skips hidden pages so those will not be generated out.</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="hll"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;</span><span class="nt">&gt;</span>
   <span class="cp">{%</span>- <span class="k">for</span> <span class="nv">page</span> <span class="k">in</span> <span class="o">[</span><span class="nv">site.root</span><span class="o">]</span> <span class="k">if</span> <span class="nv">page</span> <span class="o">!=</span> <span class="nv">this</span> <span class="k">recursive</span> <span class="cp">%}</span>
   <span class="nt">&lt;url&gt;&lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">page</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">external</span><span class="o">=</span><span class="kp">true</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/loc&gt;&lt;/url&gt;</span>
@@ -199,7 +199,7 @@ template starts working.  For more information see <a href="../../project/file/#
 not any harder.  Instead of making a <code>sitemap.xml/contents.lr</code> file just
 create a <code>sitemap/contents.lr</code> file instead and use a template like
 <code>sitemap.html</code>.  Then use something like this:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Sitemap<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sitemap&quot;</span><span class="p">&gt;</span>

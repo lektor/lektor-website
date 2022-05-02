@@ -169,7 +169,7 @@
 
       <p>Setting up a flexible redirect system to make HTML redirects in Lektor is easy. A better setup would likely be on the server level, for instance in nginx, or configured on your CDN. The redirect will be more performant on the server level. Though this is not the best kind of redirect, it is pretty robust and will work in most situations. This example is flexible and can handle multiple redirects for your site.</p>
 <h2 id="models-and-templates">Models and Templates</h2><p>Set up the models to have a simple field that can hold the value of the target path. This is the path the page will be redirected to.</p>
-<h3 id="models/redirect.ini`"><code>models/redirect.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="models/redirect.ini`"><code>models/redirect.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Redirect</span><span class="w"></span>
 
 <span class="k">[fields.target]</span><span class="w"></span>
@@ -178,7 +178,7 @@
 <span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Target is of type &#39;string&#39; to allow relative paths. Converted to url in the template.</span><span class="w"></span>
 </pre></div>
 <p>The template contains the minimal amount of html needed to initiate a redirect, along with a query for the target path.</p>
-<h3 id="templates/redirect.html`"><code>templates/redirect.html</code></h3><div class="highlight"><pre><span></span><span class="x">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=&#39;</span><span class="cp">{{</span> <span class="nv">this.target</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&#39;&quot; /&gt;</span>
+<h3 id="templates/redirect.html`"><code>templates/redirect.html</code></h3><div class="hll"><pre><span></span><span class="x">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=&#39;</span><span class="cp">{{</span> <span class="nv">this.target</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&#39;&quot; /&gt;</span>
 </pre></div>
 <h2 id="contents">Contents</h2><p>The <code>contents.lr</code> files for each redirect can be created in the admin, but you will probably want to edit them by hand to make them non-discoverable. Setting them to be non-discoverable will mean that they don't show up in other template queries, which means you won't end up with other pages making references to the page that is nothing but a redirect.</p>
 <h3 id="content/page-to-redirect/contents.lr`"><code>content/page-to-redirect/contents.lr</code></h3><pre><code>_model: redirect

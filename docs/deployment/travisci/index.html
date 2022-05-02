@@ -167,7 +167,7 @@ GitHub account.</p>
 <p>This guide is also available as a <a href="https://www.youtube.com/embed/3pj_EyZIL5A">7 minute screencast</a>.</p>
 <h2 id="travis-config">Travis Config</h2><p>Once you have signed up for Travis-CI you need to add a <code>.travis.yml</code> config
 file into your repository.  You can copy paste this over:</p>
-<div class="highlight"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
 <span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span><span class="w"></span>
 <span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor&quot;</span><span class="w"></span>
 <span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">build&quot;</span><span class="w"></span>
@@ -182,7 +182,7 @@ the build step we invoke <code>lektor build</code>, and for the deploy step we i
 to configure that.</p>
 <h2 id="project-server-config">Project Server Config</h2><p>For the above example the best way to configure the server for the deployment
 in the project file would be to use <code>ghpages+https</code> like this:</p>
-<div class="highlight"><pre><span></span><span class="k">[servers.ghpages]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[servers.ghpages]</span><span class="w"></span>
 <span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ghpages+https://username/repository</span><span class="w"></span>
 </pre></div>
 <p>You need to add this to your <code>.lektorproject</code> file.</p>
@@ -227,7 +227,7 @@ the Travis CI documentation.</p>
 <h2 id="speeding-up-builds-with-caching">Speeding up Builds with Caching</h2><p>In the default setting Travis will have to rebuild everything because between
 builds it does not cache the build results.  You can change this by enabling
 caching.  Adjust your <code>.travis.yml</code> file to look like this:</p>
-<div class="highlight"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
 <span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span><span class="w"></span>
 <span class="nt">cache</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">directories</span><span class="p">:</span><span class="w"></span>
@@ -245,7 +245,7 @@ as done with <a href="../glpages/">Gitlab pages</a>.</p>
 <h2 id="restricting-branches">Restricting Branches</h2><p>If you plan on having different branches and contributors you should disable
 the deployment to the master branch only.  You can do this with the following
 config:</p>
-<div class="highlight"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
 <span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span><span class="w"></span>
 <span class="nt">cache</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">directories</span><span class="p">:</span><span class="w"></span>

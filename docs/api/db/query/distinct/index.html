@@ -236,14 +236,14 @@
       <p>Returns a <code>set</code> with all values for <code>field_name</code> of all
 <a href="../../record/" class="ref">Records</a> in this query.</p>
 <h2 id="example">Example</h2><p>If your blog posts have a field called <code>tags</code>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># blog-post.ini</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="c1"># blog-post.ini</span><span class="w"></span>
 
 <span class="k">[field.tags]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Tags</span><span class="w"></span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">strings</span><span class="w"></span>
 </pre></div>
 <p>You can display all your blog posts' tags with:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">tags</span> <span class="o">=</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/blog&#39;</span><span class="o">)</span><span class="nv">.distinct</span><span class="o">(</span><span class="s1">&#39;tags&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">tags</span> <span class="o">=</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/blog&#39;</span><span class="o">)</span><span class="nv">.distinct</span><span class="o">(</span><span class="s1">&#39;tags&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">tags</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span> <span class="k">in</span> <span class="nv">tags</span><span class="o">|</span><span class="nf">sort</span> <span class="cp">%}</span>

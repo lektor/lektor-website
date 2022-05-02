@@ -159,7 +159,7 @@ plugins and Lektor itself modify so do not provide a function called
 <code>get_script</code> but for instance call it <code>get_my_plugin_script</code>.</li>
 </ul>
 <p>A simple example of a plugin that implements <a href="https://en.gravatar.com/" class="ext">Gravatar</a> support:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
 <span class="kn">from</span> <span class="nn">werkzeug.urls</span> <span class="kn">import</span> <span class="n">url_encode</span>
 <span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
 
@@ -179,11 +179,11 @@ take advantage of this.  Each plugin has exactly one INI file called
 <code>&lt;plugin-id&gt;.ini</code> inside the <code>configs</code> folder.</p>
 <p>To get access to the plugin the <code>get_config</code> function can be used which
 returns a dict like object to access the ini file.</p>
-<div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>
+<div class="hll"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;section.key&#39;</span><span class="p">,</span> <span class="s1">&#39;default_value&#39;</span><span class="p">)</span>
 </pre></div>
 <p>This would correspond to this config in <code>configs/my-plugin.ini</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">[section]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[section]</span><span class="w"></span>
 <span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">the value</span><span class="w"></span>
 </pre></div>
 <h2 id="dependency-tracking">Dependency Tracking</h2><p>While a lot of dependencies are tracked automatically, when you develop a
@@ -204,7 +204,7 @@ through the <a href="../../api/build/context/sub-artifact/" class="ref">sub_arti
 method which declares a new artifact.</li>
 </ol>
 <p>Here is an example of both ways in one plugin:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">json</span>
 <span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
 
@@ -228,7 +228,7 @@ function we also track the plugin's filename to rebuild if the plugin changes.</
 <h2 id="adding-new-field-types">Adding New Field Types</h2><p>Let's say you want to add an "asciidoc"
 <a href="../../api/db/types/" class="ref">field type</a> so you can write with <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> markup.</p>
 <p>First <a href="http://www.methods.co.nz/asciidoc/INSTALL.html">install AsciiDoc</a> so its command-line program is available. Then update <code>blog-post.ini</code> from the <a href="../../guides/blog/" class="ref">blog guide</a> like so:</p>
-<div class="highlight"><pre><span></span><span class="k">[fields.body]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[fields.body]</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">asciidoc  # Custom type.</span><span class="w"></span>
 </pre></div>
@@ -244,7 +244,7 @@ code here
 ----
 </code></pre>
 <p>You can add your "asciidoc" type to Lektor with a plugin:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">PIPE</span><span class="p">,</span> <span class="n">Popen</span>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">PIPE</span><span class="p">,</span> <span class="n">Popen</span>
 
 <span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
 <span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>

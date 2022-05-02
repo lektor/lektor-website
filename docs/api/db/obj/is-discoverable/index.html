@@ -241,7 +241,7 @@ to implement drafts of blog posts or similar things.</p>
 <p>This property is implemented on the level of source objects to make it
 possible to use this API in all cases.  The default implementation of
 source objects will always return <code>true</code> for discoverability checks.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">downloads</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/downloads&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">downloads</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/downloads&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">downloads.is_discoverable</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">downloads</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>Go to downloads<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>

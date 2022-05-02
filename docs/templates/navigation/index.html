@@ -150,7 +150,7 @@ links with the help of the <a href="../urls/" class="ref">URL Filter</a>.</p>
 <h2 id="basic-semi-automatic-navigation">Basic Semi-Automatic Navigation</h2><p>The most basic form of navigation is a semi automatic one.  It's one of the
 most flexible ones while still being easy to maintain.  It requires knowledge
 of which pages to show and what the link title should be:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav navbar-nav&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this._path</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>
       <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;/&#39;</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>Welcome<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -174,7 +174,7 @@ be active if any of its children are active.  So we just check if the
 path of the current page is actually the path of the index page.</p>
 <h2 id="fully-automatic-navigation">Fully Automatic Navigation</h2><p>Sometimes all we want is to show navigation links for all sub-pages of
 a page.  This is easy to accomplish as well:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav&quot;</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/projects&#39;</span><span class="o">)</span><span class="nv">.children</span> <span class="cp">%}</span>
       <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this</span> <span class="o">==</span> <span class="nv">project</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>
@@ -186,7 +186,7 @@ a page.  This is easy to accomplish as well:</p>
 <h2 id="recursive-tree-navigation">Recursive Tree Navigation</h2><p>In some situations you want to show a tree like navigation.  This is for
 instance something that comes up when building site maps.  In that situation
 the recursive Jinja loop system really comes in handy.</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tree-nav&quot;</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tree-nav&quot;</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">set</span> <span class="nv">root</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/&#39;</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="cp">{%</span> <span class="k">for</span> <span class="nv">child</span> <span class="k">in</span> <span class="nv">root.children</span> <span class="k">recursive</span> <span class="cp">%}</span>
     <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this._path</span> <span class="o">==</span> <span class="nv">child._path</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>

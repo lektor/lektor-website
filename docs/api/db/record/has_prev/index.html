@@ -243,7 +243,7 @@ filter and order the children. Otherwise, the parent's standard configuration
 for children is used.
 See <a href="../../../../guides/pagination/" class="ref">the pagination guide</a> and the
 <a href="../../../../guides/page-order/" class="ref">page order guide</a>.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.has_prev</span><span class="o">()</span> <span class="cp">%}</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.has_prev</span><span class="o">()</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">this.get_siblings</span><span class="o">()</span><span class="nv">.prev_page</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>previous<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is the first entry.

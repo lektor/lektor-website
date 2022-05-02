@@ -241,7 +241,7 @@
 an attachment this will be <code>true</code>.  Because some functionality only exists
 on one type but not the other this can be useful in some utility code to
 change the behavior.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_record_link</span><span class="o">(</span><span class="nv">record</span><span class="o">)</span> <span class="cp">%}</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_record_link</span><span class="o">(</span><span class="nv">record</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">record</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">record.record_label</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">if</span> <span class="nv">record.is_attachment</span> <span class="cp">%}</span> (<span class="cp">{{</span> <span class="nv">record._attachment_type</span> <span class="cp">}}</span>)<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>

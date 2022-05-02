@@ -233,7 +233,7 @@ page or not.  The default behavior is to consider a page to be a child of
 itself as this is more convenient in most situations but this can be
 changed with the <code>strict</code> parameter.  This method is particularly useful
 when building a navigation.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;/projects&#39;</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.is_child_of</span><span class="o">(</span><span class="s1">&#39;/projects&#39;</span><span class="o">)</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;/projects&#39;</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.is_child_of</span><span class="o">(</span><span class="s1">&#39;/projects&#39;</span><span class="o">)</span>
   <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="p">&gt;</span>Projects<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 

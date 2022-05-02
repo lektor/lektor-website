@@ -240,7 +240,7 @@ include undiscoverable records by default.</p>
 <p>If undiscoverable records should included this method needs to be used.
 Set it to <code>True</code> to include hidden or <code>False</code> to exclude them (default).</p>
 <h2 id="example">Example</h2><p>Here a basic example of how to filter something in a template:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">this.children.include_undiscoverable</span><span class="o">(</span><span class="kp">true</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">item.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>

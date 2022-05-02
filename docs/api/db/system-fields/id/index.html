@@ -233,7 +233,7 @@ filename of the attachment: <code>screenshot.jpg</code>.</p>
 <p>Note that IDs are not globally unique!  There is also the <code>_path</code> which is
 the entire path if the record.</p>
 <p>The <code>_id</code> is automatically set and cannot be overridden.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav&quot;</span><span class="p">&gt;</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav&quot;</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/projects&#39;</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">item._id</span> <span class="o">==</span> <span class="nv">this._id</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span>
     <span class="k">endif</span> <span class="cp">%}</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">item.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>

@@ -233,7 +233,7 @@
 
       <p>This checks if the left side of the expression matches the right side.
 Typically it compares if a value matches a specific value exactly:</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Our Houses<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Our Houses<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">this.children.filter</span><span class="o">(</span><span class="nv">F.type</span> <span class="o">==</span> <span class="s1">&#39;house&#39;</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>

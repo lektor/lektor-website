@@ -181,14 +181,14 @@ named <code>text</code> it will render from <code>templates/blocks/text.html</co
 expect.  <code>this</code> points to the current block and <code>record</code> points to the record
 the block is contained in.</p>
 <p>This is a simple example of a typical template of a flow block:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-block text-block-</span><span class="cp">{{</span> <span class="nv">this.class</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-block text-block-</span><span class="cp">{{</span> <span class="nv">this.class</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
   <span class="cp">{{</span> <span class="nv">this.text</span> <span class="cp">}}</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 <p>Some more involved templates might also refer back to the page to do something
 with it.  Here for instance is a simple flow block for including a thumbnail
 of an attached image:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">img</span> <span class="o">=</span> <span class="nv">record.attachments.images.get</span><span class="o">(</span><span class="nv">this.image</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">img</span> <span class="o">=</span> <span class="nv">record.attachments.images.get</span><span class="o">(</span><span class="nv">this.image</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">img</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;thumbnail-block&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">img.thumbnail</span><span class="o">(</span><span class="m">480</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
@@ -204,7 +204,7 @@ enough.  Because of that you can access the blocks individually.  This is
 particularly useful for more complex situations where you either deal with
 nested flows or where you want to wrap the individual blocks somehow.</p>
 <p>For instance in this case the blocks are wrapped before rendering:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">blk</span> <span class="k">in</span> <span class="nv">this.demo_flow.blocks</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">blk</span> <span class="k">in</span> <span class="nv">this.demo_flow.blocks</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;block block-</span><span class="cp">{{</span> <span class="nv">blk._flowblock</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
     <span class="cp">{{</span> <span class="nv">blk</span> <span class="cp">}}</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -215,7 +215,7 @@ of the data model that defines it.  This is a good way to also specifically
 customize individual blocks in a flow without having to invoke their
 templates.  You can for instance completely manually render blocks without
 using their templates:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">blk</span> <span class="k">in</span> <span class="nv">this.demo_flow.blocks</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">blk</span> <span class="k">in</span> <span class="nv">this.demo_flow.blocks</span> <span class="cp">%}</span>
   <span class="cp">{%</span> <span class="k">if</span> <span class="nv">blk._flowblock</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span> <span class="cp">%}</span>
     <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">blk.text</span> <span class="cp">}}</span>
   <span class="cp">{%</span> <span class="k">elif</span> <span class="nv">blk._flowblock</span> <span class="o">==</span> <span class="s1">&#39;image&#39;</span> <span class="cp">%}</span>

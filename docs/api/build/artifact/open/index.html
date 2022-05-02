@@ -196,7 +196,7 @@ automatically is created.  This can be disabled or enabled with the
 <p>If the artifact is opened for writing, a copy will be created and only
 committed when the entire build process goes through smoothly and the
 changes are committed by the builder.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
 <span class="nd">@ctx</span><span class="o">.</span><span class="n">sub_artifact</span><span class="p">(</span><span class="s1">&#39;artifact.txt&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">build_stylesheet</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">artifact</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>

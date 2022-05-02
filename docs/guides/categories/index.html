@@ -200,7 +200,7 @@ different categories and it should be possible to see which projects belong
 to which category.</p>
 <h2 id="the-models">The Models</h2><p>So we will end up with four models: <code>projects.ini</code>, <code>project.ini</code>,
 <code>project-categories.ini</code> and <code>project-category.ini</code>.  Here is how they look:</p>
-<h3 id="projects.ini`"><code>projects.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="projects.ini`"><code>projects.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -210,7 +210,7 @@ to which category.</p>
 <span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span><span class="w"></span>
 <span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-date, name</span><span class="w"></span>
 </pre></div>
-<h3 id="project.ini`"><code>project.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="project.ini`"><code>project.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -237,7 +237,7 @@ is the <code>source</code> parameter for the categories.  Essentially we instruc
 admin panel to fill the selection for the checkboxes from the child pages
 below the <code>project-categories</code> folder.  This is where we will maintain the
 categories.</p>
-<h3 id="project-categories.ini`"><code>project-categories.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="project-categories.ini`"><code>project-categories.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Categories</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Categories</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -247,7 +247,7 @@ categories.</p>
 <span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project-category</span><span class="w"></span>
 <span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">name</span><span class="w"></span>
 </pre></div>
-<h3 id="project-category.ini`"><code>project-category.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="project-category.ini`"><code>project-category.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Category</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -281,7 +281,7 @@ that is created will become available for new projects in the category
 selection.</p>
 <h2 id="the-templates">The Templates</h2><p>To render out all the pages we probably want to use some macros to reuse
 markup that appears on multiple pages.</p>
-<h3 id="projects.html`"><code>projects.html</code></h3><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<h3 id="projects.html`"><code>projects.html</code></h3><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros/projects.html&quot;</span> <span class="k">import</span>
   <span class="nv">render_project_list</span><span class="o">,</span> <span class="nv">render_category_nav</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Projects<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
@@ -291,14 +291,14 @@ markup that appears on multiple pages.</p>
   <span class="cp">{{</span> <span class="nv">render_project_list</span><span class="o">(</span><span class="nv">this.children</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
-<h3 id="project.html`"><code>project.html</code></h3><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<h3 id="project.html`"><code>project.html</code></h3><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.name</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;description&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.description</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
-<h3 id="project-categories.html`"><code>project-categories.html</code></h3><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<h3 id="project-categories.html`"><code>project-categories.html</code></h3><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros/projects.html&quot;</span> <span class="k">import</span> <span class="nv">render_category_nav</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Project Categories<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
@@ -306,7 +306,7 @@ markup that appears on multiple pages.</p>
   <span class="cp">{{</span> <span class="nv">render_category_nav</span><span class="o">(</span><span class="nv">active</span><span class="o">=</span><span class="kp">none</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
-<h3 id="project-category.html`"><code>project-category.html</code></h3><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<h3 id="project-category.html`"><code>project-category.html</code></h3><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros/projects.html&quot;</span> <span class="k">import</span> <span class="nv">render_category_nav</span><span class="o">,</span>
    <span class="nv">render_project_list</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Project Category <span class="cp">{{</span> <span class="nv">this.name</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
@@ -316,7 +316,7 @@ markup that appears on multiple pages.</p>
   <span class="cp">{{</span> <span class="nv">render_project_list</span><span class="o">(</span><span class="nv">this.children</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
-<h3 id="macros/projects.html`"><code>macros/projects.html</code></h3><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_category_nav</span><span class="o">(</span><span class="nv">active</span><span class="o">=</span><span class="kp">none</span><span class="o">)</span> <span class="cp">%}</span>
+<h3 id="macros/projects.html`"><code>macros/projects.html</code></h3><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_category_nav</span><span class="o">(</span><span class="nv">active</span><span class="o">=</span><span class="kp">none</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">for</span> <span class="nv">category</span> <span class="k">in</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/project-categories&#39;</span><span class="o">)</span> <span class="cp">%}</span>
     <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">category._id</span> <span class="o">==</span> <span class="nv">active</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>

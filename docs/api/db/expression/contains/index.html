@@ -234,7 +234,7 @@
       <p>This expression evaluates to true if an item is contained within a field.
 This works with fields that are lists in nature or <a href="../../types/string/" class="ref">strings</a>.  For instance a string can be
 contained in another string or a item can be contained within a list.</p>
-<h2 id="template-example">Template Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Projects Tagged &#39;amazing&#39;<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<h2 id="template-example">Template Example</h2><div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Projects Tagged &#39;amazing&#39;<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">this.children.filter</span><span class="o">(</span><span class="nv">F.tags.contains</span><span class="o">(</span><span class="s1">&#39;amazing&#39;</span><span class="o">))</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">item.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>

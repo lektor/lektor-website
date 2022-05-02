@@ -193,7 +193,7 @@ parts of our big page.</li>
 <p>We will just sort all the documentation pages by the page ID so it's possible
 to just order the pages by prefixing the page with a number
 (<code>0001-installation</code>, <code>0002-quickstart</code> etc.)</p>
-<h3 id="index.ini`"><code>index.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="index.ini`"><code>index.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -202,7 +202,7 @@ to just order the pages by prefixing the page with a number
 <span class="k">[fields.title]</span><span class="w"></span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
 </pre></div>
-<h3 id="doc-pages.ini`"><code>doc-pages.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="doc-pages.ini`"><code>doc-pages.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Pages</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Pages</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -212,7 +212,7 @@ to just order the pages by prefixing the page with a number
 <span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">doc-page</span><span class="w"></span>
 <span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_id</span><span class="w"></span>
 </pre></div>
-<h3 id="doc-page.ini`"><code>doc-page.ini</code></h3><div class="highlight"><pre><span></span><span class="k">[model]</span><span class="w"></span>
+<h3 id="doc-page.ini`"><code>doc-page.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Page</span><span class="w"></span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
 <span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
@@ -242,7 +242,7 @@ ways to render them.</p>
 <h2 id="templates">Templates</h2><p>For now we only need a single template: <code>index.html</code>, the one that will be
 used by the only page that actually renders.  Within that template we now
 need to query for all the other pages we have below <code>doc/</code>:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.title</span> <span class="cp">}}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
   <span class="cp">{%</span> <span class="k">set</span> <span class="nv">pages</span> <span class="o">=</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/doc&#39;</span><span class="o">)</span><span class="nv">.include_undiscoverable</span><span class="o">(</span><span class="kp">true</span><span class="o">)</span><span class="nv">.all</span><span class="o">()</span> <span class="cp">%}</span>

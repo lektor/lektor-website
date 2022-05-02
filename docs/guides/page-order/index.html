@@ -169,14 +169,14 @@ children.  This way an order can be defined that is used by default for any
 query involving the children of a page.  So what can you order by?  You can
 order by any field you want.  For instance to order by the name of a page
 you can do this:</p>
-<div class="highlight"><pre><span></span><span class="k">[children]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[children]</span><span class="w"></span>
 <span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span><span class="w"></span>
 <span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">name</span><span class="w"></span>
 </pre></div>
 <p>This will automatically order the <code>.children</code> query by the name of a project.
 You can define more than one ordering.  For instance you could order blog
 posts by dates in decreasing order and secondarily by the blog title:</p>
-<div class="highlight"><pre><span></span><span class="k">[children]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[children]</span><span class="w"></span>
 <span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span><span class="w"></span>
 <span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-pub_date, title</span><span class="w"></span>
 </pre></div>
@@ -184,7 +184,7 @@ posts by dates in decreasing order and secondarily by the blog title:</p>
 <h2 id="specific-order">Specific Order</h2><p>But what to do if you want to order something specifically?  In that case you
 can use the <a href="../../api/db/types/sort-key/" class="ref">sort_key</a> type and configure
 that:</p>
-<div class="highlight"><pre><span></span><span class="k">[children]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[children]</span><span class="w"></span>
 <span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">doc-page</span><span class="w"></span>
 <span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">sort_key</span><span class="w"></span>
 </pre></div>

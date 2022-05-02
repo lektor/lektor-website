@@ -218,7 +218,7 @@ catch extra parameters in a <code>**extra</code> parameter so that the plugin do
 not break if an event starts sending additional parameters in the future.</p>
 <h2 id="emitting-events">Emitting Events</h2><p>If you want to emit your own events you can do that from the environment's
 plugin controller:</p>
-<div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;your-signal&#39;</span><span class="p">,</span> <span class="n">parameter</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<div class="hll"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;your-signal&#39;</span><span class="p">,</span> <span class="n">parameter</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
 </pre></div>
 <p>This emits a signal named <code>your-plugin-your-signal</code>.  The signal prefix is
 taken from the plugin ID which is set in <code>setup.py</code>.</p>

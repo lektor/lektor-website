@@ -235,7 +235,7 @@
 the query as a list.  In many cases just iterating over the query achieve
 the same result, but if you want an actual list this method comes in
 handy.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">items</span> <span class="o">=</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/projects&#39;</span><span class="o">)</span><span class="nv">.include_hidden</span><span class="o">(</span><span class="kp">false</span><span class="o">)</span><span class="nv">.all</span><span class="o">()</span> <span class="cp">%}</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">items</span> <span class="o">=</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/projects&#39;</span><span class="o">)</span><span class="nv">.include_hidden</span><span class="o">(</span><span class="kp">false</span><span class="o">)</span><span class="nv">.all</span><span class="o">()</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">items</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">items</span> <span class="cp">%}</span>

@@ -234,7 +234,7 @@
       <p>This evaluates to true if the left side compares larger than the right side.
 This behavior works best with <a href="../../types/integer/" class="ref">integers</a>
 or <a href="../../types/float/" class="ref">floats</a>.</p>
-<h2 id="template-example">Template Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Well Rated Items<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<h2 id="template-example">Template Example</h2><div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Well Rated Items<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">this.children.filter</span><span class="o">(</span><span class="nv">F.stars</span> <span class="o">&gt;</span> <span class="m">3</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">item.name</span> <span class="cp">}}</span>: <span class="cp">{{</span> <span class="nv">item.stars</span> <span class="cp">}}</span> stars<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>

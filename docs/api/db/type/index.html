@@ -201,7 +201,7 @@ method and set the <code>widget</code> property as a very basic requirement.</p>
 to match the type name.  If you want to name your type <code>mything</code> then it
 needs to be called <code>MyThingType</code>.  Afterwards you can register it with the
 environment in <a href="../../plugins/events/setup-env/" class="ref">setup_env</a>:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>
 
 <span class="k">class</span> <span class="nc">MyThingType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
     <span class="n">widget</span> <span class="o">=</span> <span class="s1">&#39;singleline-text&#39;</span>

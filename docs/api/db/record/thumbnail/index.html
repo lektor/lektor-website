@@ -263,15 +263,15 @@ image. In this case the original is returned instead.
 <li><code>url_path</code> the URL path of the thumbnail.  This is absolute and needs to
 be made relative with the <code>|url</code> filter.</li>
 </ul>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">this.attachments.images</span> <span class="cp">%}</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">this.attachments.images</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image.thumbnail</span><span class="o">(</span><span class="m">64</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">this.attachments.images</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">this.attachments.images</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image.thumbnail</span><span class="o">(</span><span class="nv">height</span><span class="o">=</span><span class="m">64</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image.thumbnail</span><span class="o">(</span><span class="m">1920</span><span class="o">,</span> <span class="m">1080</span><span class="o">,</span> <span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;crop&quot;</span><span class="o">,</span> <span class="nv">quality</span><span class="o">=</span><span class="m">40</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image.thumbnail</span><span class="o">(</span><span class="m">1920</span><span class="o">,</span> <span class="m">1080</span><span class="o">,</span> <span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;crop&quot;</span><span class="o">,</span> <span class="nv">quality</span><span class="o">=</span><span class="m">40</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
 </pre></div>
 
       

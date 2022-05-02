@@ -197,7 +197,7 @@ value is an empty list.</p>
 <p>This returns only the list of alt short IDs.  Access to the configured name
 of the alt within the project config is not available.  Databags should be
 used to provide alts with a humand readable title.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Other languages:
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Other languages:
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">alt</span> <span class="k">in</span> <span class="nv">get_alts</span><span class="o">(</span><span class="nv">this</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;.&#39;</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">alt</span><span class="o">=</span><span class="nv">alt</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">alt</span><span class="o">|</span><span class="nf">title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>

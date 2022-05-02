@@ -239,7 +239,7 @@ order is reversed.</p>
 <p>If two records have the same value for a field, then the ordering is defined on
 the next argument given.  So if you order by (<code>'year', 'name'</code>) it will first
 order by year and within a year it will order by name.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">this.children.order_by</span><span class="o">(</span><span class="s1">&#39;-year&#39;</span><span class="o">,</span> <span class="s1">&#39;name&#39;</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">project.year</span> <span class="cp">}}</span>: <span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>

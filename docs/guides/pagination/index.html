@@ -171,7 +171,7 @@ subset of the child records per page.</p>
 <h2 id="configuring-pagination">Configuring Pagination</h2><p>First you need to enable the pagination in the model.  Primarily you need
 to enable the pagination and set how many items show up on a page.  Just
 add this to the parent model:</p>
-<div class="highlight"><pre><span></span><span class="k">[pagination]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[pagination]</span><span class="w"></span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
 <span class="na">per_page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10</span><span class="w"></span>
 </pre></div>
@@ -179,7 +179,7 @@ add this to the parent model:</p>
 the children of an active page in your template rather than the children of the
 entire record.  This can be done by changing <code>this.children</code> to
 <code>this.pagination.items</code>:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">child</span> <span class="k">in</span> <span class="nv">this.pagination.items</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">child</span> <span class="k">in</span> <span class="nv">this.pagination.items</span> <span class="cp">%}</span>
   ...
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
@@ -188,7 +188,7 @@ handy <a href="../../api/db/record/pagination/" class="ref">pagination object</a
 very useful attributes that can be used for rendering.  It's recommended
 to make a <code>macros/pagination.html</code> that looks something like this so that
 you can render the same pagination everywhere:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_pagination</span><span class="o">(</span><span class="nv">pagination</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_pagination</span><span class="o">(</span><span class="nv">pagination</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;pagination&quot;</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">if</span> <span class="nv">pagination.has_prev</span> <span class="cp">%}</span>
       <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">pagination.prev</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="ni">&amp;laquo;</span> Previous<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
@@ -205,7 +205,7 @@ you can render the same pagination everywhere:</p>
 <span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>
 </pre></div>
 <h2 id="using-the-macro">Using the Macro</h2><p>Now that you have that set up, you can use the macro like this:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros/pagination.html&quot;</span> <span class="k">import</span> <span class="nv">render_pagination</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros/pagination.html&quot;</span> <span class="k">import</span> <span class="nv">render_pagination</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.pagination.pages</span> <span class="o">&gt;</span> <span class="m">1</span> <span class="cp">%}</span>
   <span class="cp">{{</span> <span class="nv">render_pagination</span><span class="o">(</span><span class="nv">this.pagination</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>

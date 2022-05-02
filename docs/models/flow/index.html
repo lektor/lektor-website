@@ -147,7 +147,7 @@ Documentation</a> to Flow first.</p>
 are stored in the <code>flowblocks/</code> folder and are ini files just like models.</p>
 <p>Instead of using <code>[model]</code> as section, the section is called <code>[block]</code>.</p>
 <p>Here a very basic flow block model <code>flowblocks/text.ini</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">[block]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[block]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text Block</span><span class="w"></span>
 <span class="na">button_label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text</span><span class="w"></span>
 
@@ -174,7 +174,7 @@ that keeps the flow block definition (<code>templates/blocks/NAME.html</code>):
 In our case the expected template is <code>templates/blocks/text.html</code>,
 as our flow block is defined in a file called <code>text.ini</code>.</p>
 <p>Here is a suitable template for this:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-block text-block-</span><span class="cp">{{</span> <span class="nv">this.class</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-block text-block-</span><span class="cp">{{</span> <span class="nv">this.class</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
   <span class="cp">{{</span> <span class="nv">this.text</span> <span class="cp">}}</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>

@@ -207,7 +207,7 @@ segments).  If they would request <code>/my-page@feed/recent</code> then it woul
 pass <code>['recent']</code> as path segments.</p>
 <h2 id="example">Example</h2><p>Here an example that would implement a virtual source for feeds and an
 associated virtual path resolver:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.sourceobj</span> <span class="kn">import</span> <span class="n">VirtualSourceObject</span>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.sourceobj</span> <span class="kn">import</span> <span class="n">VirtualSourceObject</span>
 <span class="kn">from</span> <span class="nn">lektor.utils</span> <span class="kn">import</span> <span class="n">build_url</span>
 
 <span class="k">class</span> <span class="nc">Feed</span><span class="p">(</span><span class="n">VirtualSourceObject</span><span class="p">):</span>

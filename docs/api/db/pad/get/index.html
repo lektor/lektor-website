@@ -222,17 +222,17 @@ want to select a specific page for pagination, then you need to pass
 <code>page_num</code> with a valid page number or you use the virtual path (<code>@1</code> for the
 first page for instance).</p>
 <h2 id="examples">Examples</h2><p>This is a simple example that shows how to use the method in a template:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">root</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">root</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">this.title</span> <span class="cp">}}</span> | <span class="cp">{{</span> <span class="nv">root.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 </pre></div>
 <p>Here another example that loads the current page but in another language:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">other_lang</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="nv">this._path</span><span class="o">,</span> <span class="nv">alt</span><span class="o">=</span><span class="s1">&#39;ru&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">other_lang</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="nv">this._path</span><span class="o">,</span> <span class="nv">alt</span><span class="o">=</span><span class="s1">&#39;ru&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This page in Russian: <span class="cp">{{</span> <span class="nv">other_lang.title</span> <span class="cp">}}</span>
 </pre></div>
 <h2 id="virtual-paths">Virtual Paths</h2><p>This method can also be used to look up <a href="../../../../content/paths/" class="ref">virtual paths</a>.  For instance to fetch a specific version of a
 pagination you can use a virtual path instead of using the <code>page_num</code>
 parameter:</p>
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pad</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/blog@3&#39;</span><span class="p">)</span>
+<div class="hll"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pad</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/blog@3&#39;</span><span class="p">)</span>
 <span class="go">&lt;Page model=u&#39;blog&#39; path=&#39;/blog&#39; page_num=3&gt;</span>
 </pre></div>
 

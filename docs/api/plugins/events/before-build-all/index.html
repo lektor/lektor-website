@@ -213,7 +213,7 @@ most useful for preprocessing sources on the file system before the rest of
 the build process should pick it up.  For instance here a plugin could inject
 additional files into the asset folder and similar things.</p>
 <p>As an example, this is what the <a href="../../../../guides/webpack/" class="ref">Webpack Support</a> uses.</p>
-<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
 <span class="k">def</span> <span class="nf">on_before_build_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">builder</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">ospath</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="s1">&#39;webpack&#39;</span><span class="p">)</span>

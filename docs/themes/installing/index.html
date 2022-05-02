@@ -149,11 +149,11 @@
 </code></pre>
 <p>Themes are normally distributed by public Git repositories, so you could install a theme by
 cloning the repo:</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> themes
+<div class="hll"><pre><span></span><span class="nb">cd</span> themes
 git clone URL_TO_THEME_REPO
 </pre></div>
 <p>For example, for installing <code>lektor-theme-nix</code>:</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> themes
+<div class="hll"><pre><span></span><span class="nb">cd</span> themes
 git clone https://github.com/rlaverde/lektor-theme-nix.git
 </pre></div>
 <p>If you download several themes, setting <code>themes</code> variable will allow you to only load
@@ -163,7 +163,7 @@ search in the
 <!-- FIXME: use this link when theme showcase exists [community themes](/themes/) -->
 <a href="https://github.com/lektor/lektor-themes" class="ext">community themes</a>
 and automatically install it.</p>
-<div class="highlight"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
 <span class="na">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor-theme-nix</span><span class="w"></span>
 </pre></div>
 <h2 id="installing-multiple-themes">Installing Multiple Themes</h2><p>Lektor also supports installing several themes. Copy them to the <code>themes/</code>
@@ -177,7 +177,7 @@ folder, and set the <code>themes</code> variable to indicate the precedence (opt
     ├── lektor-theme-other-theme/
     └── lektor-theme-nix/
 </code></pre>
-<div class="highlight"><pre><span></span><span class="k">[project]</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
 <span class="na">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor-theme-nix, lektor-theme-other-theme</span><span class="w"></span>
 </pre></div>
 <p>This will make <code>lektor-theme-nix</code>, because it's listed first, have a higher precedence.
