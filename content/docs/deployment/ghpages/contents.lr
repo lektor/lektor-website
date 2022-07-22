@@ -12,10 +12,9 @@ It's a service provided by GitHub which allows one to host static websites for f
 
 [github-pages]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages
 
-<!-- FIXME: this is not right, I think. -->The way this is implemented in Lektor currently is that Lektor will force-push
-the lektor output to a specific branch in a repository of choice.
-There are two ways to push it up:
-`ghpages` (which uses SSH) or `ghpages+https` (which uses HTTPS). 
+The way this deployment support works is that it makes and pushes a new commit,
+containing the current Lektor output, to a specific branch in a specified GitHub repository.
+Lektor supports using either SSH or HTTPS to push to GitHub.
 
 Example:
 
@@ -24,28 +23,22 @@ Example:
 target = ghpages://your-user/your-repository
 ```
 
-
-
 ## Credentials
 
 This deployment method has two implementations: `ghpages` (also known as
 `ghpages+ssh`) which uses SSH and `ghpages+https` which uses HTTPS.  They
-use different methods for credentials.
+use different methods for configuring the credentials.
 
 For the SSH transport the same
 rules apply as for the [rsync deployment method :ref](../rsync/).
 
-For the HTTPS transport, there are three ways in which to provide credentials. In order of precedence (first one found wins):
+For the HTTPS transport, there are three ways in which to provide credentials. In order of precedence (the first one found wins):
 - By passing  `--username` and `--password` parameters to the `lektor deploy` command.
 - By setting the  `$LEKTOR_DEPLOY_USERNAME` and `$LEKTOR_DEPLOY_PASSWORD` environment variables.
 - In the _userinfo_ part of the target URL.  E.g. `target = ghpages+https://user:pw@owner/repo-name`.
 
 ! If you have 2-factor authentication set up and you're using HTTPS, instead of your normal password, you will need to use a [personal access token :ext](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-## Behavior
-
-The way this deployment support works is that it makes a pushes a new commit,
-containing the current Lektor output, to a specific branch in a specified Github repository.
 
 ## Pushing To An Explicit Branch
 
@@ -77,19 +70,38 @@ target = ghpages://your-user/your-repository?cname=www.example.com
 Note that this will overwrite whatever custom domain you may have set on
 GitHub with every deployment.
 
-For more information about how CNAMEs work with GitHub you can read about
+For more information about how CNAMEs work with GitHub, you can read about
 the feature in the GitHub help center:
 [Adding a CNAME file to your repository
 :ext](https://help.github.com/articles/adding-a-cname-file-to-your-repository/).
 
 ## 404 Pages
 
-Per convention the file named `404.html` is used as placeholder if a page
+Per convention, the file named `404.html` is used as a placeholder if a page
 cannot be found.  You can create such a page by creating a `404.html/contents.lr`
 file.
+
+
+## Pushing Orphan Commits
+
+By default, when publishing to GH pages, the current head of the GH pages branch is fetched, a regular commit (with that parent) is made,
+and then the new commit is pushed back to GitHub. This keeps the entire history of the site's built output in the git repository.
+
+Keeping that history is of marginal utility, and doing things this way incurs the network overhead involved in fetching the current head.
+
+Adding a `?preserve_history=no` query parameter to the target URL will cause orphan commits to be _force-pushed_ to the GH pages branch.
+
+```ini
+[servers.production]
+target = ghpages://your-user/your-repo?preserve_history=no
+```
+
+! Setting `preserve_history=no`, while it avoids the network overhead involved in fetching the current head, _discards any history_ of the site's built output that may be kept in the target repository.
 
 ## Automatic Deployments
 
 If you want to use ghpages it's desirable to have this build automatically.
 This is easy to accomplish with the help of Travis-CI.  For more information
 see [Deploying with Travis-CI :ref](../travisci/).
+---
+template_var: 
