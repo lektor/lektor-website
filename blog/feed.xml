@@ -22,7 +22,7 @@
 &lt;/ul&gt;
 &lt;h2 id="improvements"&gt;Improvements&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Added support for setting the output_path in the project file. (thank you &lt;a href="https://github.com/georgeyk"&gt;George Kussumoto&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Added support for deleting and excluding files for the rsync deployment publisher. (thank you &lt;a href="https://github.com/m-lib"&gt;m-lib&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Added support for deleting and excluding files for the rsync deployment publisher. (thank you &lt;a href="https://github.com/m-lnrs"&gt;m-lnrs&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Several modernization and performance improvements to the admin UI (thank you &lt;a href="https://github.com/yagebu"&gt;Jakob Schnitzer&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Improved speed of source info updates. (thank you &lt;a href="https://github.com/dairiki"&gt;Jeff Dairiki&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Set colorspace to sRGB for thumbnails. This should result in significantly reduced thumbnail file size when the source image uses a more exotic colorspace. (thank you &lt;a href="https://github.com/skorokithakis"&gt;Stavros Korokithakis&lt;/a&gt;)&lt;/li&gt;
