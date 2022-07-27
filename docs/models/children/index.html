@@ -174,7 +174,10 @@ used to implement categories with filtering.</li>
 <li><code>hidden</code>: if this is set it can override the parent's hidden flag for
 all children.  This is particularly useful if you want to have a folder
 for error pages or other special pages where the parent itself should not
-be rendered but all children are.  The default is not set.</li>
+be rendered but all children should.  The default is not set.
+(Note that an explicit value for a
+<a href="/docs/api/db/system-fields/hidden/">child's <code>_hidden</code> field</a> will
+override any value set here.)</li>
 </ul>
 <div class="admonition admonition-info"><p>The <code>hidden</code> flag was added in Lektor 2.0</p></div><h2 id="child-slug-behavior">Child Slug Behavior</h2><p>Slugs are the URL paths or more correctly: parts of it.  The URL paths
 always are the concatenation from the parent's page URL path plus the

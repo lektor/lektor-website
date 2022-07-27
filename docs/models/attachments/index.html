@@ -138,9 +138,9 @@ exist in the folder they are silently ignored.</li>
 <li><code>model</code>: an optional default model that is used for all attachments.</li>
 <li><code>order_by</code>: controls the ordering of attachments, similar to how this
 works for child pages.</li>
-<li><code>hidden</code>: if this is set it can override the hidden flag for all
-attachments at once.  The default as of Lektor 2 is that attachments are
-not hidden by default.</li>
+<li><code>hidden</code>: if this is set, attachments will not be built.
+ (Note that any setting here may be overridden on a per attachment basis by
+ setting that attachment's <a href="https://www.getlektor.com/docs/models/attachments/"><code>_hidden</code> field</a>.)</li>
 </ul>
 <div class="admonition admonition-info"><p>The <code>hidden</code> flag was added in Lektor 2.0 and the default was changed so
 that attachments are not hidden by default, even if the parent is.</p></div>
