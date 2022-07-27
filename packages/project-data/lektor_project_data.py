@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import cgi
+import re
 
 import readme_renderer.markdown
 import readme_renderer.rst
@@ -15,6 +16,24 @@ _RENDERERS = {
     'text/x-rst': readme_renderer.rst,
     'text/markdown': readme_renderer.markdown,
 }
+
+
+def normalize_url(url):
+    """Normalize project home page URLs."""
+    # Normalize any URLS to GitHub project repos.
+    m = re.match(
+        r"""
+            https?://(?:www\.)?github\.com
+            / (?P<owner>[^/]+)
+            / (?P<project>[^/]+?) (?:\.git)
+            /? \Z
+        """,
+        url,
+        flags=re.VERBOSE
+    )
+    if m:
+        return "https://github.com/{owner}/{project}".format(**m.groupdict())
+    return url
 
 
 class ProjectDataPlugin(Plugin):
@@ -71,6 +90,8 @@ class ProjectDataPlugin(Plugin):
             self.data['description'], self.data['description_content_type'])
         if not self.data.get('home_page'):
             self.data['home_page'] = f'https://pypi.org/project/{name}/'
+        else:
+            self.data['home_page'] = normalize_url(self.data['home_page'])
 
     def github_data(self, owner=None, repo=None):
         url = 'https://api.github.com/repos/{}/{}'.format(owner, repo)
