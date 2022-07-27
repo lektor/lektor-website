@@ -7,11 +7,18 @@ type: sysfield
 body:
 
 This field controls if Lektor should process the page into a build artifact.
-By default each page is built into a build artifact (HTML page) and each
-attachment is processed.  This can be prevented by setting `_hidden` to `yes`.
+By default, each page is built into a build artifact (HTML page) and each
+attachment is copied to the output directory.
+This can be prevented for a particular page or attachment by setting its `_hidden` to `yes`.
 
-This also automatically applies to all children of a page unless they
-forcefully override this setting.
+If an explicit value for the `_hidden` field is not set, the value of the `hidden` option in the
+[child configuration] — or, for attachments, [attachment configuration] — section
+of the parent's datamodel is checked.
+If that, too, is not set, then pages, but not attachments, inherit the hidden status of their parent —
+that is, by default, children of hidden pages will not be built, though attachments of hidden pages will.
+
+[child configuration]: https://www.getlektor.com/docs/models/children/#child-configuration (The [children] section of the datamodel)
+[attachment configuration]: https://www.getlektor.com/docs/models/attachments/ (The [attachments] section of the datamodel)
 
 This is useful for more advanced setups like [Single Page Applications
 :ref](../../../../guides/single-page/).

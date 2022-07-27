@@ -13,9 +13,9 @@ There are a few settings to control these in the `[attachments]` section:
 * `model`: an optional default model that is used for all attachments.
 * `order_by`: controls the ordering of attachments, similar to how this
   works for child pages.
-* `hidden`: if this is set it can override the hidden flag for all
-  attachments at once.  The default as of Lektor 2 is that attachments are
-  not hidden by default.
+* `hidden`: if this is set, attachments will not be built.
+   (Note that any setting here may be overridden on a per attachment basis by
+   setting that attachment's [`_hidden` field](https://www.getlektor.com/docs/models/attachments/).)
 
 !! The `hidden` flag was added in Lektor 2.0 and the default was changed so
 that attachments are not hidden by default, even if the parent is.

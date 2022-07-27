@@ -40,7 +40,10 @@ Here are the most important options below `[children]`:
 - `hidden`: if this is set it can override the parent's hidden flag for
   all children.  This is particularly useful if you want to have a folder
   for error pages or other special pages where the parent itself should not
-  be rendered but all children are.  The default is not set.
+  be rendered but all children should.  The default is not set.
+  (Note that an explicit value for a
+  [child's `_hidden` field](/docs/api/db/system-fields/hidden/) will
+  override any value set here.)
 
 !! The `hidden` flag was added in Lektor 2.0
 
