@@ -13,7 +13,7 @@ image: coffee-ground-1171092-1599x1066.jpg
 ----
 height: 500
 ----
-contents:
+contents: 
 #### text-block ####
 text:
 
@@ -51,7 +51,7 @@ A big shoutout to all the contributors who help make Lektor awesome!
 ## Improvements
 
 * Added support for setting the output_path in the project file. (thank you [George Kussumoto](https://github.com/georgeyk))
-* Added support for deleting and excluding files for the rsync deployment publisher. (thank you [m-lib](https://github.com/m-lib))
+* Added support for deleting and excluding files for the rsync deployment publisher. (thank you [m-lnrs](https://github.com/m-lnrs))
 * Several modernization and performance improvements to the admin UI (thank you [Jakob Schnitzer](https://github.com/yagebu))
 * Improved speed of source info updates. (thank you [Jeff Dairiki](https://github.com/dairiki))
 * Set colorspace to sRGB for thumbnails. This should result in significantly reduced thumbnail file size when the source image uses a more exotic colorspace. (thank you [Stavros Korokithakis](https://github.com/skorokithakis))
