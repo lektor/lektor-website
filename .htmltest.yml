@@ -1,6 +1,8 @@
 IgnoreAltMissing: true
 IgnoreURLs:
   - "^http://localhost:"
+  # For unknown reasons, htmltest reports a 404 on these one:
+  - "^https://twitter.com/"
 
 # htmltest does not like quotes around URL in meta refresh
 CheckMetaRefresh: false
