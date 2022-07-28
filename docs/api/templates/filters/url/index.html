@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../../static/styles.css?h=ca3aba42">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=ae0cc228">
   <link rel="stylesheet" href="../../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
   <title>url | Documentation | Lektor Static Content Management System</title>
@@ -172,6 +172,8 @@
         
           <li><a href="#examples">Examples</a></li>
         
+          <li><a href="#details">Details</a></li>
+        
         </ul>
       </div>
       
@@ -180,7 +182,8 @@
     <div class="col-sm-9 doc-styling">
       
   
-    <h1><i class="glyphicon glyphicon-cog"></i> <code class="obj">url</code> <span class="sig">(<code>alt=None, absolute=None, external=None</code>)</span></h1>
+    <h1><i class="glyphicon glyphicon-cog"></i> <code class="obj">url</code>
+        <span class="sig">(<code>alt=None,</code> <code>absolute=None,</code> <code>external=None,</code> <code>resolve=None,</code> <code>strict_resolve=None</code>)</span></h1>
   
 
 
@@ -198,9 +201,9 @@ The filter can be applied to either a string or a <a href="../../../db/record/" 
 as the final URLs.  This is important when a page forcefully overrides the
 URL path.  In this case it could be that linking to <code>/project</code> for instance
 would generate the URL <code>de/projekte/</code> if that's what's configured.</p>
-<p>If you want to override this behavior you can prefix the URL with <code>!</code> and
-no resolving will take place.</p>
-<p>Note that the URL filter always generates a relative URL.  So for instance
+<p>To override this behavior, pass <code>resolve=False</code> (or, alternatively,
+prefix the URL with <code>!</code>) and no resolving will take place.</p>
+<p>Note that, by default, the URL filter always generates a relative URL.  So for instance
 if you are currently at <code>/info/about/</code> and you want to link to <code>/projects/</code>
 it will generate a link in the form of <code>../../projects/</code>.  This makes it
 possible to easily deploy the website to a folder outside of the root of
@@ -214,10 +217,13 @@ the website.</p>
 <div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;.&#39;</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">alt</span><span class="o">=</span><span class="s1">&#39;ru&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>Русский<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 <p>If you already know 100% where to link to, and you do not want any resolving
-to take place, then you can prefix a path with <code>!</code>.  For instance this always
+to take place, then pass <code>resolve=False</code>.  For instance this always
 links to the root of the website:</p>
-<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;!/&#39;</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>To Root<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;/&#39;</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">resolve</span><span class="o">=</span><span class="kp">False</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>To Root<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
+<h2 id="details">Details</h2><p>Internally, this filter uses <a href="../../../db/obj/url-to/">SourceObject.url_to</a>.  See the
+<a href="../../../db/obj/url-to/">documentation for that method</a> to read more about the details
+of that process.</p>
 
       
 
