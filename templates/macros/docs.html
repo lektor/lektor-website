@@ -19,19 +19,31 @@
 {%- endmacro %}
 
 {% macro get_doc_link(page) -%}
-  <a href="{{ page|url }}">{{ page.title }}{%
-    if page.type == 'function' or page.type == 'method' %}(){% endif %}</a>
+  <a href="{{ page|url }}">
+    {{- page.title -}}{% if page.type in ('function', 'method') %}(){% endif -%}
+  </a>
 {%- endmacro %}
 
 {% macro get_doc_header(page) %}
   {% if page.type %}
-    <h1>{% if page.type %}{{ get_doc_icon(page) }} {% endif %}{%
-      if page.module %}<code class="mod">{{ page.module }}.</code>{% endif
-      %}<code class="obj">{{ page.title }}</code>{%
-      if (page.type == 'method' or page.type == 'function' or page.type == 'filter'
-        or page.type == 'event') or page.signature
-      %} <span class="sig">(<code>{{ page.signature }}</code>)</span>{% endif %}</h1>
+    <h1>
+      {%- if page.type %}{{ get_doc_icon(page) }} {% endif %}
+      {%- if page.module %}<code class="mod">{{ page.module }}.</code>{% endif -%}
+      <code class="obj">{{ page.title }}</code>
+      {%- if page.signature or page.type in ('method', 'function', 'filter', 'event') %}
+        <span class="sig">({{ format_signature(page.signature) }})</span>
+      {%- endif -%}
+    </h1>
   {% else %}
     <h1>{{ page.title }}</h1>
   {% endif %}
+{% endmacro %}
+
+{% macro format_signature(signature) -%}
+  {% if signature|trim -%}
+    {% set sep = joiner(" ") -%}
+    {% for param in signature.split(',')|map('trim') -%}
+      {{ sep() }}<code>{{ param }}{% if not loop.last %},{% endif %}</code>
+    {%- endfor -%}
+  {% endif -%}
 {% endmacro %}

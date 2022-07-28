@@ -36,3 +36,45 @@ type = markdown
   {{ this.body }}
 </div>
 ```
+
+## Resolution of Links
+
+The way in which links in Markdown fields are resolved to URLs can be
+controlled using the `resolve_links` field option.  There are three
+possible values for the option:
+
+- `resolve_links = never`
+   Never resolve links to Lektor source objects. This was the link
+   resolution behavior for all versions of Lektor before *FIXME*.
+
+- `resolve_links = when-possible`
+   This is the new default behavior. When possible, links are resolved
+   to Lektor [source objects](../../obj/), then the URL to those
+   source objects is used.  When the resolution to a source object
+   fails, the links are interpreted as URL paths.
+
+- `resolve_links = always`
+   Resolve links to Lektor source objects, then use the URL of those
+   source objects. If that resolution fails, an error is raised.
+
+The `resolve_links` option only applies to Markdown links that do not
+include an explicit _scheme_ or _netloc_.
+
+As an example, to force the old behavior, wherein links were never
+resolved via the Lektor database, configure a `markdown` field like
+so:
+
+```ini
+[fields.body]
+label = Body
+type = markdown
+resolve_links = never
+```
+
+## Linking to a Specific Alt
+
+When links are resolved through the Lektor database, URLs to specific _alt_s may be obtained by adding an `alt` query arg to the link.
+For example, to link to the current page, but in the French alt:
+```md
+Here is the [French version of the blog](/blog?alt=fr).
+```

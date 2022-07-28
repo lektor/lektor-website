@@ -4,16 +4,32 @@ summary: Generates a URL relative to another path.
 ---
 type: method
 ---
-signature: path, alt=None, absolute=None, external=None
+signature: path, alt=None, absolute=None, external=None, base_url=None, resolve=None, strict_resolve=None
 ---
 body:
 
 Calculates the URL from the current source object to the given other source
-object.  Alternatively a path can also be provided instead of a source object.
-If the path starts with a leading bang (``!``) then no resolving is performed.
+object.  Alternatively, a path can also be provided instead of a source object.
+
+This is what the [`|url` filter](../../../templates/filters/url/) uses
+internally to generate URLs.
+
+If `resolve` is not `False`, then (so long as `path` is not a URL
+containing either a _scheme_ or a _netloc_) an attempt is made to
+resolve `path` via the [Lektor database](../../) to a _source object_,
+then the URL of that source object is used.  If database-resolution of
+the path fails, then the path is interpreted as a URL-path, or, if
+`strict_resolve` is `True`, an error is raised.
+
+If the path starts with a leading bang (``!``) then no resolving is
+performed.  This is equivalent to passing `resolve=False`.
+
+An explicit value for `alt` may be specified via the `alt` parameter to `url_to`.
+Alternatively, an `alt` query arg may be included in the `path` parameter.
+For example, `src.url_to('/', alt='de')` is equivalent to `src.url_to('/?alt=de')` — both return the URL to the root of the site with `alt=de`. 
+
 If no `alt` is provided the `alt` of the page is used.
 
-This is what the `|url` filter uses internally to generate URLs.
 
 In addition to that `absolute` can enforce the URL to be absolute instead of
 relative to the current page and `external` can be used to also add the

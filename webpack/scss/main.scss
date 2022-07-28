@@ -221,6 +221,13 @@ div.blog-snippet {
 div.doc-styling, div.blog-post, div.plugin {
   line-height: 1.75;
 
+  h1 {
+    text-indent: -2em;
+    padding-left: 2em;
+    .glyphicon {
+      text-indent: 0;
+    }
+  }
   a.ref {
     font-style: italic;
   }
