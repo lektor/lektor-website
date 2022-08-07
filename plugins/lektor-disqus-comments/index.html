@@ -139,20 +139,20 @@ enabled a <code>render_disqus_comments</code> function which can render a disqus
 box.</p>
 <h2>Enabling the Plugin</h2>
 <p>To enable the plugin add this to your project file:</p>
-<pre>$ lektor plugins add lektor-disqus-comments
+<pre lang="shell">$ lektor plugins add lektor-disqus-comments
 </pre>
 <h2>Configuring the Plugin</h2>
 <p>The plugin has a config file that is needed to inform it about your
 website.  Just create a file named <code>disqus-comments.ini</code> into your
 <code>configs/</code> folder and configure the <code>shortname</code> key with the name of
 your disqus community:</p>
-<pre><span class="na">shortname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">YOUR_SHORTNAME</span><span class="w"></span>
+<pre lang="ini"><span class="na">shortname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">YOUR_SHORTNAME</span><span class="w"></span>
 </pre>
 <h2>In Templates</h2>
 <p>Now you can add a discussion box to any of your templates by just using
 the <code>render_disqus_comments</code> function.  Just calling it is enough to
 get the comment box:</p>
-<pre><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;comments&quot;</span><span class="p">&gt;</span>{{ render_disqus_comments() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;comments&quot;</span><span class="p">&gt;</span>{{ render_disqus_comments() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre>
 <p>Optionally the function accepts a few arguemnts:</p>
 <ul>

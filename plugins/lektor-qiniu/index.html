@@ -143,28 +143,28 @@
 <p><strong>This plugin does not do anything to help you create or configure qiniu account or bucket.</strong>  You will have to make it done by yourself.</p>
 <h2>Installation</h2>
 <p>There ways to install plugin in Lektor, the easy ways is run below command in your project.</p>
-<pre><span class="go">lektor plugins add lektor-qiniu</span>
+<pre lang="console"><span class="go">lektor plugins add lektor-qiniu</span>
 </pre>
 <p>Press Enter and lektor will automatically download and install this plugin for you.</p>
 <h2>Usage</h2>
 <p>After Installation, open your lektorproject file, first it should have a section like this:</p>
-<pre><span class="k">[packages]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[packages]</span><span class="w"></span>
 <span class="na">lektor-qiniu</span><span class="o">=</span><span class="w"> </span><span class="s">0.1.3</span><span class="w"></span>
 </pre>
 <p>then below this section, you need add your bucket and folder(optional) as a target of a deploy server, like this:</p>
-<pre><span class="k">[servers.qiniu]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[servers.qiniu]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">qiniu</span><span class="w"></span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
 <span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">qiniu://&lt;YOUR-BUCKET&gt;</span><span class="w"></span>
 </pre>
 <p>or if you want deploy your site to a folder in a bucket, mostly for backups, you can add server section as below:</p>
-<pre><span class="k">[servers.qiniu]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[servers.qiniu]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">qiniu</span><span class="w"></span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
 <span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">qiniu://&lt;YOUR-BUCKET&gt;/&lt;NAME-OF-FOLDER&gt;</span><span class="w"></span>
 </pre>
 <p>for example, if you want to deploy your site to a bucket name &quot;abcde&quot;, folder &quot;fjhi&quot;, you will need to add a server section as below:</p>
-<pre><span class="k">[servers.qiniu]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[servers.qiniu]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">qiniu</span><span class="w"></span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
 <span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">qiniu://abcde/fjhi</span><span class="w"></span>
@@ -177,7 +177,7 @@
 <p>In configs folder, create a configuration file exactly named <strong>qiniu.ini</strong>.</p>
 <h4>Attention: DO NOT name the configuration file with other names, otherwise this plugin will not work properly.</h4>
 <p>In this configuration file, you will need add few more sections, you can copy a sample configuration ini file from the sample_config folder, it looks like this:</p>
-<pre><span class="k">[auth]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[auth]</span><span class="w"></span>
 <span class="na">Access_Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">replace_with_your_own_AK</span><span class="w"></span>
 <span class="na">Secret_Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">replace_with_your_won_SK</span><span class="w"></span>
 
@@ -197,7 +197,7 @@
 <h4>exclusions</h4>
 <p>Another function this plugin provides is exclude folders or files you want to upload during deployment.</p>
 <p>To exclude files or folders, just put the name of the folders or files in the <strong>exclusions</strong> section of configuration file, separated each one with commas.</p>
-<pre><span class="k">[exclusions]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[exclusions]</span><span class="w"></span>
 <span class="na">dirs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.lektor, dir1, dir2</span><span class="w"></span>
 <span class="na">files</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">file1, file2,file3</span><span class="w"></span>
 </pre>

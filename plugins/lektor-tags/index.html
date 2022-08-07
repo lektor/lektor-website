@@ -151,19 +151,19 @@ tea
 <p>Each page can list all the posts with that tag.</p>
 <h2>Installation</h2>
 <p>Add lektor-tags to your project from command line:</p>
-<pre>lektor plugins add lektor-tags
+<pre lang="shell">lektor plugins add lektor-tags
 </pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor documentation for more instructions on installing plugins</a>.</p>
 <h2>Overview</h2>
 <p>Say you have a &quot;blog-post&quot; model like this:</p>
-<pre><span class="k">[model]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[model]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog Post</span><span class="w"></span>
 
 <span class="k">[fields.tags]</span><span class="w"></span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">strings</span><span class="w"></span>
 </pre>
 <p>Make a <code>blog-post.html</code> template that includes:</p>
-<pre>{% if this.tags %}
+<pre lang="html">{% if this.tags %}
   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
     {% for t in this.tags -%}
       <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -176,7 +176,7 @@ tea
 {% endif %}
 </pre>
 <p>This expression in the template generates a <em>source path</em> for each of the blog post's tags:</p>
-<pre><span class="x">&#39;/blog@tag/&#39; ~ t</span>
+<pre lang="jinja"><span class="x">&#39;/blog@tag/&#39; ~ t</span>
 </pre>
 <p>Then if the tag is &quot;my-tag&quot;, the expression renders a source path like:</p>
 <pre><code>/blog/tag/my-tag
@@ -189,37 +189,37 @@ tea
 <p>Set these options in <code>configs/tags.ini</code>:</p>
 <h3><code>parent</code></h3>
 <p>Required. The source path of the tag pages' parent page. For example:</p>
-<pre><span class="na">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span><span class="w"></span>
+<pre lang="ini"><span class="na">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span><span class="w"></span>
 </pre>
 <p>Then tag pages' source paths are like:</p>
 <pre><code>/blog/tag/my-tag
 </code></pre>
 <p>You can specify the root as the parent:</p>
-<pre><span class="na">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span><span class="w"></span>
+<pre lang="ini"><span class="na">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span><span class="w"></span>
 </pre>
 <h3><code>items</code></h3>
 <p>A query for all items on the page for one tag. You can use the variables <code>site</code> and <code>tag</code>. The template's <code>this</code> variable has a <code>parent</code> attribute. The default query is:</p>
-<pre><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.children.filter(F.tags.contains(tag))</span><span class="w"></span>
+<pre lang="ini"><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.children.filter(F.tags.contains(tag))</span><span class="w"></span>
 </pre>
 <p>You can sort and filter with any expression:</p>
-<pre><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.children.filter(F.tags.contains(tag) and F.status == &#39;published&#39;).order_by(&#39;-pub_date&#39;)</span><span class="w"></span>
+<pre lang="ini"><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.children.filter(F.tags.contains(tag) and F.status == &#39;published&#39;).order_by(&#39;-pub_date&#39;)</span><span class="w"></span>
 </pre>
 <p>If the parent page has <a href="https://www.getlektor.com/docs/guides/pagination/" rel="nofollow">a pagination query</a> you may want to use it for tagged pages:</p>
-<pre><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.pagination.items.filter(F.tags.contains(tag))</span><span class="w"></span>
+<pre lang="ini"><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.pagination.items.filter(F.tags.contains(tag))</span><span class="w"></span>
 </pre>
 <p>See <a href="https://www.getlektor.com/docs/api/db/query/" rel="nofollow">the Lektor documentation for queries</a>.</p>
 <h3><code>tags_field</code></h3>
 <p>The name of the field in your model that contains tags. Defaults to <code>tags</code>. The field should be of type <code>strings</code>. See <a href="https://www.getlektor.com/docs/api/db/types/strings/" rel="nofollow">the Lektor documentation for the <code>strings</code> type</a>.</p>
 <p>For example, if your model is like:</p>
-<pre><span class="k">[fields.labels]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[fields.labels]</span><span class="w"></span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">strings</span><span class="w"></span>
 </pre>
 <p>Then add this to <code>tags.ini</code>:</p>
-<pre><span class="na">tags_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">labels</span><span class="w"></span>
+<pre lang="ini"><span class="na">tags_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">labels</span><span class="w"></span>
 </pre>
 <h3><code>template</code></h3>
 <p>The template for the page that lists all posts with a certain tag. The template's <code>this</code> variable has attributes <code>tag</code> and <code>items</code>. An example template:</p>
-<pre><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Tag: {{ this.tag }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Tag: {{ this.tag }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Items:<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
   {% for i in this.items %}
@@ -230,39 +230,39 @@ tea
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </pre>
 <p>Save a file like this to your project's <code>templates/tags.html</code>. If you name the file something different, like <code>label.html</code>, add this line to <code>tags.ini</code>:</p>
-<pre><span class="na">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">label.html</span><span class="w"></span>
+<pre lang="ini"><span class="na">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">label.html</span><span class="w"></span>
 </pre>
 <p>The plugin provides a default template if you don't specify one.</p>
 <h3><code>url_path</code></h3>
 <p>An expression for the location of each tag page. You can use the variables <code>site</code> and <code>tag</code>. The <code>this</code> variable is a page with attributes <code>parent</code> and <code>items</code>. The default expression is:</p>
-<pre><span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.parent.url_path }}tag/{{ tag }}</span><span class="w"></span>
+<pre lang="ini"><span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.parent.url_path }}tag/{{ tag }}</span><span class="w"></span>
 </pre>
 <p>This expression generates URLs like <code>/blog/tag/coffee</code>.</p>
 <h3><code>ignore_missing</code></h3>
 <p>Default false. To set true, add this line to <code>tags.ini</code>:</p>
-<pre><span class="na">ignore_missing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
+<pre lang="ini"><span class="na">ignore_missing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
 </pre>
 <p>This allows URLs to missing tag pages to be silently replaced with &quot;&quot;. The example use case is if your <code>blog-post.html</code> template includes a statement like:</p>
-<pre>{% for t in this.tags -%}
+<pre lang="html">{% for t in this.tags -%}
   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ (&#39;/blog@tag/&#39; ~ t)|url }}&quot;</span><span class="p">&gt;</span>{{ t }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 {% endfor %}
 </pre>
 <p>If a blog post <em>draft</em> is not discoverable, and it has any new tags used by no published blog posts, then those tag pages do not yet exist. Turn on <code>ignore_missing</code> to allow such drafts to be built. The tag-page URL path will be the empty string &quot;&quot;, until the draft is published and the tag page is created.</p>
 <h3><code>tags</code></h3>
 <p>Advanced configuration. An expression for the set of tags. Note that this expression is also useful in a template to get a list of all tags. The default expression is:</p>
-<pre><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">parent.children.distinct(&quot;tags&quot;)</span><span class="w"></span>
+<pre lang="ini"><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">parent.children.distinct(&quot;tags&quot;)</span><span class="w"></span>
 </pre>
 <p>If you set <code>tags_field</code> to a different field name than &quot;tags&quot;, the default expression uses your custom field name. For example if you have this line in <code>tags.ini</code>:</p>
-<pre><span class="na">tags_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">labels</span><span class="w"></span>
+<pre lang="ini"><span class="na">tags_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">labels</span><span class="w"></span>
 </pre>
 <p>Then the default value of <code>tags</code> is:</p>
-<pre><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">parent.children.distinct(&quot;labels&quot;)</span><span class="w"></span>
+<pre lang="ini"><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">parent.children.distinct(&quot;labels&quot;)</span><span class="w"></span>
 </pre>
 <p>You can use any template expression. For example, if your items have a &quot;published&quot; boolean field, you can select tags of published items:</p>
-<pre><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">parent.children.filter(F.published).distinct(&quot;tags&quot;)</span><span class="w"></span>
+<pre lang="ini"><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">parent.children.filter(F.published).distinct(&quot;tags&quot;)</span><span class="w"></span>
 </pre>
 <p>Or even list your tags manually:</p>
-<pre><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;tag1&quot;, &quot;tag2&quot;]</span><span class="w"></span>
+<pre lang="ini"><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;tag1&quot;, &quot;tag2&quot;]</span><span class="w"></span>
 </pre>
 <p>See <a href="https://www.getlektor.com/docs/api/db/query/" rel="nofollow">the Lektor documentation for queries</a>.</p>
 <p>Tags are always deduplicated. Tags are sorted in the order listed in the contents.lr / admin, allowing you to control their order manually. Since <code>{{ tags }}</code> simply returns a list, you can always apply any Jinja2 filter on that list such as sort, slice, or rejectattr.</p>
@@ -279,7 +279,7 @@ tea
 <h3><code>count</code> — Number of pages tagged with this tag</h3>
 <p>This is the basic weight, used as a base for the following tags.</p>
 <h4>Example: Tags (with tag count) sorted by tag count (most used first)</h4>
-<pre><span class="x">&lt;ul&gt;</span>
+<pre lang="jinja"><span class="x">&lt;ul&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="o">(</span><span class="nv">tagweights</span><span class="o">()</span> <span class="o">|</span> <span class="nf">dictsort</span><span class="o">(</span><span class="nv">by</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="o">,</span> <span class="nv">reverse</span><span class="o">=</span><span class="kp">true</span><span class="o">))</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;li&gt;</span><span class="cp">{{</span> <span class="nv">tag</span> <span class="cp">}}</span><span class="x"> (</span><span class="cp">{{</span> <span class="nv">weight.count</span> <span class="cp">}}</span><span class="x"> articles).&lt;/li&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
@@ -295,7 +295,7 @@ tea
 <p>Mapping is done using a linear function over the logarithm of tag counts.</p>
 <p>The result is a float: you might want to convert them to integers first (see example).</p>
 <h4>Example: Most used tag is twice as big as least used tag</h4>
-<pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="nv">tagweights</span><span class="o">()|</span><span class="nf">dictsort</span> <span class="cp">%}</span><span class="x"></span>
+<pre lang="jinja"><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="nv">tagweights</span><span class="o">()|</span><span class="nf">dictsort</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;a</span>
 <span class="x">    href=&quot;</span><span class="cp">{{</span> <span class="o">(</span><span class="s1">&#39;/blog@tag/&#39;</span> <span class="o">~</span> <span class="nv">tag</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;</span>
 <span class="x">    style=&quot;font-size: </span><span class="cp">{{</span> <span class="nv">weight.log</span><span class="o">(</span><span class="m">100</span><span class="o">,</span> <span class="m">200</span><span class="o">)|</span><span class="nf">round</span><span class="o">|</span><span class="nf">int</span> <span class="cp">}}</span><span class="x">%;&quot;</span>
@@ -312,7 +312,7 @@ tea
 <p>The less used tag is mapped with the first item, the most used tag is mapped with the last item.</p>
 <p>Mapping is done using a linear function over the logarithm of tag counts.</p>
 <h4>Example: Tags are given CSS classes <code>tagcloud-tiny</code>, <code>tagcloud-small</code>, etc.</h4>
-<pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="nv">tagweights</span><span class="o">()|</span><span class="nf">dictsort</span> <span class="cp">%}</span><span class="x"></span>
+<pre lang="jinja"><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span><span class="o">,</span> <span class="nv">weight</span> <span class="k">in</span> <span class="nv">tagweights</span><span class="o">()|</span><span class="nf">dictsort</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;a</span>
 <span class="x">    href=&quot;</span><span class="cp">{{</span> <span class="o">(</span><span class="s1">&#39;/blog@tag/&#39;</span> <span class="o">~</span> <span class="nv">tag</span><span class="o">)|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;</span>
 <span class="x">    class=&quot;tagcloud-</span><span class="cp">{{</span> <span class="nv">weight.loggroup</span><span class="o">([</span><span class="s2">&quot;tiny&quot;</span><span class="o">,</span> <span class="s2">&quot;small&quot;</span><span class="o">,</span> <span class="s2">&quot;normal&quot;</span><span class="o">,</span> <span class="s2">&quot;big&quot;</span><span class="o">,</span> <span class="s2">&quot;large&quot;</span><span class="o">])</span> <span class="cp">}}</span><span class="x">&quot;</span>

@@ -153,7 +153,7 @@ the <code>-f webpack</code> flag.</p>
 <h2>Enabling the Plugin</h2>
 <p>To enable the plugin add this to your project file, run this command while
 sitting in your Lektor project directory:</p>
-<pre>lektor plugins add lektor-webpack-support
+<pre lang="bash">lektor plugins add lektor-webpack-support
 </pre>
 <h2>Creating a Webpack Project</h2>
 <p>Next you need to create a webpack project. Create a <code>webpack/</code> folder and
@@ -162,7 +162,7 @@ inside that folder create <code>package.json</code> and a <code>webpack.config.j
 <p>This file instructs <code>npm</code> which packages we will need. All we need for a
 start is to create an almost empty file (name and version fields are mandatory
 but not important for functionality, change them to suit your own needs):</p>
-<pre><span class="p">{</span><span class="w"></span>
+<pre lang="json"><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lektor-webpack&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
@@ -182,7 +182,7 @@ setup that's good enough to cover most things you will encounter. The
 idea is to build the files from <code>webpack/scss</code> and <code>webpack/js</code> into
 <code>assets/static/gen</code> so that we can use it even if we do not have webpack
 installed for as long as someone else ran it before.</p>
-<pre><span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">);</span><span class="w"></span>
+<pre lang="javascript"><span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mini-css-extract-plugin&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -238,7 +238,7 @@ Lektor website that uses webpack.</p>
 <code>lektor build -f webpack</code>.</p>
 <h2>Including The Files</h2>
 <p>Now you need to include the files in your template. This will do it:</p>
-<pre><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ &#39;/static/gen/styles.css&#39;|asseturl }}&quot;</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ &#39;/static/gen/styles.css&#39;|asseturl }}&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">text/javascript</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ &#39;/static/gen/app.js&#39;|asseturl }}&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre>
  

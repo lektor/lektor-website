@@ -147,19 +147,19 @@ create the bucket and set its permissions to allow global read access.
 Remember to do this <strong>first</strong> because lektor-s3 won't do it automatically.</p>
 <h2>Installation and Usage</h2>
 <p>Install with the usual Lektor toolchain. Within your project, run</p>
-<pre><span class="go">lektor plugins add lektor-s3</span>
+<pre lang="console"><span class="go">lektor plugins add lektor-s3</span>
 </pre>
 <p>You should see a message saying lektor-s3 has been added to the project.</p>
 <p>Next, add an S3 bucket to your project's servers. In your project file
 (like <code>blog.lektorproject</code>), add the following:</p>
-<pre><span class="k">[servers.s3]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[servers.s3]</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">S3</span><span class="w"></span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
 <span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3://&lt;YOUR-BUCKET&gt;</span><span class="w"></span>
 </pre>
 <p>For example, if you wanted to deploy to a bucket named 'huntedwumpus',
 you'd make that last line</p>
-<pre><span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3://huntedwumpus</span><span class="w"></span>
+<pre lang="ini"><span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3://huntedwumpus</span><span class="w"></span>
 </pre>
 <p>Now, if you call <code>lektor deploy s3</code>, Lektor will upload your built
 website to S3 in the bucket you targeted.</p>
@@ -167,7 +167,7 @@ website to S3 in the bucket you targeted.</p>
 <p>Optionally, you can also provide a <a href="https://aws.amazon.com/cloudfront/" rel="nofollow">CloudFront</a>
 distribution ID. If you do, Lektor will invalidate all objects in that CloudFront
 distribution after every deploy.</p>
-<pre><span class="na">cloudfront</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;YOUR-DISTRIBUTION-ID&gt;</span><span class="w"></span>
+<pre lang="ini"><span class="na">cloudfront</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;YOUR-DISTRIBUTION-ID&gt;</span><span class="w"></span>
 </pre>
 <h2>Credentials</h2>
 <p>You need to prove to S3 that you have permission to upload to the
@@ -181,7 +181,7 @@ and <code>AWS_SECRET_ACCESS_KEY</code>.</p>
 <p>If you have multiple sets of credentials, you can group them into profiles in
 your credentials file and choose the right one using the <code>AWS_PROFILE</code>
 environment variable. Your <code>~/.aws/credenials</code> file might look like this:</p>
-<pre><span class="k">[work]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[work]</span><span class="w"></span>
 <span class="na">aws_access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;...&gt;</span><span class="w"></span>
 <span class="na">aws_secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;...&gt;</span><span class="w"></span>
 
@@ -190,7 +190,7 @@ environment variable. Your <code>~/.aws/credenials</code> file might look like t
 <span class="na">aws_secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;...&gt;</span><span class="w"></span>
 </pre>
 <p>And then you can invoke <code>lektor</code> with the environment variable:</p>
-<pre><span class="gp">$ </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>personal lektor deploy<span class="sb">`</span>
+<pre lang="console"><span class="gp">$ </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>personal lektor deploy<span class="sb">`</span>
 </pre>
 <h2>Configuration</h2>
 <p>You can specify headers to be attached to particular files when uploading them
@@ -208,7 +208,7 @@ their values. A list of valid headers is defined in the boto documentation as
 <a href="https://boto3.readthedocs.io/en/latest/reference/customizations/s3.html#boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" rel="nofollow"><code>ALLOWED_UPLOAD_ARGS</code></a>.</p>
 <p>Defaults can be defined via the usual INI file way, in a <code>[DEFAULTS]</code> section.</p>
 <p>For example, your configuration file might look like this:</p>
-<pre><span class="k">[DEFAULT]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[DEFAULT]</span><span class="w"></span>
 <span class="na">CacheControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">public,max-age=3600</span><span class="w"></span>
 
 <span class="k">[static files]</span><span class="w"></span>

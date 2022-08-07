@@ -151,16 +151,16 @@
 </ul>
 <h2>Installation</h2>
 <p>You can install the plugin with Lektor's installer:</p>
-<pre>lektor plugins add lektor-scss
+<pre lang="bash">lektor plugins add lektor-scss
 </pre>
 <p>Or by hand, adding the plugin to the packages section in your lektorproject file:</p>
-<pre><span class="k">[packages]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[packages]</span><span class="w"></span>
 <span class="na">lektor-scss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1.4.1</span><span class="w"></span>
 </pre>
 <h2>Usage</h2>
 <p>To enable the plugin, pass the <code>scss</code> flag when starting the development
 server or when running a build:</p>
-<pre><span class="c1"># build and compile css from scss</span>
+<pre lang="bash"><span class="c1"># build and compile css from scss</span>
 lektor build -f scss
 
 <span class="c1"># edit site with new generated css</span>
@@ -169,7 +169,7 @@ lektor server -f scss
 <h2>Python3</h2>
 <p>It is highly recommended to use this plugin with a python3 version of lektor.</p>
 <p>Since lektor can be used as a python module it is possible to enforce this <em>(after lektor is installed eg. with <code>pip3 install --user --upgrade lektor</code>)</em> with the following command:</p>
-<pre><span class="c1"># run a python3 lektor server with new generated css</span>
+<pre lang="bash"><span class="c1"># run a python3 lektor server with new generated css</span>
 python3 -m lektor server -f scss
 </pre>
 <h2>Configuration</h2>

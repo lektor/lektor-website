@@ -149,7 +149,7 @@
 <h2>Examples</h2>
 <p>Querying context: <code>{{ site.get('/').title }}</code> or <code>{{ this.path }}</code></p>
 <p>Logic:</p>
-<pre><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_life</span><span class="o">,</span> <span class="nv">meaning_of_universe</span> <span class="o">=</span> <span class="nv">this.life</span><span class="o">,</span> <span class="nv">this.universe</span> <span class="cp">%}</span><span class="x"></span>
+<pre lang="jinja"><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_life</span><span class="o">,</span> <span class="nv">meaning_of_universe</span> <span class="o">=</span> <span class="nv">this.life</span><span class="o">,</span> <span class="nv">this.universe</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">meaning_of_life</span> <span class="o">==</span> <span class="nv">meaning_of_universe</span> <span class="o">==</span> <span class="m">42</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">  </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_it_all</span> <span class="o">=</span> <span class="nv">meaning_of_life</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
@@ -158,10 +158,10 @@
 <span class="cp">{{</span> <span class="nv">meaning_of_it_all</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <p>Jinja in Markdown:</p>
-<pre><span class="x">[link text](</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">)</span>
+<pre lang="jinja"><span class="x">[link text](</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">)</span>
 </pre>
 <p>Jinja in reStructuredText:</p>
-<pre><span class="x">`link text &lt;</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&gt;`_</span>
+<pre lang="jinja"><span class="x">`link text &lt;</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&gt;`_</span>
 </pre>
 <p>Try running the <a href="https://github.com/terminal-labs/lektor-jinja-content/blob/master/tests/demo-project/" rel="nofollow">test site</a> for more examples.</p>
 <h2>Possible future of this plugin.</h2>

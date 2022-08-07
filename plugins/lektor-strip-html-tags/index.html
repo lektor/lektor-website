@@ -131,7 +131,7 @@
 <p>This is a simple Lektor plugin that creates a template filter to remove HTML tags from a string. The use it was created for was to do processing on HTML outputted from a Markdown content field. The Markdown is rendered into HTML, and this filter can turn that into simple text, which was then passed to the <a href="https://github.com/terminal-labs/lektor-natural-language" rel="nofollow">lektor-natural-language</a> filters to get keywords, unsullied by things like <code>&lt;div&gt;</code> tags.</p>
 <p>Example usage:</p>
 <p><code>{{ this.body|striphtmltags }}</code></p>
-<pre><span class="cp">{%</span> <span class="k">set</span> <span class="nv">var</span> <span class="o">=</span> <span class="s1">&#39;&lt;p&gt;&lt;strong&gt;Hello&lt;/strong&gt;World!&lt;/p&gt;&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<pre lang="jinja"><span class="cp">{%</span> <span class="k">set</span> <span class="nv">var</span> <span class="o">=</span> <span class="s1">&#39;&lt;p&gt;&lt;strong&gt;Hello&lt;/strong&gt;World!&lt;/p&gt;&#39;</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">striphtmltags</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
 <p>The last example will render as &quot;Hello World!&quot;</p>

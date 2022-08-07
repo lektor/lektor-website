@@ -144,7 +144,7 @@ enabled with the <tt><span class="pre">-f</span> gulp</tt> flag it runs <tt>npm 
 gulp <tt>default</tt> or <tt>watch</tt> tasks as they are defined into your own
 <tt>gulpfile.js</tt>.</p>
 <p>The general documentation about Lektor plugins is <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">here</a>.</p>
-<div id="lektor-build">
+<div class="section" id="lektor-build">
 <h2>lektor build</h2>
 <p>The command <tt>lektor build <span class="pre">-f</span> gulp</tt> runs the <strong>``default``</strong> gulp task,
 for example defined as something like:</p>
@@ -154,7 +154,7 @@ gulp.task('default', ['build'], () =&gt; { });
 <p>In the above example the <tt>default</tt> task points to a <tt>build</tt> task,
 which is usually composed by several other gulp tasks, etc.</p>
 </div>
-<div id="lektor-server">
+<div class="section" id="lektor-server">
 <h2>lektor server</h2>
 <p>The command <tt>lektor server <span class="pre">-f</span> gulp</tt> runs the Lektor embedded server on
 <a href="http://localhost:5000" rel="nofollow">http://localhost:5000</a>, starting a gulp <strong>``watch``</strong> task in background.
@@ -169,7 +169,7 @@ the <tt>lib/</tt> folder then assets could be minified, concatenated and
 copied into the standard <tt>assets/static/</tt> lektor folder, or whatever
 is defined into your own <tt>gulpfile.js</tt>.</p>
 </div>
-<div id="credits">
+<div class="section" id="credits">
 <h2>Credits</h2>
 <p>This plugin is based on the official <a href="https://github.com/lektor/lektor-webpack-support" rel="nofollow">Webpack plugin</a> with very little
 differences.</p>

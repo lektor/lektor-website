@@ -145,7 +145,7 @@ The difference between this plugin and the lektor <a href="https://www.getlektor
 For example, you may have an image called <code>waffle.jpg</code>, and to link to it in the content (not the template), but also show a thumbnail.
 All images will be converted to webp using <a href="https://pypi.org/project/Pillow/" rel="nofollow">Pillow</a>.</p>
 <p>You can use the images like that:</p>
-<pre><span class="cm">&lt;!-- Simple example --&gt;</span>
+<pre lang="html"><span class="cm">&lt;!-- Simple example --&gt;</span>
 <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;waffle.jpg&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;waffle-small.jpg&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 
 <span class="cm">&lt;!-- example with srcset --&gt;</span>
@@ -159,7 +159,7 @@ All images will be converted to webp using <a href="https://pypi.org/project/Pil
 </pre>
 <h2>Installation</h2>
 <p>To install the plugin, add <code>lektor-image-resize</code> to your plugins from the command line and create a config file:</p>
-<pre><span class="c1"># add the plugin to lektor</span>
+<pre lang="bash"><span class="c1"># add the plugin to lektor</span>
 lektor plugins add lektor-image-resize
 </pre>
 <p>If you have trouble, see the <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">plugin
@@ -169,7 +169,7 @@ documentation.</p>
 a few sections for images. The section names can be whatever you want, the
 final images will be called <code>$(imagename)-$(sectionname).jpg</code> and <code>$(imagename)-$(sectionname).webp</code>.</p>
 <p>Here is a example config file:</p>
-<pre><span class="k">[small]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[small]</span><span class="w"></span>
 <span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">640</span><span class="w"></span>
 <span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">360</span><span class="w"></span>
 

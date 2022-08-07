@@ -140,7 +140,7 @@ include Google-Search code in final HTML fles rendered by Lektor.</p>
 <h2>How to Use the plugin ?</h2>
 <h3>Enable the plugin</h3>
 <p>To enable the plugin, add the following to your <code>.lektorproject</code> file:</p>
-<pre><span class="k">[packages]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[packages]</span><span class="w"></span>
 <span class="na">lektor-google-search</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1</span><span class="w"></span>
 </pre>
 <h3>Configure the plugin</h3>
@@ -149,11 +149,11 @@ include Google-Search code in final HTML fles rendered by Lektor.</p>
 <li>Create a file named <code>google-serch.ini</code> into <code>./configs</code> folder in your lektor project's base directory.</li>
 <li>Put the <code>SEARCH_ENGINE_ID</code> key with the value of your serch engine ID.</li>
 </ul>
-<pre><span class="na">SEARCH_ENGINE_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">83892839209432084</span><span class="w"></span>
+<pre lang="ini"><span class="na">SEARCH_ENGINE_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">83892839209432084</span><span class="w"></span>
 </pre>
 <h3>Usage in template</h3>
 <p>Add Google Search code snippet by calling the function <code>render_google_search()</code> in the template of your preference where you want the search box to appear.</p>
-<pre><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ render_googe_search() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ render_googe_search() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre>
 <p>Now, try to run <code>lektor server</code> to see the google search appear.</p>
  

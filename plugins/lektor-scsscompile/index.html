@@ -146,19 +146,19 @@
 compiling them as part of the build process. It only rebuilds when it's needed (file changed, a file it imports changed or the config changed). When starting the the development server it watchs the files for changes in the background and rebuilds them when needed.</p>
 <h2>Installing</h2>
 <p>You can install the plugin with Lektor's installer::</p>
-<pre>lektor plugins add lektor-scsscompile
+<pre lang="bash">lektor plugins add lektor-scsscompile
 </pre>
 <p>Or by hand, adding the plugin to the packages section in your lektorproject file::</p>
-<pre><span class="o">[</span>packages<span class="o">]</span>
+<pre lang="bash"><span class="o">[</span>packages<span class="o">]</span>
 lektor-scsscompile <span class="o">=</span> <span class="m">1</span>.3.0
 </pre>
 <h2>Usage</h2>
 <h5></h5>
 <p>To enable scsscompile, pass the <code>scsscompile</code> flag when starting the development
 server or when running a build::</p>
-<pre>lektor build -f scsscompile
+<pre lang="bash">lektor build -f scsscompile
 </pre>
-<pre>lektor build -f scsscompile
+<pre lang="bash">lektor build -f scsscompile
 </pre>
 <p>The Plugin has the following settings you can adjust to your needs:</p>
 <table>

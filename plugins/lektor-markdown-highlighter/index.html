@@ -141,13 +141,13 @@
 Lektor's markdown support.</p>
 <h2>Enabling the Plugin</h2>
 <p>To enable the plugin run this command:</p>
-<pre>lektor plugins add markdown-highlighter
+<pre lang="shell">lektor plugins add markdown-highlighter
 </pre>
 <h2>Configuring the Plugin</h2>
 <p>The plugin has a config file that is used to configure a few things
 for Pygments.  Just create a file named <code>markdown-highlighter.ini</code> into your
 <code>configs/</code> folder.  Currently only <code>pygments.style</code> is used:</p>
-<pre><span class="k">[pygments]</span><span class="w"></span>
+<pre lang="ini"><span class="k">[pygments]</span><span class="w"></span>
 <span class="na">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tango</span><span class="w"></span>
 </pre>
 <p>You can use this to select any of the built-in Pygments styles.  Support for
@@ -163,11 +163,11 @@ print(&quot;Hello World!&quot;)
 <h2>In Templates</h2>
 <p>In templates the plugin provides the <code>get_pygments_stylesheet</code> function which
 can be used to generate and retrieve a link to the pygments stylesheet:</p>
-<pre><span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">get_pygments_stylesheet</span><span class="o">()|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+<pre lang="jinja"><span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">get_pygments_stylesheet</span><span class="o">()|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
 </pre>
 <p>In addition the <code>|pygmentize</code> filter can be used to highlight code from
 templates.  It takes one argument which is the lexer name:</p>
-<pre><span class="cp">{{</span> <span class="s1">&#39;print &quot;Hello World!&quot;&#39;</span><span class="o">|</span><span class="nf">pygmentize</span><span class="o">(</span><span class="s1">&#39;python&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<pre lang="jinja"><span class="cp">{{</span> <span class="s1">&#39;print &quot;Hello World!&quot;&#39;</span><span class="o">|</span><span class="nf">pygmentize</span><span class="o">(</span><span class="s1">&#39;python&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre>
  
         
