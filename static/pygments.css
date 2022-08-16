@@ -53,6 +53,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .hll .nt { color: #204a87; font-weight: bold } /* Name.Tag */
 .hll .nv { color: #000000 } /* Name.Variable */
 .hll .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+.hll .pm { color: #000000; font-weight: bold } /* Punctuation.Marker */
 .hll .w { color: #f8f8f8 } /* Text.Whitespace */
 .hll .mb { color: #0000cf; font-weight: bold } /* Literal.Number.Bin */
 .hll .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
