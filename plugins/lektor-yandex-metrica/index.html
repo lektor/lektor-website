@@ -132,23 +132,20 @@
         
           <p>This plugin adds support for <a href="https://metrica.yandex.com" rel="nofollow">Yandex Metrica</a>
 to <a href="https://www.getlektor.com" rel="nofollow">Lektor CMS</a></p>
-<div class="section" id="enabling-the-plugin">
+<section id="enabling-the-plugin">
 <h2>Enabling the Plugin</h2>
-<pre>lektor plugins add lektor-yandex-metrica
-</pre>
-</div>
-<div class="section" id="configuring-the-plugin">
+<pre><code>lektor plugins add lektor-yandex-metrica</code></pre>
+</section>
+<section id="configuring-the-plugin">
 <h2>Configuring the Plugin</h2>
 <p>Just create a file named <code>yandex-metrica.ini</code> in your <code>configs/</code> folder and configure <code>id</code> key with the provided counter id:</p>
-<pre><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">YOUR_COUNTER_ID</span>
-</pre>
-</div>
-<div class="section" id="in-templates">
+<pre><code><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;s&gt;YOUR_COUNTER_ID&lt;/s&gt;</code></pre>
+</section>
+<section id="in-templates">
 <h2>In Templates</h2>
 <p>Now you can add a Yandex Metrica counter to any of your templates by just using the <code>generate_yandex_metrica</code> function in its tag as below.</p>
-<pre>{{ generate_yandex_metrica() }}
-</pre>
-</div>
+<pre><code>{{ generate_yandex_metrica() }}</code></pre>
+</section>
  
         
 

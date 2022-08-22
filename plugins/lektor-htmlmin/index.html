@@ -134,28 +134,25 @@
 <p>HTML minifier for Lektor that automatically minifies generated .html files.</p>
 <p>Uses <a href="https://github.com/mankyd/htmlmin" rel="nofollow">htmlmin</a> and looks for .html files,
 minifying them as part of the build process.</p>
-<div class="section" id="installing">
+<section id="installing">
 <h2>Installing</h2>
 <p>You can install the plugin with Lektor’s installer:</p>
-<pre>lektor plugins add lektor-htmlmin
-</pre>
+<pre>lektor plugins add lektor-htmlmin</pre>
 <p>Or by hand, adding the plugin to the packages section in your lektorproject file:</p>
 <pre>[packages]
-lektor-htmlmin = 1.0
-</pre>
-</div>
-<div class="section" id="usage">
+lektor-htmlmin = 1.0</pre>
+</section>
+<section id="usage">
 <h2>Usage</h2>
 <p>To enable minification, pass the <cite>htmlmin</cite> flag when starting the development
 server or when running a build:</p>
-<pre>lektor build -O my_build_folder -f htmlmin
-</pre>
+<pre>lektor build -O my_build_folder -f htmlmin</pre>
 <p>When the flag is present, htmlmin will overwrite all HTML files in the output
 directory with their minified counterparts.</p>
 <p><em>Note:</em> The htmlmin plugin currently minifies every file in the project after a build.
 Not just files that have been changed. This should have no ill effects, but
 might increase build times if there are many files to minify.</p>
-</div>
+</section>
  
         
 

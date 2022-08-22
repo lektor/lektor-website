@@ -131,19 +131,13 @@
 <p>This plugin adds filter for Markdown body excerpt.</p>
 <p>## Enabling the Plugin</p>
 <p>To enable the plugin run this command:</p>
-<p><tt>`ini
-$ lektor plugins add <span class="pre">markdown-excerpt</span>
-`</tt></p>
+<p><span class="docutils literal">`ini $ lektor plugins add <span class="pre">markdown-excerpt</span> `</span></p>
 <p>## In Templates</p>
 <p>Plugin provides the <cite>|excerpt</cite> filter that can be used to render first
 paragraph of Markdown:</p>
-<p><tt>`jinja
-{{ post.body|excerpt }}
-`</tt></p>
+<p><span class="docutils literal">`jinja {{ post.body|excerpt }} `</span></p>
 <p>It takes one optional argument which is the separator for the excerpt:</p>
-<p><tt>`jinja
-{{ <span class="pre">post.body|excerpt:'\n\n##'</span> }}
-`</tt></p>
+<p><span class="docutils literal">`jinja {{ <span class="pre">post.body|excerpt:'\n\n##'</span> }} `</span></p>
  
         
 

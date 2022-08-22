@@ -140,40 +140,38 @@
         <h2>Project Description</h2>
         
           <p>This plugin for <a href="https://www.getlektor.com" rel="nofollow">Lektor CMS</a> adds <a href="http://gulpjs.com" rel="nofollow">gulp</a> support to projects. When
-enabled with the <tt><span class="pre">-f</span> gulp</tt> flag it runs <tt>npm install</tt> and then the
-gulp <tt>default</tt> or <tt>watch</tt> tasks as they are defined into your own
-<tt>gulpfile.js</tt>.</p>
+enabled with the <span class="docutils literal"><span class="pre">-f</span> gulp</span> flag it runs <span class="docutils literal">npm install</span> and then the
+gulp <span class="docutils literal">default</span> or <span class="docutils literal">watch</span> tasks as they are defined into your own
+<span class="docutils literal">gulpfile.js</span>.</p>
 <p>The general documentation about Lektor plugins is <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">here</a>.</p>
-<div class="section" id="lektor-build">
+<section id="lektor-build">
 <h2>lektor build</h2>
-<p>The command <tt>lektor build <span class="pre">-f</span> gulp</tt> runs the <strong>``default``</strong> gulp task,
+<p>The command <span class="docutils literal">lektor build <span class="pre">-f</span> gulp</span> runs the <strong>``default``</strong> gulp task,
 for example defined as something like:</p>
-<pre>gulp.task('build', ['clean', 'copy', 'js', 'css', 'imagemin'], () =&gt; { });
-gulp.task('default', ['build'], () =&gt; { });
-</pre>
-<p>In the above example the <tt>default</tt> task points to a <tt>build</tt> task,
+<pre><code>gulp.task('build', ['clean', 'copy', 'js', 'css', 'imagemin'], () =&gt; { });
+gulp.task('default', ['build'], () =&gt; { });</code></pre>
+<p>In the above example the <span class="docutils literal">default</span> task points to a <span class="docutils literal">build</span> task,
 which is usually composed by several other gulp tasks, etc.</p>
-</div>
-<div class="section" id="lektor-server">
+</section>
+<section id="lektor-server">
 <h2>lektor server</h2>
-<p>The command <tt>lektor server <span class="pre">-f</span> gulp</tt> runs the Lektor embedded server on
+<p>The command <span class="docutils literal">lektor server <span class="pre">-f</span> gulp</span> runs the Lektor embedded server on
 <a href="http://localhost:5000" rel="nofollow">http://localhost:5000</a>, starting a gulp <strong>``watch``</strong> task in background.
 For example, you can define something such as:</p>
-<pre>gulp.task('watch', () =&gt; {
+<pre><code>gulp.task('watch', () =&gt; {
     gulp.watch('lib/js/**/*.js', ['js']);
     gulp.watch('lib/css/**/*.css', ['css']);
-});
-</pre>
+});</code></pre>
 <p>In the above example, each time one touches Javascript or CSS files in
-the <tt>lib/</tt> folder then assets could be minified, concatenated and
-copied into the standard <tt>assets/static/</tt> lektor folder, or whatever
-is defined into your own <tt>gulpfile.js</tt>.</p>
-</div>
-<div class="section" id="credits">
+the <span class="docutils literal">lib/</span> folder then assets could be minified, concatenated and
+copied into the standard <span class="docutils literal">assets/static/</span> lektor folder, or whatever
+is defined into your own <span class="docutils literal">gulpfile.js</span>.</p>
+</section>
+<section id="credits">
 <h2>Credits</h2>
 <p>This plugin is based on the official <a href="https://github.com/lektor/lektor-webpack-support" rel="nofollow">Webpack plugin</a> with very little
 differences.</p>
-</div>
+</section>
  
         
 
