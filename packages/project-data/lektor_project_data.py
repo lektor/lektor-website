@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import cgi
 import re
+from email.utils import getaddresses
 
 import readme_renderer.markdown
 import readme_renderer.rst
@@ -34,6 +35,35 @@ def normalize_url(url):
     if m:
         return "https://github.com/{owner}/{project}".format(**m.groupdict())
     return url
+
+
+def bc_kluge_author(data):
+    """Fill in missing "Author" metadata from "Author-Email".
+
+    Here, for the convenience of our ``plugin.html`` template, if
+    "Author" metadata is missing for a project, we attempt to fill it
+    in from "Author-Email".
+
+    According to PEP621_, when both author ``name`` and ``email`` are
+    specified in ``pyproject.toml``, both of those wind up in the
+    "Author-Email" metadata field. In that case, the "Author" metadata
+    field remains empty.
+
+    (While, historically (e.g. in ``setup.py`` based projects), it
+    seems to have been common practice to put the author's name in
+    "Author" and their email in "Author-Email", the `Core Metadata
+    Spec<mdspec_>`_ is not particularly opinionated on whether the
+    author name(s) should go into "Author", "Author-Email", or both.)
+
+    .. _PEP621: https://peps.python.org/pep-0621/#authors-maintainers
+    .. _mdspec: https://packaging.python.org/en/latest/specifications/core-metadata/#author
+
+    """
+    if not data.get("author"):
+        addresses = getaddresses([data.get("author_email", "")])
+        data["author"] = ", ".join(
+            realname for realname, email in addresses if realname
+        )
 
 
 class ProjectDataPlugin(Plugin):
@@ -85,6 +115,7 @@ class ProjectDataPlugin(Plugin):
             if type(val) is str and val.strip() == 'UNKNOWN':
                 self.data[key] = ''
         self.data['short_name'] = name.split('lektor-')[1]
+
         # Rewrite description as rendered description.
         self.data['description'] = self.render(
             self.data['description'], self.data['description_content_type'])
@@ -92,6 +123,8 @@ class ProjectDataPlugin(Plugin):
             self.data['home_page'] = f'https://pypi.org/project/{name}/'
         else:
             self.data['home_page'] = normalize_url(self.data['home_page'])
+
+        bc_kluge_author(self.data)
 
     def github_data(self, owner=None, repo=None):
         url = 'https://api.github.com/repos/{}/{}'.format(owner, repo)
