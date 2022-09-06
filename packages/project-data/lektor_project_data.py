@@ -37,12 +37,12 @@ def normalize_url(url):
     return url
 
 
-def bc_kluge_author(data):
-    """Fill in missing "Author" metadata from "Author-Email".
+def bc_kluge_emails(data):
+    """Remove any display names from "{Author,Maintainer}-Email" metadata field.
 
-    Here, for the convenience of our ``plugin.html`` template, if
-    "Author" metadata is missing for a project, we attempt to fill it
-    in from "Author-Email".
+    Additionally, if the "Author" metadata is empty, it is filled is with
+    any display names extracted from the "Author-Email" field.  (And similarly
+    for the "Maintainer" field.)
 
     According to PEP621_, when both author ``name`` and ``email`` are
     specified in ``pyproject.toml``, both of those wind up in the
@@ -55,16 +55,25 @@ def bc_kluge_author(data):
     Spec<mdspec_>`_ is not particularly opinionated on whether the
     author name(s) should go into "Author", "Author-Email", or both.)
 
+    Further not that RFC6068_, the current spec for ``mailto:`` URIs
+    only wants addr-specs in the mailto URLs.
+
     .. _PEP621: https://peps.python.org/pep-0621/#authors-maintainers
     .. _mdspec: https://packaging.python.org/en/latest/specifications/core-metadata/#author
-
+    .. _RFC6068: https://datatracker.ietf.org/doc/html/rfc6068
     """
-    if not data.get("author"):
-        addresses = getaddresses([data.get("author_email", "")])
-        data["author"] = ", ".join(
-            realname for realname, email in addresses if realname
+    for name_field, email_field in [
+            ("author", "author_email"),
+            ("maintainer", "maintainer_email")
+    ]:
+        addresses = getaddresses([data.get(email_field, "")])
+        data[email_field] = ", ".join(
+            addrspec for name, addrspec in addresses if addrspec
         )
-
+        if not data.get(name_field):
+            data[name_field] = ", ".join(
+                name for name, addrspec in addresses if name
+            )
 
 class ProjectDataPlugin(Plugin):
     name = 'Project Data'
@@ -124,7 +133,7 @@ class ProjectDataPlugin(Plugin):
         else:
             self.data['home_page'] = normalize_url(self.data['home_page'])
 
-        bc_kluge_author(self.data)
+        bc_kluge_emails(self.data)
 
     def github_data(self, owner=None, repo=None):
         url = 'https://api.github.com/repos/{}/{}'.format(owner, repo)
