@@ -1,0 +1,13 @@
+_model: plugin
+---
+name: lektor-markdown-ruby-blocks
+---
+categories: content
+---
+summary: Add supports to ruby blocks syntax in Markdown.
+---
+tags:
+
+HTML
+Markdown
+markdown-config
