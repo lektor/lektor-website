@@ -50,7 +50,7 @@
         <p><strong>Version:</strong> {{ pd.version }}</p>
         <p><strong>Author:</strong>
           {% if pd.author_email %}
-            <a href = "mailto:{{ pd.author_email }}">{{ pd.author }}</a>
+            {{ mailto_link(pd.author_email, pd.author) }}
           {% else %}
             {{ pd.author }}
           {% endif %}
