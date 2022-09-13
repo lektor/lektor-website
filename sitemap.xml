@@ -28,6 +28,7 @@
   <url><loc>https://www.getlektor.com/plugins/categories/content/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-nofollow/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-markdown-admonition/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-markdown-ruby-blocks/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-index-pages/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-jinja-content/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-pythonmarkdown/</loc></url>
@@ -345,6 +346,7 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-markdown-admonition/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-gulp/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-i18n/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-markdown-ruby-blocks/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-image-resize/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-index-pages/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-jinja-content/</loc></url>
