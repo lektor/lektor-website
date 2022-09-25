@@ -141,7 +141,7 @@ include Google-Analytics code in final HTML files rendered by
 <h3>Enabling the Plugin</h3>
 <p>To enable the plugin add this to your project file:</p>
 <pre><code><span class="k">[packages]</span><span class="w">
-</span><span class="na">lektor-google-analytics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;s&gt;0.1&lt;/s&gt;</code></pre>
+</span><span class="na">lektor-google-analytics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>0.1</s></code></pre>
 </section>
 <section id="configuring-the-plugin">
 <h3>Configuring the Plugin</h3>
@@ -151,13 +151,13 @@ it.</p>
 folder in your Lektor project’s base directory. And, put the
 <span class="docutils literal">GOOGLE_ANALYTICS_ID</span> key with target property ID of form
 <span class="docutils literal"><span class="pre">UA-XXXXXXXX-Y</span></span> which you obtained from:</p>
-<pre><code><span class="na">GOOGLE_ANALYTICS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;s&gt;UA-XXXXXXXX-Y&lt;/s&gt;</code></pre>
+<pre><code><span class="na">GOOGLE_ANALYTICS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>UA-XXXXXXXX-Y</s></code></pre>
 </section>
 <section id="using-in-templates">
 <h3>Using in Templates</h3>
 <p>Now you can add a Google analytics code-snippet in your templates by
 just calling the <span class="docutils literal">generate_google_analytics</span> function inside its <span class="docutils literal">&lt;body&gt; &lt;/body&gt;</span> tags.</p>
-<pre><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span>&lt;s&gt;&quot;ga-script&quot;&lt;/s&gt;<span class="p">&gt;</span>{{ generate_google_analytics() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre>
+<pre><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><s>&quot;ga-script&quot;</s><span class="p">&gt;</span>{{ generate_google_analytics() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre>
 <p>That’s it. All the <span class="docutils literal">HTML</span> files that rendered from that template will
 include Google-Analytics code automatically.</p>
 </section>
@@ -170,8 +170,8 @@ include Google-Analytics code automatically.</p>
 <span class="docutils literal"><span class="pre">./configs/google-analytics.ini</span></span> will look like this:</p>
 </dd>
 </dl>
-<pre><code><span class="na">GOOGLE_ANALYTICS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;s&gt;UA-XXXXXXXX-Y&lt;/s&gt;<span class="w">
-</span><span class="na">GOOGLE_ANALYTICS_PROPERTY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;s&gt;'my custom code'&lt;/s&gt;</code></pre>
+<pre><code><span class="na">GOOGLE_ANALYTICS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>UA-XXXXXXXX-Y</s><span class="w">
+</span><span class="na">GOOGLE_ANALYTICS_PROPERTY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>'my custom code'</s></code></pre>
 <p>Don’t use this property unless you know what are you doing. By default,
 it is set to <span class="docutils literal">auto</span>.</p>
 <p>To go deeper than this, please refer to <cite>Google-Analytics
