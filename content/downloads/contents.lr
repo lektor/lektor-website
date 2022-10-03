@@ -39,7 +39,7 @@ python3 -m pipx ensurepath
 
 __macOS__
 ```
-bew install pipx
+brew install pipx
 pipx ensurepath
 ```
 
