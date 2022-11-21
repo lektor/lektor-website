@@ -60,6 +60,7 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-tags/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-thumbnail-generator/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-markdown-highlighter/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-hal/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-pythonmarkdown/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-strip-html-tags/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/tags/</loc></url>
@@ -113,6 +114,7 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-citation/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-tags/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-markdown-highlighter/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-hal/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-pythonmarkdown/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-markdown-admonition/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-expression-type/</loc></url>

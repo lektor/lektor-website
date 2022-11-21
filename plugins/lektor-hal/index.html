@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=ae0cc228">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-hal 0.1.2</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>Fetches publications from HAL<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://git.sr.ht/~nicoco/lektor-hal" class="ext">Homepage</a></li>
+        </ul>
+
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.1.2</p>
+        <p><strong>Author:</strong>
+          
+            <a href="mailto:nicoco@nicoco.fr">Nicolas Cedilnik</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/bibliography/">bibliography</a>, 
+          
+            
+            <a href="../tag/citation/">citation</a>, 
+          
+            
+            <a href="../tag/science/">science</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>
+          View <a href="../tags/" class="ref">all tags</a>.
+        </p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>Lektor-HAL</h1>
+<p>A plugin for <a href="https://www.getlektor.com" rel="nofollow">Lektor</a> that uses the HAL API
+to easily maintain an up-to-date list of publications on a static website.</p>
+<p><a href="https://hal.archives-ouvertes.fr/" rel="nofollow">HAL</a> is an open archive where authors
+can deposit scholarly documents from all academic fields.</p>
+<h2>Configuration</h2>
+<p>Add <code>lektor-hal</code> to the <code>[packages]</code> section of your <code>.lektorproject</code> file.</p>
+<p>In <code>./configs/hal.ini</code>, the query field must be specified, following to the
+<a href="https://api.archives-ouvertes.fr/docs/search" rel="nofollow">HAL docs</a></p>
+<p>Example:</p>
+<pre><code>query = ((authIdHal_s:my-id-hal) OR (authFullName_s:&quot;My Name&quot;))
+</code></pre>
+<h2>Usage</h2>
+<h3>Example</h3>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;publications&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;publications&quot;</span><span class="p">&gt;</span>
+  {% for publi in hal_publications %}
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="na">publi</span><span class="err">.</span><span class="na">link</span> <span class="err">}}</span><span class="p">&gt;</span>{{ publi.title }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    @
+    {{ publi.where }} -
+    {{ publi.authors|join(&#39;, &#39;) }}
+    ({{ publi.date }})
+  <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  {% endfor %}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre>
+<p>Two global variables are available in your jinja template, <code>hal_publications</code> and
+<code>hal_request</code>.</p>
+<h3><code>hal_publications</code></h3>
+<p>A list of <code>Publication</code>s, a dataclass with the following attributes:</p>
+<ul>
+<li><code>raw</code>: A dict containing everything about this publication returned by the
+HAL API.</li>
+<li><code>title</code>: The title of the publication</li>
+<li><code>hal_id</code>: The HAL ID of the publication</li>
+<li><code>authors</code>: A list of strings (author names)</li>
+<li><code>date</code>: A string (<code>producedDate_s</code>)</li>
+<li><code>type</code>: The publication type, eg &quot;ART&quot;, &quot;COMM&quot;, &quot;POSTER&quot;, etc/</li>
+</ul>
+<p>and properties:</p>
+<ul>
+<li><code>link</code>: URL pointing to the HAL resource</li>
+<li><code>where</code>: returns where the article was published (<code>journalTitle_s</code> or <code>conferenceTitle_s</code>
+if missing)</li>
+</ul>
+<h3><code>hal_request</code></h3>
+<p>URL used for the HAL API request.</p>
+<h2>Known caveat</h2>
+<p>Lektor will not 'know' that the page must be rebuilt when new entries are
+returned by the HAL API request.
+As a workaround, the plugin allows to mark any page as &quot;dirty&quot;, so it is rebuilt
+everytime. Add this to the template that uses the publications list:</p>
+<pre lang="jinja2">{{ volatile() }}
+</pre>
+ 
+        
+
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-hal/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=bb1b933a" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>
