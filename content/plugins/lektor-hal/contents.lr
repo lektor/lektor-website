@@ -1,0 +1,16 @@
+_model: plugin
+---
+name: lektor-hal
+---
+categories: content
+---
+tags:
+
+science
+citation
+bibliography
+setup-env
+---
+allow_comments: no
+---
+official: no
