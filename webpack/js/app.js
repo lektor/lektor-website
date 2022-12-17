@@ -1,7 +1,6 @@
 // @ts-check
 
 require("bootstrap");
-var qs = require("query-string");
 
 function selectText(text) {
   if (document.body.createTextRange) {
@@ -112,9 +111,10 @@ function initGoogleSearch() {
   </div>
   `).appendTo(container);
 
-  var params = qs.parse(location.search);
-  if (params.q) {
-    $('input[name="q"]', container).val(params.q);
+  const params = new URLSearchParams(location.search);
+  const query = params.get("q");
+  if (query) {
+    $('input[name="q"]', container).val(query);
   }
 }
 
