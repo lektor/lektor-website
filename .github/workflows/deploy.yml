@@ -3,14 +3,14 @@ name: "Deploy site"
 on:
   pull_request:
     branches:
-    - '*'
+      - "*"
   push:
     branches:
-    - 'master'
+      - "master"
   workflow_dispatch:
     # Allow manually running workflow
   schedule:
-    - cron: '23 2 * * *'
+    - cron: "23 2 * * *"
 
 env:
   DEPLOY: >-
@@ -26,9 +26,13 @@ jobs:
     name: Build lektor website
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
 
       - name: Install Lektor
         run: |
@@ -36,7 +40,7 @@ jobs:
           python -m pip install lektor
 
       - name: Build lektor website
-        run: lektor build -O '${{ env.OUTPUT }}'
+        run: lektor build -f webpack -O '${{ env.OUTPUT }}'
 
       - name: Check for broken internal links
         uses: wjdp/htmltest-action@master
