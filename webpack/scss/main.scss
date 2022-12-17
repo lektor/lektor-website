@@ -538,29 +538,6 @@ div.lektor-intro {
     font-weight: bold;
     text-decoration: underline;
   }
-
-  div.install-row {
-    background: rgba(40, 30, 30, 0.8);
-    position: absolute;
-    bottom: 0;
-    left: 120px;
-    right: 120px;
-
-    pre {
-      margin: 0;
-      background: transparent;
-      color: white;
-    }
-
-    @media (max-width: $screen-md-max) {
-      left: 10px;
-      right: 10px;
-    }
-
-    @media (max-width: $screen-sm-max) {
-      display: none;
-    }
-  }
 }
 
 div.download-btn {
