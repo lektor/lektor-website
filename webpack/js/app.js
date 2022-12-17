@@ -1,53 +1,59 @@
 // @ts-check
 
-require("bootstrap");
+import "bootstrap";
 
 function initDownloadButton() {
-  const buttons = $(".download-btn");
-  if (buttons.length <= 0) {
-    return;
+  const downloadButton = document.querySelector(".download-btn");
+  if (downloadButton) {
+    fetch("https://api.github.com/repos/lektor/lektor/releases", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((releases) => {
+        const tag = releases[0].tag_name;
+        const link = downloadButton.querySelector("a");
+        if (link) {
+          const span = document.createElement("span");
+          span.className = "version";
+          span.innerText = tag;
+          link.append(span);
+        }
+      })
+      .catch((err) => {
+        console.error(
+          "fetching the latest Lektor version from the Github API failed: ",
+          err
+        );
+      });
   }
-
-  $.ajax({
-    method: "GET",
-    url: "https://api.github.com/repos/lektor/lektor/releases",
-    crossDomain: true,
-  }).then((releases) => {
-    updateDownloadButtons(buttons.toArray(), releases);
-  });
-}
-
-function updateDownloadButtons(buttons, releases) {
-  let tag = releases[0].tag_name;
-
-  buttons.forEach((button) => {
-    let link = $("a", button);
-
-    link.attr("href", "/downloads/");
-    link.append($('<span class="version"></span>').text(tag));
-  });
 }
 
 function initGoogleSearch() {
-  var container = $(".google-custom-search");
-  if (container.length == 0) {
+  const container = document.querySelector(".google-custom-search");
+  if (!container) {
     return;
   }
-  var cx = "012722186170730423054:utwznhnrrmi";
-  var gcse = document.createElement("script");
+  const cx = "012722186170730423054:utwznhnrrmi";
+  const gcse = document.createElement("script");
   gcse.type = "text/javascript";
   gcse.async = true;
   gcse.src =
     (document.location.protocol == "https:" ? "https:" : "http:") +
     "//cse.google.com/cse.js?cx=" +
     cx;
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(gcse, s);
+  const firstScript = document.getElementsByTagName("script")[0];
+  if (!firstScript || !firstScript.parentNode) {
+    return;
+  }
+  firstScript.parentNode.insertBefore(gcse, firstScript);
 
-  $(`
-    <gcse:searchresults-only linktarget="_parent"></gcse:searchresults-only>
-  `).appendTo(container);
-  $(`
+  container.insertAdjacentHTML(
+    "beforeend",
+    `<gcse:searchresults-only linktarget="_parent"></gcse:searchresults-only>`
+  );
+  container.insertAdjacentHTML(
+    "beforeend",
+    `
   <div style="display: none">
     <div id="base_webResult">
       <div class="gs-webResult gs-result"
@@ -69,16 +75,20 @@ function initGoogleSearch() {
       </div>
     </div>
   </div>
-  `).appendTo(container);
+  `
+  );
 
   const params = new URLSearchParams(location.search);
   const query = params.get("q");
   if (query) {
-    $('input[name="q"]', container).val(query);
+    const input = container.querySelector('input[name="q"]');
+    if (input instanceof HTMLInputElement) {
+      input.value = query;
+    }
   }
 }
 
-$(function () {
+window.addEventListener("DOMContentLoaded", () => {
   initDownloadButton();
   initGoogleSearch();
 });

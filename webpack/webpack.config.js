@@ -43,7 +43,6 @@ const options = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: "jquery",
       jQuery: "jquery",
     }),
     new MiniCssExtractPlugin(),
