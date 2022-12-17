@@ -2,39 +2,19 @@
 
 require("bootstrap");
 
-function selectText(text) {
-  if (document.body.createTextRange) {
-    let range = document.body.createTextRange();
-    range.moveToElementText(text);
-    range.select();
-  } else if (window.getSelection) {
-    let selection = window.getSelection();
-    let range = document.createRange();
-    range.selectNodeContents(text);
-    selection.removeAllRanges();
-    selection.addRange(range);
-  }
-}
-
 function initDownloadButton() {
   const buttons = $(".download-btn");
   if (buttons.length <= 0) {
     return;
   }
 
-  buttons.hide();
   $.ajax({
     method: "GET",
     url: "https://api.github.com/repos/lektor/lektor/releases",
     crossDomain: true,
-  }).then(
-    (releases) => {
-      updateDownloadButtons(buttons.toArray(), releases);
-    },
-    () => {
-      buttons.show();
-    }
-  );
+  }).then((releases) => {
+    updateDownloadButtons(buttons.toArray(), releases);
+  });
 }
 
 function updateDownloadButtons(buttons, releases) {
@@ -45,18 +25,7 @@ function updateDownloadButtons(buttons, releases) {
 
     link.attr("href", "/downloads/");
     link.append($('<span class="version"></span>').text(tag));
-
-    $(button).fadeIn("slow");
   });
-}
-
-function initInstallRow() {
-  let code = $(".install-row pre");
-  if (code.length > 0) {
-    code.on("dblclick", function () {
-      selectText(this);
-    });
-  }
 }
 
 function initGoogleSearch() {
@@ -109,15 +78,7 @@ function initGoogleSearch() {
   }
 }
 
-function hideThingsForWindows() {
-  if (navigator.appVersion.indexOf("Win") >= 0) {
-    $(".hide-for-windows").hide();
-  }
-}
-
 $(function () {
   initDownloadButton();
-  initInstallRow();
   initGoogleSearch();
-  hideThingsForWindows();
 });
