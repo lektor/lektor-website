@@ -16,7 +16,6 @@
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "query-string": "^7.0.1",
     "sass": "^1.43.5",
     "sass-loader": "^13.2.0",
     "webpack": "^5.64.4",
