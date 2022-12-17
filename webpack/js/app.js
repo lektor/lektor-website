@@ -1,5 +1,7 @@
-require('bootstrap');
-var qs = require('query-string');
+// @ts-check
+
+require("bootstrap");
+var qs = require("query-string");
 
 function selectText(text) {
   if (document.body.createTextRange) {
@@ -16,100 +18,71 @@ function selectText(text) {
 }
 
 function initBadges() {
-  let badges = $('.badges li').hide();
+  let badges = $(".badges li").hide();
   if (badges.length > 0) {
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       badges.fadeIn(500);
     }, 1500);
   }
 }
 
 function initDownloadButton() {
-  let buttons = $('.download-btn');
+  const buttons = $(".download-btn");
   if (buttons.length <= 0) {
     return;
   }
 
   buttons.hide();
   $.ajax({
-    method: 'GET',
-    url: 'https://api.github.com/repos/lektor/lektor/releases',
-    crossDomain: true
-  }).then((releases) => {
-    updateDownloadButtons(buttons.toArray(), releases);
-  }, () => {
-    buttons.show();
-  });
-}
-
-function findBestTarget(assets) {
-  let matcher = null;
-  let note = null;
-  if (navigator.platform.match(/^mac/i)) {
-    matcher = /\.dmg$/;
-    note = 'For OSX 10.9 and later.';
-  }
-
-  if (matcher != null) {
-    for (let i = 0; i < assets.length; i++) {
-      if (assets[i].name.match(matcher)) {
-        return {
-          url: assets[i].browser_download_url,
-          note: note
-        };
-      }
+    method: "GET",
+    url: "https://api.github.com/repos/lektor/lektor/releases",
+    crossDomain: true,
+  }).then(
+    (releases) => {
+      updateDownloadButtons(buttons.toArray(), releases);
+    },
+    () => {
+      buttons.show();
     }
-  }
-
-  return null;
+  );
 }
 
 function updateDownloadButtons(buttons, releases) {
   let tag = releases[0].tag_name;
-  let selectTarget = '/downloads/';
-  let assetTarget = findBestTarget(releases[0].assets);
 
   buttons.forEach((button) => {
-    let note = $('<div class="note"></div>').appendTo(button);
-    let link = $('a', button);
+    let link = $("a", button);
 
-    if (assetTarget) {
-      link.attr('href', assetTarget.url);
-      note.append($('<span></span>').text(assetTarget.note + ' '));
-      note.append(
-        $('<a>Other platforms</a>')
-          .attr('href', selectTarget));
-    } else {
-      link.attr('href', selectTarget);
-    }
-
+    link.attr("href", "/downloads/");
     link.append($('<span class="version"></span>').text(tag));
 
-    $(button).fadeIn('slow');
+    $(button).fadeIn("slow");
   });
 }
 
 function initInstallRow() {
-  let code = $('.install-row pre');
+  let code = $(".install-row pre");
   if (code.length > 0) {
-    code.on('dblclick', function() {
+    code.on("dblclick", function () {
       selectText(this);
     });
   }
 }
 
 function initGoogleSearch() {
-  var container = $('.google-custom-search');
+  var container = $(".google-custom-search");
   if (container.length == 0) {
     return;
   }
-  var cx = '012722186170730423054:utwznhnrrmi';
-  var gcse = document.createElement('script');
-  gcse.type = 'text/javascript';
+  var cx = "012722186170730423054:utwznhnrrmi";
+  var gcse = document.createElement("script");
+  gcse.type = "text/javascript";
   gcse.async = true;
-  gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-      '//cse.google.com/cse.js?cx=' + cx;
-  var s = document.getElementsByTagName('script')[0];
+  gcse.src =
+    (document.location.protocol == "https:" ? "https:" : "http:") +
+    "//cse.google.com/cse.js?cx=" +
+    cx;
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(gcse, s);
 
   $(`
@@ -146,12 +119,12 @@ function initGoogleSearch() {
 }
 
 function hideThingsForWindows() {
-  if (navigator.appVersion.indexOf('Win') >= 0) {
-    $('.hide-for-windows').hide();
+  if (navigator.appVersion.indexOf("Win") >= 0) {
+    $(".hide-for-windows").hide();
   }
 }
 
-$(function() {
+$(function () {
   initBadges();
   initDownloadButton();
   initInstallRow();
