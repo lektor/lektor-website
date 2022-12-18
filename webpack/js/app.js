@@ -3,21 +3,17 @@
 import "bootstrap";
 
 function initDownloadButton() {
-  const downloadButton = document.querySelector(".download-btn");
-  if (downloadButton) {
-    fetch("https://api.github.com/repos/lektor/lektor/releases", {
-      method: "GET",
-    })
+  const downloadLink = document.querySelector(".download-btn a");
+  if (downloadLink) {
+    // See https://warehouse.pypa.io/api-reference/json.html#project
+    fetch("https://pypi.org/pypi/lektor/json", { method: "GET" })
       .then((res) => res.json())
-      .then((releases) => {
-        const tag = releases[0].tag_name;
-        const link = downloadButton.querySelector("a");
-        if (link) {
-          const span = document.createElement("span");
-          span.className = "version";
-          span.innerText = tag;
-          link.append(span);
-        }
+      .then((project) => {
+        const version = project.info.version;
+        const span = document.createElement("span");
+        span.className = "version";
+        span.innerText = version;
+        downloadLink.append(span);
       })
       .catch((err) => {
         console.error(
