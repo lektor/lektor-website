@@ -13,7 +13,6 @@
   <url><loc>https://www.getlektor.com/blog/2015/12/hello-lektor/</loc></url>
   <url><loc>https://www.getlektor.com/community/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/</loc></url>
-  <url><loc>https://www.getlektor.com/plugins/lektor-webdav/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-disqus-comments/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-scss/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-slugify/</loc></url>
@@ -380,7 +379,6 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-index-pages/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-markdown-ruby-blocks/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/categories/templates/</loc></url>
-  <url><loc>https://www.getlektor.com/plugins/lektor-webdav/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-disqus-comments/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-slugify/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-strip-html-tags/</loc></url>
