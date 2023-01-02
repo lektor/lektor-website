@@ -179,11 +179,11 @@ keys are <code>name</code> for an optional human readable name of the server, <c
 enable or disable it (defaults to <code>true</code>) and <code>target</code> which is the URL to
 publish to.  Additionally one of the servers can have <code>default</code> set to <code>yes</code>
 to set it as default.  Here is an example:</p>
-<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span><span class="w"></span>
-<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder</span>
 </pre></div>
 <p>To trigger a deploy you can use the <a href="../cli/deploy/" class="ref">deploy</a> command:</p>
 <pre><code>$ lektor deploy production

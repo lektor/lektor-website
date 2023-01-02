@@ -183,8 +183,8 @@ returns a dict like object to access the ini file.</p>
 <span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;section.key&#39;</span><span class="p">,</span> <span class="s1">&#39;default_value&#39;</span><span class="p">)</span>
 </pre></div>
 <p>This would correspond to this config in <code>configs/my-plugin.ini</code>:</p>
-<div class="hll"><pre><span></span><span class="k">[section]</span><span class="w"></span>
-<span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">the value</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[section]</span>
+<span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">the value</span>
 </pre></div>
 <h2 id="dependency-tracking">Dependency Tracking</h2><p>While a lot of dependencies are tracked automatically, when you develop a
 plugin you probably will discover that sometimes you need to track your own
@@ -228,9 +228,9 @@ function we also track the plugin's filename to rebuild if the plugin changes.</
 <h2 id="adding-new-field-types">Adding New Field Types</h2><p>Let's say you want to add an "asciidoc"
 <a href="../../api/db/types/" class="ref">field type</a> so you can write with <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> markup.</p>
 <p>First <a href="http://www.methods.co.nz/asciidoc/INSTALL.html">install AsciiDoc</a> so its command-line program is available. Then update <code>blog-post.ini</code> from the <a href="../../guides/blog/" class="ref">blog guide</a> like so:</p>
-<div class="hll"><pre><span></span><span class="k">[fields.body]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">asciidoc  # Custom type.</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[fields.body]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">asciidoc</span><span class="w">  </span><span class="c1"># Custom type.</span>
 </pre></div>
 <p>In a blog post's <code>contents.lr</code>, write some AsciiDoc like:</p>
 <pre><code>body:

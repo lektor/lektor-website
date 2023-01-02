@@ -149,13 +149,13 @@
 <h2>Examples</h2>
 <p>Querying context: <code>{{ site.get('/').title }}</code> or <code>{{ this.path }}</code></p>
 <p>Logic:</p>
-<pre lang="jinja"><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_life</span><span class="o">,</span> <span class="nv">meaning_of_universe</span> <span class="o">=</span> <span class="nv">this.life</span><span class="o">,</span> <span class="nv">this.universe</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">if</span> <span class="nv">meaning_of_life</span> <span class="o">==</span> <span class="nv">meaning_of_universe</span> <span class="o">==</span> <span class="m">42</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_it_all</span> <span class="o">=</span> <span class="nv">meaning_of_life</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_it_all</span> <span class="o">=</span> <span class="s1">&#39;Undefined&#39;</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">meaning_of_it_all</span> <span class="cp">}}</span><span class="x"></span>
+<pre lang="jinja"><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_life</span><span class="o">,</span> <span class="nv">meaning_of_universe</span> <span class="o">=</span> <span class="nv">this.life</span><span class="o">,</span> <span class="nv">this.universe</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">meaning_of_life</span> <span class="o">==</span> <span class="nv">meaning_of_universe</span> <span class="o">==</span> <span class="m">42</span> <span class="cp">%}</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_it_all</span> <span class="o">=</span> <span class="nv">meaning_of_life</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_it_all</span> <span class="o">=</span> <span class="s1">&#39;Undefined&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="cp">{{</span> <span class="nv">meaning_of_it_all</span> <span class="cp">}}</span>
 </pre>
 <p>Jinja in Markdown:</p>
 <pre lang="jinja"><span class="x">[link text](</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">)</span>

@@ -150,18 +150,18 @@ model has been explicitly selected, a default model will be selected.  For
 most situations this will be the model with the name <code>page</code>.  Detailed
 information can be found under <a href="selection/" class="ref">Default Model Selection</a>.</p>
 <p>Here is an example of a very basic model (<code>models/page.ini</code>):</p>
-<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Page</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Page</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span>
 
-<span class="k">[fields.title]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Title</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
-<span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">large</span><span class="w"></span>
+<span class="k">[fields.title]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Title</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
+<span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">large</span>
 
-<span class="k">[fields.body]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+<span class="k">[fields.body]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span>
 </pre></div>
 <p>In this particular case, we have a model with the id <code>page</code> (as defined by the
 filename) and a name <code>Page</code> which will appear like that in the UI.  Pages that

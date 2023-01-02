@@ -138,47 +138,47 @@
 These files will then be copied over to Lektors templates folder so that they can be used by Lektor.
 This plugin depends on the <a href="https://github.com/lektor/lektor-webpack-support" rel="nofollow">lektor-webpack-support</a> plugin to be really useful.</p>
 <h1>webpack/webpack.config.js</h1>
-<pre lang="js"><span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mini-css-extract-plugin&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">HtmlWebpackPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;html-webpack-plugin&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CleanWebpackPlugin</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;clean-webpack-plugin&quot;</span><span class="p">);</span><span class="w"></span>
+<pre lang="js"><span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mini-css-extract-plugin&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">HtmlWebpackPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;html-webpack-plugin&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CleanWebpackPlugin</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;clean-webpack-plugin&quot;</span><span class="p">);</span>
 
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">entry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">main</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./src/index.js&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[name].bundle.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">entry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">main</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./src/index.js&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[name].bundle.js&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/assets/generated&quot;</span><span class="w"> </span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nx">optimization</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">minimizer</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="ow">new</span><span class="w"> </span><span class="nx">HtmlWebpackPlugin</span><span class="p">({</span><span class="w"></span>
-<span class="w">                </span><span class="nx">inject</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;layout_generated.html&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./src/layout_template.html&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">CleanWebpackPlugin</span><span class="p">(),</span><span class="w"></span>
-<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="p">({</span><span class="w"></span>
-<span class="w">            </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[name].css&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">module</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.scss$/</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="nx">MiniCssExtractPlugin</span><span class="p">.</span><span class="nx">loader</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;css-loader&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;sass-loader&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">]</span><span class="w"></span>
-<span class="w">        </span><span class="p">}]</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">optimization</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">minimizer</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="ow">new</span><span class="w"> </span><span class="nx">HtmlWebpackPlugin</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">inject</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;layout_generated.html&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;./src/layout_template.html&quot;</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">CleanWebpackPlugin</span><span class="p">(),</span>
+<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[name].css&quot;</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nx">module</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.scss$/</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="nx">MiniCssExtractPlugin</span><span class="p">.</span><span class="nx">loader</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;css-loader&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;sass-loader&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre>
 <h1>webpack/src/layout_template.html</h1>
 <pre lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>

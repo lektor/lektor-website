@@ -200,64 +200,64 @@ different categories and it should be possible to see which projects belong
 to which category.</p>
 <h2 id="the-models">The Models</h2><p>So we will end up with four models: <code>projects.ini</code>, <code>project.ini</code>,
 <code>project-categories.ini</code> and <code>project-category.ini</code>.  Here is how they look:</p>
-<h3 id="projects.ini`"><code>projects.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<h3 id="projects.ini`"><code>projects.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[children]</span><span class="w"></span>
-<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span><span class="w"></span>
-<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-date, name</span><span class="w"></span>
+<span class="k">[children]</span>
+<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-date, name</span>
 </pre></div>
-<h3 id="project.ini`"><code>project.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<h3 id="project.ini`"><code>project.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[fields.name]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="k">[fields.name]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
 
-<span class="k">[fields.date]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Date</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">date</span><span class="w"></span>
+<span class="k">[fields.date]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Date</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">date</span>
 
-<span class="k">[fields.description]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Description</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+<span class="k">[fields.description]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Description</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span>
 
-<span class="k">[fields.categories]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Categories</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkboxes</span><span class="w"></span>
-<span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/project-categories&#39;)</span><span class="w"></span>
+<span class="k">[fields.categories]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Categories</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkboxes</span>
+<span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/project-categories&#39;)</span>
 </pre></div>
 <p>The above models should be mostly clear.  What is probably not entirely clear
 is the <code>source</code> parameter for the categories.  Essentially we instruct the
 admin panel to fill the selection for the checkboxes from the child pages
 below the <code>project-categories</code> folder.  This is where we will maintain the
 categories.</p>
-<h3 id="project-categories.ini`"><code>project-categories.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Categories</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Categories</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<h3 id="project-categories.ini`"><code>project-categories.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Categories</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Categories</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[children]</span><span class="w"></span>
-<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project-category</span><span class="w"></span>
-<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">name</span><span class="w"></span>
+<span class="k">[children]</span>
+<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project-category</span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">name</span>
 </pre></div>
-<h3 id="project-category.ini`"><code>project-category.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Category</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<h3 id="project-category.ini`"><code>project-category.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project Category</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[children]</span><span class="w"></span>
-<span class="na">replaced_with</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/projects&#39;).filter(F.categories.contains(this))</span><span class="w"></span>
+<span class="k">[children]</span>
+<span class="na">replaced_with</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/projects&#39;).filter(F.categories.contains(this))</span>
 
-<span class="k">[fields.name]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="k">[fields.name]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
 </pre></div>
 <p>So this is where the magic lives.  the <code>replaced_with</code> key in the <code>[children]</code>
 section tells Lektor to ignore the child pages that would normally exist below

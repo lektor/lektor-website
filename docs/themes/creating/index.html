@@ -145,7 +145,7 @@
       </ul>
 
       <div class="admonition admonition-warning"><p>Not implemented yet.</p></div><p>You could create a basic empty theme with the following command:</p>
-<div class="hll"><pre><span></span>$ lektor dev new-theme
+<div class="hll"><pre><span></span>$<span class="w"> </span>lektor<span class="w"> </span>dev<span class="w"> </span>new-theme
 </pre></div>
 <h2 id="theme-components">Theme Components:</h2><p>A theme could provide templates, assets, and models (also flowblocks):</p>
 <pre><code>demo-theme
@@ -156,13 +156,13 @@
 </code></pre>
 <h2 id="the-theme-settings-variable">The theme_settings Variable</h2><p>A <code>theme_settings</code> section in <code>.lektorproject</code> file could be used to
 parametrize themes:</p>
-<div class="hll"><pre><span></span><span class="k">[theme_settings]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Lektor&quot;</span><span class="w"></span>
-<span class="na">github_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/lektor&quot;</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[theme_settings]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Lektor&quot;</span>
+<span class="na">github_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/lektor&quot;</span>
 </pre></div>
 <p>And those settings will be accessed in templates through the config env
 variable:</p>
-<div class="hll"><pre><span></span><span class="cp">{{</span> <span class="nv">config.theme_settings</span><span class="err">.</span><span class="o">&lt;</span><span class="nv">variable_name</span><span class="o">&gt;</span> <span class="cp">}}</span><span class="x"></span>
+<div class="hll"><pre><span></span><span class="cp">{{</span> <span class="nv">config.theme_settings</span><span class="err">.</span><span class="o">&lt;</span><span class="nv">variable_name</span><span class="o">&gt;</span> <span class="cp">}}</span>
 </pre></div>
 <p>Example:</p>
 <div class="hll"><pre><span></span><span class="x">&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">config.theme_settings.github_url</span> <span class="cp">}}</span><span class="x">&quot;&gt;Github&lt;/a&gt;</span>
@@ -173,27 +173,27 @@ variable:</p>
 <h2 id="the-theme-ini-file">The theme.ini File</h2><p>Themes could provide a <code>theme.ini</code> file, that is optional, but it's required if
 you want to add your theme to the lektor community themes.</p>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[theme]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Demo theme</span><span class="w"></span>
-<span class="na">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">MIT</span><span class="w"></span>
-<span class="na">licenselink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/lektor/lektor-demo-theme/blob/master/LICENSE.md</span><span class="w"></span>
-<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Simple, minimal theme for Lektor</span><span class="w"></span>
-<span class="na">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/lektor/lektor-demo-theme</span><span class="w"></span>
-<span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">simple, minimal, demo</span><span class="w"></span>
-<span class="na">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog</span><span class="w"></span>
-<span class="na">lektor_minimum_required_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">3.1</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[theme]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Demo theme</span>
+<span class="na">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">MIT</span>
+<span class="na">licenselink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/lektor/lektor-demo-theme/blob/master/LICENSE.md</span>
+<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Simple, minimal theme for Lektor</span>
+<span class="na">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/lektor/lektor-demo-theme</span>
+<span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">simple, minimal, demo</span>
+<span class="na">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog</span>
+<span class="na">lektor_minimum_required_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">3.1</span>
 
-<span class="k">[author]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor</span><span class="w"></span>
-<span class="na">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http://getlektor.com/</span><span class="w"></span>
+<span class="k">[author]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">lektor</span>
+<span class="na">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http://getlektor.com/</span>
 
-<span class="k">[original]</span><span class="w"></span>
-<span class="na">author</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="na">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="na">repo</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="k">[original]</span>
+<span class="na">author</span><span class="w"> </span><span class="o">=</span>
+<span class="na">homepage</span><span class="w"> </span><span class="o">=</span>
+<span class="na">repo</span><span class="w"> </span><span class="o">=</span>
 
-<span class="k">[packages]</span><span class="w"></span>
-<span class="na">lektor-disqus-comments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.2</span><span class="w"></span>
+<span class="k">[packages]</span>
+<span class="na">lektor-disqus-comments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.2</span>
 </pre></div>
 <p>The <code>[original]</code> section is only required if you are porting an existing theme.</p>
 <div class="admonition admonition-warning"><p>Not implemented yet</p></div><p>The <code>lektor_minimum_required_version</code> is used by Lektor to check the

@@ -163,8 +163,8 @@ and not very portable.</p>
 <p>The system supports FTP (<code>ftp://</code>) and FTP over TLS (<code>ftps://</code>).  Passive mode
 can be enabled/disabled with the optional <code>?passive</code> parameter.  It defaults
 to true.</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ftps://myuser:mypassword@ftp.example.com/var/www/example</span><span class="w"></span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ftps://myuser:mypassword@ftp.example.com/var/www/example</span>
 </pre></div>
 <h2 id="credentials">Credentials</h2><p>FTP is considered a largely insecure protocol for Lektor.  As such if you
 want to use it you should keep your project file safe as credentials will

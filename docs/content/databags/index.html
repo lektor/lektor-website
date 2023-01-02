@@ -157,9 +157,9 @@ menu or similar things.</p>
 folder.  The files there are accessible by their name sans the file extension.
 All ordering in the source files is retained.  So for instance this could
 be the <code>main-nav.ini</code> data file for a basic navigation:</p>
-<div class="hll"><pre><span></span><span class="na">/downloads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Download</span><span class="w"></span>
-<span class="na">/docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation</span><span class="w"></span>
-<span class="na">/blog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="na">/downloads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Download</span>
+<span class="na">/docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation</span>
+<span class="na">/blog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span>
 </pre></div>
 <p>And the template could access it like this:</p>
 <div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav&quot;</span><span class="p">&gt;</span>
@@ -178,14 +178,14 @@ within the bag.  For instance you could use this to look up values that might
 change depending on the alternative of a page for instance.</p>
 <p>In this case the system is used to translate buttons.  Take <code>buttons.ini</code>
 as an example:</p>
-<div class="hll"><pre><span></span><span class="k">[en]</span><span class="w"></span>
-<span class="na">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Download</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[en]</span>
+<span class="na">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Download</span>
 
-<span class="k">[de]</span><span class="w"></span>
-<span class="na">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Herunterladen</span><span class="w"></span>
+<span class="k">[de]</span>
+<span class="na">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Herunterladen</span>
 
-<span class="k">[ru]</span><span class="w"></span>
-<span class="na">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Скачать</span><span class="w"></span>
+<span class="k">[ru]</span>
+<span class="na">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Скачать</span>
 </pre></div>
 <p>And in a template it could be used like this:</p>
 <div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">bag</span><span class="o">(</span><span class="s1">&#39;buttons&#39;</span><span class="o">,</span> <span class="nv">this.alt</span><span class="o">,</span> <span class="s1">&#39;download&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>

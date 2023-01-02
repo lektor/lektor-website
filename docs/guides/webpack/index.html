@@ -200,17 +200,17 @@ values) and then generate a <code>package.json</code> file for you.</p>
 <p>It should look similar to the following example. Please <strong>do not</strong> just
 copy-paste this! Instead run the tool, so that your <code>package.json</code> meets
 the latest format specification.</p>
-<div class="hll"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lektor-example&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lektor-example&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span>
+<span class="p">}</span>
 </pre></div>
 <p>Now we can <code>npm install</code> all the things we want:</p>
 <pre><code>$ npm install --save-dev webpack babel-core node-sass babel-loader sass-loader css-loader url-loader style-loader file-loader extract-text-webpack-plugin
@@ -232,48 +232,48 @@ installed for as long as someone else ran it before.</p>
 <li>all built files will go to <code>assets/static/gen</code></li>
 <li>there will be a <code>gen/app.js</code> and a <code>gen/styles.css</code> file to include</li>
 </ul>
-<div class="hll"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">webpack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;extract-text-webpack-plugin&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">webpack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;extract-text-webpack-plugin&#39;</span><span class="p">);</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">entry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;app&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;./js/main.js&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;styles&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;./scss/main.scss&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/assets/static/gen&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;[name].js&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">devtool</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#cheap-module-source-map&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">resolve</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">modules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;node_modules&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;.js&#39;</span><span class="p">]</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">module</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.js$/</span><span class="p">,</span><span class="w"> </span><span class="nx">exclude</span><span class="o">:</span><span class="w"> </span><span class="sr">/node_modules/</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;babel-loader&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.scss$/</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="p">.</span><span class="nx">extract</span><span class="p">({</span><span class="w"></span>
-<span class="w">          </span><span class="nx">fallback</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;css-loader!sass-loader&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.css$/</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="p">.</span><span class="nx">extract</span><span class="p">({</span><span class="w"></span>
-<span class="w">          </span><span class="nx">fallback</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;css-loader&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.(woff2?|ttf|eot|svg|png|jpe?g|gif)$/</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;file&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="p">({</span><span class="w"></span>
-<span class="w">      </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;styles.css&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nx">allChunks</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">}),</span><span class="w"></span>
-<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">webpack</span><span class="p">.</span><span class="nx">optimize</span><span class="p">.</span><span class="nx">UglifyJsPlugin</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">]</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">entry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;app&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;./js/main.js&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;styles&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;./scss/main.scss&#39;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/assets/static/gen&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;[name].js&#39;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">devtool</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#cheap-module-source-map&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">resolve</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">modules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;node_modules&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;.js&#39;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">module</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.js$/</span><span class="p">,</span><span class="w"> </span><span class="nx">exclude</span><span class="o">:</span><span class="w"> </span><span class="sr">/node_modules/</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;babel-loader&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.scss$/</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="p">.</span><span class="nx">extract</span><span class="p">({</span>
+<span class="w">          </span><span class="nx">fallback</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;css-loader!sass-loader&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.css$/</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="p">.</span><span class="nx">extract</span><span class="p">({</span>
+<span class="w">          </span><span class="nx">fallback</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;css-loader&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="sr">/\.(woff2?|ttf|eot|svg|png|jpe?g|gif)$/</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;file&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">ExtractTextPlugin</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;styles.css&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">allChunks</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}),</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">webpack</span><span class="p">.</span><span class="nx">optimize</span><span class="p">.</span><span class="nx">UglifyJsPlugin</span><span class="p">()</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">};</span>
 </pre></div>
 <h2 id="creating-the-app">Creating the App</h2><p>Now we can start building our app.  We configured at least two files
 in webpack: <code>js/main.js</code> and <code>scss/main.scss</code>.  Those are the entry

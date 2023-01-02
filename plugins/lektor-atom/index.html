@@ -138,30 +138,30 @@
 <p>Inspired by the <a href="https://github.com/lektor/lektor-website/tree/master/packages/atom-feed-support" rel="nofollow">atom-feed-support</a> plugin Armin Ronacher wrote for the Lektor official blog.</p>
 <h2>Installation</h2>
 <p>Add lektor-atom to your project from command line:</p>
-<pre lang="sh">lektor plugins add lektor-atom
+<pre lang="sh">lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-atom
 </pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor documentation for more instructions on installing plugins</a>.</p>
 <h2>Configuration</h2>
 <p>Here is a basic configuration:</p>
-<pre lang="ini"><span class="k">[feed]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Site&#39;s Blog</span><span class="w"></span>
-<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span><span class="w"></span>
-<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span><span class="w"></span>
+<pre lang="ini"><span class="k">[feed]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Site&#39;s Blog</span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span>
+<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span>
 </pre>
 <p>For each feed you want to publish, add a section to <code>configs/atom.ini</code>. For example, a blog with a feed of all recent posts, and a feed of recent posts about coffee:</p>
-<pre lang="ini"><span class="k">[blog]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog</span><span class="w"></span>
-<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span><span class="w"></span>
-<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span><span class="w"></span>
-<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/&#39;).filter(F.type == &#39;post&#39;)</span><span class="w"></span>
-<span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span><span class="w"></span>
+<pre lang="ini"><span class="k">[blog]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog</span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span>
+<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span>
+<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/&#39;).filter(F.type == &#39;post&#39;)</span>
+<span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span>
 
-<span class="k">[coffee]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog: Articles About Coffee</span><span class="w"></span>
-<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span><span class="w"></span>
-<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/category/coffee/feed.xml</span><span class="w"></span>
-<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/blog&#39;).filter(F.categories.contains(&#39;coffee&#39;))</span><span class="w"></span>
-<span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span><span class="w"></span>
+<span class="k">[coffee]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog: Articles About Coffee</span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span>
+<span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/category/coffee/feed.xml</span>
+<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/blog&#39;).filter(F.categories.contains(&#39;coffee&#39;))</span>
+<span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span>
 </pre>
 <p>The section names, like <code>blog</code> and <code>coffee</code>, are just used as internal identifiers.</p>
 <h3>Options</h3>
@@ -243,19 +243,19 @@
 </table>
 <h3>Customizing the plugin for your models</h3>
 <p>Use the field options to tell lektor-atom how to read your items. For example, if your site's model is:</p>
-<pre lang="ini"><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span><span class="w"></span>
+<pre lang="ini"><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span>
 
-<span class="k">[fields.writer]</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="k">[fields.writer]</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
 
-<span class="k">[fields.short_description]</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="k">[fields.short_description]</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
 </pre>
 <p>Then add to atom.ini:</p>
-<pre lang="ini"><span class="k">[main]</span><span class="w"></span>
-<span class="na">blog_author_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">writer</span><span class="w"></span>
-<span class="na">blog_summary_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">short_description</span><span class="w"></span>
+<pre lang="ini"><span class="k">[main]</span>
+<span class="na">blog_author_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">writer</span>
+<span class="na">blog_summary_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">short_description</span>
 </pre>
 <p>See <a href="https://github.com/ajdavis/lektor-atom/blob/master/tests/demo-project/configs/atom.ini" rel="nofollow">tests/demo-project/configs/atom.ini</a> for a complete example.</p>
 <h3>Filtering items</h3>
@@ -263,8 +263,8 @@
 <p>Set <code>items</code> to any query expression to override the default. If <code>items_model</code> is <em>also</em> specified, lektor-atom applies it as a filter to <code>items</code>.</p>
 <h2>Use In Templates</h2>
 <p>You can link to a specific feed in your template. If your <code>atom.ini</code> contains a feed like this:</p>
-<pre lang="ini"><span class="k">[main]</span><span class="w"></span>
-<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span><span class="w"></span>
+<pre lang="ini"><span class="k">[main]</span>
+<span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span>
 </pre>
 <p>Link to the feed in a template like this:</p>
 <pre><code>{{ '/blog@atom/main'|url }}

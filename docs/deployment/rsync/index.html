@@ -154,8 +154,8 @@ way.  It uses the system's SSH config so for authentication just configure
 SSH as you would normally do.  The <code>username</code> part is optional and defaults
 to the current user that is signed into the machine or whatever is picked up
 as default from the <code>.ssh/config</code>.</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://deploy@example.com/var/www/example.com</span><span class="w"></span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://deploy@example.com/var/www/example.com</span>
 </pre></div>
 <h2 id="credentials">Credentials</h2><p>The <code>rsync</code> deploy method supports both username and password parameter
 though it's recommended to use <code>.ssh/config</code> and an SSH agent to secure
@@ -175,8 +175,8 @@ assumed.</p>
 it's necessary to explicitly tell <code>rsync</code> to remove files or directories
 on target that don't exist on source anymore. This can be done using the
 <code>?delete</code> URL parameter:</p>
-<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder?delete</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder?delete</span>
 </pre></div>
 <p>If the parameter is provided Lektor will issue a <code>rsync --delete-delay</code>,
 which performs deletions after all other transfers ended, and only in case
@@ -186,8 +186,8 @@ on target that does not exist on source. This means that if you have files
 in the target tree that are not managed by lektor, they will get removed.</p></div><h2 id="exclusion-support">Exclusion Support</h2><p>You can exclude items from being synced by using one or more <code>exclude</code>
 parameters. This is also useful in combination with <code>delete</code> to prevent
 removal of files in the target tree that are not managed by lektor:</p>
-<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder?delete&amp;exclude=target_item_1&amp;exclude=target_item_2</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder?delete&amp;exclude=target_item_1&amp;exclude=target_item_2</span>
 </pre></div>
 
       

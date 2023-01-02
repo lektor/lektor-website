@@ -160,7 +160,7 @@ All images will be converted to webp using <a href="https://pypi.org/project/Pil
 <h2>Installation</h2>
 <p>To install the plugin, add <code>lektor-image-resize</code> to your plugins from the command line and create a config file:</p>
 <pre lang="bash"><span class="c1"># add the plugin to lektor</span>
-lektor plugins add lektor-image-resize
+lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-image-resize
 </pre>
 <p>If you have trouble, see the <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">plugin
 installation</a> section of the Lektor
@@ -169,15 +169,15 @@ documentation.</p>
 a few sections for images. The section names can be whatever you want, the
 final images will be called <code>$(imagename)-$(sectionname).jpg</code> and <code>$(imagename)-$(sectionname).webp</code>.</p>
 <p>Here is a example config file:</p>
-<pre lang="ini"><span class="k">[small]</span><span class="w"></span>
-<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">640</span><span class="w"></span>
-<span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">360</span><span class="w"></span>
+<pre lang="ini"><span class="k">[small]</span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">640</span>
+<span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">360</span>
 
-<span class="k">[medium]</span><span class="w"></span>
-<span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">720</span><span class="w"></span>
+<span class="k">[medium]</span>
+<span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">720</span>
 
-<span class="k">[woowee]</span><span class="w"></span>
-<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1920</span><span class="w"></span>
+<span class="k">[woowee]</span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1920</span>
 </pre>
 <p>Will take a file called <code>waffle.jpg</code> and create the files <code>waffle-small.jpg</code>,
 <code>waffle-medium.jpg</code> and <code>waffle-woowee.jpg</code> as well as <code>waffle-small.webp</code>,

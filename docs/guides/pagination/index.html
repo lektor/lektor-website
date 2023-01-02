@@ -171,9 +171,9 @@ subset of the child records per page.</p>
 <h2 id="configuring-pagination">Configuring Pagination</h2><p>First you need to enable the pagination in the model.  Primarily you need
 to enable the pagination and set how many items show up on a page.  Just
 add this to the parent model:</p>
-<div class="hll"><pre><span></span><span class="k">[pagination]</span><span class="w"></span>
-<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">per_page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[pagination]</span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">per_page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10</span>
 </pre></div>
 <h2 id="selecting-the-children">Selecting the Children</h2><p>Now that you have the pagination configured you need to iterate only over
 the children of an active page in your template rather than the children of the

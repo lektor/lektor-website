@@ -168,17 +168,17 @@ repository for it needs to be named <code>&lt;username&gt;.gitlab.io</code>.</p>
 <code>.gitlab-ci.yml</code> which contains a configuration for gitlab pages.</p>
 <h2 id="configuration">Configuration</h2><p>To enable support for Lektor you need to create a <code>.gitlab-ci.yml</code> config
 next to your <code>.lektorproject</code> file with the following contents:</p>
-<div class="hll"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:latest</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:latest</span>
 
-<span class="nt">pages</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install lektor</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lektor build --output-path public</span><span class="w"></span>
-<span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span><span class="w"></span>
-<span class="w">  </span><span class="nt">only</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span><span class="w"></span>
+<span class="nt">pages</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install lektor</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lektor build --output-path public</span>
+<span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
+<span class="w">  </span><span class="nt">only</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
 </pre></div>
 <p>It's important that the output path is set to <code>public</code> as this is what
 will be served up.  In case you want to use a different branch than <code>master</code>
@@ -192,26 +192,26 @@ To do so, you have to:</p>
 <li>configure Gitlab to cache this directory.</li>
 </ul>
 <p>See the example below.</p>
-<div class="hll"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:latest</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:latest</span>
 
-<span class="nt">default</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">cache</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.cache/lektor</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.cache/pip</span><span class="w"></span>
+<span class="nt">default</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">cache</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.cache/lektor</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.cache/pip</span>
 
-<span class="nt">variables</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">XDG_CACHE_HOME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$CI_PROJECT_DIR/.cache&quot;</span><span class="w"></span>
+<span class="nt">variables</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">XDG_CACHE_HOME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$CI_PROJECT_DIR/.cache&quot;</span>
 
-<span class="nt">pages</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install lektor</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lektor build --output-path public</span><span class="w"></span>
-<span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span><span class="w"></span>
-<span class="w">  </span><span class="nt">only</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span><span class="w"></span>
+<span class="nt">pages</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install lektor</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lektor build --output-path public</span>
+<span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
+<span class="w">  </span><span class="nt">only</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
 </pre></div>
 <h2 id="cname-support">CNAME Support</h2><p>If you want to use a <a href="https://en.wikipedia.org/wiki/CNAME" class="ext">CNAME</a> with
 GitLab pages you can configure it in the GitLab settings:</p>

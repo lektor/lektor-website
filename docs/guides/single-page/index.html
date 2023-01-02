@@ -193,35 +193,35 @@ parts of our big page.</li>
 <p>We will just sort all the documentation pages by the page ID so it's possible
 to just order the pages by prefixing the page with a number
 (<code>0001-installation</code>, <code>0002-quickstart</code> etc.)</p>
-<h3 id="index.ini`"><code>index.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<h3 id="index.ini`"><code>index.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[fields.title]</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="k">[fields.title]</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
 </pre></div>
-<h3 id="doc-pages.ini`"><code>doc-pages.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Pages</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Pages</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<h3 id="doc-pages.ini`"><code>doc-pages.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Pages</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Pages</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[children]</span><span class="w"></span>
-<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">doc-page</span><span class="w"></span>
-<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_id</span><span class="w"></span>
+<span class="k">[children]</span>
+<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">doc-page</span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_id</span>
 </pre></div>
-<h3 id="doc-page.ini`"><code>doc-page.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Page</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<h3 id="doc-page.ini`"><code>doc-page.ini</code></h3><div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Documentation Page</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.title }}</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[fields.title]</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
+<span class="k">[fields.title]</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
 
-<span class="k">[fields.body]</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+<span class="k">[fields.body]</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span>
 </pre></div>
 <h2 id="initializing-the-contents">Initializing the Contents</h2><p>Now that we have the models we need to set up the initial pages.  All our
 models are hidden which means that we cannot use the admin panel to setup

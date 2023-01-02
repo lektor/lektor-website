@@ -136,34 +136,34 @@
 <ol>
 <li>
 <p>Add plugin to your project</p>
-<pre lang="bash">$ lektor plugin add lektor-tailwind
-$ lektor plugin list
+<pre lang="bash">$<span class="w"> </span>lektor<span class="w"> </span>plugin<span class="w"> </span>add<span class="w"> </span>lektor-tailwind
+$<span class="w"> </span>lektor<span class="w"> </span>plugin<span class="w"> </span>list
 </pre>
 </li>
 <li>
 <p>Configure your template paths</p>
 <p>In <code>tailwindcss.config.js</code>:</p>
-<pre lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;./templates/**/*.{html,j2}&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">extend</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<pre lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;./templates/**/*.{html,j2}&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">extend</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="p">}</span>
 </pre>
 </li>
 <li>
 <p>Add the Tailwind directives to your CSS</p>
 <p>In <code>assets/static/style.css</code>:</p>
-<pre lang="css"><span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">base</span><span class="p">;</span><span class="w"></span>
-<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">components</span><span class="p">;</span><span class="w"></span>
-<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">utilities</span><span class="p">;</span><span class="w"></span>
+<pre lang="css"><span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">base</span><span class="p">;</span>
+<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">components</span><span class="p">;</span>
+<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">utilities</span><span class="p">;</span>
 </pre>
 </li>
 <li>
 <p>Start lektor build or server:</p>
-<pre lang="bash">$ lektor build
-$ lektor server
+<pre lang="bash">$<span class="w"> </span>lektor<span class="w"> </span>build
+$<span class="w"> </span>lektor<span class="w"> </span>server
 </pre>
 </li>
 </ol>

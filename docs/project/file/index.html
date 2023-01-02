@@ -146,8 +146,8 @@
 identify the project for the user interface.  The project file is an INI file
 (UTF-8 encoded like everything else in Lektor) and the minimal content is the
 name of the project:</p>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Fancy Project</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[project]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Fancy Project</span>
 </pre></div>
 <p>The name of the file can be arbitrary but must have the <code>.lektorproject</code>
 extension or Lektor will not be able to find it.  When Lektor looks for a
@@ -247,19 +247,19 @@ or match your custom <code>excluded_assets</code> pattern. The wildcard syntax f
 <a href="https://docs.python.org/2/library/fnmatch.html">fnmatch</a>.</p>
 </blockquote>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Website</span><span class="w"></span>
-<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://www.mywebsite.invalid/</span><span class="w"></span>
-<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">de_DE</span><span class="w"></span>
-<span class="na">excluded_assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">*.backup, *~</span><span class="w"></span>
-<span class="na">included_assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_special_file</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[project]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Website</span>
+<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://www.mywebsite.invalid/</span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">de_DE</span>
+<span class="na">excluded_assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">*.backup, *~</span>
+<span class="na">included_assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_special_file</span>
 </pre></div>
 <h3 id="packages"><code>[packages]</code></h3><p>This section controls the packages (plugins) that should be installed for
 this project.  It's a simple key/value list where the key is the plugin
 name and the value is the version number.</p>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[packages]</span><span class="w"></span>
-<span class="na">lektor-webpack-support</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[packages]</span>
+<span class="na">lektor-webpack-support</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1</span>
 </pre></div>
 <h3 id="servers.*]`"><code>[servers.*]</code></h3><p>This section can be repeated and each instance sets up a server.  The <code>*</code>
 needs to be replaced with the ID of the server.  This ID is used by the
@@ -281,11 +281,11 @@ to the deployment guides.</p>
 is configured it's an implicit default.</p>
 </blockquote>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span><span class="w"></span>
-<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span>
+<span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rsync://server/path/to/folder</span>
 </pre></div>
 <h3 id="alternatives.*]`"><code>[alternatives.*]</code></h3><p>This configures <a href="../../content/alts/" class="ref">Alternatives</a>.  It is repeated for
 each intended alternative.  The default behavior is that alternatives are
@@ -309,22 +309,22 @@ more information about this refer to the guide.</p>
 <blockquote><p>This setting can override the global site locale for a specific alternative.</p>
 </blockquote>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[alternatives.en]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">English</span><span class="w"></span>
-<span class="na">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">en_US</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[alternatives.en]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">English</span>
+<span class="na">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">en_US</span>
 
-<span class="k">[alternatives.fr]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">French</span><span class="w"></span>
-<span class="na">url_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/fr/</span><span class="w"></span>
-<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">fr</span><span class="w"></span>
+<span class="k">[alternatives.fr]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">French</span>
+<span class="na">url_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/fr/</span>
+<span class="na">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">fr</span>
 </pre></div>
 <h3 id="attachment-types"><code>[attachment_types]</code></h3><p>Lektor does some basic attachment type detection based on file extension. This is what powers the <code>this.attachemnts.images</code> and <code>this.attachments.videos</code> attributes for instance. If the built-in map does not cover your file extension you can extend it or add new attachement types on a project by project basis.</p>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[attachment_types]</span><span class="w"></span>
-<span class="c1">; &lt;.file-ext&gt; = &lt;type&gt;</span><span class="w"></span>
-<span class="na">.gpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gpx</span><span class="w"></span>
-<span class="na">.ogv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">video</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[attachment_types]</span>
+<span class="c1">; &lt;.file-ext&gt; = &lt;type&gt;</span>
+<span class="na">.gpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gpx</span>
+<span class="na">.ogv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">video</span>
 </pre></div>
 
       

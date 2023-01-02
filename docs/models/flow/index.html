@@ -147,20 +147,20 @@ Documentation</a> to Flow first.</p>
 are stored in the <code>flowblocks/</code> folder and are ini files just like models.</p>
 <p>Instead of using <code>[model]</code> as section, the section is called <code>[block]</code>.</p>
 <p>Here a very basic flow block model <code>flowblocks/text.ini</code>:</p>
-<div class="hll"><pre><span></span><span class="k">[block]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text Block</span><span class="w"></span>
-<span class="na">button_label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[block]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text Block</span>
+<span class="na">button_label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text</span>
 
-<span class="k">[fields.text]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+<span class="k">[fields.text]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Text</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span>
 
-<span class="k">[fields.class]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Class</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">select</span><span class="w"></span>
-<span class="na">choices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">default, centered</span><span class="w"></span>
-<span class="na">choice_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Default, Centered</span><span class="w"></span>
-<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">default</span><span class="w"></span>
+<span class="k">[fields.class]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Class</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">select</span>
+<span class="na">choices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">default, centered</span>
+<span class="na">choice_labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Default, Centered</span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">default</span>
 </pre></div>
 <p>This should be self explanatory.  One thing that is different about blocks
 compared to regular models is that they support the <code>button_label</code> attribute

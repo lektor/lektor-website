@@ -163,8 +163,8 @@ can also accept <code>username:password@</code> in the URL to hold the credentia
 addition to accepting username and password from the command line or
 environment variables.</p>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="k">[servers.ghpages]</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ghpages://your-user/your-repository</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[servers.ghpages]</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ghpages://your-user/your-repository</span>
 </pre></div>
 <h2 id="credentials">Credentials</h2><p>This deployment method has two implementations: <code>ghpages</code> (also known as
 <code>ghpages+ssh</code>) which uses SSH and <code>ghpages+https</code> which uses HTTPS.  They
@@ -180,8 +180,8 @@ with behavior for GitHub Pages.</p>
 <h2 id="cname-support">CNAME Support</h2><p>If you want to use a custom domain with GitHub pages (also known as a 
 <a href="https://en.wikipedia.org/wiki/CNAME" class="ext">CNAME</a>), provide the intended 
 CNAME in the target URL using the <code>?cname</code> parameter:</p>
-<div class="hll"><pre><span></span><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ghpages://your-user/your-repository?cname=www.example.com</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ghpages://your-user/your-repository?cname=www.example.com</span>
 </pre></div>
 <p>Note that this will overwrite whatever custom domain you may have set on
 GitHub with every deployment.</p>

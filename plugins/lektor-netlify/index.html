@@ -132,14 +132,14 @@
 <h2>Installation</h2>
 <p>Install the <code>netlify</code> command-line program according to <a href="https://www.netlify.com/docs/cli" rel="nofollow">the instructions on netlify.com</a>.</p>
 <p>Add lektor-netlify to your project from the command line:</p>
-<pre lang="shell">lektor plugins add lektor-netlify
+<pre lang="shell">lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-netlify
 </pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor documentation for more instructions on installing plugins</a>.</p>
 <h2>Configuration</h2>
 <p>Configure a server in your <code>.lektorproject</code> file:</p>
-<pre lang="ini"><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">netlify://my-domain.com</span><span class="w"></span>
+<pre lang="ini"><span class="k">[servers.production]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">netlify://my-domain.com</span>
 </pre>
 <h2>Access Token</h2>
 <p>Get a personal access token from Netlify's &quot;applications&quot; page:</p>
@@ -147,16 +147,16 @@
 <li><a href="https://app.netlify.com/applications" rel="nofollow">Applications</a></li>
 </ul>
 <p>You must use this access token each time you publish. <strong>If your project file is private</strong> you can save the token there. Do not commit this!</p>
-<pre lang="ini"><span class="k">[servers.production]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span><span class="w"></span>
-<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">netlify://my-domain.com</span><span class="w"></span>
-<span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ACCESS_TOKEN</span><span class="w"></span>
+<pre lang="ini"><span class="k">[servers.production]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Production</span>
+<span class="na">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">netlify://my-domain.com</span>
+<span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ACCESS_TOKEN</span>
 </pre>
 <p>Now deploy your site like:</p>
-<pre lang="shell">lektor deploy production
+<pre lang="shell">lektor<span class="w"> </span>deploy<span class="w"> </span>production
 </pre>
 <p>Otherwise, pass the token on the command line:</p>
-<pre lang="shell">lektor deploy production --key ACCESS_TOKEN    
+<pre lang="shell">lektor<span class="w"> </span>deploy<span class="w"> </span>production<span class="w"> </span>--key<span class="w"> </span>ACCESS_TOKEN<span class="w">    </span>
 </pre>
  
         

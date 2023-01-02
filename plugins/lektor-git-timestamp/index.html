@@ -190,11 +190,11 @@ this will select the minimum of all the timestamps remaining after any filtering
 </ul>
 <h2>Examples</h2>
 <p>Here is a simple example excerpt from a datamodel file:</p>
-<pre lang="ini"><span class="na">&lt;...&gt;</span><span class="w"></span>
+<pre lang="ini"><span class="na">&lt;...&gt;</span>
 
-<span class="k">[fields.last_mod]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time last modified</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span><span class="w"></span>
+<span class="k">[fields.last_mod]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time last modified</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span>
 </pre>
 <p>On a page using the above datamodel, so long as the <code>last_mod</code> field
 is left blank in the <code>contents.lr</code> file, the page modification time
@@ -203,18 +203,18 @@ affected that <code>contents.lr</code>.  (Or if that file is dirty, the value of
 <code>last_mod</code> will be taken from the file’s filesystem mtime.)</p>
 <hr>
 <p>Here is a more complicated example which demonstrates the use of all the options.</p>
-<pre lang="ini"><span class="na">&lt;...&gt;</span><span class="w"></span>
+<pre lang="ini"><span class="na">&lt;...&gt;</span>
 
-<span class="k">[fields.pub_date]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time first published</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span><span class="w"></span>
-<span class="na">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">first</span><span class="w"></span>
+<span class="k">[fields.pub_date]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time first published</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span>
+<span class="na">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">first</span>
 
-<span class="k">[fields.last_mod]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time last modified</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span><span class="w"></span>
-<span class="na">ignore_commits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\[nochange\]</span><span class="w"></span>
-<span class="na">skip_first_commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
+<span class="k">[fields.last_mod]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Time last modified</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gittimestamp</span>
+<span class="na">ignore_commits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\[nochange\]</span>
+<span class="na">skip_first_commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
 </pre>
 <p>This will get the default value of the <code>pub_date</code> field from the
 timestamp of the first (earliest) git commit for the source file.</p>

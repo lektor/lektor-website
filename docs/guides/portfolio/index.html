@@ -182,51 +182,51 @@ for new pages and make it impossible to delete (<code>protected</code>).  This m
 need to manually create the one page later which will use this.</p>
 <p>Because we only have a single page for the projects overview we give it a
 static label manually (<code>label = Projects</code>).</p>
-<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
-<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Projects</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<span class="na">protected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[children]</span><span class="w"></span>
-<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span><span class="w"></span>
-<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-date, name</span><span class="w"></span>
+<span class="k">[children]</span>
+<span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-date, name</span>
 </pre></div>
 <h3 id="project.ini`"><code>project.ini</code></h3><p>Next up is the model for the project.  This is completely up to you, we will go
 with some things here that might appear on such a portfolio page.  In addition
 we will do something with the attachments of this page, but more about that
 later.  For now we just order them by their filename (<code>_id</code>):</p>
-<div class="hll"><pre><span></span><span class="k">[model]</span><span class="w"></span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span><span class="w"></span>
-<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[model]</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{{ this.name }}</span>
+<span class="na">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 
-<span class="k">[attachments]</span><span class="w"></span>
-<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_id</span><span class="w"></span>
+<span class="k">[attachments]</span>
+<span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">_id</span>
 
-<span class="k">[fields.name]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
-<span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">large</span><span class="w"></span>
+<span class="k">[fields.name]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
+<span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">large</span>
 
-<span class="k">[fields.date]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Date</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">date</span><span class="w"></span>
-<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/4</span><span class="w"></span>
+<span class="k">[fields.date]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Date</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">date</span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/4</span>
 
-<span class="k">[fields.type]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project type</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span><span class="w"></span>
-<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/4</span><span class="w"></span>
+<span class="k">[fields.type]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project type</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">string</span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/4</span>
 
-<span class="k">[fields.website]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Website</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">url</span><span class="w"></span>
-<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/2</span><span class="w"></span>
+<span class="k">[fields.website]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Website</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">url</span>
+<span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1/2</span>
 
-<span class="k">[fields.description]</span><span class="w"></span>
-<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Description</span><span class="w"></span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span><span class="w"></span>
+<span class="k">[fields.description]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Description</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span>
 </pre></div>
 <h2 id="templates">Templates</h2><p>So now that we have models, we should probably go over what we can do with the
 attachments.  Because each page in Lektor can have attachments added we can

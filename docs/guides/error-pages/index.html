@@ -184,8 +184,8 @@ development server.  To test those you will need to explicitly navigate to
 that relative URLs <em>will not work</em>.  If you want to use custom error pages you
 will have to set the <code>url_style</code> to <code>absolute</code> as otherwise URLs on an error
 page will not work.  Just add this to your project file:</p>
-<div class="hll"><pre><span></span><span class="k">[project]</span><span class="w"></span>
-<span class="na">url_style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">absolute</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">[project]</span>
+<span class="na">url_style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">absolute</span>
 </pre></div>
 <p>For more information about this you can read the <a href="../../project/file/" class="ref">Project File Documentation</a>.</p>
 <h2 id="creating-an-error-page">Creating an Error Page</h2><p>You can easily add a 404 page by creating a <code>404.html/contents.lr</code>
@@ -203,16 +203,16 @@ work slightly differently.</p>
 <h3 id="apache">Apache</h3><p>Making custom error pages work is easiest with Apache.  If <code>.htaccess</code> files
 are enabled you can just put a file with that name into your <code>assets</code> folder
 and add the following line to it:</p>
-<div class="hll"><pre><span></span><span class="nb">ErrorDocument</span><span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="sx">/404.html</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="nb">ErrorDocument</span><span class="w"> </span><span class="m">404</span><span class="w"> </span><span class="sx">/404.html</span>
 </pre></div>
 <p>Alternatively you can add the above line into a <code>VirtualHost</code> or <code>Directory</code>
 section in your main config file.</p>
 <h3 id="nginx">nginx</h3><p>For nginx you need to enable the error document in your main config file.  Just
 add it to your <code>server</code> section:</p>
-<div class="hll"><pre><span></span><span class="k">error_page</span><span class="w"> </span><span class="mi">404</span><span class="w"> </span><span class="s">/404.html</span><span class="p">;</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="k">error_page</span><span class="w"> </span><span class="mi">404</span><span class="w"> </span><span class="s">/404.html</span><span class="p">;</span>
 </pre></div>
 <h3 id="lighttpd">lighttpd</h3><p>If you are using lighttpd you can configure an error page for 404 this way:</p>
-<div class="hll"><pre><span></span><span class="na">server.error-handler-404</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/404.html&quot;</span><span class="w"></span>
+<div class="hll"><pre><span></span><span class="na">server.error-handler-404</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/404.html&quot;</span>
 </pre></div>
 
       

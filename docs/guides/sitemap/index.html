@@ -181,11 +181,11 @@ pages which should be excluded from navigation or automatic link generation.</p>
 iterate over all pages of the site recursively.  This also automatically
 skips hidden pages so those will not be generated out.</p>
 <div class="hll"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;</span><span class="nt">&gt;</span>
-  <span class="cp">{%</span>- <span class="k">for</span> <span class="nv">page</span> <span class="k">in</span> <span class="o">[</span><span class="nv">site.root</span><span class="o">]</span> <span class="k">if</span> <span class="nv">page</span> <span class="o">!=</span> <span class="nv">this</span> <span class="k">recursive</span> <span class="cp">%}</span>
-  <span class="nt">&lt;url&gt;&lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">page</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">external</span><span class="o">=</span><span class="kp">true</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/loc&gt;&lt;/url&gt;</span>
-  <span class="cp">{{</span><span class="o">-</span> <span class="nb">loop</span><span class="o">(</span><span class="nv">page.children</span><span class="o">|</span><span class="nf">sort</span><span class="o">(</span><span class="nv">attribute</span><span class="o">=</span><span class="s1">&#39;path&#39;</span><span class="o">))</span> <span class="cp">}}</span>
-  <span class="cp">{%</span>- <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="nt">&lt;urlset</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="cp">{%</span>- <span class="k">for</span> <span class="nv">page</span> <span class="k">in</span> <span class="o">[</span><span class="nv">site.root</span><span class="o">]</span> <span class="k">if</span> <span class="nv">page</span> <span class="o">!=</span> <span class="nv">this</span> <span class="k">recursive</span> <span class="cp">%}</span>
+<span class="w">  </span><span class="nt">&lt;url&gt;&lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">page</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">external</span><span class="o">=</span><span class="kp">true</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/loc&gt;&lt;/url&gt;</span>
+<span class="w">  </span><span class="cp">{{</span><span class="o">-</span> <span class="nb">loop</span><span class="o">(</span><span class="nv">page.children</span><span class="o">|</span><span class="nf">sort</span><span class="o">(</span><span class="nv">attribute</span><span class="o">=</span><span class="s1">&#39;path&#39;</span><span class="o">))</span> <span class="cp">}}</span>
+<span class="w">  </span><span class="cp">{%</span>- <span class="k">endfor</span> <span class="cp">%}</span>
 <span class="nt">&lt;/urlset&gt;</span>
 </pre></div>
 <p>Sorting the page using <code>|sort(attribute='path')</code> is not mandatory, but can be
