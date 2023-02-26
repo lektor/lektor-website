@@ -6,8 +6,11 @@ cover_image: home.png
 ---
 description:
 
-This is my personal website. It includes a simple about page, a blog, and a curated list of interesting links I've come across. I generally link to and blog about product management, marketing, strategy, and design.
+This is my personal website. It includes a simple about page, a [blog](https://www.ft.io/blog/), and a curated list of [interesting links](https://www.ft.io/links/). I write about product management, go-to-market, strategy, and design. 
 
-Links are stored statically in lektor in the same way blog posts are stored, but I wrote a bit of code that syncs those links before lektor deployments from [pinboard](https://pinboard.in/u:ft), where I manage them centrally.
+I've written two custom plugins for my Lektor site:
 
-The site is hosted on S3 behind Cloudflare, and I use the excellent lektor-s3 plugin to get it there.
+- One fetches links for my linkblog from [Pinboard](https://pinboard.in/u:ft). Since Pinboard doesn't supply webhooks, I've written a custom Netlify function that checks for new bookmarks on Pinboard and triggers a rebuild/deployment when necessary.
+- The other generates dynamic [link preview images](https://www.ft.io/blog/link-preview-images/) used by Twitter and the like to make sharing content from my site more engaging and visual.
+
+The site is hosted on Netlify, which I cannot recommend highly enough.
