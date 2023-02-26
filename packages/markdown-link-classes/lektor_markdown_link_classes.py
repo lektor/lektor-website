@@ -34,7 +34,7 @@ if mistune_version.startswith("0."):
             return render_link(link, text, title)
 else:
     class LinkClassesMixin(object):
-        def link(renderer, link, text, title):
+        def link(renderer, link, text="", title=None):
             return render_link(link, text, title)
 
 
