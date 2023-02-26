@@ -55,9 +55,13 @@
     </div>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <p>This is my personal website. It includes a simple about page, a blog, and a curated list of interesting links I've come across. I generally link to and blog about product management, marketing, strategy, and design.</p>
-<p>Links are stored statically in lektor in the same way blog posts are stored, but I wrote a bit of code that syncs those links before lektor deployments from <a href="https://pinboard.in/u:ft">pinboard</a>, where I manage them centrally.</p>
-<p>The site is hosted on S3 behind Cloudflare, and I use the excellent lektor-s3 plugin to get it there.</p>
+        <p>This is my personal website. It includes a simple about page, a <a href="https://www.ft.io/blog/">blog</a>, and a curated list of <a href="https://www.ft.io/links/">interesting links</a>. I write about product management, go-to-market, strategy, and design.</p>
+<p>I've written two custom plugins for my Lektor site:</p>
+<ul>
+<li>One fetches links for my linkblog from <a href="https://pinboard.in/u:ft">Pinboard</a>. Since Pinboard doesn't supply webhooks, I've written a custom Netlify function that checks for new bookmarks on Pinboard and triggers a rebuild/deployment when necessary.</li>
+<li>The other generates dynamic <a href="https://www.ft.io/blog/link-preview-images/">link preview images</a> used by Twitter and the like to make sharing content from my site more engaging and visual.</li>
+</ul>
+<p>The site is hosted on Netlify, which I cannot recommend highly enough.</p>
 
       </div>
     </div>
