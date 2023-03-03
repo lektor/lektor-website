@@ -28,9 +28,9 @@ needs to be called `MyThingType`.  Afterwards you can register it with the
 environment in [setup_env :ref](../../plugins/events/setup-env/):
 
 ```python
-from lektor.types import Type
+from lektor.types.primitives import SingleInputType
 
-class MyThingType(Type):
+class MyThingType(SingleInputType):
     widget = 'singleline-text'
 
     def value_from_raw(self, raw):
@@ -39,6 +39,11 @@ class MyThingType(Type):
 def setup_env(self, **extra):
     self.env.add_type(MyThingType)
 ```
+
+!!! In the above example, the new type declares a base class of `SingleInputType`.
+    This is appropriate for types that use a single-line input widget in the admin UI —
+    it enables the use of the `addon_label` [field option :ref](/docs/models/#fields).
+    Custom types that use more general input types should instead inherit from `lektor.types.base.Type`.
 
 For more information see [value_from_raw :ref](value-from-raw/).
 
