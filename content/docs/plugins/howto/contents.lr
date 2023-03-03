@@ -187,3 +187,8 @@ class AsciiDocPlugin(Plugin):
         # Derives type name "asciidoc" from class name.
         self.env.add_type(AsciiDocType)
 ```
+
+### Base Classes
+
+In the general case, new types should inherit from `lektor.types.base.Type`.
+However, when creating a new type that will use a "single-line" input widget in the Admin GUI, inheriting from `lektor.types.primitives.SingleInputType` will enable the use of the `addon_label` [field option :ref](/docs/models/#fields).
