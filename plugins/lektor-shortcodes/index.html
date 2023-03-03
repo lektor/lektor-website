@@ -62,7 +62,7 @@
   <div class="plugin">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Plugin &ndash; lektor-shortcodes 0.2.5</h1>
+        <h1>Plugin &ndash; lektor-shortcodes 0.2.7</h1>
       </div>
     </div>
 
@@ -96,7 +96,7 @@
         <div class="separator">
           <h4>Meta</h4>
         </div>
-        <p><strong>Version:</strong> 0.2.5</p>
+        <p><strong>Version:</strong> 0.2.7</p>
         <p><strong>Author:</strong>
           
             <a href="mailto:hi@stavros.io">Stavros Korokithakis,,,</a>
@@ -133,7 +133,70 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          Lektor Shortcodes<br>=================<br><br>[![PyPI](https://img.shields.io/pypi/v/lektor-shortcodes.svg)](https://pypi.python.org/pypi/lektor-shortcodes)<br><br>The Lektor Shortcodes plugin allows you to use shortcodes (shortcodes are<br>something like custom tags) in your fields (not templates), so your content<br>doesn&#x27;t have to have repetitive snippets over and over.<br><br>For example, my blog has some specific HTML that I add when I want an image with<br>a border and caption to be displayed.  The HTML looks like this:<br><br><br>~~~html<br>    &lt;div class=&quot;alignright&quot;&gt;<br>        &lt;a href=&quot;image-large.jpg&quot;&gt;<br>            &lt;img src=&quot;image.jpg&quot; /&gt;<br>            &lt;span class=&quot;caption&quot;&gt;The caption&lt;/span&gt;<br>        &lt;/a&gt;<br>    &lt;/div&gt;<br>~~~<br><br>Copy-pasting this every time gets tedious, and I have to search and replace it<br>in all the content files every time I want to make a change.  With the<br>shortcodes plugin, this can be written as:<br><br>~~~<br>[% image align=right link=&quot;image-large.jpg&quot; image=image.jpg caption=&quot;The caption&quot; %]<br>~~~<br><br>Much easier, cleaner and less repetitive.<br><br><br>Installation<br>------------<br><br>To install the plugin, just add `lektor-shortcodes` to your plugins from the<br>command line:<br><br>~~~<br>lektor plugins add lektor-shortcodes<br>~~~<br><br><br>Usage<br>-----<br><br>Using the plugin is simple. Just create a config file called `shortcodes.ini` in<br>your `configs` directory and specify some shortcode templates. The templates are<br>full Jinja templates, although (due to some limitations of ini files) they need<br>to be on one line.<br><br>For instance, for the example above, the config file could be:<br><br>~~~ini<br>[global]<br>image = &#x27;&lt;div class=&quot;align{{ align }}&quot;&gt;{% if link %}&lt;a href=&quot;{{ link }}&quot;{% if not link.startswith(&quot;http&quot;) %} data-lightbox=&quot;gallery&quot;{% endif %}&gt;{% endif %}&lt;img src=&quot;{{ image }}&quot;&gt;{% if link %}&lt;/a&gt;{% endif %}{% if caption %}&lt;span class=&quot;caption&quot;&gt;{{ caption }}&lt;/span&gt;{% endif %}&lt;/div&gt;&#x27;<br>~~~<br><br>This will allow you to use shortcodes with optional arguments, like so:<br><br>~~~<br># An image with no caption or link:<br>[% image align=right image=hello.jpg %]<br><br><br># An image with a link:<br>[% image align=right link=http://www.example.com image=hello.jpg %]<br><br># Link and caption:<br>[% image align=right link=http://www.example.com image=hello.jpg caption=&quot;Hello!&quot; %]<br>~~~<br><br>Shortcodes defined within the section named `global` will be processed<br>automatically inside any of your site’s Markdown content. It is also possible to<br>define shortcodes which are only expanded when the Jinja2 template for a page<br>explicitly requests it. Shortcodes defined in any section not named `global`<br>will only be applied when the template passed the content through a Jinja2<br>filter named `shortcode`. For example, if your HTML template references a field<br>called `body`, you may request expanding shortcodes defined within the<br>`body-only` section of your config file, like so:<br><br>~~~<br>{{ body|shortcodes(section=&quot;body-only&quot;) }}<br>~~~<br><br>This will enable all shortcodes from the specified section, in addition to all<br>globally defined shortcodes. If no section is specified, the filter defaults to<br>the section named `main`.<br><br><br>Miscellanea<br>-----------<br><br>If you find a bug or have a feature request, please open an issue or file a PR.<br>Thanks!<br> 
+          <h1>Lektor Shortcodes</h1>
+<p><a href="https://pypi.python.org/pypi/lektor-shortcodes" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-shortcodes.svg" alt="PyPI"></a></p>
+<p>The Lektor Shortcodes plugin allows you to use shortcodes (shortcodes are
+something like custom tags) in your fields (not templates), so your content
+doesn't have to have repetitive snippets over and over.</p>
+<p>For example, my blog has some specific HTML that I add when I want an image with
+a border and caption to be displayed.  The HTML looks like this:</p>
+<pre lang="html">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alignright&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;image-large.jpg&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;image.jpg&quot;</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;caption&quot;</span><span class="p">&gt;</span>The caption<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre>
+<p>Copy-pasting this every time gets tedious, and I have to search and replace it
+in all the content files every time I want to make a change.  With the
+shortcodes plugin, this can be written as:</p>
+<pre><code>[% image align=right link=&quot;image-large.jpg&quot; image=image.jpg caption=&quot;The caption&quot; %]
+</code></pre>
+<p>Much easier, cleaner and less repetitive.</p>
+<h2>Installation</h2>
+<p>To install the plugin, just add <code>lektor-shortcodes</code> to your plugins from the
+command line:</p>
+<pre><code>lektor plugins add lektor-shortcodes
+</code></pre>
+<h2>Usage</h2>
+<p>Using the plugin is simple. Just create a config file called <code>shortcodes.ini</code> in
+your <code>configs</code> directory and specify some shortcode templates. The templates are
+full Jinja templates, although (due to some limitations of ini files) they need
+to be on one line.</p>
+<p>For instance, for the example above, the config file could be:</p>
+<pre lang="ini"><span class="k">[global]</span>
+<span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&lt;div class=&quot;align{{ align }}&quot;&gt;{% if link %}&lt;a href=&quot;{{ link }}&quot;{% if not link.startswith(&quot;http&quot;) %} data-lightbox=&quot;gallery&quot;{% endif %}&gt;{% endif %}&lt;img src=&quot;{{ image }}&quot;&gt;{% if link %}&lt;/a&gt;{% endif %}{% if caption %}&lt;span class=&quot;caption&quot;&gt;{{ caption }}&lt;/span&gt;{% endif %}&lt;/div&gt;&#39;</span>
+</pre>
+<p>This will allow you to use shortcodes with optional arguments, like so:</p>
+<pre><code># An image with no caption or link:
+[% image align=right image=hello.jpg %]
+
+
+# An image with a link:
+[% image align=right link=http://www.example.com image=hello.jpg %]
+
+# Link and caption:
+[% image align=right link=http://www.example.com image=hello.jpg caption=&quot;Hello!&quot; %]
+</code></pre>
+<p>Shortcodes defined within the section named <code>global</code> will be processed
+automatically inside any of your site’s Markdown content. It is also possible to
+define shortcodes which are only expanded when the Jinja2 template for a page
+explicitly requests it. Shortcodes defined in any section not named <code>global</code>
+will only be applied when the template passed the content through a Jinja2
+filter named <code>shortcode</code>. For example, if your HTML template references a field
+called <code>body</code>, and your config has a section called <code>[special]</code>, you may request
+expanding shortcodes defined within the <code>special</code> section like so:</p>
+<pre><code>{{ body|shortcodes(section=&quot;special&quot;) }}
+</code></pre>
+<p>This will enable all shortcodes from the specified section, in addition to all
+globally defined shortcodes. If no section is specified, the filter defaults to
+the section named <code>main</code> (so it will include shortcodes in <code>main</code> unless you
+request a different section, and it will always include shortcodes in <code>global</code> no
+matter what).</p>
+<h2>Miscellanea</h2>
+<p>If you find a bug or have a feature request, please open an issue or file a PR.
+Thanks!</p>
+ 
         
 
         
