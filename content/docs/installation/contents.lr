@@ -34,7 +34,7 @@ following software installed on your computer:
 ## Install pipx
 
 Once you have those installed and have made sure that they are on your `PATH`, you can
-get Lektor installed with `pipx`. Selcet the `pipx` install method of your preference:
+get Lektor installed with `pipx`. Select the `pipx` install method of your preference:
 
 __On Ubuntu through `apt`.__
 ```
