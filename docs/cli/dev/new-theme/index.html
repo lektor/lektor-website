@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../static/styles.css?h=dff0aaad">
   <link rel="stylesheet" href="../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
-  <title>shell | Documentation | Lektor Static Content Management System</title>
+  <title>new-theme | Documentation | Lektor Static Content Management System</title>
 </head>
 <body class="default">
   <nav class="navbar navbar-inverse navbar-static-top">
@@ -107,15 +107,15 @@
           <li><a href="../new-plugin/">new-plugin</a>
             
         
-          <li><a href="../new-theme/">new-theme</a>
+          <li class="active"><a href="./">new-theme</a>
+            
+            <ul></ul>
             
         
           <li><a href="../publish-plugin/">publish-plugin</a>
             
         
-          <li class="active"><a href="./">shell</a>
-            
-            <ul></ul>
+          <li><a href="../shell/">shell</a>
             
         </ul>
             
@@ -157,7 +157,7 @@
     <div class="col-sm-9 doc-styling">
       
   
-    <h1><i class="glyphicon glyphicon-console"></i> <code class="obj">shell</code></h1>
+    <h1><i class="glyphicon glyphicon-console"></i> <code class="obj">new-theme</code></h1>
   
 
 
@@ -167,18 +167,14 @@
       
       </ul>
 
-      <p><code>lektor dev shell</code></p>
-<p>Starts a Python shell in the context of a Lektor project.</p>
-<p>This is particularly useful for debugging plugins and to explore the
-API.  To quit the shell just use <code>quit()</code>.  Within the shell various
-utilities are available right from the get-go for you.</p>
-<ul>
-<li><code>project</code>: the loaded project as object.</li>
-<li><code>env</code>: an environment for the loaded project.</li>
-<li><code>pad</code>: a database pad initialized for the project and environment
-that is ready to use.</li>
-</ul>
+      <p><code>lektor dev new-theme [THEME_NAME]</code></p>
+<p>This command creates a new theme.</p>
+<p>This will present you with a very short wizard that guides you through
+creation of a new theme.  At the end of it, it will create a basic theme
+in a new subdirectory or in whatever other path you specify.</p>
+<p>This is the fastest way to creating a new theme.</p>
 <h2 id="options">Options</h2><ul>
+<li><code>--path PATH</code>: The destination path</li>
 <li><code>--help</code>: print this help page.</li>
 </ul>
 
@@ -194,7 +190,7 @@ that is ready to use.</li>
         
 <div id="disqus_thread"></div>
 <script>
-  var disqus_config = function() { this.page.identifier = "/docs/cli/dev/shell"; this.page.url = "https://www.getlektor.com/docs/cli/dev/shell/"; };
+  var disqus_config = function() { this.page.identifier = "/docs/cli/dev/new-theme"; this.page.url = "https://www.getlektor.com/docs/cli/dev/new-theme/"; };
   (function() {
     var d = document, s = d.createElement('script');
     s.src = '//lektordocumentation.disqus.com/embed.js';
@@ -236,7 +232,7 @@ that is ready to use.</li>
             ><i class="fa fa-twitter"></i></a>
           <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
             ><i class="fa fa-comment"></i></a>
-          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/cli/dev/shell/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/docs/cli/dev/new-theme/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
         </div>
         <div class="col-sm-8">
           <a href="../../../../license/">License & Copyright</a> •
