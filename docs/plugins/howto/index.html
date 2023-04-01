@@ -121,7 +121,9 @@
         
           <li><a href="#dependency-tracking">Dependency Tracking</a></li>
         
-          <li><a href="#adding-new-field-types">Adding New Field Types</a></li>
+          <li><a href="#adding-new-field-types">Adding New Field Types</a><ul>
+          <li><a href="#base-classes">Base Classes</a></li>
+        </ul></li>
         
         </ul>
       </div>
@@ -289,6 +291,8 @@ code here
         <span class="c1"># Derives type name &quot;asciidoc&quot; from class name.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">AsciiDocType</span><span class="p">)</span>
 </pre></div>
+<h3 id="base-classes">Base Classes</h3><p>In the general case, new types should inherit from <code>lektor.types.base.Type</code>.
+However, when creating a new type that will use a "single-line" input widget in the Admin GUI, inheriting from <code>lektor.types.primitives.SingleInputType</code> will enable the use of the <code>addon_label</code> <a href="/docs/models/#fields" class="ref">field option</a>.</p>
 
       
 

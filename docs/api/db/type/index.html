@@ -202,9 +202,9 @@ method and set the <code>widget</code> property as a very basic requirement.</p>
 to match the type name.  If you want to name your type <code>mything</code> then it
 needs to be called <code>MyThingType</code>.  Afterwards you can register it with the
 environment in <a href="../../plugins/events/setup-env/" class="ref">setup_env</a>:</p>
-<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.types.primitives</span> <span class="kn">import</span> <span class="n">SingleInputType</span>
 
-<span class="k">class</span> <span class="nc">MyThingType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MyThingType</span><span class="p">(</span><span class="n">SingleInputType</span><span class="p">):</span>
     <span class="n">widget</span> <span class="o">=</span> <span class="s1">&#39;singleline-text&#39;</span>
 
     <span class="k">def</span> <span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
@@ -213,7 +213,10 @@ environment in <a href="../../plugins/events/setup-env/" class="ref">setup_env</
 <span class="k">def</span> <span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">MyThingType</span><span class="p">)</span>
 </pre></div>
-<p>For more information see <a href="value-from-raw/" class="ref">value_from_raw</a>.</p>
+<div class="admonition admonition-tip"><p>In the above example, the new type declares a base class of <code>SingleInputType</code>.
+    This is appropriate for types that use a single-line input widget in the admin UI —
+    it enables the use of the <code>addon_label</code> <a href="/docs/models/#fields" class="ref">field option</a>.
+    Custom types that use more general input types should instead inherit from <code>lektor.types.base.Type</code>.</p></div><p>For more information see <a href="value-from-raw/" class="ref">value_from_raw</a>.</p>
 <p>There is a more complete example in the
 <a href="../../../plugins/howto/#adding-new-field-types" class="ref">Plugin How To</a>.</p>
 
