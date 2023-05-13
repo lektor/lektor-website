@@ -27,7 +27,7 @@ contents of that file:
 
 | Method          | Description
 | --------------- | ------------
-| `as_data_url()` | Returns a data URL for the contents. Optionally accepts a different mimetype than the guesed one.
+| `as_data_url()` | Returns a data URL for the contents. Optionally accepts a different mimetype than the guessed one.
 | `as_text()`     | Returns the contents of the file as text.  UTF-8 is assumed.
 | `as_bytes()`    | Returns the contents of the file as bytes.
 | `as_base64()`   | Returns the contents of the file as base64 encoded bytes.
