@@ -16,7 +16,7 @@ and [build_artifact :ref](build-artifact/).
 The former should invoke [declare_artifact :ref](declare-artifact/) for each
 artifact that should be created from the source.  The builder will then
 invoke [build_artifact :ref](build-artifact/) for each of these declared
-artifacts if the builder determiend that the artifact needs to be built.
+artifacts if the builder determines that the artifact needs to be built.
 
 For an example refer to the [add_build_program
 :ref](../../environment/add-build-program/) documentation.
