@@ -19,7 +19,7 @@ contents of that file:
 | ----------- | --------------
 | `sha1`      | The SHA1 hash of the contents as hexadecimal string
 | `md5`       | The MD5 hash of the contents as hexadecimal string
-| `integrity` | A subresource integritry string ([read about it](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity))
+| `integrity` | A subresource integrity string ([read about it](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity))
 | `mimetype`  | The guessed mimetype of the object
 | `bytes`     | The number of bytes for the contents as integer
 
