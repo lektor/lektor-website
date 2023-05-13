@@ -46,7 +46,7 @@ key = 1233456ABCDEFG
 api_url = https://www.google.com/maps/embed/v1/
 ```
 
-This can then be usde to good effect in templates:
+This can then be used to good effect in templates:
 
 ```html+jinja
 {% macro render_map(location, width=600, height=450) %}
