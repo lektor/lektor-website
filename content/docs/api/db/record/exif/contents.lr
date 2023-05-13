@@ -19,25 +19,25 @@ into a dictionary that can be dumped to JSON for instance.
 | `artist`            | The name of the photographer
 | `copyright`         | The embedded copyright message
 | `created_at`        | The timestamp of the image
-| `camera`            | Combined name of camera make and model
+| `camera`            | Combined name of the camera make and model
 | `camera_make`       | The name of the camera manufacturer
 | `camera_model`      | The name of the camera model
-| `lens`              | Combined name of the lense make and model
-| `lens_make`         | The name of the lense manufacturer
-| `lens_model`        | The name of the lense model
-| `aperture`          | The aperture value as floating point number
-| `f_num`             | The F-number as actual number
-| `f`                 | The f-number as string (`ƒ/2.2` for instance)
-| `iso`               | The ISO speed as integer
-| `exposure_time`     | The exposure time as string
-| `shutter_speed`     | The shutter speed as string
-| `focal_length`      | The focal length as string
-| `focal_length_35mm` | The focal length as string in the 35mm equivalent
+| `lens`              | Combined name of the lens make and model
+| `lens_make`         | The name of the lens manufacturer
+| `lens_model`        | The name of the lens model
+| `aperture`          | The aperture value as a floating point number
+| `f_num`             | The F-number as an actual number
+| `f`                 | The f-number as a string (`ƒ/2.2` for instance)
+| `iso`               | The ISO speed as an integer
+| `exposure_time`     | The exposure time as a string
+| `shutter_speed`     | The shutter speed as a string
+| `focal_length`      | The focal length as a string
+| `focal_length_35mm` | The focal length as a string in the 35mm equivalent
 | `flash_info`        | Information text about the flash usage
-| `location`          | Longitude and latitude as floating point tuple.
-| `latitude`          | The longitude as floating point value.
-| `longitude`         | The longitude as floating point value.
-| `altitude`          | The altitude in meters as floating point value.
+| `location`          | Longitude and latitude as a floating point tuple.
+| `latitude`          | The longitude as a floating point value.
+| `longitude`         | The longitude as a floating point value.
+| `altitude`          | The altitude in meters as a floating point value.
 | `documentname`      | The image document name as a string.
 | `description`       | The image description as a string.
 
