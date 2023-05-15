@@ -19,7 +19,7 @@ contents of that file:
 | ----------- | --------------
 | `sha1`      | The SHA1 hash of the contents as hexadecimal string
 | `md5`       | The MD5 hash of the contents as hexadecimal string
-| `integrity` | A subresource integritry string ([read about it](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity))
+| `integrity` | A subresource integrity string ([read about it](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity))
 | `mimetype`  | The guessed mimetype of the object
 | `bytes`     | The number of bytes for the contents as integer
 
@@ -27,7 +27,7 @@ contents of that file:
 
 | Method          | Description
 | --------------- | ------------
-| `as_data_url()` | Returns a data URL for the contents. Optionally accepts a different mimetype than the guesed one.
+| `as_data_url()` | Returns a data URL for the contents. Optionally accepts a different mimetype than the guessed one.
 | `as_text()`     | Returns the contents of the file as text.  UTF-8 is assumed.
 | `as_bytes()`    | Returns the contents of the file as bytes.
 | `as_base64()`   | Returns the contents of the file as base64 encoded bytes.

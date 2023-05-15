@@ -20,7 +20,7 @@ value is an empty list.
 
 This returns only the list of alt short IDs.  Access to the configured name
 of the alt within the project config is not available.  Databags should be
-used to provide alts with a humand readable title.
+used to provide alts with a human readable title.
 
 ## Example
 
