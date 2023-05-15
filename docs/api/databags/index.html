@@ -200,7 +200,7 @@ for google maps.  It's stored in <code>databags/gmaps.ini</code>:</p>
 <div class="hll"><pre><span></span><span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1233456ABCDEFG</span>
 <span class="na">api_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://www.google.com/maps/embed/v1/</span>
 </pre></div>
-<p>This can then be usde to good effect in templates:</p>
+<p>This can then be used to good effect in templates:</p>
 <div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_map</span><span class="o">(</span><span class="nv">location</span><span class="o">,</span> <span class="nv">width</span><span class="o">=</span><span class="m">600</span><span class="o">,</span> <span class="nv">height</span><span class="o">=</span><span class="m">450</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">iframe</span>
     <span class="na">width</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">width</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">height</span> <span class="cp">}}</span><span class="s">&quot;</span>
