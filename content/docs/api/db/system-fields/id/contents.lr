@@ -16,7 +16,7 @@ an attachment named `docs/overview/screenshot.jpg` the `_id` will be the
 filename of the attachment: `screenshot.jpg`.
 
 Note that IDs are not globally unique!  There is also the `_path` which is
-the entire path if the record.
+the entire path of the record.
 
 The `_id` is automatically set and cannot be overridden.
 
