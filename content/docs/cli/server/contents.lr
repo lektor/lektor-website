@@ -12,7 +12,7 @@ body:
 
 The server command will launch a local server for development.
 
-Lektor's developemnt server will automatically build all files into
+Lektor's developement server will automatically build all files into
 pages similar to how the build command with the `--watch` switch
 works, but also at the same time serve up the website on a local
 HTTP server.
