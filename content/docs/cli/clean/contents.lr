@@ -12,7 +12,7 @@ body:
 
 Cleans the entire build folder.
 
-If not build folder is provided, the default build folder of the project
+If no build folder is provided, the default build folder of the project
 in the Lektor cache is used.
 
 ## Options
