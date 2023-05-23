@@ -23,7 +23,7 @@ The parameters being passed are:
   [Build Program :ref](../../../build/program/) for more information)
 
 !!!! Note that currently both the builder as well as the build state are
-undocumented and unsupported!  This means that if a plugin choses to use those
+undocumented and unsupported!  This means that if a plugin chooses to use those
 references to do something with it they should consider that they might break
 in future versions.
 

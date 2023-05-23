@@ -206,7 +206,7 @@ locale = fr
 ```
 
 ### `[attachment_types]`
-Lektor does some basic attachment type detection based on file extension. This is what powers the `this.attachemnts.images` and `this.attachments.videos` attributes for instance. If the built-in map does not cover your file extension you can extend it or add new attachement types on a project by project basis.
+Lektor does some basic attachment type detection based on file extension. This is what powers the `this.attachments.images` and `this.attachments.videos` attributes for instance. If the built-in map does not cover your file extension you can extend it or add new attachment types on a project by project basis.
 
 Example:
 

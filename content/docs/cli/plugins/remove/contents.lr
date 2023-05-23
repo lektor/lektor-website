@@ -10,7 +10,7 @@ body:
 
 `lektor plugins remove NAME`
 
-This command can remove a plugion to the project again.  The name
+This command can remove a plugin to the project again.  The name
 of the plugin is the only argument to the function.
 
 ## Options
