@@ -62,7 +62,7 @@
   <div class="plugin">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Plugin &ndash; lektor-index-pages 1.0.0</h1>
+        <h1>Plugin &ndash; lektor-index-pages 1.1.0</h1>
       </div>
     </div>
 
@@ -79,24 +79,15 @@
       <div class="col-sm-3 plugin-margin">
         <h4>Project links</h4>
         <ul class="tree-nav">
-          <li><a href="https://github.com/dairiki/lektor-index-pages" class="ext">Homepage</a></li>
+          <li><a href="https://pypi.org/project/lektor-index-pages/" class="ext">Homepage</a></li>
         </ul>
 
-        
-          <div class="separator">
-            <h4>GitHub Statistics</h4>
-          </div>
-          <ul class="button-nav">
-            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-index-pages" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-index-pages on GitHub" target="_blank">Star</a></p></li>
-            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-index-pages/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
-            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-index-pages/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
-          </ul>
         
 
         <div class="separator">
           <h4>Meta</h4>
         </div>
-        <p><strong>Version:</strong> 1.0.0</p>
+        <p><strong>Version:</strong> 1.1.0</p>
         <p><strong>Author:</strong>
           
             <a href="mailto:dairiki@dairiki.org">Jeff Dairiki</a>
@@ -135,7 +126,8 @@
 <a href="https://pypi.python.org/pypi/lektor-index-pages/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-index-pages.svg" alt="PyPI Supported Python Versions"></a>
 <a href="https://github.com/dairiki/lektor-index-pages/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-index-pages" alt="GitHub license"></a>
 <a href="https://lektor-index-pages.readthedocs.io/en/latest/?badge=latest" rel="nofollow"><img src="https://readthedocs.org/projects/lektor-index-pages/badge/?version=latest" alt="Documentation Status"></a>
-<a href="https://github.com/dairiki/lektor-index-pages" rel="nofollow"><img src="https://github.com/dairiki/lektor-index-pages/workflows/Tests/badge.svg" alt="GitHub Actions (Tests)"></a></p>
+<a href="https://github.com/dairiki/lektor-index-pages" rel="nofollow"><img src="https://github.com/dairiki/lektor-index-pages/workflows/Tests/badge.svg" alt="GitHub Actions (Tests)"></a>
+<a href="https://trackgit.com" rel="nofollow"><img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/lhauro0t5wzkw1d0k5lh" alt="Trackgit Views"></a></p>
 <p>This <a href="https://www.getlektor.com/" title="Lektor Static Content Management System" rel="nofollow">Lektor</a> plugin can be used to generate “index pages” for a
 blog or similar collection of pages.  These index pages list the blog posts
 segregated by some key, with each index page containing only those posts
@@ -167,6 +159,16 @@ the build process down too excruciatingly much.</p>
 <h2>Author</h2>
 <p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org">dairiki@dairiki.org</a></p>
 <h2>Changelog</h2>
+<h3>Release 1.1.0 (2023-06-16)</h3>
+<ul>
+<li>Drop support for Lektor 3.2.x</li>
+<li>Test under python 3.11</li>
+<li>Add type annotations</li>
+<li>Convert packaging from setuptools to <a href="https://pdm.fming.dev/latest/" rel="nofollow">PDM</a></li>
+<li>Disuse <code>pkg_resources</code> in favor of <code>importlib.metadata</code></li>
+<li>Add <a href="https://pre-commit.com/" rel="nofollow">pre-commit</a> configuration</li>
+<li>Run <a href="https://black.readthedocs.io/en/stable/index.html" rel="nofollow">black</a> and <a href="https://github.com/asottile/reorder-python-imports" rel="nofollow">reorder-python-imports</a> on code</li>
+</ul>
 <h3>Release 1.0 (2022-01-28)</h3>
 <ul>
 <li>Drop support for python 2.7 and 3.6.</li>
