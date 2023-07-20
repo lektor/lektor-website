@@ -33,3 +33,6 @@ _.env = {LEKTOR_OUTPUT_PATH = "_htdocs"}
 build  = "lektor build -f webpack"
 server = "lektor server -f webpack"
 deploy = "lektor deploy ghpages-https"
+
+hyperlink = "npx --yes @untitaker/hyperlink@0.1.29"
+check-links = {composite = ["build", "hyperlink --check-anchors _htdocs"]}
