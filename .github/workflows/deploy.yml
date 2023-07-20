@@ -33,6 +33,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
+          cache: npm
+          cache-dependency-path: webpack/package-lock.json
+
       - run: pdm install
       - run: pdm run build
 
