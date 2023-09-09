@@ -145,7 +145,7 @@
 <h2>How to use</h2>
 <p>Insert the following line in the template (e.g. layout.html) which you would like to show navigation.</p>
 <pre><code>{% for i in this._path | root_relative_path_list %}
-  &gt;&gt;&lt;a href=&quot;{{i[0]}}&quot;&gt;{{i[1]}}&lt;/a&gt;
+  &gt;&gt;&lt;a href="{{i[0]}}"&gt;{{i[1]}}&lt;/a&gt;
 {% endfor %}
 </code></pre>
 <p>Then, navigation is shown as below in case the page 'blog/first-post/'</p>
@@ -154,7 +154,7 @@
 <p>If you do not want to show current page in the navigation, modify template as below.</p>
 <pre><code>{% for i in this._path | root_relative_path_list %}
   {% if not loop.last %}
-    &gt;&gt;&lt;a href=&quot;{{i[0]}}&quot;&gt;{{i[1]}}&lt;/a&gt;
+    &gt;&gt;&lt;a href="{{i[0]}}"&gt;{{i[1]}}&lt;/a&gt;
   {% endif %}
 {% endfor %}
 </code></pre>

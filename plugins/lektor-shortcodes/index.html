@@ -140,17 +140,17 @@ something like custom tags) in your fields (not templates), so your content
 doesn't have to have repetitive snippets over and over.</p>
 <p>For example, my blog has some specific HTML that I add when I want an image with
 a border and caption to be displayed.  The HTML looks like this:</p>
-<pre lang="html">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alignright&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;image-large.jpg&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;image.jpg&quot;</span> <span class="p">/&gt;</span>
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;caption&quot;</span><span class="p">&gt;</span>The caption<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<pre lang="html">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"alignright"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"image-large.jpg"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"image.jpg"</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"caption"</span><span class="p">&gt;</span>The caption<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre>
 <p>Copy-pasting this every time gets tedious, and I have to search and replace it
 in all the content files every time I want to make a change.  With the
 shortcodes plugin, this can be written as:</p>
-<pre><code>[% image align=right link=&quot;image-large.jpg&quot; image=image.jpg caption=&quot;The caption&quot; %]
+<pre><code>[% image align=right link="image-large.jpg" image=image.jpg caption="The caption" %]
 </code></pre>
 <p>Much easier, cleaner and less repetitive.</p>
 <h2>Installation</h2>
@@ -165,7 +165,7 @@ full Jinja templates, although (due to some limitations of ini files) they need
 to be on one line.</p>
 <p>For instance, for the example above, the config file could be:</p>
 <pre lang="ini"><span class="k">[global]</span>
-<span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&lt;div class=&quot;align{{ align }}&quot;&gt;{% if link %}&lt;a href=&quot;{{ link }}&quot;{% if not link.startswith(&quot;http&quot;) %} data-lightbox=&quot;gallery&quot;{% endif %}&gt;{% endif %}&lt;img src=&quot;{{ image }}&quot;&gt;{% if link %}&lt;/a&gt;{% endif %}{% if caption %}&lt;span class=&quot;caption&quot;&gt;{{ caption }}&lt;/span&gt;{% endif %}&lt;/div&gt;&#39;</span>
+<span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'&lt;div class="align{{ align }}"&gt;{% if link %}&lt;a href="{{ link }}"{% if not link.startswith("http") %} data-lightbox="gallery"{% endif %}&gt;{% endif %}&lt;img src="{{ image }}"&gt;{% if link %}&lt;/a&gt;{% endif %}{% if caption %}&lt;span class="caption"&gt;{{ caption }}&lt;/span&gt;{% endif %}&lt;/div&gt;'</span>
 </pre>
 <p>This will allow you to use shortcodes with optional arguments, like so:</p>
 <pre><code># An image with no caption or link:
@@ -176,7 +176,7 @@ to be on one line.</p>
 [% image align=right link=http://www.example.com image=hello.jpg %]
 
 # Link and caption:
-[% image align=right link=http://www.example.com image=hello.jpg caption=&quot;Hello!&quot; %]
+[% image align=right link=http://www.example.com image=hello.jpg caption="Hello!" %]
 </code></pre>
 <p>Shortcodes defined within the section named <code>global</code> will be processed
 automatically inside any of your site’s Markdown content. It is also possible to
@@ -186,7 +186,7 @@ will only be applied when the template passed the content through a Jinja2
 filter named <code>shortcode</code>. For example, if your HTML template references a field
 called <code>body</code>, and your config has a section called <code>[special]</code>, you may request
 expanding shortcodes defined within the <code>special</code> section like so:</p>
-<pre><code>{{ body|shortcodes(section=&quot;special&quot;) }}
+<pre><code>{{ body|shortcodes(section="special") }}
 </code></pre>
 <p>This will enable all shortcodes from the specified section, in addition to all
 globally defined shortcodes. If no section is specified, the filter defaults to

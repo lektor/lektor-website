@@ -154,23 +154,23 @@ files = A.bib B.bib
 <p>For the default template, you can also add the following javascript to show some entries if you have a long list (relies on jquery):</p>
 <pre><code>$(document).ready(function()
 	   {
-	      $(&quot;.BIBTeX&quot;).hide();
-	      $(&quot;.BIBTeXtoggle&quot;).click( function () {
-		  $(this).parent().children(&quot;.BIBTeX&quot;).toggle(300);
+	      $(".BIBTeX").hide();
+	      $(".BIBTeXtoggle").click( function () {
+		  $(this).parent().children(".BIBTeX").toggle(300);
 		  return false;
 		});
-	      $(&quot;.BIBYear&quot;).hide();
-	      $(&quot;.BIBYear:first&quot;).show();
-	      $(&quot;.BIBYearheader&quot;).click( function () {
-		  $(this).parent().children(&quot;.BIBYear&quot;).toggle(300);
+	      $(".BIBYear").hide();
+	      $(".BIBYear:first").show();
+	      $(".BIBYearheader").click( function () {
+		  $(this).parent().children(".BIBYear").toggle(300);
 		  return false;
 		});
-	      $(&quot;.bibshowall&quot;).click( function () {
-		  $(&quot;.BIBYear&quot;).show();
+	      $(".bibshowall").click( function () {
+		  $(".BIBYear").show();
 		});
-	      $(&quot;.bibhideall&quot;).click( function () {
-		  $(&quot;.BIBYear&quot;).hide();
-		  $(&quot;.BIBYear:first&quot;).show();
+	      $(".bibhideall").click( function () {
+		  $(".BIBYear").hide();
+		  $(".BIBYear:first").show();
 		});
            });
 </code></pre>

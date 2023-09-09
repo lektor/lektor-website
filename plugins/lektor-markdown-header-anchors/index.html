@@ -159,9 +159,9 @@ markdown data.  It's a list where each item has the following attributes:</p>
 </ul>
 <p>Example rendering:</p>
 <pre lang="jinja"><span class="x">&lt;h4&gt;Table Of Contents&lt;/h4&gt;</span>
-<span class="x">&lt;ul class=&quot;toc&quot;&gt;</span>
+<span class="x">&lt;ul class="toc"&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">this.body.toc</span> <span class="k">recursive</span> <span class="cp">%}</span>
-<span class="x">  &lt;li&gt;&lt;a href=&quot;#</span><span class="cp">{{</span> <span class="nv">item.anchor</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">item.title</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span><span class="cp">{%</span>
+<span class="x">  &lt;li&gt;&lt;a href="#</span><span class="cp">{{</span> <span class="nv">item.anchor</span> <span class="cp">}}</span><span class="x">"&gt;</span><span class="cp">{{</span> <span class="nv">item.title</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span><span class="cp">{%</span>
    <span class="k">if</span> <span class="nv">item.children</span> <span class="cp">%}</span><span class="x">&lt;ul&gt;</span><span class="cp">{{</span> <span class="nb">loop</span><span class="o">(</span><span class="nv">item.children</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&lt;/ul&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x">&lt;/li&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 <span class="x">&lt;/ul&gt;</span>

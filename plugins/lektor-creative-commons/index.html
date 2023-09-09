@@ -140,7 +140,7 @@
 <p>Lektor plugin to add Creative Commons license to your pages</p>
 <h2>Usage</h2>
 <p>On your templates use:</p>
-<pre><code>&lt;div class=&quot;license&quot;&gt;{{ render_cc_license(type, size, template, caller) }}&lt;/div&gt;
+<pre><code>&lt;div class="license"&gt;{{ render_cc_license(type, size, template, caller) }}&lt;/div&gt;
 </code></pre>
 <ul>
 <li><code>type</code> is a <code>string</code> with the license type (e.g.: <code>'by'</code>, <code>'by-sa'</code>, <code>'by-nc-sa'</code>).</li>
@@ -151,12 +151,12 @@
 </ul>
 <h2>Examples</h2>
 <p>Simply rendering the license of your choice:</p>
-<pre><code>&lt;div class=&quot;license&quot;&gt;{{ render_cc_license('by-sa') }}&lt;/div&gt;
+<pre><code>&lt;div class="license"&gt;{{ render_cc_license('by-sa') }}&lt;/div&gt;
 </code></pre>
 <p>Using Jinja2 <a href="http://jinja.pocoo.org/docs/2.10/templates/#call" rel="nofollow">call</a> block to inject your own template:</p>
 <pre><code>{% call(license, license_url, icon_path) render_cc_license('by-sa', size='normal') %}
-  &lt;a class=&quot;nav-item&quot; rel=&quot;license&quot; target=&quot;_blank&quot; href=&quot;{{ license_url }}&quot;&gt;
-    &lt;img alt=&quot;{{ license }}&quot; style=&quot;border-width:0&quot; src=&quot;{{ icon_path }}&quot; /&gt;
+  &lt;a class="nav-item" rel="license" target="_blank" href="{{ license_url }}"&gt;
+    &lt;img alt="{{ license }}" style="border-width:0" src="{{ icon_path }}" /&gt;
   &lt;/a&gt;
 {% endcall %} 
 </code></pre>

@@ -133,8 +133,8 @@ in the sidebar of your Lektor-based site.  This can be done by adding
 something like to your site base template:</p>
 <pre lang="html+jinja"><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Recent Posts<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/blog&#39;</span><span class="o">)</span><span class="nv">.order_by</span><span class="o">(</span><span class="s1">&#39;-pub_date&#39;</span><span class="o">)</span><span class="nv">.limit</span><span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="cp">%}</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">post</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">'/blog'</span><span class="o">)</span><span class="nv">.order_by</span><span class="o">(</span><span class="s1">'-pub_date'</span><span class="o">)</span><span class="nv">.limit</span><span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">post</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </pre>
@@ -177,8 +177,8 @@ most-recent posts.)</p>
 <p>Thus, the example above, if replaced by:</p>
 <pre lang="html+jinja"><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Recent Posts<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/blog&#39;</span><span class="o">)</span><span class="nv">.order_by</span><span class="o">(</span><span class="s1">&#39;-pub_date&#39;</span><span class="o">)</span><span class="nv">.limit</span><span class="o">(</span><span class="m">3</span><span class="o">)|</span><span class="nf">limit_dependencies</span> <span class="cp">%}</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">post</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">'/blog'</span><span class="o">)</span><span class="nv">.order_by</span><span class="o">(</span><span class="s1">'-pub_date'</span><span class="o">)</span><span class="nv">.limit</span><span class="o">(</span><span class="m">3</span><span class="o">)|</span><span class="nf">limit_dependencies</span> <span class="cp">%}</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">post</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </pre>
@@ -191,7 +191,7 @@ of the three most recent posts.</p>
 </code></pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor plugin documentation</a> for more information.</p>
 <h2>Author</h2>
-<p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org">dairiki@dairiki.org</a></p>
+<p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org" rel="nofollow">dairiki@dairiki.org</a></p>
 <h2>Changelog</h2>
 <h3>Release 1.0.0 (2023-01-31)</h3>
 <p>No code changes from 1.0.0b1.</p>
@@ -200,7 +200,7 @@ of the three most recent posts.</p>
 <p>Drop support for python&lt;3.7 and lektor&lt;3.3.</p>
 <h3>Release 0.1 (2021-02-05)</h3>
 <p>No code changes.</p>
-<p>Update development status classifier to &quot;stable&quot;.</p>
+<p>Update development status classifier to "stable".</p>
 <p>Test under python 3.9.  Stop testing under 3.5.</p>
 <h3>Release 0.1a1 (2020-05-19)</h3>
 <p>Initial release.</p>

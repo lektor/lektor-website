@@ -128,14 +128,14 @@ HTML ruby tags to Markdown.</p>
 ^^
 </pre>
 <p>This will generate the following HTML:</p>
-<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>歩<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ある<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>く
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre>
 <p>The rendering result:</p>
 <p>
 <span class="ruby-line">
-  &lt;ruby&gt;歩&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;ある&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;く
+  歩(ある)く
 </span>
 </p>
 <p>You can combine adjacent ruby text like this:</p>
@@ -144,15 +144,15 @@ HTML ruby tags to Markdown.</p>
 ^^
 </pre>
 <p>And this will be rendered like this:</p>
-<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>自<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>じ<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>分<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ぶん<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre>
 <p>Rendered output:</p>
 <span class="ruby-line">
-  &lt;ruby&gt;自&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;じ&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;
-  &lt;ruby&gt;分&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;ぶん&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;
+  自(じ)
+  分(ぶん)
 </span>
 <h3>Newline</h3>
 <p>This plugin will automatically add <code>&lt;br /&gt;</code> between each line in a ruby-block:</p>
@@ -162,11 +162,11 @@ HTML ruby tags to Markdown.</p>
 ^^
 </pre>
 <p>This will output:</p>
-<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>歩<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ある<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>く
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>歩<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ある<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>く
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre>
@@ -178,12 +178,12 @@ HTML ruby tags to Markdown.</p>
 ^^
 </pre>
 <p>Output:</p>
-<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>歩<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ある<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>く
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>歩<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ある<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>く
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre>
@@ -196,12 +196,12 @@ with specified color.</p>
 ^^
 </pre>
 <p>This will generate the following HTML pieces:</p>
-<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: #44cc00&quot;</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span> <span class="na">style</span><span class="o">=</span><span class="s">"color: #44cc00"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>歩<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ある<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>く
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre>
 <h3>Raw lines</h3>
-<p>Prepend <code>% </code>  to create a raw line. Raw lines are not converted to ruby tags,
+<p>Prepend <code>% </code> &nbsp;to create a raw line. Raw lines are not converted to ruby tags,
 not affected by the color settings, and have a different class.</p>
 <p>Example:</p>
 <pre lang="markdown">^^#44cc00
@@ -210,11 +210,11 @@ not affected by the color settings, and have a different class.</p>
 ^^
 </pre>
 <p>Output:</p>
-<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ruby-line&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: #44cc00&quot;</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ruby-line"</span> <span class="na">style</span><span class="o">=</span><span class="s">"color: #44cc00"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">ruby</span><span class="p">&gt;</span>歩<span class="p">&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;</span><span class="nt">rt</span><span class="p">&gt;</span>ある<span class="p">&lt;/</span><span class="nt">rt</span><span class="p">&gt;&lt;</span><span class="nt">rp</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">rp</span><span class="p">&gt;&lt;/</span><span class="nt">ruby</span><span class="p">&gt;</span>く
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;non-ruby-line&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"non-ruby-line"</span><span class="p">&gt;</span>
   (aru)[ku]
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre>

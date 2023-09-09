@@ -179,13 +179,13 @@
 <h3><code>parcel/package.json</code></h3>
 <p>This is a standard <code>package.json</code> file. It should contain two entries in the <code>scripts</code> section. The <code>build</code> script is used during <code>lektor build -f npm</code>, and the <code>watch</code> script is used during <code>lektor server -f npm</code>.</p>
 <pre lang="json"><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-parcel-project&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;watch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NODE_ENV=development parcel --out-dir=../assets/static/gen --out-file=main.js --public-url=./assets/ main.js&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NODE_ENV=production parcel build --out-dir=../assets/static/gen --out-file=main.js --public-url=./assets/ main.js&quot;</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-parcel-project"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"watch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NODE_ENV=development parcel --out-dir=../assets/static/gen --out-file=main.js --public-url=./assets/ main.js"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NODE_ENV=production parcel build --out-dir=../assets/static/gen --out-file=main.js --public-url=./assets/ main.js"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nt">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="p">}</span>
 </pre>
 <p>Now we can use <code>yarn add</code> to add Parcel, <a href="https://babeljs.io/" rel="nofollow">Babel</a> and <a href="https://sass-lang.com/" rel="nofollow">Sass</a>:</p>
@@ -195,7 +195,7 @@ $ yarn add parcel-bundler babel-preset-env node-sass
 <h3><code>parcel/babelr.rc</code></h3>
 <p>Next up is a simple Babel config file, using the recommended <code>env</code> preset.</p>
 <pre lang="json"><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;presets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;env&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="nt">"presets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"env"</span><span class="p">]</span>
 <span class="p">}</span>
 </pre>
 <h3><code>parcel/main.scss</code></h3>
@@ -206,7 +206,7 @@ $ yarn add parcel-bundler babel-preset-env node-sass
 </pre>
 <h3><code>parcel/main.js</code></h3>
 <p>A simple Javascript file that imports the SCSS file so that Parcel will know to include it as well.</p>
-<pre lang="javascript"><span class="k">import</span><span class="w"> </span><span class="s1">&#39;./main.scss&#39;</span><span class="p">;</span>
+<pre lang="javascript"><span class="k">import</span><span class="w"> </span><span class="s1">'./main.scss'</span><span class="p">;</span>
 </pre>
 <h2>Running the Server</h2>
 <p>Now you're ready to go.  When you run <code>lektor server</code> nothing wil happen,
@@ -220,8 +220,8 @@ Lektor website that use this plugin.</p>
 <p>To manually trigger a build that also invokes webpack you can use <code>lektor build -f npm</code>.</p>
 <h2>Including The Files</h2>
 <p>Now you need to include the files in your template.  This will do it:</p>
-<pre lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ &#39;/static/gen/main.css&#39;| asseturl }}&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">text/javascript</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ &#39;/static/gen/main.js&#39;| asseturl }}&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<pre lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ '/static/gen/main.css'| asseturl }}"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">text/javascript</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ '/static/gen/main.js'| asseturl }}"</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre>
 <h2>Complete Working Example</h2>
 <p>The <code>examples</code> folder of this repository contains working projects.</p>

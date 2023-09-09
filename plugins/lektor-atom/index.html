@@ -144,7 +144,7 @@
 <h2>Configuration</h2>
 <p>Here is a basic configuration:</p>
 <pre lang="ini"><span class="k">[feed]</span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Site&#39;s Blog</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Site's Blog</span>
 <span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span>
 <span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span>
 </pre>
@@ -153,14 +153,14 @@
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog</span>
 <span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span>
 <span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/feed.xml</span>
-<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/&#39;).filter(F.type == &#39;post&#39;)</span>
+<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query('/').filter(F.type == 'post')</span>
 <span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span>
 
 <span class="k">[coffee]</span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Blog: Articles About Coffee</span>
 <span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/</span>
 <span class="na">url_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/category/coffee/feed.xml</span>
-<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query(&#39;/blog&#39;).filter(F.categories.contains(&#39;coffee&#39;))</span>
+<span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">site.query('/blog').filter(F.categories.contains('coffee'))</span>
 <span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span>
 </pre>
 <p>The section names, like <code>blog</code> and <code>coffee</code>, are just used as internal identifiers.</p>

@@ -149,7 +149,7 @@ link = /for-example/link-to-your/biblioprahy
 <ol>
 <li>Use method citation_short_output in the template of your literature page. It creates an unordered list of entries.</li>
 </ol>
-<pre><code>  &lt;ul id=&quot;literatur&quot;&gt;
+<pre><code>  &lt;ul id="literatur"&gt;
   {% for entry in citation_entries() %}
   {{ citation_short_output(entry)|decode|safe }}
   {% endfor %}
@@ -166,16 +166,16 @@ link = /for-example/link-to-your/biblioprahy
 <p>produces</p>
 <pre><code>&lt;h2&gt;{title}&lt;/h2&gt;&lt;h3&gt;{authors} ({pubYear})&lt;/h3&gt;
 &lt;p&gt;{note}&lt;/p&gt;
-&lt;dl class=&quot;literature&quot;&gt;
-&lt;dt class=&quot;edition&quot;&gt;&lt;/dt&gt;
+&lt;dl class="literature"&gt;
+&lt;dt class="edition"&gt;&lt;/dt&gt;
 &lt;dd&gt;{edition}&lt;/dd&gt;
-&lt;dt class=&quot;editors&quot;&gt;&lt;/dt&gt;
+&lt;dt class="editors"&gt;&lt;/dt&gt;
 &lt;dd&gt;{editors}&lt;/dd&gt;
-&lt;dt class=&quot;pages&quot;&gt;&lt;/dt&gt;
+&lt;dt class="pages"&gt;&lt;/dt&gt;
 &lt;dd&gt;{pages}&lt;/dd&gt;
-&lt;dt class=&quot;issbn&quot;&gt;&lt;/dt&gt;
+&lt;dt class="issbn"&gt;&lt;/dt&gt;
 &lt;dd&gt;{issbn}&lt;/dd&gt;
-&lt;dt class=&quot;publisher&quot;&gt;&lt;/dt&gt;
+&lt;dt class="publisher"&gt;&lt;/dt&gt;
 &lt;dd&gt;{publisher}&lt;/dd&gt;
 &lt;/dl&gt;
 </code></pre>
@@ -206,8 +206,8 @@ citation_note(entry)
 </code></pre>
 <h3>In-text Cites</h3>
 <p>To cite a certain entry in your texts you can use the <strong>jinja_env globals</strong>:</p>
-<pre><code>citation_full_cite(id, link=&quot;&quot;)
-citation_full_citeNP(id, link=&quot;&quot;)
+<pre><code>citation_full_cite(id, link="")
+citation_full_citeNP(id, link="")
 </code></pre>
 <p>Both methods create a complete hyperlink inside your text for the entry with <em>id</em>. You may give it any url to the <em>link</em> parameter to e.g. link it to your bibliography page. The NP in the second stands for <em>No Parantheses</em>. So you'll receive e.g.</p>
 <pre><code>AuthorI &amp; AuthorII (2019)

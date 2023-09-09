@@ -146,14 +146,14 @@ For example, you may have an image called <code>waffle.jpg</code>, and to link t
 All images will be converted to webp using <a href="https://pypi.org/project/Pillow/" rel="nofollow">Pillow</a>.</p>
 <p>You can use the images like that:</p>
 <pre lang="html"><span class="cm">&lt;!-- Simple example --&gt;</span>
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;waffle.jpg&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;waffle-small.jpg&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"waffle.jpg"</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"waffle-small.jpg"</span> <span class="p">/&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 
 <span class="cm">&lt;!-- example with srcset --&gt;</span>
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;waffle-small.webp&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;waffle-small.webp&quot;</span>
-    <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;waffle-small.webp  640w,   // Viewport bis zu 640</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"waffle-small.webp"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"waffle-small.webp"</span>
+    <span class="na">srcset</span><span class="o">=</span><span class="s">"waffle-small.webp  640w,   // Viewport bis zu 640</span>
 <span class="s">            waffle-medium.webp 1280w,  // Viewport größer als 1280</span>
-<span class="s">            waffle-woowee.webp 1920w&quot;</span>  <span class="err">//</span> <span class="na">Viewport</span> <span class="na">größer</span> <span class="na">als</span> <span class="na">1920</span>
+<span class="s">            waffle-woowee.webp 1920w"</span>  <span class="err">//</span> <span class="na">Viewport</span> <span class="na">größer</span> <span class="na">als</span> <span class="na">1920</span>
   <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre>
