@@ -1,0 +1,38 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Armin Ronacher", email = "armin.ronacher@active-4.com"},
+]
+dependencies = [
+    "lektor>=3.3.10",
+    "lektor-webpack-support~=0.3.0",
+    "lektor-disqus-comments~=0.1.0",
+    "lektor-markdown-header-anchors~=0.1.0",
+    "lektor-markdown-highlighter~=0.3.2",
+    "lektor-markdown-admonition~=0.1.0",
+    "lektor-atom~=0.4.0",
+    "lektor-tags~=0.3.0",
+    "lektor-slugify~=0.4.0",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "CC0-1.0"}
+
+[tool.pdm.dev-dependencies]
+plugins = [
+    "-e file:///${PROJECT_ROOT}/local-plugins/blog-archive#egg=lektor-blog-archive",
+    "-e file:///${PROJECT_ROOT}/local-plugins/jinja-globals#egg=lektor-jinja-globals",
+    "-e file:///${PROJECT_ROOT}/local-plugins/markdown-link-classes#egg=lektor-markdown-link-classes",
+    "-e file:///${PROJECT_ROOT}/local-plugins/project-data#egg=lektor-project-data",
+]
+
+[tool.pdm.scripts]
+_.env = {LEKTOR_OUTPUT_PATH = "_htdocs"}
+build  = "lektor build -f webpack"
+server = "lektor server -f webpack"
+deploy = "lektor deploy ghpages-https"
+
+hyperlink = "npx --yes @untitaker/hyperlink@0.1.29"
+check-links = {composite = ["build", "hyperlink --check-anchors _htdocs"]}
