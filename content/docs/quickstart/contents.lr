@@ -58,7 +58,7 @@ they change.
 ## Accessing the Admin
 
 While the development server is running you can use the built-in admin
-interface.  It can be accessed by clicking on the pencil symbol on a page
+interface.  It can be accessed by clicking on the edit button in the tool drawer that gets injected into each page by the admin server
 or by manually navigating to `/admin/`.
 
 <img src="admin.png" class="screenshot" alt="screenshot of the admin">
