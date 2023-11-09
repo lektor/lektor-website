@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import cgi
 import re
+from email.policy import EmailPolicy
 
 import readme_renderer.markdown
 import readme_renderer.rst
@@ -36,6 +36,17 @@ def normalize_url(url):
     return url
 
 
+def parse_header(ct: str) -> tuple[str, dict[str, str]]:
+    """Parse a content-type string into a main value and a dictionary of
+    parameters.
+
+    This is a replacement for the deprecated ``cgi.parse_header`` function.
+
+    """
+    header = EmailPolicy.header_factory("Content-Type", ct)
+    return (header.content_type, dict(header.params))
+
+
 class ProjectDataPlugin(Plugin):
     name = 'Project Data'
     description = u'Retrieve project information from PyPI.'
@@ -51,7 +62,7 @@ class ProjectDataPlugin(Plugin):
         want to be creative here.
 
         """
-        content_type, parameters = cgi.parse_header(content_type or '')
+        content_type, parameters = parse_header(content_type or '')
 
         # Get the appropriate renderer
         renderer = _RENDERERS.get(content_type, readme_renderer.txt)
