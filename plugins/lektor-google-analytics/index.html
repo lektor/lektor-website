@@ -130,58 +130,86 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <p>This plugin adds support for <cite>Google analytics</cite> to <cite>Lektor CMS</cite>.</p>
-<p>Once the plugin is enabled, a <span class="docutils literal">generate_google_analytics()</span> function
-is available to be included in target <span class="docutils literal">template</span> which automatically
-include Google-Analytics code in final HTML files rendered by
-<span class="docutils literal">Lektor</span>.</p>
-<section id="basic-usage">
-<h2>Basic Usage</h2>
-<section id="enabling-the-plugin">
-<h3>Enabling the Plugin</h3>
-<p>To enable the plugin add this to your project file:</p>
-<pre><code><span class="k">[packages]</span><span class="w">
-</span><span class="na">lektor-google-analytics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>0.1</s></code></pre>
-</section>
-<section id="configuring-the-plugin">
-<h3>Configuring the Plugin</h3>
-<p>The plugin needs a config file with your <span class="docutils literal">Google analytics</span> code in
-it.</p>
-<p>Just create a file named <span class="docutils literal"><span class="pre">google-analytics.ini</span></span> into <span class="docutils literal">./configs</span>
-folder in your Lektor project’s base directory. And, put the
-<span class="docutils literal">GOOGLE_ANALYTICS_ID</span> key with target property ID of form
-<span class="docutils literal"><span class="pre">UA-XXXXXXXX-Y</span></span> which you obtained from:</p>
-<pre><code><span class="na">GOOGLE_ANALYTICS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>UA-XXXXXXXX-Y</s></code></pre>
-</section>
-<section id="using-in-templates">
-<h3>Using in Templates</h3>
-<p>Now you can add a Google analytics code-snippet in your templates by
-just calling the <span class="docutils literal">generate_google_analytics</span> function inside its <span class="docutils literal">&lt;body&gt; &lt;/body&gt;</span> tags.</p>
-<pre><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><s>"ga-script"</s><span class="p">&gt;</span>{{ generate_google_analytics() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre>
-<p>That’s it. All the <span class="docutils literal">HTML</span> files that rendered from that template will
-include Google-Analytics code automatically.</p>
-</section>
-</section>
-<section id="advanced">
-<h2>Advanced</h2>
-<dl class="simple">
-<dt>You can use <span class="docutils literal">GOOGLE_ANALYTICS_PROPERTY</span> property to include your</dt>
-<dd><p>custom-built Google Analytics tracking code. In that case, your
-<span class="docutils literal"><span class="pre">./configs/google-analytics.ini</span></span> will look like this:</p>
-</dd>
-</dl>
-<pre><code><span class="na">GOOGLE_ANALYTICS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>UA-XXXXXXXX-Y</s><span class="w">
-</span><span class="na">GOOGLE_ANALYTICS_PROPERTY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><s>'my custom code'</s></code></pre>
-<p>Don’t use this property unless you know what are you doing. By default,
-it is set to <span class="docutils literal">auto</span>.</p>
-<p>To go deeper than this, please refer to <cite>Google-Analytics
-documentation</cite>.</p>
-<hr class="docutils">
-<p><strong>Copyright</strong> (c) 2015, Khaled Monsoor</p>
-<p>All rights reserved.</p>
-<p>Licensed under <cite>BSD</cite> license.</p>
-</section>
- 
+          lektor-google-analytics
+<br>=======================
+<br>
+<br>
+<br>This plugin adds support for `Google analytics` to `Lektor CMS`.
+<br>
+<br>Once the plugin is enabled, a ``generate_google_analytics()`` function
+<br>is available to be included in target ``template`` which automatically
+<br>include Google-Analytics code in final HTML files rendered by
+<br>``Lektor``.
+<br>
+<br>
+<br>Basic Usage
+<br>-----------
+<br>
+<br>Enabling the Plugin
+<br>~~~~~~~~~~~~~~~~~~~
+<br>
+<br>To enable the plugin add this to your project file:
+<br>
+<br>.. code:: ini
+<br>
+<br>    [packages]
+<br>    lektor-google-analytics = 0.1
+<br>
+<br>Configuring the Plugin
+<br>~~~~~~~~~~~~~~~~~~~~~~
+<br>
+<br>The plugin needs a config file with your ``Google analytics`` code in
+<br>it.
+<br>
+<br>Just create a file named ``google-analytics.ini`` into ``./configs``
+<br>folder in your Lektor project’s base directory. And, put the
+<br>``GOOGLE_ANALYTICS_ID`` key with target property ID of form
+<br>``UA-XXXXXXXX-Y`` which you obtained from:
+<br>
+<br>.. code:: ini
+<br>
+<br>    GOOGLE_ANALYTICS_ID = UA-XXXXXXXX-Y
+<br>
+<br>Using in Templates
+<br>~~~~~~~~~~~~~~~~~~
+<br>
+<br>Now you can add a Google analytics code-snippet in your templates by
+<br>just calling the ``generate_google_analytics`` function inside its ``&lt;body&gt; &lt;/body&gt;`` tags.
+<br>
+<br>.. code:: html
+<br>
+<br>    &lt;div class="ga-script"&gt;{{ generate_google_analytics() }}&lt;/div&gt;<br>
+<br>That’s it. All the ``HTML`` files that rendered from that template will
+<br>include Google-Analytics code automatically.
+<br>
+<br>
+<br>Advanced
+<br>--------
+<br>
+<br>You can use ``GOOGLE_ANALYTICS_PROPERTY`` property to include your
+<br>   custom-built Google Analytics tracking code. In that case, your
+<br>   ``./configs/google-analytics.ini`` will look like this:
+<br>
+<br>.. code:: ini
+<br>
+<br>    GOOGLE_ANALYTICS_ID = UA-XXXXXXXX-Y
+<br>    GOOGLE_ANALYTICS_PROPERTY = 'my custom code'
+<br>
+<br>Don’t use this property unless you know what are you doing. By default,
+<br>it is set to ``auto``.
+<br>
+<br>To go deeper than this, please refer to `Google-Analytics
+<br>documentation`.
+<br>
+<br>
+<br>-----
+<br>
+<br>  
+<br>**Copyright** (c) 2015, Khaled Monsoor  
+<br>
+<br>All rights reserved.
+<br>
+<br>Licensed under `BSD` license. 
         
 
         

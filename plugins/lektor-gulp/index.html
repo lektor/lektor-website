@@ -139,40 +139,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <p>This plugin for <a href="https://www.getlektor.com" rel="nofollow">Lektor CMS</a> adds <a href="http://gulpjs.com" rel="nofollow">gulp</a> support to projects. When
-enabled with the <span class="docutils literal"><span class="pre">-f</span> gulp</span> flag it runs <span class="docutils literal">npm install</span> and then the
-gulp <span class="docutils literal">default</span> or <span class="docutils literal">watch</span> tasks as they are defined into your own
-<span class="docutils literal">gulpfile.js</span>.</p>
-<p>The general documentation about Lektor plugins is <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">here</a>.</p>
-<section id="lektor-build">
-<h2>lektor build</h2>
-<p>The command <span class="docutils literal">lektor build <span class="pre">-f</span> gulp</span> runs the <strong>``default``</strong> gulp task,
-for example defined as something like:</p>
-<pre><code>gulp.task('build', ['clean', 'copy', 'js', 'css', 'imagemin'], () =&gt; { });
-gulp.task('default', ['build'], () =&gt; { });</code></pre>
-<p>In the above example the <span class="docutils literal">default</span> task points to a <span class="docutils literal">build</span> task,
-which is usually composed by several other gulp tasks, etc.</p>
-</section>
-<section id="lektor-server">
-<h2>lektor server</h2>
-<p>The command <span class="docutils literal">lektor server <span class="pre">-f</span> gulp</span> runs the Lektor embedded server on
-<a href="http://localhost:5000" rel="nofollow">http://localhost:5000</a>, starting a gulp <strong>``watch``</strong> task in background.
-For example, you can define something such as:</p>
-<pre><code>gulp.task('watch', () =&gt; {
-    gulp.watch('lib/js/**/*.js', ['js']);
-    gulp.watch('lib/css/**/*.css', ['css']);
-});</code></pre>
-<p>In the above example, each time one touches Javascript or CSS files in
-the <span class="docutils literal">lib/</span> folder then assets could be minified, concatenated and
-copied into the standard <span class="docutils literal">assets/static/</span> lektor folder, or whatever
-is defined into your own <span class="docutils literal">gulpfile.js</span>.</p>
-</section>
-<section id="credits">
-<h2>Credits</h2>
-<p>This plugin is based on the official <a href="https://github.com/lektor/lektor-webpack-support" rel="nofollow">Webpack plugin</a> with very little
-differences.</p>
-</section>
- 
+          lektor-gulp<br>===========<br><br>This plugin for `Lektor CMS`_ adds `gulp`_ support to projects. When<br>enabled with the ``-f gulp`` flag it runs ``npm install`` and then the<br>gulp ``default`` or ``watch`` tasks as they are defined into your own<br>``gulpfile.js``.<br><br>The general documentation about Lektor plugins is `here`_.<br><br>lektor build<br>------------<br><br>The command ``lektor build -f gulp`` runs the **``default``** gulp task,<br>for example defined as something like:<br><br>.. code::<br><br>   gulp.task('build', ['clean', 'copy', 'js', 'css', 'imagemin'], () =&gt; { });<br>   gulp.task('default', ['build'], () =&gt; { });<br><br>In the above example the ``default`` task points to a ``build`` task,<br>which is usually composed by several other gulp tasks, etc.<br><br>lektor server<br>-------------<br><br>The command ``lektor server -f gulp`` runs the Lektor embedded server on<br>http://localhost:5000, starting a gulp **``watch``** task in background.<br>For example, you can define something such as:<br><br>.. code::<br><br>   gulp.task('watch', () =&gt; {<br>       gulp.watch('lib/js/**/*.js', ['js']);<br>       gulp.watch('lib/css/**/*.css', ['css']);<br>   });<br><br>In the above example, each time one touches Javascript or CSS files in<br>the ``lib/`` folder then assets could be minified, concatenated and<br>copied into the standard ``assets/static/`` lektor folder, or whatever<br>is defined into your own ``gulpfile.js``.<br><br>Credits<br>-------<br><br>This plugin is based on the official `Webpack plugin`_ with very little<br>differences.<br><br>.. _Lektor CMS: https://www.getlektor.com<br>.. _gulp: http://gulpjs.com<br>.. _here: https://www.getlektor.com/docs/plugins/<br>.. _Webpack plugin: https://github.com/lektor/lektor-webpack-support 
         
 
         

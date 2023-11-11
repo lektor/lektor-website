@@ -127,18 +127,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <p># lektor-markdown-excerpt</p>
-<p>This plugin adds filter for Markdown body excerpt.</p>
-<p>## Enabling the Plugin</p>
-<p>To enable the plugin run this command:</p>
-<p><span class="docutils literal">`ini $ lektor plugins add <span class="pre">markdown-excerpt</span> `</span></p>
-<p>## In Templates</p>
-<p>Plugin provides the <cite>|excerpt</cite> filter that can be used to render first
-paragraph of Markdown:</p>
-<p><span class="docutils literal">`jinja {{ post.body|excerpt }} `</span></p>
-<p>It takes one optional argument which is the separator for the excerpt:</p>
-<p><span class="docutils literal">`jinja {{ <span class="pre">post.body|excerpt:'\n\n##'</span> }} `</span></p>
- 
+          # lektor-markdown-excerpt<br><br>This plugin adds filter for Markdown body excerpt.<br><br>## Enabling the Plugin<br><br>To enable the plugin run this command:<br><br>```ini<br>$ lektor plugins add markdown-excerpt<br>```<br><br>## In Templates<br><br>Plugin provides the `|excerpt` filter that can be used to render first<br>paragraph of Markdown:<br><br>```jinja<br>{{ post.body|excerpt }}<br>```<br><br>It takes one optional argument which is the separator for the excerpt:<br><br>```jinja<br>{{ post.body|excerpt:'\n\n##' }}<br>```<br> 
         
 
         
