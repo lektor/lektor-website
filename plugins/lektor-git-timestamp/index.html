@@ -62,7 +62,7 @@
   <div class="plugin">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Plugin &ndash; lektor-git-timestamp 0.1.post1</h1>
+        <h1>Plugin &ndash; lektor-git-timestamp 1.0.0</h1>
       </div>
     </div>
 
@@ -79,24 +79,15 @@
       <div class="col-sm-3 plugin-margin">
         <h4>Project links</h4>
         <ul class="tree-nav">
-          <li><a href="https://github.com/dairiki/lektor-git-timestamp" class="ext">Homepage</a></li>
+          <li><a href="https://pypi.org/project/lektor-git-timestamp/" class="ext">Homepage</a></li>
         </ul>
 
-        
-          <div class="separator">
-            <h4>GitHub Statistics</h4>
-          </div>
-          <ul class="button-nav">
-            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-git-timestamp" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-git-timestamp on GitHub" target="_blank">Star</a></p></li>
-            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-git-timestamp/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
-            <li><p><a class="github-button" href="https://github.com/dairiki/lektor-git-timestamp/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
-          </ul>
         
 
         <div class="separator">
           <h4>Meta</h4>
         </div>
-        <p><strong>Version:</strong> 0.1.post1</p>
+        <p><strong>Version:</strong> 1.0.0</p>
         <p><strong>Author:</strong>
           
             <a href="mailto:dairiki@dairiki.org">Jeff Dairiki</a>
@@ -131,7 +122,8 @@
 <p><a href="https://pypi.org/project/lektor-git-timestamp/" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-git-timestamp.svg" alt="PyPI version"></a>
 <a href="https://pypi.python.org/pypi/lektor-git-timestamp/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-git-timestamp.svg" alt="PyPI Supported Python Versions"></a>
 <a href="https://github.com/dairiki/lektor-git-timestamp/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-git-timestamp" alt="GitHub license"></a>
-<a href="https://github.com/dairiki/lektor-git-timestamp" rel="nofollow"><img src="https://github.com/dairiki/lektor-git-timestamp/workflows/Tests/badge.svg" alt="GitHub Actions (Tests)"></a></p>
+<a href="https://github.com/dairiki/lektor-git-timestamp" rel="nofollow"><img src="https://github.com/dairiki/lektor-git-timestamp/workflows/Tests/badge.svg" alt="GitHub Actions (Tests)"></a>
+<a href="https://trackgit.com" rel="nofollow"><img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/lhat85618pg4zbl1nilh" alt="Trackgit Views"></a></p>
 <p>This Lektor plugin implements a new datetime-like type,
 <code>gittimestamp</code>, which gets it's default value from git timestamps.
 This can be used to implement auto-updating <code>pub_date</code> and <code>last_mod</code>
@@ -150,7 +142,7 @@ list of timestamps.  That list of timestamps is filtered based on the
 <code>ignore_commits</code> and <code>skip_first_commit</code> options (see below); then,
 finally, a timestamp is selected from those that remain based on the
 setting of the <code>strategy</code> option.</p>
-<h3>Options</h3>
+<h3>Field Options</h3>
 <p>The <code>gittimestamp</code> type supports the following options.</p>
 <h4><code>ignore_commits</code></h4>
 <p>This can be set to a string, which is interpreted as a regular
@@ -188,6 +180,34 @@ result at <code>first</code>, but if the timestamps in the git log are not monot
 this will select the minimum of all the timestamps remaining after any filtering.</p>
 </li>
 </ul>
+<h3>Global Configuration</h3>
+<p>The following global configuration options are supported.
+These values are specified by way of the plugins' <a href="https://www.getlektor.com/docs/plugins/howto/#configure-plugins" rel="nofollow">configuration file</a>:
+<code>configs/git-timestamp.ini</code> under the project site directory.</p>
+<p>By default, the <a href="https://git-scm.com/docs/git-log#Documentation/git-log.txt---follow" rel="nofollow"><code>--follow</code></a> option is passed to <code>git log</code> when
+computing timestamps.  This behavior may be adjusted on a global basis by way of the plugins' <a href="https://www.getlektor.com/docs/plugins/howto/#configure-plugins" rel="nofollow">configuration file</a> (<code>configs/git-timestamp.ini</code> under the project site directory) via the following settings:</p>
+<h4><code>follow_renames</code></h4>
+<p>This is a boolean setting that specifies whether the
+<a href="https://git-scm.com/docs/git-log#Documentation/git-log.txt---follow" rel="nofollow"><code>--follow</code></a> option should be passed to <code>git log</code> when
+querying git for timestamps.  This options causes <code>git</code> to attempt to
+follow file renames.</p>
+<p>Currently, the <code>follow_renames</code> is not supported when <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">Lektor
+Alternatives</a> are enabled.</p>
+<p>If unspecified, <code>follow_renames</code> defaults to <em>false</em>.</p>
+<blockquote>
+<p><strong>Changed</strong> in version 1.0.0b3: The default value for
+<code>follow_renames</code> was changed from <em>true</em> to <em>false</em>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> Since we currently run <code>git log</code> on a per-record basis, when <code>--follow</code>
+is specified, <em>copied</em> files may be detected as “renamed”. This may not be ideal.</p>
+</blockquote>
+<h4><code>follow_rename_threshold</code></h4>
+<p>Set the <em>similarity index threshold</em> (passed to <code>git log</code> via its
+<a href="https://git-scm.com/docs/git-log#Documentation/git-log.txt--Mltngt" rel="nofollow"><code>-M</code> option</a>) used when detecting renames. This should be
+specified as a (floating point) number between 0 and 100,
+inclusive. Setting <code>follow_rename_threshold = 100</code> will limit
+detection to exact renames only. The default value is 50.</p>
 <h2>Examples</h2>
 <p>Here is a simple example excerpt from a datamodel file:</p>
 <pre lang="ini"><span class="na">&lt;...&gt;</span>
@@ -226,26 +246,80 @@ most recent commit for the file, except that:</p>
 </ul>
 <p>If there has only been one commit of the source file, <code>last_mod</code> will not have
 a default value.  (It will evaluate to a jinja2 Undefined instance.)</p>
-<h2>Warning: On sorting by <code>gittimestamp</code> in <code>Lektor &lt;= 3.2</code></h2>
+<h2>Warning: On sorting by <code>gittimestamp</code> in <code>Lektor &lt; 3.3</code></h2>
 <p>A common use case for timestamps is for sorting records.
 E.g. in a blog one generally wants to display posts in reverse
 chronological order by post date.  This generally won't work using
-<code>gittimestamp</code> timestamps under any currently released version of Lektor.</p>
+<code>gittimestamp</code> timestamps with version of Lektor before 3.3.</p>
 <p>The <code>gittimestamp</code> type is implemented using a <em>field
 descriptor</em>. (This is required in order to defer computation of the
 field value until after the record for the page is available.) In
-<code>lektor&lt;=3.2</code>, field descriptors are supported for most usages, the
+<code>lektor&lt;3.3</code>, field descriptors are supported for most usages, the
 <em>one glaring exception</em> being when sorting records.</p>
 <p>This was fixed in Lektor PR
 <a href="https://github.com/lektor/lektor/pull/789" rel="nofollow">#789</a> which was merged to
-the master branch on February 6, 2021.
-Unfortunately, the last released version of Lektor (as of August 12,
-2021) is version 3.2, released August 20, 2020.  For now, you'll have
-to install Lektor from git if you want to be able to sort records by
-<code>gittimestamp</code>.</p>
+the master branch on February 6, 2021, but didn't make it into a release
+until Lektor 3.3, released on December 13 2021.</p>
 <h2>Author</h2>
 <p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org" rel="nofollow">dairiki@dairiki.org</a></p>
 <h2>Changelog</h2>
+<h3>Release 1.0.0 (2024-02-06)</h3>
+<p>No code changes from 1.0.0b3</p>
+<h3>Release 1.0.0b3 (2024-01-23)</h3>
+<h4>Breaking Changes</h4>
+<ul>
+<li>Drop support for python 3.8.</li>
+<li>The default value for the <code>follow_renames</code> global config setting has
+changed from <em>true</em> to <em>false</em>.</li>
+</ul>
+<h4>Bugs Fixed</h4>
+<ul>
+<li>Fix to work when <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">alternatives</a> are enabled. Note that in this case
+the <code>follow_renames</code> global option is not supported.</li>
+</ul>
+<h4>Testing</h4>
+<ul>
+<li>Test under python 3.12.</li>
+</ul>
+<h4>Code Style</h4>
+<ul>
+<li>Style: Use <a href="https://docs.astral.sh/ruff/" rel="nofollow">ruff</a> for style linting and formatting. This replaces
+our usage of <code>black</code>, <code>reorder-python-imports</code>, and <code>flake8</code>.</li>
+</ul>
+<h3>Release 1.0.0b2 (2023-06-15)</h3>
+<ul>
+<li>Added type annotations.</li>
+<li>Convert packaging to PDM.</li>
+</ul>
+<h4>Code Style</h4>
+<ul>
+<li>Style: Run <a href="https://github.com/psf/black" rel="nofollow">black</a> and <a href="https://github.com/asottile/reorder-python-imports" rel="nofollow">reorder-python-imports</a> on code. Configure
+<a href="https://pre-commit.com/" rel="nofollow">pre-commit</a> to keep all up-to-date.</li>
+</ul>
+<h4>Tests</h4>
+<ul>
+<li>Disuse the deprecated module <code>pkg_resources</code>.</li>
+</ul>
+<h4>Buglets</h4>
+<ul>
+<li>Do not strip trailing whitespace from <code>git log</code> output. (This was
+erroneously removing trailing newlines from the final commit
+message.)</li>
+</ul>
+<h3>Release 1.0.0b1 (2023-04-11)</h3>
+<ul>
+<li>Drop support for python 2.7 and 3.6. (<a href="https://github.com/dairiki/lektor-git-timestamp/pull/2" rel="nofollow">#2</a>)</li>
+</ul>
+<h4>Testing</h4>
+<ul>
+<li>
+<p>Test under python 3.10 and 3.11. (<a href="https://github.com/dairiki/lektor-git-timestamp/pull/2" rel="nofollow">#2</a>)</p>
+</li>
+<li>
+<p>Test that <code>lektor.db.Record.get_sort_key</code> works with
+descriptor-valued fields. (This requires <code>lektor&gt;=3.3</code>.)</p>
+</li>
+</ul>
 <h3>Release 0.1.0.post1 (2021-08-12)</h3>
 <p>No code changes.</p>
 <p>Add warning to README about <code>lektor &gt; 3.2</code> (not yet released) being
