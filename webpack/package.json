@@ -12,12 +12,12 @@
     "babel-loader": "^9.1.0",
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
-    "css-loader": "^6.5.1",
+    "css-loader": "^7.1.2",
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.0",
     "mini-css-extract-plugin": "^2.4.5",
     "sass": "^1.43.5",
-    "sass-loader": "^13.2.0",
+    "sass-loader": "^14.2.1",
     "webpack": "^5.76.0",
     "webpack-cli": "^5.0.1"
   }
