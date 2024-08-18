@@ -1,0 +1,10 @@
+_model: plugin
+---
+name: lektor-redirect
+---
+categories: build
+---
+tags:
+
+setup-env
+before-build-all
