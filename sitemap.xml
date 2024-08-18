@@ -28,6 +28,7 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-scsscompile/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-scss/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-minify/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-redirect/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-webpack-support/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-i18n/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-limit-dependencies/</loc></url>
@@ -97,6 +98,7 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-shortcodes/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-minify/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-google-search/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-redirect/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-webpack-support/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-tawk/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-i18n/</loc></url>

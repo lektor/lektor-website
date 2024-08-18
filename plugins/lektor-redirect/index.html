@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/styles.css?h=dff0aaad">
+  <link rel="stylesheet" href="../../static/pygments.css">
+  <link rel="shortcut icon" href="../../static/favicon.png?h=fa09bedd">
+  <title> | Lektor Static Content Management System</title>
+</head>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">Lektor</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../downloads/">Download</a></li>
+          
+            <li><a href="../../docs/">Documentation</a></li>
+          
+            <li><a href="../../showcase/">Showcase</a></li>
+          
+            <li class="active"><a href="../">Plugins</a></li>
+          
+            <li><a href="../../community/">Community</a></li>
+          
+            <li><a href="../../blog/">Blog</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+  
+  
+    <div class="page-banner page-banner-300" style="background-image: url(../header.jpg)"></div>
+  
+  
+    <div class="container">
+      
+  
+  
+    
+  
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  
+  <div class="plugin">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Plugin &ndash; lektor-redirect 0.1.0b2</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-11">
+        <p>A Lektor plugin to help with generating redirects for, e.g., moved pages.<p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-3 plugin-margin">
+        <h4>Project links</h4>
+        <ul class="tree-nav">
+          <li><a href="https://pypi.org/project/lektor-redirect/" class="ext">Homepage</a></li>
+        </ul>
+
+        
+
+        <div class="separator">
+          <h4>Meta</h4>
+        </div>
+        <p><strong>Version:</strong> 0.1.0b2</p>
+        <p><strong>Author:</strong>
+          
+            <a href="mailto:dairiki@dairiki.org">Jeff Dairiki</a>
+          
+        </p>
+
+
+        <div class="separator">
+          <h4>Tags</h4>
+        </div>
+        
+          
+            
+            <a href="../tag/before-build-all/">before-build-all</a>, 
+          
+            and 
+            <a href="../tag/setup-env/">setup-env</a>
+          
+        
+        <p>
+          View <a href="../tags/" class="ref">all tags</a>.
+        </p>
+      </div>
+
+      <div class="col-sm-9 doc-styling">
+        <h2>Project Description</h2>
+        
+          <h1>lektor-redirect</h1>
+<p><a href="https://pypi.org/project/lektor-redirect/" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-redirect.svg" alt="PyPI version"></a>
+<a href="https://pypi.python.org/pypi/lektor-redirect/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-redirect.svg" alt="PyPI Supported Python Versions"></a>
+<a href="https://github.com/dairiki/lektor-redirect/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-redirect" alt="GitHub license"></a>
+<a href="https://github.com/dairiki/lektor-redirect/" rel="nofollow"><img src="https://img.shields.io/github/actions/workflow/status/dairiki/lektor-redirect/ci.yml?branch=master&amp;label=tests" alt="GitHub Actions (Tests)"></a></p>
+<p>This plugin allows pages (and attachments) to specify alternative/old
+URLs which should redirect to their current location.</p>
+<blockquote>
+<p>[!IMPORTANT]
+Currently this plugin <em>will not work</em> on Lektor sites with <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">alternatives</a> enabled.</p>
+</blockquote>
+<h2>How it works</h2>
+<p>The plugin looks for a field named (by default) <code>redirect_from</code> on pages
+and attachments in the site. This field is expected to contain a sequence of URLs
+to redirect from.</p>
+<p>There are two ways that redirects may be implemented by this plugin.
+Either or both may be enabled.</p>
+<h3>Redirect pages</h3>
+<p>Redirect pages can be generated at the specified URLs.  The template for these
+pages is up to you, however the intent is that these pages will attempt
+an <em><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects#metarefresh" rel="nofollow">meta refresh</a></em> and/or <em><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects#jslocation" rel="nofollow">javascript redirect</a></em> to the target page.</p>
+<h3>Redirect map</h3>
+<p>A <em>redirect map</em> file can be generated.  This may be used to configure your
+web server to issue the desired redirects itself.
+(Currently only an nginx-style map is supported.)</p>
+<h2>Usage</h2>
+<p>By default the plugin looks for a field named <code>redirect_from</code> on pages in the
+site.
+(The name of the field may be customized in the plugin configuration file. See below.)
+This field should contain a sequence of URLs to redirect from — most
+likely it should have a field type of <code>strings</code>.</p>
+<p>E.g. To be able to generate redirects to your pages, you might add the
+following <a href="https://www.getlektor.com/docs/models/#fields" rel="nofollow">field</a> to your <code>models/page.ini</code> file:</p>
+<pre lang="ini"><span class="k">[fields.redirect_from]</span>
+<span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Redirect From</span>
+<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Other URLs which should redirect to this page</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">strings</span>
+</pre>
+<p>The URLs in the <code>redirect_from</code> field may either be absolute (beginning)
+with a slash (these are interpreted relative to the root of the site) or
+they may be relative, in which case they are interpreted relative to the
+URL of the parent of the page containing the <code>redirect_from</code> field.</p>
+<p>As an example, if the is a page at lektor path <code>/blog/first-post</code>,
+who’s URL, if nothing exotic is done with slug configuration is
+<code>/blog/first-post/</code>, then, if <code>first-posts</code>’s <code>redirect_from</code> is set
+to <code>test-post</code>, then:</p>
+<ul>
+<li>
+<p>If redirect page generation is enabled, there will be an artifact
+generated at in <code>/blog/test-post/index.html</code> which will, hopefully,
+redirect the user to <code>/blog/first-post/</code>.</p>
+</li>
+<li>
+<p>If redirect map generation is enabled, it will include an entry
+mapping <code>/blog/test-post</code> to <code>/blog/first-post/</code>.</p>
+</li>
+</ul>
+<h3>Configuration File</h3>
+<p>The plugin's configuration file is <code>configs/redirect.ini</code>.
+Settings should be in a <code>[redirect]</code> section.
+There are currently three configurable settings. Here is an example:</p>
+<pre lang="ini"><span class="k">[redirect]</span>
+<span class="c1"># The name of the field from which redirects are extracted.</span>
+<span class="c1"># The default value is "redirect_from"</span>
+<span class="na">redirect_from_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">redirect_from</span>
+
+<span class="c1"># Set template used to render redirect pages.</span>
+<span class="c1"># There is no default value — if no template is set, redirect</span>
+<span class="c1"># page generation is disabled.</span>
+<span class="na">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">redirect.html</span>
+
+<span class="c1"># Set the name of the redirect map file.</span>
+<span class="c1"># There is no default value — if no value is set, redirect</span>
+<span class="c1"># map generation is disabled.</span>
+<span class="na">map_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.redirect.map</span>
+</pre>
+<h3>Redirect Pages</h3>
+<p>If a <code>template</code> is configured in the plugin configuration file (<code>configs/redirect.ini</code>),
+<em>redirect pages</em> will be generated from the specified template. The intention is that
+the resulting page will redirect the user to the target location using <a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects#metarefresh" rel="nofollow">meta refresh</a>
+and/or a <a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects#jslocation" rel="nofollow">javascript redirect</a>.</p>
+<p>Within the template, the target of the redirect is available as <code>this.target</code>.</p>
+<p>An simple example for such a template is:</p>
+<pre lang="jinja"><span class="x">&lt;!doctype html&gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">  &lt;head&gt;</span>
+<span class="x">    &lt;title&gt;Page Moved&lt;/title&gt;</span>
+<span class="x">    &lt;link rel="canonical" href="</span><span class="cp">{{</span> <span class="nv">this.target</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">external</span><span class="o">=</span><span class="kp">true</span><span class="o">)</span> <span class="cp">}}</span><span class="x">"&gt;</span>
+
+<span class="x">    &lt;!-- meta refresh redirect --&gt;</span>
+<span class="x">    &lt;meta http-equiv="refresh" content="0; url=</span><span class="cp">{{</span> <span class="nv">this.target</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">absolute</span><span class="o">=</span><span class="kp">true</span><span class="o">)</span> <span class="cp">}}</span><span class="x">"&gt;</span>
+
+<span class="x">    &lt;!-- javascript redirect --&gt;</span>
+<span class="x">    &lt;script type="text/javascript"&gt;</span>
+<span class="x">     window.location.href = </span><span class="cp">{{</span> <span class="nv">this.target</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">absolute</span><span class="o">=</span><span class="kp">true</span><span class="o">)|</span><span class="nf">tojson</span> <span class="cp">}}</span><span class="x">;</span>
+<span class="x">    &lt;/script&gt;</span>
+<span class="x">  &lt;/head&gt;</span>
+<span class="x">  &lt;body&gt;</span>
+<span class="x">    &lt;h1&gt;Page Moved&lt;/h1&gt;</span>
+<span class="x">    &lt;p&gt;</span>
+<span class="x">      If you are not automatically redirected, the page you want can be found at</span>
+<span class="x">      &lt;a href="</span><span class="cp">{{</span> <span class="nv">this.target</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">"&gt;</span><span class="cp">{{</span> <span class="nv">this.target</span><span class="o">|</span><span class="nf">url</span><span class="o">(</span><span class="nv">external</span><span class="o">=</span><span class="kp">true</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;.</span>
+<span class="x">    &lt;/p&gt;</span>
+<span class="x">  &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre>
+<blockquote>
+<p>[!TIP]
+For the <code>url(external=true)</code> and <code>url(absolute=true)</code>
+filters to work, a <code>[url][project config]</code> may need to be configured
+for the project.</p>
+</blockquote>
+<p>When redirecting from URLs that do not end with <code>.html</code> or <code>.htm</code>, the redirect page
+is generated at the url with <code>/index.html</code> appended.
+For example if there is a redirect from <code>/old-image.png</code> to
+<code>/new-image.png</code>, the redirect page will be generated at
+<code>/old-image.png/index.html</code>.
+This is done with the hope that the web server, without extra
+configuration, will respond to a request for <code>/old-image.png</code> with a
+content-type header of <code>text/html</code>.</p>
+<h3>Redirect Map</h3>
+<p>If a <code>map_file</code> is configured in the plugin configuration file (<code>configs/redirect.ini</code>),
+a <em>map file</em> will be generated in the output tree.</p>
+<p>The map file is in a format suitable for inclusion in an <em>nginx</em> <a href="https://nginx.org/en/docs/http/ngx_http_map_module.html" rel="nofollow">map block</a>.
+Assuming there is a single redirect from <code>/old-page</code> to <code>/new-page</code>, the contents
+of the map file would be:</p>
+<pre><code>/old-page/ /replacement-page/;
+</code></pre>
+<p>Assuming that <code>map_file</code> is set to <code>.redirect.map</code>, the salient parts
+of an <em>nginx</em> configuration file that utilizes the redirect map might
+look like:</p>
+<pre lang="nginx"><span class="k">[...]</span>
+
+<span class="s">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">[...]</span>
+
+<span class="w">    </span><span class="c1"># You may need to adjust this (and/or map_hash_max_size) to avoid</span>
+<span class="w">    </span><span class="c1"># "could not build map_hash, you should increase map_hash_bucket_size"</span>
+<span class="w">    </span><span class="c1"># error from nginx</span>
+<span class="w">    </span><span class="s">map_hash_bucket_size</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">map</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$redirect_to_uri</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">default</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">include</span><span class="w"> </span><span class="s">/path/to/htdocs/.redirect.map</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="s">[...]</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">[...]</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">root</span><span class="w"> </span><span class="s">/path/to/htdocs</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">/\.</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1"># Don't serve dot-files (like .redirect.map)</span>
+<span class="w">            </span><span class="kn">return</span><span class="w"> </span><span class="mi">404</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kn">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$redirect_to_uri</span><span class="s">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1"># pass query args to preserve utm_* tracking parameters, etc.</span>
+<span class="w">            </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="nv">$redirect_to_uri$is_args$args</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kn">[...]</span>
+<span class="w">    </span><span class="err">}</span>
+<span class="err">}</span>
+</pre>
+<h2>To Do</h2>
+<ul>
+<li>
+<p>Make this work for Lektor projects with <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">alternatives</a> enabled.</p>
+</li>
+<li>
+<p>Add support for writing the redirect map file in other formats.
+(E.g. Apache <a href="https://httpd.apache.org/docs/current/rewrite/rewritemap.html#txt" rel="nofollow">text map</a> format.)</p>
+</li>
+</ul>
+<h2>Author</h2>
+<p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org" rel="nofollow">dairiki@dairiki.org</a></p>
+ 
+        
+
+        
+          <div class="comment-box">
+            <h2>Comments</h2>
+            
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/plugins/lektor-redirect"; this.page.url = "https://www.getlektor.com/plugins/lektor-redirect/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//lektordocumentation.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/lektor/lektor/" title="Lektor on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/lektor/lektor/issues/" title="Report Issues for Lektor"
+            ><i class="fa fa-bug"></i></a>
+          <a href="https://twitter.com/getlektor" title="Find Lektor on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://gitter.im/lektor/lektor" title="Chat on Gitter"
+            ><i class="fa fa-comment"></i></a>
+          <a href="https://github.com/lektor/lektor-website/tree/master/content/plugins/lektor-redirect/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License & Copyright</a> •
+          <a href="../../contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i> in Carinthia
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=250c2aed" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'lektor/lektor',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Toggle Chat</button>');
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt != "1" && dnt != "yes") {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-70822533-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    } else {
+      console.debug("Respecting Do-Not-Track, not running analytics.");
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
+</html>
