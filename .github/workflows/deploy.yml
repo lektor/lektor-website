@@ -39,12 +39,7 @@ jobs:
         run: pdm run build
 
       - name: Check for broken internal links
-        uses: wjdp/htmltest-action@master
-        with:
-          path: _htdocs
-          config: .htmltest.yml
-          skip_external: true
-          log_level: 1
+        run: pdm run check-links
 
       - name: Deploy lektor website
         if: env.DEPLOY == 'true'
