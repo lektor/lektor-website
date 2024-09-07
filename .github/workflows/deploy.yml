@@ -19,7 +19,6 @@ env:
     &&
     github.ref == 'refs/heads/master'
     }}
-  OUTPUT: _html
 
 jobs:
   build:
@@ -27,32 +26,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+          cache: npm
+          cache-dependency-path: webpack/package-lock.json
+
+      - uses: pdm-project/setup-pdm@v4
+        with:
+          cache: true
 
       - name: Install Lektor
-        run: |
-          python -m pip install --upgrade pip setuptools
-          python -m pip install lektor
-
+        run: pdm install
       - name: Build lektor website
-        run: lektor build -f webpack -O '${{ env.OUTPUT }}'
+        run: pdm run build
 
       - name: Check for broken internal links
-        uses: wjdp/htmltest-action@master
-        with:
-          path: ${{ env.OUTPUT }}
-          config: .htmltest.yml
-          skip_external: true
-          log_level: 1
+        run: pdm run check-links
 
       - name: Deploy lektor website
         if: env.DEPLOY == 'true'
-        run: lektor deploy -O '${{ env.OUTPUT }}' ghpages-https
+        run: pdm run deploy
         env:
           LEKTOR_DEPLOY_USERNAME: lektor
           LEKTOR_DEPLOY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}

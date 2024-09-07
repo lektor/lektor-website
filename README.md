@@ -1,23 +1,40 @@
 # Lektor Website
 
-This is the repository for the Lektor website at
-[getlektor.com](https://www.getlektor.com/).
+This is the repository for the Lektor website at [getlektor.com].
+
+We currently use [PDM] to manage dependencies and scripts.
 
 To run:
 
-```
-$ lektor server
+First [install PDM], and [node.js/npm][install nodejs].
+
+Next, install python dependencies
+
+```sh
+$ pdm install
 ```
 
-If you also want to update the webpack files, you need `npm` installed
-and then run it like this:
+Run the Lektor dev server
 
+```sh
+$ pdm run server
 ```
-$ lektor server -f webpack
+
+or just build the site to `./_htdocs/`
+
+```sh
+$ pdm run build
 ```
 
 ## Notes
 
-Changes made here get deployed automatically by [this workflow](https://github.com/lektor/lektor-website/blob/master/.github/workflows/deploy.yml).
+Changes made here get deployed automatically by [this workflow][deploy.yml].
 
-Building lektor-website requires the latest stable release of [Lektor](https://pypi.org/project/Lektor/).
+Building lektor-website requires the latest stable release of [Lektor].
+
+[getlektor.com]: https://www.getlektor.com/
+[PDM]: https://pdm-project.org/
+[install PDM]: https://pdm-project.org/en/latest/#installation
+[install nodejs]: https://nodejs.org/en/download/
+[Lektor]: https://pypi.org/project/Lektor/
+[deploy.yml]: https://github.com/lektor/lektor-website/blob/master/.github/workflows/deploy.yml
