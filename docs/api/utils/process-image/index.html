@@ -182,15 +182,15 @@ width and/or height, and the operation mode.
 In the default mode, if width or height are <code>None</code>, they are calculated
 from the source image's dimensions so that the image is scaled proportionally.</p>
 <p>Used internally for the implementation of <a href="../../db/record/thumbnail/" class="ref">thumbnail</a>, and exposed as an API for image-processing plugins.</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.build_programs</span> <span class="kn">import</span> <span class="n">AttachmentBuildProgram</span>
-<span class="kn">from</span> <span class="nn">lektor.context</span> <span class="kn">import</span> <span class="n">get_ctx</span>
-<span class="kn">from</span> <span class="nn">lektor.db</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">lektor.imagetools</span> <span class="kn">import</span> <span class="n">process_image</span><span class="p">,</span> <span class="n">ThumbnailMode</span>
-<span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.build_programs</span><span class="w"> </span><span class="kn">import</span> <span class="n">AttachmentBuildProgram</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.context</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_ctx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.imagetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_image</span><span class="p">,</span> <span class="n">ThumbnailMode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
 
 
-<span class="k">class</span> <span class="nc">ImageCropBuildProgram</span><span class="p">(</span><span class="n">AttachmentBuildProgram</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">build_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ImageCropBuildProgram</span><span class="p">(</span><span class="n">AttachmentBuildProgram</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
         <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
         <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">400</span>
         <span class="n">source_img</span> <span class="o">=</span> <span class="n">artifact</span><span class="o">.</span><span class="n">source_obj</span><span class="o">.</span><span class="n">attachment_filename</span>
@@ -202,8 +202,8 @@ from the source image's dimensions so that the image is scaled proportionally.</
                       <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ThumbnailMode</span><span class="o">.</span><span class="n">CROP</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">ImageCropPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ImageCropPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_build_program</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">ImageCropBuildProgram</span><span class="p">)</span>
 </pre></div>
 

@@ -194,15 +194,15 @@
       </ul>
 
       <p>This registers a new <a href="../../db/type/" class="ref">Field Type</a> with the environment</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span>
 
-<span class="k">class</span> <span class="nc">MyThingType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyThingType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
     <span class="n">widget</span> <span class="o">=</span> <span class="s1">&#39;singleline-text&#39;</span>
 
-    <span class="k">def</span> <span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">value</span>
 
-<span class="k">def</span> <span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">MyThingType</span><span class="p">)</span>
 </pre></div>
 

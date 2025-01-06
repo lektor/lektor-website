@@ -191,19 +191,19 @@ plugin in the loaded project.  This is by default in <code>configs/&lt;plugin-id
 Plugins could override this in theory but it's not recommended.  The primary
 use of this property is to track dependencies.</p>
 <p>For a convenient way to load the config see <a href="../get-config/">get_config</a>.</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
-<span class="kn">from</span> <span class="nn">lektor.context</span> <span class="kn">import</span> <span class="n">get_ctx</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.context</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_ctx</span>
 
 
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">get_css</span><span class="p">(</span><span class="n">artifact_name</span><span class="o">=</span><span class="s1">&#39;/static/demo.css&#39;</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">get_css</span><span class="p">(</span><span class="n">artifact_name</span><span class="o">=</span><span class="s1">&#39;/static/demo.css&#39;</span><span class="p">):</span>
             <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
             <span class="nd">@ctx</span><span class="o">.</span><span class="n">sub_artifact</span><span class="p">(</span><span class="n">artifact_name</span><span class="p">,</span> <span class="n">sources</span><span class="o">=</span><span class="p">[</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">config_filename</span><span class="p">])</span>
-            <span class="k">def</span> <span class="nf">build_stylesheet</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
+            <span class="k">def</span><span class="w"> </span><span class="nf">build_stylesheet</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
                 <span class="k">with</span> <span class="n">artifact</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;body { background: </span><span class="si">%s</span><span class="s1"> }</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">color</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">artifact_name</span>

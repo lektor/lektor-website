@@ -195,10 +195,10 @@ catch the error and render it into the template with a failure marker.  This
 can be changed with the <code>fail</code> parameter.  This is similar to the behavior of
 the <a href="../../../environment/render-template/" class="ref">render_template</a> method of the
 environment.</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">class</span> <span class="nc">MyBuildProgram</span><span class="p">(</span><span class="n">BuildProgram</span><span class="p">):</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyBuildProgram</span><span class="p">(</span><span class="n">BuildProgram</span><span class="p">):</span>
     <span class="o">...</span>
 
-    <span class="k">def</span> <span class="nf">build_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
         <span class="n">artifact</span><span class="o">.</span><span class="n">render_template_into</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">[</span><span class="s1">&#39;_template&#39;</span><span class="p">],</span> <span class="n">this</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
 </pre></div>

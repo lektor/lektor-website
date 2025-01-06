@@ -182,7 +182,7 @@ of path segments and returns an absolute path.  The default behavior is to
 guess the trailing slash based on the presence of a dot in the last path
 segment.  If you want to override the detection you can explicitly pass
 <code>True</code> to enforce a trailing slash or <code>False</code> to avoid it.</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lektor.utils</span> <span class="kn">import</span> <span class="n">build_url</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_url</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">build_url</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">])</span>
 <span class="go">u&#39;/foo/42/&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">build_url</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>

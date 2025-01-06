@@ -161,19 +161,19 @@ plugins and Lektor itself modify so do not provide a function called
 <code>get_script</code> but for instance call it <code>get_my_plugin_script</code>.</li>
 </ul>
 <p>A simple example of a plugin that implements <a href="https://en.gravatar.com/" class="ext">Gravatar</a> support:</p>
-<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
-<span class="kn">from</span> <span class="nn">werkzeug.urls</span> <span class="kn">import</span> <span class="n">url_encode</span>
-<span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+<div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hashlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">md5</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">url_encode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
 
 <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s1">&#39;https://secure.gravatar.com/avatar/&#39;</span>
 
-<span class="k">def</span> <span class="nf">get_gravatar</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_gravatar</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
     <span class="n">fn</span> <span class="o">=</span> <span class="n">md5</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
     <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">?</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">BASE_URL</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">url_encode</span><span class="p">(</span><span class="n">options</span><span class="p">))</span>
 
-<span class="k">class</span> <span class="nc">GravatarPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GravatarPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Gravatar&#39;</span>
-    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s1">&#39;gravatar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_gravatar</span>
 </pre></div>
 <h2 id="configure-plugins">Configure Plugins</h2><p>Plugins can come with their own config files and it's encouraged that plugins
@@ -206,22 +206,22 @@ through the <a href="../../api/build/context/sub-artifact/" class="ref">sub_arti
 method which declares a new artifact.</li>
 </ol>
 <p>Here is an example of both ways in one plugin:</p>
-<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">json</span>
-<span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+<div class="hll"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
 
-<span class="k">def</span> <span class="nf">dump_exif</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dump_exif</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
     <span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">posixpath</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;-exif.json&#39;</span><span class="p">)</span>
     <span class="nd">@ctx</span><span class="o">.</span><span class="n">sub_artifact</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="n">image</span><span class="o">.</span><span class="n">source_filename</span><span class="p">])</span>
-    <span class="k">def</span> <span class="nf">include_file</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">include_file</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
         <span class="n">ctx</span><span class="o">.</span><span class="n">record_dependency</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">artifact</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">exif</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="n">f</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">path</span>
 
-<span class="k">class</span> <span class="nc">ExifDumpPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExifDumpPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s1">&#39;dump_exif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dump_exif</span>
 </pre></div>
 <p>This dumps out the EXIF data into a JSON file and returns the artifact name.
@@ -246,13 +246,13 @@ code here
 ----
 </code></pre>
 <p>You can add your "asciidoc" type to Lektor with a plugin:</p>
-<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">PIPE</span><span class="p">,</span> <span class="n">Popen</span>
+<div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">PIPE</span><span class="p">,</span> <span class="n">Popen</span>
 
-<span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
-<span class="kn">from</span> <span class="nn">lektor.types</span> <span class="kn">import</span> <span class="n">Type</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span>
 
 
-<span class="k">def</span> <span class="nf">asciidoc_to_html</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">asciidoc_to_html</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># The &quot;-&quot; at the end tells asciidoc to read from stdin.</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span>
         <span class="p">[</span><span class="s1">&#39;asciidoc&#39;</span><span class="p">,</span> <span class="s1">&#39;--no-header-footer&#39;</span><span class="p">,</span> 
@@ -268,26 +268,26 @@ code here
 
 <span class="c1"># Wrapper with an __html__ method prevents</span>
 <span class="c1"># Lektor from escaping HTML tags.</span>
-<span class="k">class</span> <span class="nc">HTML</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">html</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HTML</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">html</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">html</span> <span class="o">=</span> <span class="n">html</span>
 
-    <span class="k">def</span> <span class="nf">__html__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__html__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">html</span>
 
 
-<span class="k">class</span> <span class="nc">AsciiDocType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AsciiDocType</span><span class="p">(</span><span class="n">Type</span><span class="p">):</span>
     <span class="n">widget</span> <span class="o">=</span> <span class="s1">&#39;multiline-text&#39;</span>
 
-    <span class="k">def</span> <span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="n">asciidoc_to_html</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="ow">or</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
 
 
-<span class="k">class</span> <span class="nc">AsciiDocPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AsciiDocPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;AsciiDoc&#39;</span>
     <span class="n">description</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;Adds AsciiDoc field type to Lektor.&#39;</span>
 
-    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="c1"># Derives type name &quot;asciidoc&quot; from class name.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">AsciiDocType</span><span class="p">)</span>
 </pre></div>

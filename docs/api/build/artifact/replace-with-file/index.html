@@ -196,7 +196,7 @@ that create temporaries.  By default the file is moved as this is what's
 common with temporaries but this can be changed into a copy with <code>copy=True</code>.</p>
 <h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="n">ctx</span> <span class="o">=</span> <span class="n">get_ctx</span><span class="p">()</span>
 <span class="nd">@ctx</span><span class="o">.</span><span class="n">sub_artifact</span><span class="p">(</span><span class="s1">&#39;artifact.txt&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">build_stylesheet</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_stylesheet</span><span class="p">(</span><span class="n">artifact</span><span class="p">):</span>
     <span class="n">temporary_file</span> <span class="o">=</span> <span class="n">invoke_external_program</span><span class="p">()</span>
     <span class="n">artifact</span><span class="o">.</span><span class="n">replace_with_file</span><span class="p">(</span><span class="n">temporary_file</span><span class="p">)</span>
 </pre></div>

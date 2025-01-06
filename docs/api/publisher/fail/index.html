@@ -174,16 +174,16 @@
 
       <p>This method takes a message and raises an appropriate failure that aborts
 the publishing process.  This is invoked from within the <a href="../publish/" class="ref">publish</a> method to indicate a failure:</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.publisher</span> <span class="kn">import</span> <span class="n">Publisher</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.publisher</span><span class="w"> </span><span class="kn">import</span> <span class="n">Publisher</span>
 
 
-<span class="k">class</span> <span class="nc">MyPublisher</span><span class="p">(</span><span class="n">Publisher</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_url</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPublisher</span><span class="p">(</span><span class="n">Publisher</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_url</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s1">&#39;This publisher cannot publish :(&#39;</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_publisher</span><span class="p">(</span><span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="n">MyPublisher</span><span class="p">)</span>
 </pre></div>
 

@@ -169,7 +169,7 @@ package in the packages folder.</p>
 <p>Once that is done, we need to create a <code>setup.py</code> file which tells Lektor
 what your plugin needs to run.  This will already be created for you if
 you used the wizard.</p>
-<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s1">&#39;lektor-hello-world&#39;</span><span class="p">,</span>
@@ -213,9 +213,9 @@ example.</li>
 <h2 id="creating-the-plugin">Creating The Plugin</h2><p>Now it's time to create our first plugin that does absolutely nothing.  We
 create a new file with the name <code>lektor_hello_world.py</code> next to our
 <code>setup.py</code> and put the following things in:</p>
-<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.pluginsystem</span> <span class="kn">import</span> <span class="n">Plugin</span>
+<div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
 
-<span class="k">class</span> <span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is a demo plugin for testing purposes.&#39;</span>
 </pre></div>
@@ -232,7 +232,7 @@ hello-world: Hello World
 events that can be hooked but we will only cover a very basic one here,
 the <code>setup-env</code> event.  To respond to it, we need to implement
 a function named <code>on_setup_env</code>:</p>
-<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="hll"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="n">MESSAGES</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;Reticulating splines&#39;</span><span class="p">,</span>
@@ -240,14 +240,14 @@ a function named <code>on_setup_env</code>:</p>
     <span class="s1">&#39;Possessing pawns&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">get_random_message</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_random_message</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">MESSAGES</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is a demo plugin for testing purposes.&#39;</span>
 
-    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
             <span class="n">get_random_message</span><span class="o">=</span><span class="n">get_random_message</span>
         <span class="p">)</span>

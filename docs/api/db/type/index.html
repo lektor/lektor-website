@@ -202,15 +202,15 @@ method and set the <code>widget</code> property as a very basic requirement.</p>
 to match the type name.  If you want to name your type <code>mything</code> then it
 needs to be called <code>MyThingType</code>.  Afterwards you can register it with the
 environment in <a href="../../plugins/events/setup-env/" class="ref">setup_env</a>:</p>
-<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.types.primitives</span> <span class="kn">import</span> <span class="n">SingleInputType</span>
+<div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.types.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">SingleInputType</span>
 
-<span class="k">class</span> <span class="nc">MyThingType</span><span class="p">(</span><span class="n">SingleInputType</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyThingType</span><span class="p">(</span><span class="n">SingleInputType</span><span class="p">):</span>
     <span class="n">widget</span> <span class="o">=</span> <span class="s1">&#39;singleline-text&#39;</span>
 
-    <span class="k">def</span> <span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">value_from_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">value</span>
 
-<span class="k">def</span> <span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">MyThingType</span><span class="p">)</span>
 </pre></div>
 <div class="admonition admonition-tip"><p>In the above example, the new type declares a base class of <code>SingleInputType</code>.

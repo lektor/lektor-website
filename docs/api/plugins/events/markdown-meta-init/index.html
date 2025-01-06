@@ -211,7 +211,7 @@
 
       <div class="admonition admonition-note"><p>Future versions of Lektor may change its Markdown parser away from <a href="https://github.com/lepture/mistune">Mistune</a>, and the various markdown related event hooks may be completely removed or work differently if that happens.</p></div><p>This event is emitted before the markdown meta information is set. This can be used to add custom meta variables to the markdown object.</p>
 <h2 id="example">Example</h2><p><a href="https://github.com/lektor/lektor-markdown-header-anchors" class="ext">lektor-markdown-header-anchors</a> uses this to initialize a meta var as an empty list:</p>
-<div class="hll"><pre><span></span><span class="k">def</span> <span class="nf">on_markdown_meta_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<div class="hll"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_markdown_meta_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;toc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 

@@ -225,7 +225,7 @@ the usefulness is limited.</p>
 <div class="admonition admonition-warning"><p>Note that currently both the builder as well as the build state are
 undocumented and unsupported!  This means that if a plugin chooses to use those
 references to do something with it they should consider that they might break
-in future versions.</p></div><h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">def</span> <span class="nf">on_before_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">prog</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+in future versions.</p></div><h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_before_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">prog</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;building </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">source</span><span class="o">.</span><span class="n">source_filename</span><span class="p">)</span>
 </pre></div>
 

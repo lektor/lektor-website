@@ -196,40 +196,40 @@ custom source objects.  This can be used to implement virtual items.  This
 works in combination with <a href="../generator/" class="ref">generator</a> and
 <a href="../urlresolver/" class="ref">urlresolver</a> and is responsible for generating
 artifacts out of source objects.</p>
-<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.sourceobj</span> <span class="kn">import</span> <span class="n">VirtualSourceObject</span>
-<span class="kn">from</span> <span class="nn">lektor.build_programs</span> <span class="kn">import</span> <span class="n">BuildProgram</span>
-<span class="kn">from</span> <span class="nn">lektor.utils</span> <span class="kn">import</span> <span class="n">build_url</span>
+<h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.sourceobj</span><span class="w"> </span><span class="kn">import</span> <span class="n">VirtualSourceObject</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.build_programs</span><span class="w"> </span><span class="kn">import</span> <span class="n">BuildProgram</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_url</span>
 
-<span class="k">class</span> <span class="nc">Source</span><span class="p">(</span><span class="n">VirtualSourceObject</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Source</span><span class="p">(</span><span class="n">VirtualSourceObject</span><span class="p">):</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;@source&#39;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">source_content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">source_content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">source_filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">url_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">url_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">build_url</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">url_path</span><span class="p">,</span> <span class="s1">&#39;source.txt&#39;</span><span class="p">])</span>
 
-<span class="k">class</span> <span class="nc">SourceBuildProgram</span><span class="p">(</span><span class="n">BuildProgram</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SourceBuildProgram</span><span class="p">(</span><span class="n">BuildProgram</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">produce_artifacts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">produce_artifacts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">declare_artifact</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">url_path</span><span class="p">,</span>
             <span class="n">sources</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">iter_source_filenames</span><span class="p">()))</span>
 
-    <span class="k">def</span> <span class="nf">build_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
         <span class="n">artifact</span><span class="o">.</span><span class="n">render_template_into</span><span class="p">(</span><span class="s1">&#39;view_source.html&#39;</span><span class="p">,</span>
                                       <span class="n">this</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
 
 <span class="n">env</span><span class="o">.</span><span class="n">add_build_program</span><span class="p">(</span><span class="n">Source</span><span class="p">,</span> <span class="n">SourceBuildProgram</span><span class="p">)</span>
 
 <span class="nd">@env</span><span class="o">.</span><span class="n">virtualpathresolver</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">resolve_virtual_path</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">pieces</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">resolve_virtual_path</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">pieces</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">pieces</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">Source</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
 </pre></div>

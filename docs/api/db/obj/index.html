@@ -248,22 +248,22 @@ in the path.  The part after the at sign is called the “virtual path”.</p>
 the record's path + <code>@source</code>.  So if the record was <code>/hello</code> then the
 path would be <code>/hello@source</code>.  The true base record it belongs to can be
 referenced from the <a href="record/" class="ref">record</a> property.</p>
-<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">lektor.sourceobj</span> <span class="kn">import</span> <span class="n">VirtualSourceObject</span>
-<span class="kn">from</span> <span class="nn">lektor.utils</span> <span class="kn">import</span> <span class="n">build_url</span>
+<div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.sourceobj</span><span class="w"> </span><span class="kn">import</span> <span class="n">VirtualSourceObject</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_url</span>
 
-<span class="k">class</span> <span class="nc">Source</span><span class="p">(</span><span class="n">VirtualSourceObject</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Source</span><span class="p">(</span><span class="n">VirtualSourceObject</span><span class="p">):</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;@source&#39;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">source_content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">source_content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">source_filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">url_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">url_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">build_url</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">url_path</span><span class="p">,</span> <span class="s1">&#39;source.txt&#39;</span><span class="p">])</span>
 </pre></div>
 <p>For more information see <a href="../../environment/add-build-program/" class="ref">add-build-program</a> as well as

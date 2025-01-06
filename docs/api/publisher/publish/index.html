@@ -192,14 +192,14 @@ keyword arguments.</li>
 the output in the console or in the deploy/publish window in the admin UI.</p>
 <h2 id="example">Example</h2><p>This example implements a simple publisher that just copies all built files
 into a new location.</p>
-<div class="hll"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">from</span> <span class="nn">lektor.publisher</span> <span class="kn">import</span> <span class="n">Publisher</span>
+<div class="hll"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lektor.publisher</span><span class="w"> </span><span class="kn">import</span> <span class="n">Publisher</span>
 
 
-<span class="k">class</span> <span class="nc">CopyPublisher</span><span class="p">(</span><span class="n">Publisher</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CopyPublisher</span><span class="p">(</span><span class="n">Publisher</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_url</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_url</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="n">src_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_path</span>
         <span class="n">dst_path</span> <span class="o">=</span> <span class="n">target_url</span><span class="o">.</span><span class="n">path</span>
         <span class="n">strip</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">src_path</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
@@ -226,8 +226,8 @@ into a new location.</p>
         <span class="k">yield</span> <span class="s1">&#39;Done&#39;</span>
 
 
-<span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_publisher</span><span class="p">(</span><span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="n">CopyPublisher</span><span class="p">)</span>
 </pre></div>
 <p>This publisher registers with the <code>copy</code> scheme and could be used like this:</p>

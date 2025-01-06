@@ -188,7 +188,7 @@ determine whether the <code>body</code> field is interpreted as being <code>mark
 <span class="k">[fields.body]</span>
 <span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Body</span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">polymorphic</span>
-<span class="na">polymorphic_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'html' if this.body.lstrip().startswith('&lt;') else 'markdown'</span>
+<span class="na">polymorphic_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'html'</span><span class="w"> </span><span class="s">if this.body.lstrip().startswith('&lt;') else 'markdown'</span>
 </pre>
 <p>In this case, the <code>body</code> field will be interpreted as raw HTML if the
 content of that field starts with a “<code>&lt;</code>”, otherwise it will be
