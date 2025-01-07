@@ -165,7 +165,7 @@ full Jinja templates, although (due to some limitations of ini files) they need
 to be on one line.</p>
 <p>For instance, for the example above, the config file could be:</p>
 <pre lang="ini"><span class="k">[global]</span>
-<span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'&lt;div class="align{{ align }}"&gt;{% if link %}&lt;a href="{{ link }}"{% if not link.startswith("http") %} data-lightbox="gallery"{% endif %}&gt;{% endif %}&lt;img src="{{ image }}"&gt;{% if link %}&lt;/a&gt;{% endif %}{% if caption %}&lt;span class="caption"&gt;{{ caption }}&lt;/span&gt;{% endif %}&lt;/div&gt;'</span>
+<span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'&lt;div class="</span><span class="na">align{{ align }}"&gt;{% if link %}&lt;a href</span><span class="o">=</span><span class="s">"{{ link }}"</span><span class="na">{% if not link.startswith("http") %} data-lightbox</span><span class="o">=</span><span class="s">"gallery"</span><span class="na">{% endif %}&gt;{% endif %}&lt;img src</span><span class="o">=</span><span class="s">"{{ image }}"</span><span class="na">&gt;{% if link %}&lt;/a&gt;{% endif %}{% if caption %}&lt;span class</span><span class="o">=</span><span class="s">"caption"</span><span class="na">&gt;{{ caption }}&lt;/span&gt;{% endif %}&lt;/div&gt;'</span>
 </pre>
 <p>This will allow you to use shortcodes with optional arguments, like so:</p>
 <pre><code># An image with no caption or link:

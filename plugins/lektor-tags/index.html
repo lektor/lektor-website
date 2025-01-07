@@ -202,7 +202,7 @@ tea
 <pre lang="ini"><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.children.filter(F.tags.contains(tag))</span>
 </pre>
 <p>You can sort and filter with any expression:</p>
-<pre lang="ini"><span class="na">items = this.parent.children.filter(F.tags.contains(tag) and F.status =</span><span class="o">=</span><span class="w"> </span><span class="s">'published').order_by('-pub_date'</span><span class="err">)</span>
+<pre lang="ini"><span class="na">items = this.parent.children.filter(F.tags.contains(tag) and F.status =</span><span class="o">=</span><span class="w"> </span><span class="s">'published'</span><span class="na">).order_by('-pub_date')</span>
 </pre>
 <p>If the parent page has <a href="https://www.getlektor.com/docs/guides/pagination/" rel="nofollow">a pagination query</a> you may want to use it for tagged pages:</p>
 <pre lang="ini"><span class="na">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">this.parent.pagination.items.filter(F.tags.contains(tag))</span>
