@@ -62,7 +62,7 @@
   <div class="plugin">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Plugin &ndash; lektor-tailwind 0.2.0</h1>
+        <h1>Plugin &ndash; lektor-tailwind 0.3.0</h1>
       </div>
     </div>
 
@@ -96,7 +96,7 @@
         <div class="separator">
           <h4>Meta</h4>
         </div>
-        <p><strong>Version:</strong> 0.2.0</p>
+        <p><strong>Version:</strong> 0.3.0</p>
         <p><strong>Author:</strong>
           
             <a href="mailto:mianghong@gmail.com">Frost Ming</a>
@@ -141,24 +141,10 @@ $<span class="w"> </span>lektor<span class="w"> </span>plugin<span class="w"> </
 </pre>
 </li>
 <li>
-<p>Configure your template paths</p>
-<p>In <code>tailwindcss.config.js</code>:</p>
-<pre lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// './' refers to the lektor build output directory, NOT the project dir</span>
-<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'./**/*.html'</span><span class="p">],</span>
-<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">extend</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="p">}</span>
-</pre>
-</li>
-<li>
 <p>Add the Tailwind directives to your CSS</p>
 <p>In <code>assets/static/style.css</code>:</p>
-<pre lang="css"><span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">base</span><span class="p">;</span>
-<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">components</span><span class="p">;</span>
-<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">utilities</span><span class="p">;</span>
+<pre lang="css"><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">"tailwindcss"</span><span class="p">;</span>
+<span class="p">@</span><span class="k">plugin</span><span class="w"> </span><span class="s2">"@tailwindcss/typography"</span><span class="p">;</span>
 </pre>
 </li>
 <li>
