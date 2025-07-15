@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Transcript</title><link href="https://www.getlektor.com/blog/" rel="alternate"></link><link href="https://www.getlektor.com/blog/feed.xml" rel="self"></link><id>urn:uuid:5bbc5195-cb84-35a2-830d-a7b199f60b13</id><updated>2020-08-20T00:00:00Z</updated><author><name></name></author><subtitle>Lektor's blog</subtitle><entry><title>Lektor 3.2 Released</title><link href="https://www.getlektor.com/blog/2020/8/lektor-32-released/" rel="alternate"></link><updated>2020-08-20T00:00:00Z</updated><author><name>Andreas Runfalk</name></author><id>urn:uuid:63bde824-43e5-3848-a5f4-eb664cd3336e</id><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Transcript</title><link href="https://www.getlektor.com/blog/" rel="alternate"/><link href="https://www.getlektor.com/blog/feed.xml" rel="self"/><id>urn:uuid:5bbc5195-cb84-35a2-830d-a7b199f60b13</id><updated>2020-08-20T00:00:00Z</updated><author><name/></author><subtitle>Lektor's blog</subtitle><entry><title>Lektor 3.2 Released</title><link href="https://www.getlektor.com/blog/2020/8/lektor-32-released/" rel="alternate"/><updated>2020-08-20T00:00:00Z</updated><author><name>Andreas Runfalk</name></author><id>urn:uuid:63bde824-43e5-3848-a5f4-eb664cd3336e</id><content type="html">
 &lt;div class="page-banner page-banner-500" style="background-image: url(coffee-ground-1171092-1599x1066.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
@@ -43,7 +43,7 @@
 &lt;li&gt;Changed default slug creation to use &lt;a href="https://github.com/un33k/python-slugify"&gt;python-slugify&lt;/a&gt;. This should mean greater language support, but this may produce slightly different results than before for some users (thank you &lt;a href="https://github.com/nixjdm"&gt;Joseph Nix&lt;/a&gt; and &lt;a href="https://github.com/xlotlu"&gt;Ionuț Ciocîrlan&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;/div&gt;</content></entry><entry><title>Plugin Play</title><link href="https://www.getlektor.com/blog/2018/5/plugin-play/" rel="alternate"></link><updated>2018-05-15T00:00:00Z</updated><author><name>Joseph Nix</name></author><id>urn:uuid:2fd54836-a434-3fcf-9ea2-172841724e99</id><content type="html">
+&lt;/div&gt;</content></entry><entry><title>Plugin Play</title><link href="https://www.getlektor.com/blog/2018/5/plugin-play/" rel="alternate"/><updated>2018-05-15T00:00:00Z</updated><author><name>Joseph Nix</name></author><id>urn:uuid:2fd54836-a434-3fcf-9ea2-172841724e99</id><content type="html">
 &lt;div class="page-banner page-banner-300" style="background-image: url(spices.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
@@ -54,7 +54,7 @@
 &lt;p&gt;I think this is especially useful for plugin development when the tag is an event that the plugin hooks. This allows you to quickly find the source code of plugins that depend on the same Lektor plugin events, so that you can see many quick examples to help you write your own plugin. For instance, you can find all of the plugins that hook the &lt;code&gt;before-build-all&lt;/code&gt; event by looking at it's tag page &lt;a href="/plugins/tag/before-build-all/"&gt;here&lt;/a&gt;. Tag pages for events also have links back to the plugin documentation pages, including the page for that specific event.&lt;/p&gt;
 &lt;p&gt;Now go check out some &lt;a href="/plugins/"&gt;plugins&lt;/a&gt;!&lt;/p&gt;
 
-&lt;/div&gt;</content></entry><entry><title>Lektor 3.1 Released</title><link href="https://www.getlektor.com/blog/2018/1/lektor-31-released/" rel="alternate"></link><updated>2018-01-29T00:00:00Z</updated><author><name>Joseph Nix</name></author><id>urn:uuid:9fdb673f-5a8c-3eab-90df-cd6d57657cbc</id><content type="html">
+&lt;/div&gt;</content></entry><entry><title>Lektor 3.1 Released</title><link href="https://www.getlektor.com/blog/2018/1/lektor-31-released/" rel="alternate"/><updated>2018-01-29T00:00:00Z</updated><author><name>Joseph Nix</name></author><id>urn:uuid:9fdb673f-5a8c-3eab-90df-cd6d57657cbc</id><content type="html">
 &lt;div class="page-banner page-banner-500-tall" style="background-image: url(pancakes-2020863.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
@@ -76,7 +76,7 @@
 &lt;h2 id="want-to-contribute"&gt;Want to Contribute?&lt;/h2&gt;&lt;p&gt;Open Source Software lives and dies by the communities that use them, love them, and support them. If you're a developer looking to get your feet wet in OSS, we'd love to review your pull request. &amp;lt;3&lt;/p&gt;
 &lt;p&gt;A larger task, if you're someone with React (and Python) knowledge, is our admin interface. It has served us pretty well so far, but it also has &lt;a href="https://github.com/lektor/lektor/issues/458"&gt;some issues&lt;/a&gt;. It could use some TLC.&lt;/p&gt;
 
-&lt;/div&gt;</content></entry><entry><title>Lektor 2.0 Released</title><link href="https://www.getlektor.com/blog/2016/4/lektor-2-released/" rel="alternate"></link><updated>2016-04-11T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:a460c855-a897-3465-a8a7-212394a23eb8</id><content type="html">
+&lt;/div&gt;</content></entry><entry><title>Lektor 2.0 Released</title><link href="https://www.getlektor.com/blog/2016/4/lektor-2-released/" rel="alternate"/><updated>2016-04-11T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:a460c855-a897-3465-a8a7-212394a23eb8</id><content type="html">
 &lt;div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
@@ -142,7 +142,7 @@ If you had a previous version of Lektor the install process should auto
 upgrade.  If you use the OS X desktop build, just drag the new application over
 the already existing one.&lt;/p&gt;
 
-&lt;/div&gt;</content></entry><entry><title>Lektor at Rails Girls Summer of Code 2016</title><link href="https://www.getlektor.com/blog/2016/3/lektor-at-rails-girls-summer-of-code/" rel="alternate"></link><updated>2016-03-17T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:f1aec1d5-2464-3f3b-ac3a-181dac9fda2f</id><content type="html">
+&lt;/div&gt;</content></entry><entry><title>Lektor at Rails Girls Summer of Code 2016</title><link href="https://www.getlektor.com/blog/2016/3/lektor-at-rails-girls-summer-of-code/" rel="alternate"/><updated>2016-03-17T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:f1aec1d5-2464-3f3b-ac3a-181dac9fda2f</id><content type="html">
 &lt;div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
@@ -168,7 +168,7 @@ Twitter at &lt;a href="https://twitter.com/getlektor"&gt;@getlektor&lt;/a&gt; or
 &lt;a href="https://gitter.im/lektor/lektor"
 class="js-gitter-toggle-chat-button"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
 
-&lt;/div&gt;</content></entry><entry><title>Road to Lektor 2.0</title><link href="https://www.getlektor.com/blog/2016/3/road-to-lektor-2/" rel="alternate"></link><updated>2016-03-10T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:657883df-54db-392e-8eb8-64572e8febcb</id><content type="html">
+&lt;/div&gt;</content></entry><entry><title>Road to Lektor 2.0</title><link href="https://www.getlektor.com/blog/2016/3/road-to-lektor-2/" rel="alternate"/><updated>2016-03-10T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:657883df-54db-392e-8eb8-64572e8febcb</id><content type="html">
 &lt;div class="page-banner page-banner-500" style="background-image: url(header.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
@@ -213,7 +213,7 @@ now build custom build programs that build things that do not exist in the
 source tree.  For instance you can build feeds, blog archives etc.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;/div&gt;</content></entry><entry><title>Lektor Loves Travis-CI and GitHub Pages</title><link href="https://www.getlektor.com/blog/2015/12/travis-and-ghpages/" rel="alternate"></link><updated>2015-12-23T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:29328c66-b90f-3afc-9a37-6cbbbf7de829</id><content type="html">
+&lt;/div&gt;</content></entry><entry><title>Lektor Loves Travis-CI and GitHub Pages</title><link href="https://www.getlektor.com/blog/2015/12/travis-and-ghpages/" rel="alternate"/><updated>2015-12-23T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:29328c66-b90f-3afc-9a37-6cbbbf7de829</id><content type="html">
 &lt;div class="page-banner page-banner-500" style="background-image: url(header.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
@@ -230,7 +230,7 @@ a screencast that goes with it:&lt;/p&gt;
 &lt;iframe width="100%" height=410 frameborder="0" allowfullscreen="allowfullscreen"
   src="https://www.youtube.com/embed/3pj_EyZIL5A?autoplay=0&amp;fs=1"&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;</content></entry><entry><title>Hello Lektor!</title><link href="https://www.getlektor.com/blog/2015/12/hello-lektor/" rel="alternate"></link><updated>2015-12-21T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:16dbb267-fb7c-3988-aae1-07106bd5bfb7</id><content type="html">
+&lt;/div&gt;</content></entry><entry><title>Hello Lektor!</title><link href="https://www.getlektor.com/blog/2015/12/hello-lektor/" rel="alternate"/><updated>2015-12-21T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:16dbb267-fb7c-3988-aae1-07106bd5bfb7</id><content type="html">
 &lt;div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"&gt;&lt;/div&gt;
 
 &lt;div class="text-block text-block-default"&gt;
