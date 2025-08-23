@@ -1,0 +1,13 @@
+name: Mountaineering Acoustics Network
+---
+url: https://mantle-sound.org/
+---
+cover_image: mantle-sound.jpg
+---
+description:
+
+We choose to use lektor at the first place due to its highly configurable content management system and static site generation capabilities. 
+
+As the world's first nonprofit initiative dedicated to mountaineering acoustics research, we needed a platform that could handle our diverse content types - from research documentation to flexible multimedia presentations.
+
+Lektor provides the perfect balance of simplicity and power.
