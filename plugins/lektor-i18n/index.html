@@ -62,7 +62,7 @@
   <div class="plugin">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Plugin &ndash; lektor-i18n 0.4.4</h1>
+        <h1>Plugin &ndash; lektor-i18n 0.5.0</h1>
       </div>
     </div>
 
@@ -79,27 +79,18 @@
       <div class="col-sm-3 plugin-margin">
         <h4>Project links</h4>
         <ul class="tree-nav">
-          <li><a href="https://github.com/numericube/lektor-i18n-plugin" class="ext">Homepage</a></li>
+          <li><a href="https://pypi.org/project/lektor-i18n/" class="ext">Homepage</a></li>
         </ul>
 
-        
-          <div class="separator">
-            <h4>GitHub Statistics</h4>
-          </div>
-          <ul class="button-nav">
-            <li><p><a class="github-button" href="https://github.com/numericube/lektor-i18n-plugin" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star lektor-i18n on GitHub" target="_blank">Star</a></p></li>
-            <li><p><a class="github-button" href="https://github.com/numericube/lektor-i18n-plugin/fork" data-icon="octicon-repo-forked" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Fork</a></p></li>
-            <li><p><a class="github-button" href="https://github.com/numericube/lektor-i18n-plugin/issues" data-icon="octicon-issue-opened" data-show-count="true" data-size="large" data-show="true" aria-label="Open Issues" target="_blank">Open Issues</a></p></li>
-          </ul>
         
 
         <div class="separator">
           <h4>Meta</h4>
         </div>
-        <p><strong>Version:</strong> 0.4.4</p>
+        <p><strong>Version:</strong> 0.5.0</p>
         <p><strong>Author:</strong>
           
-            <a href="mailto:support@numericube.com">NumeriCube</a>
+            <a href="mailto:jerome@riseup.net, support@numericube.com">=?utf-8?b?SsOpcsO0bWUgQ2hhcmFvdWk=?=, NumeriCube</a>
           
         </p>
 
@@ -145,7 +136,168 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <i>Plugin has no long_description</i>
+          <h1>Lektor i18n plugin</h1>
+<p>This plugin enables a smarter way to translate a <a href="http://getlektor.com" rel="nofollow">Lektor</a>
+static website using old-good PO files. So you can use your beloved translation
+processes and tools.</p>
+<h2>Principles</h2>
+<p>The idea of this plugin is to capture the <strong>sentences</strong> or <strong>paragraphs</strong> from
+your <strong>content</strong> and <strong>templates</strong>, and populate a standard <em>Gettext</em> <a href="https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html" rel="nofollow">PO
+file</a>.</p>
+<p>Using usual tools, user can translate these files, very easily. Then the plugin
+will merge the translations into new <em><a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">alternative</a></em> content files, providing
+a translated website.</p>
+<h2>Configuration</h2>
+<h3>Configuration file</h3>
+<h4><code>configs/i18n.ini</code></h4>
+<pre><code>content = en
+translations = fr,es,it
+i18npath = i18n
+translate_paragraphwise = False
+url_prefix = https://website_url/
+</code></pre>
+<p>Where :</p>
+<ul>
+<li><code>content</code> is the language used to write <code>contents.lr</code> files (default is <code>en</code>)</li>
+<li><code>translations</code> is the list of target languages (you want to translate into).</li>
+<li><code>i18npath</code> is the directory where translation files will be produced/stored
+(default is <code>i18n</code>). This directory needs to be relative to root path.</li>
+<li><code>translate_paragraphwise</code> specifies whether translation strings are created
+per line or per paragraph. The latter is helpful for documents wrapping texts
+at 80 character boundaries. It is set to <code>False</code> by default.</li>
+<li><code>url_prefix</code> is the final url of your lektor website. This provides</li>
+<li>translators with a way to see the strings in context.</li>
+</ul>
+<h4><code>babel.cfg</code></h4>
+<p>If you plan to localise your templates as well, you can use <code>{{ _("some string") }}</code> in your templates. To make this work, babel for Python should be
+installed (pip install babel; maybe pip3). A <code>babel.cfg</code> also has to exist in
+your project root with this content:</p>
+<pre><code>[jinja2: **/templates/**.html]
+encoding = utf-8
+extensions=jinja2.ext.autoescape,jinja2.ext.with_
+</code></pre>
+<h3>Translatable fields</h3>
+<p>In order for a field to be marked as translatable, an option has to be set in
+the field definition. Both blocks and flowblocks fields are subjects to
+translations.</p>
+<p>In <code>flowblocks/*.ini</code> and/or <code>models/*.ini</code>, mark a field as translatable with:</p>
+<pre><code>[model]
+name = Page
+label = {{ this.title }}
+
+[fields.title]
+label = Title
+type = string
+translate = True
+
+[fields.body]
+label = Body
+type = markdown
+translate = True
+</code></pre>
+<p>Both <code>title</code> and <code>body</code> are now translatable. It means that during the parsing
+phase, all sentences from <code>title</code> or <code>body</code> fields from the <code>contents.lr</code> files
+with <code>Page</code> model will populate the collected PO file.</p>
+<p>Another flowblock example:</p>
+<pre><code>[block]
+name = Section Block
+button_label = Section
+
+[fields.title]
+label = Title
+type = string
+translate = True
+
+[fields.body]
+label = Body
+type = markdown
+translate = True
+
+[fields.image]
+label = Image
+type = select
+source = record.attachments.images
+
+[fields.image_position]
+label = Image Position
+type = select
+choices = left, right
+choice_labels = Left, Right
+default = right
+</code></pre>
+<p>Here again, <code>body</code> and <code>title</code> will be translated. But <code>image</code> and
+<code>image_position</code> won't.</p>
+<h3>Non-English content</h3>
+<p>Thanks to a limitation of <code>msginit</code> it's not so easy to translate a website with
+default language set to anything but English.</p>
+<p>So if your default content language is not English, you will have to edit the
+first <code>contents-en.po</code> file and remove the translations (by hand ?)...</p>
+<h2>Installation</h2>
+<h3>Prerequisites</h3>
+<h4>Lektor</h4>
+<p>This plugin has been tested with Lektor 3.x.</p>
+<h4>GetText</h4>
+<p>Both Gettext and Pybabel are required.  For a Debian/Ubuntu system, this means
+a simple :</p>
+<pre><code>sudo apt-get install gettext python3-babel
+</code></pre>
+<p>On macOS, use a decent package manager, like MacPorts or Homebrew. With
+Homebrew:</p>
+<pre><code>brew install gettext
+</code></pre>
+<p>and then pip to fetch pybabel:</p>
+<pre><code>pip install babel
+</code></pre>
+<h3>Installation</h3>
+<p>Very straightforward :</p>
+<pre><code>$ lektor plugins add lektor-i18n
+</code></pre>
+<p>Verify installation with a simple :</p>
+<pre><code>$ lektor plugins list
+...
+lektor-i18n (version 0.1)
+...
+</code></pre>
+<h2>Usage</h2>
+<p>The translation mechanism is hooked into the build system. So translating a
+website just means building the website.</p>
+<pre><code>$ lektor build
+</code></pre>
+<p>On first call, a new <code>i18n</code> directory (can be changed in configuration file)
+will be created on top the lektor tree.</p>
+<p>This directory will be populated with a single <code>contents.pot</code> file, compiling
+all the sentences found by the plugin. The list of fields eligible to
+translation is configured in the models/flows definition with <code>translate=True</code>
+added to each field.</p>
+<p>For each translation language (still from the configuration file), a
+<code>content-&lt;language&gt;.po</code> file will be created/updated. These are the files that
+need to be translated with your prefered tool (like <a href="http://poedit.net" rel="nofollow">POEdit</a>
+or <a href="http://transifex.com" rel="nofollow">Transifex</a>).</p>
+<p>All translation files (<code>contents-*.po</code>) are then compiled and merged with the
+original <code>contents.lr</code> files to produce all the <code>contents-&lt;language&gt;.lr</code> files
+in their respective directories.</p>
+<h3>Project file</h3>
+<p>It's still the user responsability to modify the project file in order to
+include the expected languages :</p>
+<pre><code>[alternatives.en]
+name = English
+primary = yes
+locale = en_US
+
+[alternatives.fr]
+name = French
+url_prefix = /fr/
+locale = fr
+</code></pre>
+<p>See <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">Lektor Documentation</a> for
+more information.</p>
+<h2>Support</h2>
+<p>This plugin is provided as-is by <a href="http://numericube.com" rel="nofollow">NumeriCube</a> a human-sized Paris-based
+company prodiving tailored services to smart customers.</p>
+<p>We will be happy to try to help you with this plugin if need. Just file an
+issue on our [GitHub account][],</p>
+<p>[GitHub account]: <a href="https://gihub.com/numericube/lektor-i18n-plugin/" rel="nofollow">https://gihub.com/numericube/lektor-i18n-plugin/</a>)</p>
+ 
         
 
         
