@@ -8,3 +8,12 @@ IgnoreURLs:
 CheckMetaRefresh: false
 # our redirect page doesn't have a doctype
 CheckDoctype: false
+
+# htmltest does not like mailto: links with multiple recipient addresses
+# (https://github.com/wjdp/htmltest/issues/233)
+#
+# PyPI projects with multiple maintainers can have mutiple email addresses
+# in their `author_email` fields. E.g. as of now:
+#
+#    curl https://pypi.org/pypi/lektor-i18n/json | jq .info.author_email
+CheckMailto: false
