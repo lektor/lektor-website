@@ -1,0 +1,14 @@
+[project]
+name = "lektor-jinja-globals"
+version = "0.1.1"
+description = "Custom Jinja globals and filters for lektor-website"
+keywords = ["Lektor", "plugin"]
+authors = [{name = "Jeff Dairiki", email = "dairiki@dairiki.org"}]
+license = "MIT"
+classifiers = [
+  "Framework :: Lektor",
+  "Environment :: Plugins",
+]
+
+[project.entry-points."lektor.plugins"]
+jinja-globals = "lektor_jinja_globals:JinjaGlobalsPlugin"
