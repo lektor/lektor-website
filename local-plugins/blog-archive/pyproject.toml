@@ -1,0 +1,9 @@
+[project]
+name = "lektor-blog-archive"
+version = "0.1.0"
+authors = [{name = "Armin Ronacher", email = "armin.ronacher@active-4.com"}]
+license = "MIT"
+dependencies = []
+
+[project.entry-points."lektor.plugins"]
+blog-archive = "lektor_blog_archive:BlogArchivePlugin"

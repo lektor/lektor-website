@@ -1,0 +1,13 @@
+[project]
+name = "lektor-project-data"
+version = "0.1.0"
+authors = [{name = "Joseph Nix", email = "nixjdm@terminallabs.com"}]
+license = "MIT"
+dependencies = [
+  "requests",
+  "readme_renderer[md]",
+]
+
+[project.entry-points."lektor.plugins"]
+project-data = "lektor_project_data:ProjectDataPlugin"
+

@@ -7,11 +7,29 @@ requires-python = ">=3.14"
 dependencies = [
     "lektor>=3.4.0b13",
     "lektor-atom>=0.4.0",
+    "lektor-blog-archive",
     "lektor-disqus-comments>=0.4.1",
+    "lektor-jinja-globals",
     "lektor-markdown-admonition>=0.3.1",
     "lektor-markdown-header-anchors>=0.3.1",
     "lektor-markdown-highlighter>=0.3.2",
+    "lektor-markdown-link-classes",
+    "lektor-project-data",
     "lektor-slugify>=0.4",
     "lektor-tags>=0.5.2",
     "lektor-webpack-support>=0.6.0",
 ]
+
+[tool.uv.workspace]
+members = [
+    "local-plugins/blog-archive",
+    "local-plugins/jinja-globals",
+    "local-plugins/markdown-link-classes",
+    "local-plugins/project-data",
+]
+
+[tool.uv.sources]
+lektor-blog-archive = { workspace = true }
+lektor-jinja-globals = { workspace = true }
+lektor-markdown-link-classes = { workspace = true }
+lektor-project-data = { workspace = true }
