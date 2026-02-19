@@ -11,7 +11,7 @@ dependencies = [
     "lektor-disqus-comments>=0.4.1",
     "lektor-jinja-globals",
     "lektor-markdown-admonition>=0.3.1",
-    "lektor-markdown-header-anchors>=0.3.1",
+    "lektor-markdown-header-anchors",
     "lektor-markdown-highlighter>=0.3.2",
     "lektor-markdown-link-classes",
     "lektor-project-data",
@@ -28,3 +28,4 @@ lektor-blog-archive = { workspace = true }
 lektor-jinja-globals = { workspace = true }
 lektor-markdown-link-classes = { workspace = true }
 lektor-project-data = { workspace = true }
+lektor-markdown-header-anchors = { git = "https://github.com/dairiki/lektor-markdown-header-anchors.git", branch = "fix.mistune2-markup" }
