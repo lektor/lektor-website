@@ -6,4 +6,12 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "lektor>=3.4.0b13",
+    "lektor-atom>=0.4.0",
+    "lektor-disqus-comments>=0.4.1",
+    "lektor-markdown-admonition>=0.3.1",
+    "lektor-markdown-header-anchors>=0.3.1",
+    "lektor-markdown-highlighter>=0.3.2",
+    "lektor-slugify>=0.4",
+    "lektor-tags>=0.5.2",
+    "lektor-webpack-support>=0.6.0",
 ]

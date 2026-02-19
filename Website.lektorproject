@@ -14,14 +14,3 @@ enabled = yes
 name = Github pages on repo
 target = ghpages+https://lektor/lektor-website?cname=www.getlektor.com
 default = not
-
-
-[packages]
-lektor-webpack-support = 0.3
-lektor-disqus-comments = 0.1
-lektor-markdown-header-anchors = 0.1
-lektor-markdown-highlighter = 0.3.2
-lektor-markdown-admonition = 0.1
-lektor-atom = 0.4.0
-lektor-tags = 0.5.2
-lektor-slugify = 0.4

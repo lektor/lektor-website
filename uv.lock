@@ -88,6 +88,18 @@ wheels = [
 ]
 
 [[package]]
+name = "feedgenerator"
+version = "2.2.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "tzdata", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b0/d2/f05e9f4628cb0df988de66f8a97dd52877490e6ebf8e7b41cd341bf2ad6b/feedgenerator-2.2.1.tar.gz", hash = "sha256:0eaa955f1f0bcb5b87ac195af740f06ff9fff4a40ed30b8a7c6bbebb264d4dd1", size = 20872, upload-time = "2025-08-17T19:36:53.48Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b9/08/6f74bef4663fb137fa10b493facce85bee8c055b67fbd9a7695d88e3d1a3/feedgenerator-2.2.1-py3-none-any.whl", hash = "sha256:0d8bb321e49dd43c916b659e137c1eab1b1c053dd4535a03ef8d47e5f3358ba5", size = 18495, upload-time = "2025-08-17T19:36:52.036Z" },
+]
+
+[[package]]
 name = "flask"
 version = "3.1.2"
 source = { registry = "https://pypi.org/simple" }
@@ -168,15 +180,114 @@ wheels = [
 ]
 
 [[package]]
+name = "lektor-atom"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "feedgenerator" },
+    { name = "markupsafe" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/76/47/2aa4b997009ee651081aa42ee34d67ee0cee876eddba1da7488f94c63779/lektor-atom-0.4.0.tar.gz", hash = "sha256:70f4e018278d68d07d48dc9b748cd012f1f558bef04d984c45d9a36e5a880176", size = 10452, upload-time = "2021-09-17T15:59:02.746Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f0/f5/176cf3798e2dec47344372d8624a0e02267ae5ea78d4fa70e1751ebe28d3/lektor_atom-0.4.0-py2.py3-none-any.whl", hash = "sha256:0299ea8dcac0f2535e74e273cf939a8052f22dd9e99831b056a8cde9a8318563", size = 5107, upload-time = "2021-09-17T15:59:00.962Z" },
+]
+
+[[package]]
+name = "lektor-disqus-comments"
+version = "0.4.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/61/09/7595da16471e1626d5012f3483b2568aee7981b85a5a67a96fb0023c10ac/lektor-disqus-comments-0.4.1.tar.gz", hash = "sha256:d36edb4e6131fa583f40fa18fc45e849c05e098e290aadfc609d0a31d2d26c7a", size = 3710, upload-time = "2019-01-25T17:18:36.476Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f7/1d/7e3a116a9675614c17147ef9e8bf228b31997c8b08626f869dd02f4e60c4/lektor_disqus_comments-0.4.1-py2.py3-none-any.whl", hash = "sha256:8d48c6b370862a6488a1742a53ae62e0562a8cbd3ccd03bab89bdb7244998975", size = 4286, upload-time = "2019-01-25T17:18:35.397Z" },
+]
+
+[[package]]
+name = "lektor-markdown-admonition"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/df/b5/f6c0710044dccb28e52da1e5f58a9a1e8090cbb43e14162f3ae4be349bed/lektor-markdown-admonition-0.3.1.tar.gz", hash = "sha256:5c769228316a144dfafc34f6180badff906cd37c99bc45566594dfd632bfda77", size = 2944, upload-time = "2019-01-27T21:42:06.274Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8d/da/2ec94d024be3c329a438b7741a2e729d50e102a6d1dd9e1f1225e7e26e6e/lektor_markdown_admonition-0.3.1-py2.py3-none-any.whl", hash = "sha256:514c2c93ba66fb93abdbfaa927d9c4f52ade25d6362d007c2e40c9b939059980", size = 3643, upload-time = "2019-01-27T21:42:04.912Z" },
+]
+
+[[package]]
+name = "lektor-markdown-header-anchors"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/79/cd/1067aec9423a05494bf75ae3ccfb088e69a96624c76f55a3c54cb97b58bf/lektor-markdown-header-anchors-0.3.1.tar.gz", hash = "sha256:0d38c8bc891784f409f13b0945d835412a3626d4fc9c5b6e3b6bdf43fc07fb89", size = 3363, upload-time = "2019-01-25T17:03:45.899Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e2/4e/55552e63a481b0d1ee161c0db4e30d69978b1598b6c0ce63b5d6654cd5c2/lektor_markdown_header_anchors-0.3.1-py2.py3-none-any.whl", hash = "sha256:23036131c210de9e0367ddd6b5ba51967a1e43027ebcacaf650c62c3b1e65b4b", size = 4076, upload-time = "2019-01-25T17:03:44.638Z" },
+]
+
+[[package]]
+name = "lektor-markdown-highlighter"
+version = "0.3.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pygments" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/90/a1/3a111391644bbbf2b76bea5c80a0bbcfd8cb12b4b2ffdeac60e23b5458d9/lektor_markdown_highlighter-0.3.2-py2.py3-none-any.whl", hash = "sha256:8af5468928f039106cb760844d1c78556b7838c47ee792c13dc81ca45a5d2ad0", size = 4236, upload-time = "2022-04-30T04:01:28.525Z" },
+]
+
+[[package]]
+name = "lektor-slugify"
+version = "0.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "python-slugify" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/19/32/8349adaf8a34f358727974744a535c5d305cfa7947cef0f7c7d1743c025d/lektor-slugify-0.4.tar.gz", hash = "sha256:01f3cd83880755471bc0a4bdda6f107b9652f2ead2490fc4cac62b7ee8a33448", size = 1739, upload-time = "2018-12-15T18:12:32.249Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4c/b3/dce142ce80ef5c3a34fa7bf15de11546a1abdd984cc63f9e6d5cf058bda1/lektor_slugify-0.4-py3-none-any.whl", hash = "sha256:df075b644f0744a583d84d9ea25b3b29bb86e3368350011a564150d59380f928", size = 3180, upload-time = "2018-12-15T18:12:31.032Z" },
+]
+
+[[package]]
+name = "lektor-tags"
+version = "0.5.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9d/57/a446e4041973215794f7e74af36ae62fbc250cbb5f0f03e76e78eb113af0/lektor-tags-0.5.2.tar.gz", hash = "sha256:d1f3a8125f052335904c60fadf866e138dd35d2f452ee05fd3f0aba1ea85fe89", size = 12956, upload-time = "2023-11-11T08:19:30.35Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/80/b0/1d69f756220d5021d31a5361971917dae326dcbf22af52482d9f950688c7/lektor_tags-0.5.2-py3-none-any.whl", hash = "sha256:b9da9873662a785b506bcf65d47441949062a65004f5308ce84e8f23cd07ac0c", size = 9265, upload-time = "2023-11-11T08:19:17.337Z" },
+]
+
+[[package]]
+name = "lektor-webpack-support"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/31/4d/2389b312fd7f29c4cefe55d25dfd48475e52276a713381f64a1e2e523394/lektor-webpack-support-0.6.0.tar.gz", hash = "sha256:130bac2a80d580f126cead177739583c757b130d1b2e1ca05d163a116a5d4e36", size = 6996, upload-time = "2022-01-09T18:36:40.126Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/33/3d/91aadc6b2f248ff587cbba4c04ad3d50f9f4b01fb12091877237dafa2a44/lektor_webpack_support-0.6.0-py3-none-any.whl", hash = "sha256:6743994e4167bee7d69019a4553f2347470be277ecfd40c301491c326ac4d420", size = 5244, upload-time = "2022-01-09T18:36:39.106Z" },
+]
+
+[[package]]
 name = "lektor-website"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "lektor" },
+    { name = "lektor-atom" },
+    { name = "lektor-disqus-comments" },
+    { name = "lektor-markdown-admonition" },
+    { name = "lektor-markdown-header-anchors" },
+    { name = "lektor-markdown-highlighter" },
+    { name = "lektor-slugify" },
+    { name = "lektor-tags" },
+    { name = "lektor-webpack-support" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "lektor", specifier = ">=3.4.0b13" }]
+requires-dist = [
+    { name = "lektor", specifier = ">=3.4.0b13" },
+    { name = "lektor-atom", specifier = ">=0.4.0" },
+    { name = "lektor-disqus-comments", specifier = ">=0.4.1" },
+    { name = "lektor-markdown-admonition", specifier = ">=0.3.1" },
+    { name = "lektor-markdown-header-anchors", specifier = ">=0.3.1" },
+    { name = "lektor-markdown-highlighter", specifier = ">=0.3.2" },
+    { name = "lektor-slugify", specifier = ">=0.4" },
+    { name = "lektor-tags", specifier = ">=0.5.2" },
+    { name = "lektor-webpack-support", specifier = ">=0.6.0" },
+]
 
 [[package]]
 name = "markupsafe"
@@ -289,6 +400,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz", hash = "sha256:c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8", size = 1812747, upload-time = "2026-02-05T02:20:18.702Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/de/f0/c81e05b613866b76d2d1066490adf1a3dbc4ee9d9c839961c3fc8a6997af/pip-26.0.1-py3-none-any.whl", hash = "sha256:bdb1b08f4274833d62c1aa29e20907365a2ceb950410df15fc9521bad440122b", size = 1787723, upload-time = "2026-02-05T02:20:16.416Z" },
+]
+
+[[package]]
+name = "pygments"
+version = "2.19.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz", hash = "sha256:636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887", size = 4968631, upload-time = "2025-06-21T13:39:12.283Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c7/21/705964c7812476f378728bdf590ca4b771ec72385c533964653c68e86bdc/pygments-2.19.2-py3-none-any.whl", hash = "sha256:86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b", size = 1225217, upload-time = "2025-06-21T13:39:07.939Z" },
 ]
 
 [[package]]
