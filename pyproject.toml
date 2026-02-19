@@ -3,7 +3,7 @@ name = "lektor-website"
 version = "0.1.0"
 description = "The getlektor.com website"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.10"
 dependencies = [
     "lektor>=3.4.0b13",
     "lektor-atom>=0.4.0",
@@ -21,12 +21,7 @@ dependencies = [
 ]
 
 [tool.uv.workspace]
-members = [
-    "local-plugins/blog-archive",
-    "local-plugins/jinja-globals",
-    "local-plugins/markdown-link-classes",
-    "local-plugins/project-data",
-]
+members = ["local-plugins/*"]
 
 [tool.uv.sources]
 lektor-blog-archive = { workspace = true }
