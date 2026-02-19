@@ -496,11 +496,11 @@ wheels = [
 
 [[package]]
 name = "lektor-markdown-header-anchors"
-version = "0.3.1"
+version = "0.4.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/79/cd/1067aec9423a05494bf75ae3ccfb088e69a96624c76f55a3c54cb97b58bf/lektor-markdown-header-anchors-0.3.1.tar.gz", hash = "sha256:0d38c8bc891784f409f13b0945d835412a3626d4fc9c5b6e3b6bdf43fc07fb89", size = 3363, upload-time = "2019-01-25T17:03:45.899Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/06/14/d20638c0cfe011afa46a0861634aa0f886a75dfd60ef9a4327950749bd31/lektor_markdown_header_anchors-0.4.0.tar.gz", hash = "sha256:74663067bca240ef8c3e325982712f30e94fa3c7b91a8a19bffa9bb143b17d8e", size = 37182, upload-time = "2026-02-23T20:24:24.345Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e2/4e/55552e63a481b0d1ee161c0db4e30d69978b1598b6c0ce63b5d6654cd5c2/lektor_markdown_header_anchors-0.3.1-py2.py3-none-any.whl", hash = "sha256:23036131c210de9e0367ddd6b5ba51967a1e43027ebcacaf650c62c3b1e65b4b", size = 4076, upload-time = "2019-01-25T17:03:44.638Z" },
+    { url = "https://files.pythonhosted.org/packages/a3/26/e8d896b7003e9aac1eed4a68c11dfa6c65990b8a69b33fdd828841420e66/lektor_markdown_header_anchors-0.4.0-py3-none-any.whl", hash = "sha256:8b5ec3f7dcc28ae7887a028400d518b50bd3bb926fe23d2935dd080a4122fb54", size = 4502, upload-time = "2026-02-23T20:24:23.458Z" },
 ]
 
 [[package]]
@@ -595,7 +595,7 @@ requires-dist = [
     { name = "lektor-disqus-comments", specifier = ">=0.4.1" },
     { name = "lektor-jinja-globals", editable = "local-plugins/jinja-globals" },
     { name = "lektor-markdown-admonition", specifier = ">=0.3.1" },
-    { name = "lektor-markdown-header-anchors", specifier = ">=0.3.1" },
+    { name = "lektor-markdown-header-anchors", specifier = ">=0.4" },
     { name = "lektor-markdown-highlighter", specifier = ">=0.3.2" },
     { name = "lektor-markdown-link-classes", editable = "local-plugins/markdown-link-classes" },
     { name = "lektor-project-data", editable = "local-plugins/project-data" },

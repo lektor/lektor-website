@@ -11,7 +11,7 @@ dependencies = [
     "lektor-disqus-comments>=0.4.1",
     "lektor-jinja-globals",
     "lektor-markdown-admonition>=0.3.1",
-    "lektor-markdown-header-anchors>=0.3.1",
+    "lektor-markdown-header-anchors>=0.4",
     "lektor-markdown-highlighter>=0.3.2",
     "lektor-markdown-link-classes",
     "lektor-project-data",
