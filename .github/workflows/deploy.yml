@@ -30,10 +30,6 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: "lts/*"
-      - name: Install Imagemagick
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick
       - uses: astral-sh/setup-uv@v7
         with:
           version: "0.10.4"
