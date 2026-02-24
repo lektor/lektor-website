@@ -1,0 +1,15 @@
+name: Agency Theme
+---
+url: https://github.com/JavierLopezMunoz/lektor-agency-theme
+---
+cover_image: frontpage.png
+---
+description:
+
+Agency Theme is a one page portfolio based on the
+[original Bootstrap theme](//github.com/IronSummitMedia/startbootstrap-agency)
+by [David Miller](//github.com/davidtmiller).
+
+This theme contains different sections: a grid of services, a responsive portfolio grid, a time-line, and a contact form.
+
+I use Lektor to instrument this theme using extensible the Flow Type. [View the source-code on GitHub](https://github.com/JavierLopezMunoz/lektor-agency-theme)
