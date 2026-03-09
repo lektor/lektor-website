@@ -10,11 +10,11 @@ Lektor uses the [Jinja2 :ext](http://jinja.palletsprojects.com/) templating lang
 generating HTML out of your pages.  You do not need to understand Jinja2 to
 be able to generate beautiful websites but if you want to dive deep into the
 powers of the templating language then you can learn more about it by
-reading the [Jinja2 Documentation :ext](http://jinja.palletsprojects.com/en/stable/templates).
+reading the [Jinja2 Documentation :ext](http://jinja.palletsprojects.com/page/templates).
 
 !! Templates are a very powerful component in Lektor.  A lot of documentation
 about the features of it can be found in the [Jinja2 Documentation
-:ext](http://jinja.palletsprojects.com/en/stable/templates) as well as the [Lektor Template API
+:ext](http://jinja.palletsprojects.com/page/templates) as well as the [Lektor Template API
 Documentation :ext](../api/templates/).
 
 ## Template Folder and Naming
