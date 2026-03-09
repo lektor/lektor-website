@@ -1,0 +1,9 @@
+[project]
+name = "lektor-markdown-link-classes"
+version = "0.1.0"
+authors = [{name = "Armin Ronacher", email = "armin.ronacher@active-4.com"}]
+license = "MIT"
+urls.homepage = "http://github.com/lektor/lektor"
+
+[project.entry-points."lektor.plugins"]
+markdown-link-classes = "lektor_markdown_link_classes:MarkdownLinkClassesPlugin"
