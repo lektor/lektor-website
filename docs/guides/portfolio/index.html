@@ -140,15 +140,15 @@
         <ul class="toc">
         
           <li><a href="#the-models">The Models</a><ul>
-          <li><a href="#projects.ini`"><code>projects.ini</code></a></li>
+          <li><a href="#projects.ini"><code>projects.ini</code></a></li>
         
-          <li><a href="#project.ini`"><code>project.ini</code></a></li>
+          <li><a href="#project.ini"><code>project.ini</code></a></li>
         </ul></li>
         
           <li><a href="#templates">Templates</a><ul>
-          <li><a href="#projects.html`"><code>projects.html</code></a></li>
+          <li><a href="#projects.html"><code>projects.html</code></a></li>
         
-          <li><a href="#project.html`"><code>project.html</code></a></li>
+          <li><a href="#project.html"><code>project.html</code></a></li>
         </ul></li>
         
         </ul>
@@ -175,7 +175,7 @@ you can structure the data exactly like you want.  In this example we will
 assume we build a website for someone who wants to showcase their art projects.</p>
 <h2 id="the-models">The Models</h2><p>The way we want to go about this is that we have a site where all the
 projects show up and then a detail page for each project in particular.</p>
-<h3 id="projects.ini`"><code>projects.ini</code></h3><p>First we set up the project overview page.  This model instructs Lektor that
+<h3 id="projects.ini"><code>projects.ini</code></h3><p>First we set up the project overview page.  This model instructs Lektor that
 all of the pages below it will be of type <code>project</code>.  We also set it to
 <code>hidden</code> and <code>protected</code> which will make it unavailable in the admin (<code>hidden</code>)
 for new pages and make it impossible to delete (<code>protected</code>).  This means we
@@ -192,7 +192,7 @@ static label manually (<code>label = Projects</code>).</p>
 <span class="na">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">project</span>
 <span class="na">order_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-date, name</span>
 </pre></div>
-<h3 id="project.ini`"><code>project.ini</code></h3><p>Next up is the model for the project.  This is completely up to you, we will go
+<h3 id="project.ini"><code>project.ini</code></h3><p>Next up is the model for the project.  This is completely up to you, we will go
 with some things here that might appear on such a portfolio page.  In addition
 we will do something with the attachments of this page, but more about that
 later.  For now we just order them by their filename (<code>_id</code>):</p>
@@ -234,7 +234,7 @@ automatically reference those in our templates.  Here is what we're going to
 do: we will take all the attached images, order them by their filename and then
 render thumbnails for them in the detail page.  Additionally we want to show
 one of the images on the overview page if it's available.</p>
-<h3 id="projects.html`"><code>projects.html</code></h3><p>So here we just render out all projects in the order defined in our
+<h3 id="projects.html"><code>projects.html</code></h3><p>So here we just render out all projects in the order defined in our
 models and if there is an image attached, we pick the first one and make
 a thumbnail.</p>
 <div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
@@ -256,7 +256,7 @@ a thumbnail.</p>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
-<h3 id="project.html`"><code>project.html</code></h3><p>For the detail page we show all information we know about:</p>
+<h3 id="project.html"><code>project.html</code></h3><p>For the detail page we show all information we know about:</p>
 <div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.name</span> <span class="cp">}}</span> (<span class="cp">{{</span> <span class="nv">this.date.year</span> <span class="cp">}}</span>)<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>

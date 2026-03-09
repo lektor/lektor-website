@@ -152,7 +152,8 @@ Unlike what the name would suggest, RGSOC is open for all Open Source projects
 and not just Ruby.&lt;/p&gt;
 &lt;p&gt;The goal of RGSOC is to bring more women into programming.  To quote the
 website:&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;Rails Girls Summer of Code is a global fellowship program aimed at bringing
+&lt;blockquote&gt;
+&lt;p&gt;Rails Girls Summer of Code is a global fellowship program aimed at bringing
 more diversity into Open Source. Successful applicants are paid a monthly
 stipend, from July-September, to work on Open Source projects of their
 choice.&lt;/p&gt;
@@ -230,6 +231,7 @@ a screencast that goes with it:&lt;/p&gt;
 &lt;iframe width="100%" height=410 frameborder="0" allowfullscreen="allowfullscreen"
   src="https://www.youtube.com/embed/3pj_EyZIL5A?autoplay=0&amp;fs=1"&gt;
 &lt;/iframe&gt;
+
 &lt;/div&gt;</content></entry><entry><title>Hello Lektor!</title><link href="https://www.getlektor.com/blog/2015/12/hello-lektor/" rel="alternate"/><updated>2015-12-21T00:00:00Z</updated><author><name>Armin Ronacher</name></author><id>urn:uuid:16dbb267-fb7c-3988-aae1-07106bd5bfb7</id><content type="html">
 &lt;div class="page-banner page-banner-500" style="background-image: url(banner.jpg)"&gt;&lt;/div&gt;
 
@@ -271,7 +273,8 @@ on your computer and deploy to remote servers.  All source assets are stored
 either in version control or Dropbox and when you are satisfied with the end
 results, you can push them online from the UI to a remote server.&lt;/p&gt;
 &lt;p&gt;And this is what it roughly looks like when you look at the admin panel:&lt;/p&gt;
-&lt;div class="screenshot-frame"&gt;&lt;img src="admin.png"&gt;&lt;/div&gt;&lt;h2 id="how-do-i-use-it"&gt;How do I use it?&lt;/h2&gt;&lt;p&gt;That depends on who you are.  Lektor is based on the idea that there are
+&lt;div class="screenshot-frame"&gt;&lt;img src="admin.png"&gt;&lt;/div&gt;
+&lt;h2 id="how-do-i-use-it"&gt;How do I use it?&lt;/h2&gt;&lt;p&gt;That depends on who you are.  Lektor is based on the idea that there are
 two parties to a website: the web developers and the editors.  The former
 create the design, layout, data layout and configures Lektor in general.  The
 latter change the contents of the website according to the general setup.&lt;/p&gt;
@@ -305,7 +308,8 @@ elaborate ones if you want to build portfolio sites.  For instance you could
 set up models for your projects and then access that data in the templates.&lt;/p&gt;
 &lt;p&gt;The content files are stored in folders in a tree like structure and at any
 level you can add other files as attachments:&lt;/p&gt;
-&lt;div class="screenshot-frame"&gt;&lt;img src="structure.png"&gt;&lt;/div&gt;&lt;h2 id="an-open-source-project"&gt;An Open Source Project&lt;/h2&gt;&lt;p&gt;Lektor is available under &lt;a href="../../../../license/"&gt;a BSD license&lt;/a&gt; and run as a
+&lt;div class="screenshot-frame"&gt;&lt;img src="structure.png"&gt;&lt;/div&gt;
+&lt;h2 id="an-open-source-project"&gt;An Open Source Project&lt;/h2&gt;&lt;p&gt;Lektor is available under &lt;a href="../../../../license/"&gt;a BSD license&lt;/a&gt; and run as a
 community Open Source project &lt;a href="https://github.com/lektor/lektor/" class="ext"&gt;on github&lt;/a&gt;.
 The build system is written in Python, the UI in JavaScript with React and
 the GUI components use Electron.&lt;/p&gt;

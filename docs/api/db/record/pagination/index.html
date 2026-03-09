@@ -249,51 +249,52 @@ enabled, you should use <code>pagination.items</code> instead of <code>children<
 overview page.</p>
 <p>The following attributes exist on the pagination object:</p>
 <table>
-<thead><tr>
-<th>Attribute</th>
-<th>Description</th>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>current</code></td>
-<td>The current record</td>
+  <td><code>current</code></td>
+  <td>The current record</td>
 </tr>
 <tr>
-<td><code>prev</code></td>
-<td>The record for the last page (might be <code>None</code>)</td>
+  <td><code>prev</code></td>
+  <td>The record for the last page (might be <code>None</code>)</td>
 </tr>
 <tr>
-<td><code>next</code></td>
-<td>The record for the next page (might be <code>None</code>)</td>
+  <td><code>next</code></td>
+  <td>The record for the next page (might be <code>None</code>)</td>
 </tr>
 <tr>
-<td><code>total</code></td>
-<td>The total number of items across all pages</td>
+  <td><code>total</code></td>
+  <td>The total number of items across all pages</td>
 </tr>
 <tr>
-<td><code>pages</code></td>
-<td>The total number of pages</td>
+  <td><code>pages</code></td>
+  <td>The total number of pages</td>
 </tr>
 <tr>
-<td><code>page</code></td>
-<td>The number of current page</td>
+  <td><code>page</code></td>
+  <td>The number of current page</td>
 </tr>
 <tr>
-<td><code>has_prev</code></td>
-<td><code>True</code> if a previous page exists</td>
+  <td><code>has_prev</code></td>
+  <td><code>True</code> if a previous page exists</td>
 </tr>
 <tr>
-<td><code>has_next</code></td>
-<td><code>True</code> if a next page exists</td>
+  <td><code>has_next</code></td>
+  <td><code>True</code> if a next page exists</td>
 </tr>
 <tr>
-<td><code>items</code></td>
-<td>The query that resolves to the children of the current page.</td>
+  <td><code>items</code></td>
+  <td>The query that resolves to the children of the current page.</td>
 </tr>
 <tr>
-<td><code>for_page()</code></td>
-<td>Returns the record for a different page.</td>
+  <td><code>for_page()</code></td>
+  <td>Returns the record for a different page.</td>
 </tr>
 </tbody>
 </table>

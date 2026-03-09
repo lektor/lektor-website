@@ -247,60 +247,62 @@ it gives access to the record's <code>contents.lr</code> file.</p>
 <p>It provides many useful attributes and methods to do something with the
 contents of that file:</p>
 <h2 id="properties">Properties</h2><table>
-<thead><tr>
-<th>Property</th>
-<th>Description</th>
+<thead>
+<tr>
+  <th>Property</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>sha1</code></td>
-<td>The SHA1 hash of the contents as hexadecimal string</td>
+  <td><code>sha1</code></td>
+  <td>The SHA1 hash of the contents as hexadecimal string</td>
 </tr>
 <tr>
-<td><code>md5</code></td>
-<td>The MD5 hash of the contents as hexadecimal string</td>
+  <td><code>md5</code></td>
+  <td>The MD5 hash of the contents as hexadecimal string</td>
 </tr>
 <tr>
-<td><code>integrity</code></td>
-<td>A subresource integrity string (<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">read about it</a>)</td>
+  <td><code>integrity</code></td>
+  <td>A subresource integrity string (<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">read about it</a>)</td>
 </tr>
 <tr>
-<td><code>mimetype</code></td>
-<td>The guessed mimetype of the object</td>
+  <td><code>mimetype</code></td>
+  <td>The guessed mimetype of the object</td>
 </tr>
 <tr>
-<td><code>bytes</code></td>
-<td>The number of bytes for the contents as integer</td>
+  <td><code>bytes</code></td>
+  <td>The number of bytes for the contents as integer</td>
 </tr>
 </tbody>
 </table>
 <h2 id="methods">Methods</h2><table>
-<thead><tr>
-<th>Method</th>
-<th>Description</th>
+<thead>
+<tr>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>as_data_url()</code></td>
-<td>Returns a data URL for the contents. Optionally accepts a different mimetype than the guessed one.</td>
+  <td><code>as_data_url()</code></td>
+  <td>Returns a data URL for the contents. Optionally accepts a different mimetype than the guessed one.</td>
 </tr>
 <tr>
-<td><code>as_text()</code></td>
-<td>Returns the contents of the file as text.  UTF-8 is assumed.</td>
+  <td><code>as_text()</code></td>
+  <td>Returns the contents of the file as text.  UTF-8 is assumed.</td>
 </tr>
 <tr>
-<td><code>as_bytes()</code></td>
-<td>Returns the contents of the file as bytes.</td>
+  <td><code>as_bytes()</code></td>
+  <td>Returns the contents of the file as bytes.</td>
 </tr>
 <tr>
-<td><code>as_base64()</code></td>
-<td>Returns the contents of the file as base64 encoded bytes.</td>
+  <td><code>as_base64()</code></td>
+  <td>Returns the contents of the file as base64 encoded bytes.</td>
 </tr>
 <tr>
-<td><code>open()</code></td>
-<td>Opens the file for editing. Accepts <code>r</code> or <code>rb</code> as modes and a second argument which is the file encoding.</td>
+  <td><code>open()</code></td>
+  <td>Opens the file for editing. Accepts <code>r</code> or <code>rb</code> as modes and a second argument which is the file encoding.</td>
 </tr>
 </tbody>
 </table>

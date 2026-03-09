@@ -140,15 +140,15 @@
         <ul class="toc">
         
           <li><a href="#the-models">The Models</a><ul>
-          <li><a href="#blog.ini`"><code>blog.ini</code></a></li>
+          <li><a href="#blog.ini"><code>blog.ini</code></a></li>
         
-          <li><a href="#blog-post.ini`"><code>blog-post.ini</code></a></li>
+          <li><a href="#blog-post.ini"><code>blog-post.ini</code></a></li>
         </ul></li>
         
           <li><a href="#the-templates">The Templates</a><ul>
-          <li><a href="#blog.html`"><code>blog.html</code></a></li>
+          <li><a href="#blog.html"><code>blog.html</code></a></li>
         
-          <li><a href="#blog-post.html`"><code>blog-post.html</code></a></li>
+          <li><a href="#blog-post.html"><code>blog-post.html</code></a></li>
         </ul></li>
         
           <li><a href="#initializing-the-blog">Initializing The Blog</a></li>
@@ -182,7 +182,7 @@ build our own blog with Lektor.</p>
 for the <code>blog-post</code>.  The idea is that we have a folder called <code>blog</code> which
 uses the <code>blog</code> model which contains all the blog posts.  Each of the blog
 posts will use the <code>blog-post</code> model.</p>
-<h3 id="blog.ini`"><code>blog.ini</code></h3><p>This is the model for the blog itself.  It instructs Lektor that all of the
+<h3 id="blog.ini"><code>blog.ini</code></h3><p>This is the model for the blog itself.  It instructs Lektor that all of the
 pages below it will be blog posts, how many blog posts we want to show per
 page and what the order is.  We also set it to <code>hidden</code> and <code>protected</code> which
 will make it unavailable in the admin (<code>hidden</code>) for new pages and make it
@@ -202,7 +202,7 @@ one page later which will use this.</p>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 <span class="na">per_page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10</span>
 </pre></div>
-<h3 id="blog-post.ini`"><code>blog-post.ini</code></h3><p>Each blog post has a title, publication date, author and body.  The publication
+<h3 id="blog-post.ini"><code>blog-post.ini</code></h3><p>Each blog post has a title, publication date, author and body.  The publication
 date and title are also used for sorting if you look into the <code>blog.ini</code>.
 Lastly we set up the label of the page to be the title of the blog post.  We
 can also set it to <code>hidden</code> as the model is automatically selected in the
@@ -232,7 +232,7 @@ admin whenever a page is created in the blog.</p>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">markdown</span>
 </pre></div>
 <h2 id="the-templates">The Templates</h2><p>Now that we have the models set up, we want to create the templates.</p>
-<h3 id="blog.html`"><code>blog.html</code></h3><p>Let's start with the blog overview page.  This template is used for our <code>blog</code>
+<h3 id="blog.html"><code>blog.html</code></h3><p>Let's start with the blog overview page.  This template is used for our <code>blog</code>
 model.  In this example we just want to show the titles of the post on the
 overview page with the author and date and a controller for the pagination.
 Because pagination is enabled we can iterate over <code>this.pagination.items</code>
@@ -260,7 +260,7 @@ page.</p>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 <p>For the pagination macro have a look at the <a href="../pagination/" class="ref">pagination guide</a> which covers that part.</p>
-<h3 id="blog-post.html`"><code>blog-post.html</code></h3><p>Now we just need a template for our blog post.  This (<code>blog-post.html</code>) will
+<h3 id="blog-post.html"><code>blog-post.html</code></h3><p>Now we just need a template for our blog post.  This (<code>blog-post.html</code>) will
 do:</p>
 <div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">this.title</span> <span class="cp">}}</span> | My Blog<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>

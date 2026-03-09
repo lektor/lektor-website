@@ -214,7 +214,7 @@ and password through the command line or environment variables.</p></div><p>The 
 <h2 id="manual-deployments">Manual Deployments</h2><p>If you want to manually deploy something through the favorite tool of yours
 you can do that easily as well.  For instance if you want to deploy to S3
 with <a href="http://s3tools.org/s3cmd-sync">s3cmd</a> you could do this:</p>
-<pre><code>$ lektor build &amp;&amp; s3cmd sync "$(lektor project-info --output-path)"/* "s3://my-bucket/some/path"
+<pre><code>$ lektor build &amp;&amp; s3cmd sync &quot;$(lektor project-info --output-path)&quot;/* &quot;s3://my-bucket/some/path&quot;
 </code></pre>
 <p>Assisted deployments are also supported directly from the admin UI.  There is a
 publish button that can be used to send the changes up.</p>

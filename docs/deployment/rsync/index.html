@@ -168,8 +168,7 @@ into a string.  This is useful if you want to use it as an environment
 variable.  The format for the string is <code>KEY_TYPE:BASE64</code> where <code>KEY_TYPE</code>
 is the type of the key (<code>RSA</code>, <code>EC</code>, etc.) and <code>BASE64</code> is the base64 encoded
 private key without newlines or whitespace.  To find out which type your
-key is look at the first line of the key marker.  For instance <code>BEGIN EC
-PRIVATE KEY</code> indicates an <code>EC</code> key.  If no key type is defined <code>RSA</code> is
+key is look at the first line of the key marker.  For instance <code>BEGIN EC PRIVATE KEY</code> indicates an <code>EC</code> key.  If no key type is defined <code>RSA</code> is
 assumed.</p>
 <h2 id="deletion-support">Deletion Support</h2><div class="admonition admonition-info"><p>New in version 3.2.</p></div><p>To keep two directories truly in sync when deploying with <code>rsync</code>,
 it's necessary to explicitly tell <code>rsync</code> to remove files or directories

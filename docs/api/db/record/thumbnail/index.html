@@ -238,24 +238,24 @@
       
       </ul>
 
-      <div class="admonition admonition-info"><p>From Lektor 2.0 to 3.1.2 cropping was set with <code>crop=True</code>. This is now deprecated and instead crop is an available mode, which can be set as <code>mode="crop"</code>.</p></div><p>This method is available on attachments that are images and can be used to
+      <div class="admonition admonition-info"><p>From Lektor 2.0 to 3.1.2 cropping was set with <code>crop=True</code>. This is now deprecated and instead crop is an available mode, which can be set as <code>mode=&quot;crop&quot;</code>.</p></div><p>This method is available on attachments that are images and can be used to
 automatically generate a thumbnail.  The return value is a thumbnail proxy
 that can be either used directly or with the <code>|url</code> filter.</p>
-<p>The outcome differs depending on the operation mode, which can be one of "fit"
-(the default), "crop" or "stretch".</p>
-<p>In "fit" mode, the thumbnail is scaled to fit into the rectangle of given
+<p>The outcome differs depending on the operation mode, which can be one of &quot;fit&quot;
+(the default), &quot;crop&quot; or &quot;stretch&quot;.</p>
+<p>In &quot;fit&quot; mode, the thumbnail is scaled to fit into the rectangle of given
 width and height. If either dimension is <code>None</code>, it will be computed to match
 the other one accordingly.</p>
-<p>In "crop" mode, width and height are both required. The image is scaled
+<p>In &quot;crop&quot; mode, width and height are both required. The image is scaled
 to cover the given rectangle, center-aligned, and then cropped so that
 anything outside those bounds gets trimmed.</p>
-<p>In "stretch" mode, the image is resized precisely to the required dimensions,
+<p>In &quot;stretch&quot; mode, the image is resized precisely to the required dimensions,
 so the original proportions are not preserved. Most of the time this is not
 what you want.</p>
 <p>By setting the <code>upscale</code> parameter to <code>False</code> you can prevent the images
 from being scaled up if the resulting thumbnail would be larger than the original
 image. In this case the original is returned instead.
-(Note that in a future version this will be the default in "fit" mode.)</p>
+(Note that in a future version this will be the default in &quot;fit&quot; mode.)</p>
 <p>The quality parameter determines the compression of images where possible. If not passed the jpeg images get a default quality of 85 and png images get a default quality of 75.</p>
 <p>It provides the following attributes:</p>
 <ul>

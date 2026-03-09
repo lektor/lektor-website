@@ -131,7 +131,7 @@
         
           <li><a href="#content-files-of-alternatives">Content Files of Alternatives</a></li>
         
-          <li><a href="#what-s-loaded">What's Loaded</a></li>
+          <li><a href="#whats-loaded">What's Loaded</a></li>
         
           <li><a href="#alternatives-and-paths">Alternatives and Paths</a></li>
         
@@ -163,7 +163,7 @@ be working exactly as you expect in parts.  In particular one of the limiting
 factors is that you need to have at least one alternative at the URL root or
 the system will refuse to build the website.</p></div><h2 id="enabling-alternatives">Enabling Alternatives</h2><p>To enable alternatives you need to extend your <a href="../../project/file/" class="ref">Project File</a>.  For each alternative a new
 section has to be added.  It's important that one of the alternatives is
-marked as "primary" which informs the system which of the alternatives is
+marked as &quot;primary&quot; which informs the system which of the alternatives is
 the reference.</p>
 <div class="hll"><pre><span></span><span class="k">[alternatives.en]</span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">English</span>
@@ -186,90 +186,91 @@ navigated to <code>/</code>.</p>
 a content file named <code>contents+ALT.lr</code> where <code>ALT</code> is the short code of your
 alternative (for instance <code>fr</code> for French).  Once a file for an alternative
 exists it's loaded instead of the default <code>contents.lr</code> file.</p>
-<h2 id="what-s-loaded">What's Loaded</h2><p>To make this a bit more concrete: let's go with the example we configured
+<h2 id="whats-loaded">What's Loaded</h2><p>To make this a bit more concrete: let's go with the example we configured
 above.  There are two alternatives: English (<code>en</code>) and French (<code>fr</code>) and
 English is configured as the primary.</p>
 <p>In that case depending on which files exist and which alternative is
 targeted, different files will be used.  This table visualizes this:</p>
 <table>
-<thead><tr>
-<th>contents.lr</th>
-<th>contents+fr.lr</th>
-<th>contents+en.lr</th>
-<th>Target</th>
-<th>File Used</th>
+<thead>
+<tr>
+  <th>contents.lr</th>
+  <th>contents+fr.lr</th>
+  <th>contents+en.lr</th>
+  <th>Target</th>
+  <th>File Used</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>✓</td>
-<td></td>
-<td></td>
-<td>en</td>
-<td>contents.lr</td>
+  <td>✓</td>
+  <td></td>
+  <td></td>
+  <td>en</td>
+  <td>contents.lr</td>
 </tr>
 <tr>
-<td>✓</td>
-<td></td>
-<td></td>
-<td>fr</td>
-<td>contents.lr</td>
+  <td>✓</td>
+  <td></td>
+  <td></td>
+  <td>fr</td>
+  <td>contents.lr</td>
 </tr>
 <tr>
-<td>✓</td>
-<td>✓</td>
-<td></td>
-<td>en</td>
-<td>contents.lr</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td></td>
+  <td>en</td>
+  <td>contents.lr</td>
 </tr>
 <tr>
-<td>✓</td>
-<td>✓</td>
-<td></td>
-<td>fr</td>
-<td>contents+fr.lr</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td></td>
+  <td>fr</td>
+  <td>contents+fr.lr</td>
 </tr>
 <tr>
-<td></td>
-<td>✓</td>
-<td>✓</td>
-<td>en</td>
-<td>contents+en.lr</td>
+  <td></td>
+  <td>✓</td>
+  <td>✓</td>
+  <td>en</td>
+  <td>contents+en.lr</td>
 </tr>
 <tr>
-<td></td>
-<td>✓</td>
-<td>✓</td>
-<td>fr</td>
-<td>contents+fr.lr</td>
+  <td></td>
+  <td>✓</td>
+  <td>✓</td>
+  <td>fr</td>
+  <td>contents+fr.lr</td>
 </tr>
 <tr>
-<td></td>
-<td>✓</td>
-<td></td>
-<td>en</td>
-<td><em>missing</em></td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+  <td>en</td>
+  <td><em>missing</em></td>
 </tr>
 <tr>
-<td></td>
-<td>✓</td>
-<td></td>
-<td>fr</td>
-<td>contents+fr.lr</td>
+  <td></td>
+  <td>✓</td>
+  <td></td>
+  <td>fr</td>
+  <td>contents+fr.lr</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td>✓</td>
-<td>en</td>
-<td>contents+en.lr</td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+  <td>en</td>
+  <td>contents+en.lr</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td>✓</td>
-<td>fr</td>
-<td><em>missing</em></td>
+  <td></td>
+  <td></td>
+  <td>✓</td>
+  <td>fr</td>
+  <td><em>missing</em></td>
 </tr>
 </tbody>
 </table>

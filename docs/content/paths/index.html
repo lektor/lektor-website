@@ -193,69 +193,71 @@ virtual path for pagination.</p>
 level up.  If you use a path that just contains of a virtual path, then it's
 attached to the current page to replace the active virtual path.</p>
 <table>
-<thead><tr>
-<th>Current</th>
-<th>Relative</th>
-<th>Result</th>
+<thead>
+<tr>
+  <th>Current</th>
+  <th>Relative</th>
+  <th>Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/blog</code></td>
-<td><code>..</code></td>
-<td><code>/</code></td>
+  <td><code>/blog</code></td>
+  <td><code>..</code></td>
+  <td><code>/</code></td>
 </tr>
 <tr>
-<td><code>/blog</code></td>
-<td><code>.</code></td>
-<td><code>/blog</code></td>
+  <td><code>/blog</code></td>
+  <td><code>.</code></td>
+  <td><code>/blog</code></td>
 </tr>
 <tr>
-<td><code>/blog/post</code></td>
-<td><code>..</code></td>
-<td><code>/blog</code></td>
+  <td><code>/blog/post</code></td>
+  <td><code>..</code></td>
+  <td><code>/blog</code></td>
 </tr>
 <tr>
-<td><code>/blog</code></td>
-<td><code>@2</code></td>
-<td><code>/blog@2</code></td>
+  <td><code>/blog</code></td>
+  <td><code>@2</code></td>
+  <td><code>/blog@2</code></td>
 </tr>
 <tr>
-<td><code>/blog@2</code></td>
-<td><code>@1</code></td>
-<td><code>/blog@1</code></td>
+  <td><code>/blog@2</code></td>
+  <td><code>@1</code></td>
+  <td><code>/blog@1</code></td>
 </tr>
 <tr>
-<td><code>/blog@feed</code></td>
-<td><code>recent</code></td>
-<td><code>/blog@feed/recent</code></td>
+  <td><code>/blog@feed</code></td>
+  <td><code>recent</code></td>
+  <td><code>/blog@feed/recent</code></td>
 </tr>
 <tr>
-<td><code>/blog@feed</code></td>
-<td><code>..</code></td>
-<td><code>/blog@feed</code></td>
+  <td><code>/blog@feed</code></td>
+  <td><code>..</code></td>
+  <td><code>/blog@feed</code></td>
 </tr>
 </tbody>
 </table>
 <p>However! The numeric path is special with regards because it's considered to
 belong to the current page:</p>
 <table>
-<thead><tr>
-<th>Current</th>
-<th>Relative</th>
-<th>Result</th>
+<thead>
+<tr>
+  <th>Current</th>
+  <th>Relative</th>
+  <th>Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/blog@2</code></td>
-<td><code>.</code></td>
-<td><code>/blog@2</code></td>
+  <td><code>/blog@2</code></td>
+  <td><code>.</code></td>
+  <td><code>/blog@2</code></td>
 </tr>
 <tr>
-<td><code>/blog@2</code></td>
-<td><code>..</code></td>
-<td><code>/</code></td>
+  <td><code>/blog@2</code></td>
+  <td><code>..</code></td>
+  <td><code>/</code></td>
 </tr>
 </tbody>
 </table>

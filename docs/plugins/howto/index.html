@@ -227,7 +227,7 @@ method which declares a new artifact.</li>
 <p>This dumps out the EXIF data into a JSON file and returns the artifact name.
 The source image is tracked as direct source for the artifact and within the
 function we also track the plugin's filename to rebuild if the plugin changes.</p>
-<h2 id="adding-new-field-types">Adding New Field Types</h2><p>Let's say you want to add an "asciidoc"
+<h2 id="adding-new-field-types">Adding New Field Types</h2><p>Let's say you want to add an &quot;asciidoc&quot;
 <a href="../../api/db/types/" class="ref">field type</a> so you can write with <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> markup.</p>
 <p>First <a href="http://www.methods.co.nz/asciidoc/INSTALL.html">install AsciiDoc</a> so its command-line program is available. Then update <code>blog-post.ini</code> from the <a href="../../guides/blog/" class="ref">blog guide</a> like so:</p>
 <div class="hll"><pre><span></span><span class="k">[fields.body]</span>
@@ -245,7 +245,7 @@ Some text.
 code here
 ----
 </code></pre>
-<p>You can add your "asciidoc" type to Lektor with a plugin:</p>
+<p>You can add your &quot;asciidoc&quot; type to Lektor with a plugin:</p>
 <div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">PIPE</span><span class="p">,</span> <span class="n">Popen</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
@@ -292,7 +292,7 @@ code here
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="n">AsciiDocType</span><span class="p">)</span>
 </pre></div>
 <h3 id="base-classes">Base Classes</h3><p>In the general case, new types should inherit from <code>lektor.types.base.Type</code>.
-However, when creating a new type that will use a "single-line" input widget in the Admin GUI, inheriting from <code>lektor.types.primitives.SingleInputType</code> will enable the use of the <code>addon_label</code> <a href="/docs/models/#fields" class="ref">field option</a>.</p>
+However, when creating a new type that will use a &quot;single-line&quot; input widget in the Admin GUI, inheriting from <code>lektor.types.primitives.SingleInputType</code> will enable the use of the <code>addon_label</code> <a href="/docs/models/#fields" class="ref">field option</a>.</p>
 
       
 

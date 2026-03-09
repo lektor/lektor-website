@@ -156,14 +156,14 @@ the query.  For instance this iterates over all attached images of a page:</p>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;image&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
-<p><br/>
-To access images from a different content folder, you would use:</p>
+<br/>
+To access images from a different content folder, you would use:
 <div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/myfolder&#39;</span><span class="o">)</span><span class="nv">.attachments.images</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;image&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">image</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
-<p><br/>
-To retrieve only a specific image or attachment with a certain name you would use</p>
+<br/>
+To retrieve only a specific image or attachment with a certain name you would use
 <div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">my_image</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/myfolder&#39;</span><span class="o">)</span><span class="nv">.attachments.get</span><span class="o">(</span><span class="s1">&#39;imagenameexample.jpg&#39;</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;image&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">my_image</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>

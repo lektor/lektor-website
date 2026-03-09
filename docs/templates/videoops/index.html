@@ -152,23 +152,24 @@
 <p>Just like images you can also access them using <code>site.get('/myfolder').attachments.videos</code> or <code>site.get('/myfolder').attachments.get('examplevideo.mp4')</code>. Note that not all formats are detected as videos (see <a href="../../content/attachments/">attachments</a>). If your format is not in the list you may still be able to get it detected as a video by adding it to your <a href="../../project/file/#attachment-types">Lektor project file</a>.</p>
 <h2 id="accessing-metadata">Accessing metadata</h2><p>Video objects are sub-classes of Attachments but with a few extra properties.</p>
 <table>
-<thead><tr>
-<th>Attribute</th>
-<th>Description</th>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>width</code></td>
-<td>Video height in pixels</td>
+  <td><code>width</code></td>
+  <td>Video height in pixels</td>
 </tr>
 <tr>
-<td><code>height</code></td>
-<td>Video height in pixels</td>
+  <td><code>height</code></td>
+  <td>Video height in pixels</td>
 </tr>
 <tr>
-<td><code>duration</code></td>
-<td>Video length as a <a href="https://docs.python.org/3/library/datetime.html"><code>datetime.timedelta</code></a> instance</td>
+  <td><code>duration</code></td>
+  <td>Video length as a <a href="https://docs.python.org/3/library/datetime.html"><code>datetime.timedelta</code></a> instance</td>
 </tr>
 </tbody>
 </table>
@@ -186,23 +187,24 @@
 </pre></div>
 <h2 id="generating-thumbnails">Generating thumbnails</h2><p>The main difference between video and image attachments is how thumbnails are handled. Since a video basically is a long sequence of images you must first choose where in the video the thumbnail should be generated. This is done using the `.frame() method. There are multiple ways of calling it:</p>
 <table>
-<thead><tr>
-<th>Method</th>
-<th>Description</th>
+<thead>
+<tr>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>frame()</code></td>
-<td>Use a frame from the middle of the video <em>(default)</em></td>
+  <td><code>frame()</code></td>
+  <td>Use a frame from the middle of the video <em>(default)</em></td>
 </tr>
 <tr>
-<td><code>frame(seek: float)</code></td>
-<td>Fraction between 0.0 and 1.0 of the video duration from where to extract the frame. The value <code>0.5</code> means that the middle of the video will be used. It can be seen as a shorthand for <code>video.frame(video.duration * seek)</code>.</td>
+  <td><code>frame(seek: float)</code></td>
+  <td>Fraction between 0.0 and 1.0 of the video duration from where to extract the frame. The value <code>0.5</code> means that the middle of the video will be used. It can be seen as a shorthand for <code>video.frame(video.duration * seek)</code>.</td>
 </tr>
 <tr>
-<td><code>frame(seek: datetime.timedelta)</code></td>
-<td>Use a frame at the given seek distance from the beginning of the video. This is useful when you want to seek a fix time into a video.</td>
+  <td><code>frame(seek: datetime.timedelta)</code></td>
+  <td>Use a frame at the given seek distance from the beginning of the video. This is useful when you want to seek a fix time into a video.</td>
 </tr>
 </tbody>
 </table>
