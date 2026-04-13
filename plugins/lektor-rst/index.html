@@ -62,7 +62,7 @@
   <div class="plugin">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Plugin &ndash; lektor-rst 0.3.0</h1>
+        <h1>Plugin &ndash; lektor-rst 0.4.0</h1>
       </div>
     </div>
 
@@ -96,7 +96,7 @@
         <div class="separator">
           <h4>Meta</h4>
         </div>
-        <p><strong>Version:</strong> 0.3.0</p>
+        <p><strong>Version:</strong> 0.4.0</p>
         <p><strong>Author:</strong>
           
             <a href="mailto:florian.schulze@gmx.net">Florian Schulze</a>
@@ -127,7 +127,59 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <i>Plugin has no long_description</i>
+          <p>This plugin for Lektor adds support for ReStructuredText files.</p>
+<section id="configuration">
+<h2>Configuration</h2>
+<p>To adjust docutils parameters,
+create a <span class="docutils literal">configs/rst.ini</span> file in the Lektor project hierarchy.
+The <span class="docutils literal">docutils</span> section of the file will be used to control docutils output.</p>
+<p>For example:</p>
+<pre>[docutils]
+writer = html5
+initial_header_level = 1</pre>
+</section>
+<section id="changelog">
+<h2>Changelog</h2>
+<section id="section-1">
+<h3>0.4.0 - 2026-04-12</h3>
+<ul class="simple">
+<li><p>Require docutils &gt;= 0.21.
+[dairiki]</p></li>
+<li><p>Drop support for Python &lt;= 3.8.
+[dairiki]</p></li>
+<li><p>Fix deprecation warning from docutils 0.22.
+[dairiki - Jeff Dairiki]</p></li>
+</ul>
+</section>
+<section id="section-2">
+<h3>0.3.0 - 2023-02-21</h3>
+<ul class="simple">
+<li><p>Drop support for Python &lt;= 3.6.
+[fschulze]</p></li>
+<li><p>Fix deprecation warning from docutils 0.18.1.
+[glasnt - Katie McLaughlin]</p></li>
+</ul>
+</section>
+<section id="section-3">
+<h3>0.2.0 - 2019-06-30</h3>
+<ul class="simple">
+<li><p>Fix #5 - Allow configuration of docutils output options.
+[uyar, fschulze]</p></li>
+<li><p>Fix #3 - Underlines with dashes caused warnings.
+[uyar - H. Turgut Uyar, fschulze]</p></li>
+<li><p>Support Python 3.
+[uranusjr - Tzu-ping Chung, fschulze]</p></li>
+</ul>
+</section>
+<section id="section-4">
+<h3>0.1.0 - 2016-01-18</h3>
+<ul class="simple">
+<li><p>Initial release.
+[fschulze - Florian Schulze]</p></li>
+</ul>
+</section>
+</section>
+ 
         
 
         
