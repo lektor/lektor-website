@@ -4,6 +4,16 @@ IgnoreURLs:
   # For unknown reasons, htmltest reports a 404 on these one:
   - "^https://twitter.com/"
 
+# The README.md for [lektor-scsscompile] has a line reading `#####` that
+# gets formatted to an empty <h5> tag with a link to href="#".
+# See [lektor-scsscompile#10].
+#
+# Anyhow, for now, ignore links to "#".
+#
+# [lektor-scsscompile]: https://github.com/maxbachmann/lektor-SCSScompile
+# [lektor-scsscompile#10]: https://github.com/maxbachmann/lektor-SCSScompile/pull/10
+IgnoreInternalEmptyHash: true
+
 # htmltest does not like quotes around URL in meta refresh
 CheckMetaRefresh: false
 # our redirect page doesn't have a doctype
