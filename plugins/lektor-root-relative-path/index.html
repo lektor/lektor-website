@@ -127,22 +127,22 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor root-relative-path plugin</h1>
+          <h1><a href="#user-content-lektor-root-relative-path-plugin" id="user-content-lektor-root-relative-path-plugin" rel="nofollow"></a>Lektor root-relative-path plugin</h1>
 <p>This plugin returns root-relative-path list from top page to current page as below.</p>
 <pre><code>[(toppage_url, toppage_name), ...(parent_url, parent_name), (url, name)]
 </code></pre>
-<h2>Installation</h2>
+<h2><a href="#user-content-installation" id="user-content-installation" rel="nofollow"></a>Installation</h2>
 <p>Add <code>lektor-root-relative-path</code> to your project from the command line:</p>
 <pre><code>lektor plugins add lektor-root-relative-path
 </code></pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor documentation for more instructions on installing plugins</a>.</p>
-<h2>Configuration</h2>
+<h2><a href="#user-content-configuration" id="user-content-configuration" rel="nofollow"></a>Configuration</h2>
 <p>Set these option in <code>configs/root-relative-path.ini</code>:</p>
-<h3>navi_top_page_name</h3>
+<h3><a href="#user-content-navi_top_page_name" id="user-content-navi_top_page_name" rel="nofollow"></a>navi_top_page_name</h3>
 <p>Optional. Name of top page inidicated in the navication. Default is 'Top Page'</p>
 <pre><code>navi_top_page_name = 'Top Page'
 </code></pre>
-<h2>How to use</h2>
+<h2><a href="#user-content-how-to-use" id="user-content-how-to-use" rel="nofollow"></a>How to use</h2>
 <p>Insert the following line in the template (e.g. layout.html) which you would like to show navigation.</p>
 <pre><code>{% for i in this._path | root_relative_path_list %}
   &gt;&gt;&lt;a href="{{i[0]}}"&gt;{{i[1]}}&lt;/a&gt;

@@ -145,20 +145,20 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-webpack-support</h1>
+          <h1><a href="#user-content-lektor-webpack-support" id="user-content-lektor-webpack-support" rel="nofollow"></a>lektor-webpack-support</h1>
 <p>This is a plugin for Lektor that adds support for webpack to projects. When
 enabled it can build a webpack project from the <code>webpack/</code> folder into the
 asset folder automatically when the server (or build process) is run with
 the <code>-f webpack</code> flag.</p>
-<h2>Enabling the Plugin</h2>
+<h2><a href="#user-content-enabling-the-plugin" id="user-content-enabling-the-plugin" rel="nofollow"></a>Enabling the Plugin</h2>
 <p>To enable the plugin add this to your project file, run this command while
 sitting in your Lektor project directory:</p>
 <pre lang="bash">lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-webpack-support
 </pre>
-<h2>Creating a Webpack Project</h2>
+<h2><a href="#user-content-creating-a-webpack-project" id="user-content-creating-a-webpack-project" rel="nofollow"></a>Creating a Webpack Project</h2>
 <p>Next you need to create a webpack project. Create a <code>webpack/</code> folder and
 inside that folder create <code>package.json</code> and a <code>webpack.config.js</code></p>
-<h3><code>webpack/package.json</code></h3>
+<h3><a href="#user-content-webpackpackagejson" id="user-content-webpackpackagejson" rel="nofollow"></a><code>webpack/package.json</code></h3>
 <p>This file instructs <code>npm</code> which packages we will need. All we need for a
 start is to create an almost empty file (name and version fields are mandatory
 but not important for functionality, change them to suit your own needs):</p>
@@ -176,7 +176,7 @@ $ npm install --save-dev webpack webpack-cli @babel/core sass babel-loader sass-
 a bunch of loaders we need for getting all that configured. Because we
 created a <code>package.json</code> before and we use <code>--save-dev</code> the dependencies
 will be remembered in the <code>package.json</code> file.</p>
-<h3><code>webpack/webpack.config.js</code></h3>
+<h3><a href="#user-content-webpackwebpackconfigjs" id="user-content-webpackwebpackconfigjs" rel="nofollow"></a><code>webpack/webpack.config.js</code></h3>
 <p>Next up is the webpack config file. Here we will go with a very basic
 setup that's good enough to cover most things you will encounter. The
 idea is to build the files from <code>webpack/scss</code> and <code>webpack/js</code> into
@@ -220,12 +220,12 @@ installed for as long as someone else ran it before.</p>
 <span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">MiniCssExtractPlugin</span><span class="p">({</span><span class="w"> </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">"styles.css"</span><span class="w"> </span><span class="p">})],</span>
 <span class="p">};</span>
 </pre>
-<h2>Creating the App</h2>
+<h2><a href="#user-content-creating-the-app" id="user-content-creating-the-app" rel="nofollow"></a>Creating the App</h2>
 <p>Now we can start building our app. We configured at least two files
 in webpack: <code>js/main.js</code> and <code>scss/main.scss</code>. Those are the entry
 points we need to have. You can create them as empty files in
 <code>webpack/js/main.js</code> and <code>webpack/scss/main.scss</code>.</p>
-<h2>Running the Server</h2>
+<h2><a href="#user-content-running-the-server" id="user-content-running-the-server" rel="nofollow"></a>Running the Server</h2>
 <p>Now you're ready to go. When you run <code>lektor server</code> webpack will not
 run, instead you need to now run it as <code>lektor server -f webpack</code> which
 will enable the webpack build. Webpack automatically builds your files
@@ -233,10 +233,10 @@ into <code>assets/static/gen</code> and this is where Lektor will then pick up t
 files. This is done so that you can ship the webpack generated assets
 to others that do not have webpack installed which simplifies using a
 Lektor website that uses webpack.</p>
-<h2>Manual Builds</h2>
+<h2><a href="#user-content-manual-builds" id="user-content-manual-builds" rel="nofollow"></a>Manual Builds</h2>
 <p>To manually trigger a build that also invokes webpack you can use
 <code>lektor build -f webpack</code>.</p>
-<h2>Including The Files</h2>
+<h2><a href="#user-content-including-the-files" id="user-content-including-the-files" rel="nofollow"></a>Including The Files</h2>
 <p>Now you need to include the files in your template. This will do it:</p>
 <pre lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ '/static/gen/styles.css'|asseturl }}"</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">text/javascript</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ '/static/gen/app.js'|asseturl }}"</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>

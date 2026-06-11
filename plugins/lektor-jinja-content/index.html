@@ -136,7 +136,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-jinja-content</h1>
+          <h1><a href="#user-content-lektor-jinja-content" id="user-content-lektor-jinja-content" rel="nofollow"></a>lektor-jinja-content</h1>
 <p><a href="https://travis-ci.org//terminal-labs/lektor-jinja-content" rel="nofollow"><img src="https://api.travis-ci.org/terminal-labs/lektor-jinja-content.svg?branch=master" alt="Build Status"></a>
 <a href="https://codecov.io/gh//terminal-labs/lektor-jinja-content" rel="nofollow"><img src="https://codecov.io/gh/terminal-labs/lektor-jinja-content/branch/master/graph/badge.svg" alt="Code Coverage"></a>
 <a href="https://pypi.org/project/lektor-jinja-content/" rel="nofollow"><img src="https://badge.fury.io/py/lektor-jinja-content.svg" alt="PyPI version"></a>
@@ -146,7 +146,7 @@
 <p>You can set and use Jinja variables, but they will only have meaning within their field that is being rendered.</p>
 <p>With this plugin, you'll have to make sure the content that is rendered <strong>is valid Jinja</strong>. Jinja syntax erros will throw an exception. Don't forget about the handy <code>{% raw %} {% endraw %}</code> tags if you want content that is not valid Jinja.</p>
 <p><strong>N.B.</strong> Using this plugin is rendering many more items with Jinja, and your build process will slow down as a result. As an early benchmark and anecdote, my small website's build time rose from 4.89s to 5.39s even while I actually had no Jinja-Content that needed rendering. I plan on adding the ability to configure this plugin later so that you don't have to run <em>everything</em> through Jinja if you don't want to.</p>
-<h2>Examples</h2>
+<h2><a href="#user-content-examples" id="user-content-examples" rel="nofollow"></a>Examples</h2>
 <p>Querying context: <code>{{ site.get('/').title }}</code> or <code>{{ this.path }}</code></p>
 <p>Logic:</p>
 <pre lang="jinja"><span class="cp">{%</span> <span class="k">set</span> <span class="nv">meaning_of_life</span><span class="o">,</span> <span class="nv">meaning_of_universe</span> <span class="o">=</span> <span class="nv">this.life</span><span class="o">,</span> <span class="nv">this.universe</span> <span class="cp">%}</span>
@@ -164,7 +164,7 @@
 <pre lang="jinja"><span class="x">`link text &lt;</span><span class="cp">{{</span> <span class="nv">this</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&gt;`_</span>
 </pre>
 <p>Try running the <a href="https://github.com/terminal-labs/lektor-jinja-content/blob/master/tests/demo-project/" rel="nofollow">test site</a> for more examples.</p>
-<h2>Possible future of this plugin.</h2>
+<h2><a href="#user-content-possible-future-of-this-plugin" id="user-content-possible-future-of-this-plugin" rel="nofollow"></a>Possible future of this plugin.</h2>
 <p>This Plugin opens the door to some pretty powerful and pretty funky functionality. Here's some food for though:</p>
 <ul>
 <li>Currently every every string-like field in <code>_data</code> and <code>_blocks</code> is processed, even things like <code>_slug</code> and <code>_template</code>. Can these other things be used?</li>

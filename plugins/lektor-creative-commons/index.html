@@ -133,12 +133,12 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor Creative Commons</h1>
+          <h1><a href="#user-content-lektor-creative-commons" id="user-content-lektor-creative-commons" rel="nofollow"></a>Lektor Creative Commons</h1>
 <p><a href="https://github.com/humrochagf/lektor-creative-commons/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/pypi/l/lektor-creative-commons.svg" alt="License: MIT"></a>
 <a href="https://pypi.python.org/pypi/lektor-creative-commons" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-creative-commons.svg" alt="Current version at PyPI"></a>
 <a href="https://pypi.python.org/pypi/lektor-creative-commons" rel="nofollow"><img src="https://img.shields.io/pypi/dm/lektor-creative-commons.svg" alt="Downloads per month on PyPI"></a></p>
 <p>Lektor plugin to add Creative Commons license to your pages</p>
-<h2>Usage</h2>
+<h2><a href="#user-content-usage" id="user-content-usage" rel="nofollow"></a>Usage</h2>
 <p>On your templates use:</p>
 <pre><code>&lt;div class="license"&gt;{{ render_cc_license(type, size, template, caller) }}&lt;/div&gt;
 </code></pre>
@@ -149,7 +149,7 @@
 <li><code>locale</code> is an optional parameter that overrides the locale at function calling time.</li>
 <li><code>caller</code> is an optional parameter that you can pass an callable to mount your own template. This argument is usually omitted. See the example of how to use it with the <a href="http://jinja.pocoo.org/docs/2.10/templates/#call" rel="nofollow">Jinja call feature</a>.</li>
 </ul>
-<h2>Examples</h2>
+<h2><a href="#user-content-examples" id="user-content-examples" rel="nofollow"></a>Examples</h2>
 <p>Simply rendering the license of your choice:</p>
 <pre><code>&lt;div class="license"&gt;{{ render_cc_license('by-sa') }}&lt;/div&gt;
 </code></pre>
@@ -166,7 +166,7 @@
 {% endcall %} 
 </code></pre>
 <p>Notice that using the call block it injects its content as <code>caller</code> parameter to the <code>render_cc_license</code> function that skips the need of choosing a template and renders your own.</p>
-<h2>Internationalization support</h2>
+<h2><a href="#user-content-internationalization-support" id="user-content-internationalization-support" rel="nofollow"></a>Internationalization support</h2>
 <p>This plugin has support to internationalization, and changes it language based on <code>.lektorproject</code> file.
 The Current supported locales are:</p>
 <ul>

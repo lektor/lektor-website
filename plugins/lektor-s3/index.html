@@ -133,11 +133,11 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-s3</h1>
+          <h1><a href="#user-content-lektor-s3" id="user-content-lektor-s3" rel="nofollow"></a>lektor-s3</h1>
 <p><a href="https://travis-ci.org/spenczar/lektor-s3" rel="nofollow"><img src="https://travis-ci.org/spenczar/lektor-s3.svg?branch=master" alt="Build Status"></a></p>
 <p>lektor-s3 makes it easy to deploy your
 <a href="https://github.com/lektor/lektor" rel="nofollow">Lektor</a> project to an S3 bucket.</p>
-<h2>Before you start</h2>
+<h2><a href="#user-content-before-you-start" id="user-content-before-you-start" rel="nofollow"></a>Before you start</h2>
 <p>You're going to be storing your website's data in an S3 bucket. The code
 here won't do anything to create or configure that bucket. You'll have to
 create the S3 bucket and set it up yourself.</p>
@@ -145,7 +145,7 @@ create the S3 bucket and set it up yourself.</p>
 for how to set up a bucket to host a static website. You'll need to both
 create the bucket and set its permissions to allow global read access.
 Remember to do this <strong>first</strong> because lektor-s3 won't do it automatically.</p>
-<h2>Installation and Usage</h2>
+<h2><a href="#user-content-installation-and-usage" id="user-content-installation-and-usage" rel="nofollow"></a>Installation and Usage</h2>
 <p>Install with the usual Lektor toolchain. Within your project, run</p>
 <pre lang="console"><span class="go">lektor plugins add lektor-s3</span>
 </pre>
@@ -163,13 +163,13 @@ you'd make that last line</p>
 </pre>
 <p>Now, if you call <code>lektor deploy s3</code>, Lektor will upload your built
 website to S3 in the bucket you targeted.</p>
-<h2>CloudFront</h2>
+<h2><a href="#user-content-cloudfront" id="user-content-cloudfront" rel="nofollow"></a>CloudFront</h2>
 <p>Optionally, you can also provide a <a href="https://aws.amazon.com/cloudfront/" rel="nofollow">CloudFront</a>
 distribution ID. If you do, Lektor will invalidate all objects in that CloudFront
 distribution after every deploy.</p>
 <pre lang="ini"><span class="na">cloudfront</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;YOUR-DISTRIBUTION-ID&gt;</span>
 </pre>
-<h2>Credentials</h2>
+<h2><a href="#user-content-credentials" id="user-content-credentials" rel="nofollow"></a>Credentials</h2>
 <p>You need to prove to S3 that you have permission to upload to the
 bucket you've chosen.</p>
 <p>lektor-s3 uses boto, which means it will obey
@@ -192,7 +192,7 @@ environment variable. Your <code>~/.aws/credenials</code> file might look like t
 <p>And then you can invoke <code>lektor</code> with the environment variable:</p>
 <pre lang="console"><span class="gp">$ </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>personal<span class="w"> </span>lektor<span class="w"> </span>deploy<span class="sb">`</span>
 </pre>
-<h2>Configuration</h2>
+<h2><a href="#user-content-configuration" id="user-content-configuration" rel="nofollow"></a>Configuration</h2>
 <p>You can specify headers to be attached to particular files when uploading them
 to S3. These can be configured in an INI file at <code>configs/s3.ini</code> under your
 project root.</p>
@@ -227,7 +227,7 @@ their values. A list of valid headers is defined in the boto documentation as
 <span class="na">extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">html,txt</span>
 <span class="na">ContentLanguage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">en</span>
 </pre>
-<h2>Contributing</h2>
+<h2><a href="#user-content-contributing" id="user-content-contributing" rel="nofollow"></a>Contributing</h2>
 <p>Pull requests are super useful and encouraged! Once accepted, changes
 are published using lektor with <code>lektor dev publish-plugin</code>.</p>
 <p>Run your tests by invoking <code>python setup.py test</code>.</p>

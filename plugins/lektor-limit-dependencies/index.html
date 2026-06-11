@@ -118,7 +118,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor Limit Dependencies</h1>
+          <h1><a href="#user-content-lektor-limit-dependencies" id="user-content-lektor-limit-dependencies" rel="nofollow"></a>Lektor Limit Dependencies</h1>
 <p><a href="https://pypi.org/project/lektor-limit-dependencies/" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-limit-dependencies.svg" alt="PyPI version"></a>
 <a href="https://pypi.python.org/pypi/lektor-limit-dependencies/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-limit-dependencies.svg" alt="PyPI Supported Python Versions"></a>
 <a href="https://github.com/dairiki/lektor-limit-dependencies/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-limit-dependencies" alt="GitHub license"></a>
@@ -126,8 +126,8 @@
 <p>This is an experimental <a href="https://www.getlektor.com/" rel="nofollow">Lektor</a> plugin which aims to provide tools (or,
 at least, a tool) to help keep Lektor’s dependency tracking under
 control.</p>
-<h2>Introduction</h2>
-<h3>Motivating Example</h3>
+<h2><a href="#user-content-introduction" id="user-content-introduction" rel="nofollow"></a>Introduction</h2>
+<h3><a href="#user-content-motivating-example" id="user-content-motivating-example" rel="nofollow"></a>Motivating Example</h3>
 <p>Suppose that you would like to list the three most recent blog posts
 in the sidebar of your Lektor-based site.  This can be done by adding
 something like to your site base template:</p>
@@ -153,7 +153,7 @@ Unfortunately, Lektor’s dependency tracking system is not elaborate
 enough to be able to express details about <em>how</em> pages are
 dependent on other pages; it only records that they <em>are</em>
 dependent, so Lektor has no option but to rebuild everything.</p>
-<h3>A Solution?</h3>
+<h3><a href="#user-content-a-solution" id="user-content-a-solution" rel="nofollow"></a>A Solution?</h3>
 <p>This plugin introduces a Jinja filter, <code>limit_dependencies</code>.  It
 expects, as input, a Lektor <a href="https://www.getlektor.com/docs/api/db/query/" title="Lektor documentation on the Query class" rel="nofollow">query</a> instance.  It iterates through the
 input query, and returns a new query instance which will yield the
@@ -185,24 +185,24 @@ most-recent posts.)</p>
 <p>will work in a much more efficient and sane manner.  Pages will be
 rebuilt only if there are changes in the order, composition or content
 of the three most recent posts.</p>
-<h2>Installation</h2>
+<h2><a href="#user-content-installation" id="user-content-installation" rel="nofollow"></a>Installation</h2>
 <p>Add lektor-limit-dependencies to your project from command line:</p>
 <pre><code>lektor plugins add lektor-limit-dependencies
 </code></pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor plugin documentation</a> for more information.</p>
-<h2>Author</h2>
+<h2><a href="#user-content-author" id="user-content-author" rel="nofollow"></a>Author</h2>
 <p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org" rel="nofollow">dairiki@dairiki.org</a></p>
-<h2>Changelog</h2>
-<h3>Release 1.0.0 (2023-01-31)</h3>
+<h2><a href="#user-content-changelog" id="user-content-changelog" rel="nofollow"></a>Changelog</h2>
+<h3><a href="#user-content-release-100-2023-01-31" id="user-content-release-100-2023-01-31" rel="nofollow"></a>Release 1.0.0 (2023-01-31)</h3>
 <p>No code changes from 1.0.0b1.</p>
 <p>Test under python 3.11.</p>
-<h3>Release 1.0.0b1 (2021-03-29)</h3>
+<h3><a href="#user-content-release-100b1-2021-03-29" id="user-content-release-100b1-2021-03-29" rel="nofollow"></a>Release 1.0.0b1 (2021-03-29)</h3>
 <p>Drop support for python&lt;3.7 and lektor&lt;3.3.</p>
-<h3>Release 0.1 (2021-02-05)</h3>
+<h3><a href="#user-content-release-01-2021-02-05" id="user-content-release-01-2021-02-05" rel="nofollow"></a>Release 0.1 (2021-02-05)</h3>
 <p>No code changes.</p>
 <p>Update development status classifier to "stable".</p>
 <p>Test under python 3.9.  Stop testing under 3.5.</p>
-<h3>Release 0.1a1 (2020-05-19)</h3>
+<h3><a href="#user-content-release-01a1-2020-05-19" id="user-content-release-01a1-2020-05-19" rel="nofollow"></a>Release 0.1a1 (2020-05-19)</h3>
 <p>Initial release.</p>
  
         

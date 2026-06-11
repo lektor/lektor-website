@@ -130,18 +130,18 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor Atom Plugin</h1>
+          <h1><a href="#user-content-lektor-atom-plugin" id="user-content-lektor-atom-plugin" rel="nofollow"></a>Lektor Atom Plugin</h1>
 <p><img src="https://github.com/lektor/lektor-atom/workflows/Linux%20tests/badge.svg" alt="Linux tests">
 <a href="https://github.com/psf/black" rel="nofollow"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style: Black"></a>
 <a href="https://gitter.im/lektor/lektor?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" rel="nofollow"><img src="https://badges.gitter.im/lektor/lektor.svg" alt="Join the chat at https://gitter.im/lektor/lektor"></a></p>
 <p>Builds one or more Atom XML feeds for your <a href="https://www.getlektor.com/" rel="nofollow">Lektor</a>-based site.</p>
 <p>Inspired by the <a href="https://github.com/lektor/lektor-website/tree/master/packages/atom-feed-support" rel="nofollow">atom-feed-support</a> plugin Armin Ronacher wrote for the Lektor official blog.</p>
-<h2>Installation</h2>
+<h2><a href="#user-content-installation" id="user-content-installation" rel="nofollow"></a>Installation</h2>
 <p>Add lektor-atom to your project from command line:</p>
 <pre lang="sh">lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-atom
 </pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor documentation for more instructions on installing plugins</a>.</p>
-<h2>Configuration</h2>
+<h2><a href="#user-content-configuration" id="user-content-configuration" rel="nofollow"></a>Configuration</h2>
 <p>Here is a basic configuration:</p>
 <pre lang="ini"><span class="k">[feed]</span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">My Site's Blog</span>
@@ -164,7 +164,7 @@
 <span class="na">item_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">blog-post</span>
 </pre>
 <p>The section names, like <code>blog</code> and <code>coffee</code>, are just used as internal identifiers.</p>
-<h3>Options</h3>
+<h3><a href="#user-content-options" id="user-content-options" rel="nofollow"></a>Options</h3>
 <table>
 <thead>
 <tr>
@@ -241,7 +241,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Customizing the plugin for your models</h3>
+<h3><a href="#user-content-customizing-the-plugin-for-your-models" id="user-content-customizing-the-plugin-for-your-models" rel="nofollow"></a>Customizing the plugin for your models</h3>
 <p>Use the field options to tell lektor-atom how to read your items. For example, if your site's model is:</p>
 <pre lang="ini"><span class="k">[model]</span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Blog</span>
@@ -258,10 +258,10 @@
 <span class="na">blog_summary_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">short_description</span>
 </pre>
 <p>See <a href="https://github.com/ajdavis/lektor-atom/blob/master/tests/demo-project/configs/atom.ini" rel="nofollow">tests/demo-project/configs/atom.ini</a> for a complete example.</p>
-<h3>Filtering items</h3>
+<h3><a href="#user-content-filtering-items" id="user-content-filtering-items" rel="nofollow"></a>Filtering items</h3>
 <p>By default, lektor-atom gets the source at <code>source_path</code> and includes all its children in the feed. If you set <code>item_model</code>, lektor-atom includes only the children with that data model.</p>
 <p>Set <code>items</code> to any query expression to override the default. If <code>items_model</code> is <em>also</em> specified, lektor-atom applies it as a filter to <code>items</code>.</p>
-<h2>Use In Templates</h2>
+<h2><a href="#user-content-use-in-templates" id="user-content-use-in-templates" rel="nofollow"></a>Use In Templates</h2>
 <p>You can link to a specific feed in your template. If your <code>atom.ini</code> contains a feed like this:</p>
 <pre lang="ini"><span class="k">[main]</span>
 <span class="na">source_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/blog</span>

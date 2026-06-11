@@ -127,26 +127,26 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-qiniu  Lektor CMS 七牛云插件</h1>
+          <h1><a href="#user-content-lektor-qiniu--lektor-cms-七牛云插件" id="user-content-lektor-qiniu--lektor-cms-七牛云插件" rel="nofollow"></a>lektor-qiniu  Lektor CMS 七牛云插件</h1>
 <p>lektor-qiniu is a plugin to deploy your lektor site to a qiniu cloud bucket.</p>
 <p><a href="https://github.com/Arstman/lektor-qiniu/blob/master/README-CN.md" rel="nofollow">简体中文说明</a></p>
-<h2>Main Features</h2>
+<h2><a href="#user-content-main-features" id="user-content-main-features" rel="nofollow"></a>Main Features</h2>
 <ol>
 <li>deploy your site to your qiniu bucket</li>
 <li>deploy your site to a folder in a qiniu bucket</li>
 <li>exclude files and directories from deployment.</li>
 <li>refresh your qiniu cdn.</li>
 </ol>
-<h2>Before Installation</h2>
+<h2><a href="#user-content-before-installation" id="user-content-before-installation" rel="nofollow"></a>Before Installation</h2>
 <p>You may need a bucket from qiniu cloud to deploy your lektor project. Qiniu Cloud provides 10GB storage and cdn for free, that should be enough for most small projects.</p>
 <p>Go to <a href="https://portal.qiniu.com/signup?code=1hltq2pevt7bm" rel="nofollow"><code>QINIU Cloud</code></a> for more details.</p>
 <p><strong>This plugin does not do anything to help you create or configure qiniu account or bucket.</strong>  You will have to make it done by yourself.</p>
-<h2>Installation</h2>
+<h2><a href="#user-content-installation" id="user-content-installation" rel="nofollow"></a>Installation</h2>
 <p>There ways to install plugin in Lektor, the easy ways is run below command in your project.</p>
 <pre lang="console"><span class="go">lektor plugins add lektor-qiniu</span>
 </pre>
 <p>Press Enter and lektor will automatically download and install this plugin for you.</p>
-<h2>Usage</h2>
+<h2><a href="#user-content-usage" id="user-content-usage" rel="nofollow"></a>Usage</h2>
 <p>After Installation, open your lektorproject file, first it should have a section like this:</p>
 <pre lang="ini"><span class="k">[packages]</span>
 <span class="na">lektor-qiniu</span><span class="o">=</span><span class="w"> </span><span class="s">0.1.3</span>
@@ -171,11 +171,11 @@
 </pre>
 <p>after this you should see a server shows when you push the deploy button in your Lektor Admin Dashboard.</p>
 <p>but still you will need just 5 minutes to configure this plugin to make it works.</p>
-<h2>Configuration</h2>
+<h2><a href="#user-content-configuration" id="user-content-configuration" rel="nofollow"></a>Configuration</h2>
 <p>After setup your target server, you need to configure the plugin to make it works.</p>
 <p>Go to your project's configs folder, which should be in root directory of your project. this folder is where Lektor keep the configuration files of all plugins. If you can't find any <strong>configs</strong> folder in your project's root directory, you need create it.</p>
 <p>In configs folder, create a configuration file exactly named <strong>qiniu.ini</strong>.</p>
-<h4>Attention: DO NOT name the configuration file with other names, otherwise this plugin will not work properly.</h4>
+<h4><a href="#user-content-attention-do-not-name-the-configuration-file-with-other-names-otherwise-this-plugin-will-not-work-properly" id="user-content-attention-do-not-name-the-configuration-file-with-other-names-otherwise-this-plugin-will-not-work-properly" rel="nofollow"></a>Attention: DO NOT name the configuration file with other names, otherwise this plugin will not work properly.</h4>
 <p>In this configuration file, you will need add few more sections, you can copy a sample configuration ini file from the sample_config folder, it looks like this:</p>
 <pre lang="ini"><span class="k">[auth]</span>
 <span class="na">Access_Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">replace_with_your_own_AK</span>
@@ -189,12 +189,12 @@
 <span class="na">dirs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.lektor</span>
 <span class="na">files</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
 </pre>
-<h4>Credentials</h4>
+<h4><a href="#user-content-credentials" id="user-content-credentials" rel="nofollow"></a>Credentials</h4>
 <p>You need to get your own Access Key and Secret Key from Qiniu Admin Dashboard, and put them in the <strong>auth</strong>  section.</p>
-<h4>Refresh cdn cache</h4>
+<h4><a href="#user-content-refresh-cdn-cache" id="user-content-refresh-cdn-cache" rel="nofollow"></a>Refresh cdn cache</h4>
 <p>mostly, Qiniu provides a free(with limitations) cdn for your bucket site, after you update your bucket file, the cdn wouldn't update automatically, therefore you will need to refresh your bucket site's directory (via your site's root url), for more details you can check Qiniu's documentation.</p>
 <p>fortunately, you don't need to do refresh manually, you can just set the <strong>refresh_enable</strong> to <strong>yes</strong> in your <strong>cdn</strong> section, and change the refresh_url to your site's root url. this plugin will automatically refresh your cdn site after all files are uploaded.</p>
-<h4>exclusions</h4>
+<h4><a href="#user-content-exclusions" id="user-content-exclusions" rel="nofollow"></a>exclusions</h4>
 <p>Another function this plugin provides is exclude folders or files you want to upload during deployment.</p>
 <p>To exclude files or folders, just put the name of the folders or files in the <strong>exclusions</strong> section of configuration file, separated each one with commas.</p>
 <pre lang="ini"><span class="k">[exclusions]</span>
@@ -202,7 +202,7 @@
 <span class="na">files</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">file1, file2,file3</span>
 </pre>
 <p>One special folder here is <strong>.lektor</strong>, which Lektor officially suggests that this folder should be exclude during deployment, therefore you should keep at least this one, unless you have other needs for this folder.</p>
-<h3>About Lektor CMS</h3>
+<h3><a href="#user-content-about-lektor-cms" id="user-content-about-lektor-cms" rel="nofollow"></a>About Lektor CMS</h3>
 <p>Lektor CMS is one of my favorite static website generators, I have use this in production for several projects, you can see some of my sites as below:</p>
 <p><a href="https://www.xinfengtv.com" rel="nofollow"><code>新风网</code></a>
 <a href="https://www.intersonicgroup.com" rel="nofollow"><code>Intersonic Group</code></a>

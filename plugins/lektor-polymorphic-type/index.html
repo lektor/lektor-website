@@ -124,7 +124,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor Polymorphic Type</h1>
+          <h1><a href="#user-content-lektor-polymorphic-type" id="user-content-lektor-polymorphic-type" rel="nofollow"></a>Lektor Polymorphic Type</h1>
 <p><a href="https://pypi.org/project/lektor-polymorphic-type/" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-polymorphic-type.svg" alt="PyPI version"></a>
 <a href="https://pypi.python.org/pypi/lektor-polymorphic-type/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-polymorphic-type.svg" alt="PyPI Supported Python Versions"></a>
 <a href="https://github.com/dairiki/lektor-polymorphic-type/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-polymorphic-type" alt="GitHub license"></a>
@@ -135,20 +135,20 @@ is deferred until evaluation time.</p>
 <p>A motivating use case is to support having a “body” field whose
 formatting can be switched between, e.g., <code>markdown</code>, and <code>html</code> (or
 some other formatted type, such as <a href="https://pypi.org/project/lektor-rst/" title="The lektor-rst plugin" rel="nofollow">reStructuredText</a>.)</p>
-<h2>Installation</h2>
+<h2><a href="#user-content-installation" id="user-content-installation" rel="nofollow"></a>Installation</h2>
 <p>Add lektor-polymorphic-type to your project from command line:</p>
 <pre><code>lektor plugins add lektor-polymorphic-type
 </code></pre>
 <p>See <a href="https://www.getlektor.com/docs/plugins/" rel="nofollow">the Lektor plugin documentation</a> for more information.</p>
-<h2>How It Works</h2>
+<h2><a href="#user-content-how-it-works" id="user-content-how-it-works" rel="nofollow"></a>How It Works</h2>
 <p>If the field has a <code>polymorphic_type</code> option set, that value is evaluated
 and the result is interpreted as the name of the final type for the
 field.</p>
 <p>If no <code>polymorphic_type</code> option is set for the field, then we look for a
 field on the current record whose name is name of the current field
 with “<code>_type</code>” appended.</p>
-<h2>Examples</h2>
-<h3>Simple Example</h3>
+<h2><a href="#user-content-examples" id="user-content-examples" rel="nofollow"></a>Examples</h2>
+<h3><a href="#user-content-simple-example" id="user-content-simple-example" rel="nofollow"></a>Simple Example</h3>
 <p>Here is an example model file for a simple page, with a selectable body format:</p>
 <pre lang="ini"><span class="c1"># page.ini</span>
 
@@ -173,7 +173,7 @@ with “<code>_type</code>” appended.</p>
 <p>Here, the value of the <code>body_type</code> field on a particular page will
 determine whether the <code>body</code> field is interpreted as being <code>markdown</code>,
 <code>html</code> or <code>text</code>.</p>
-<h3>Contrived Example</h3>
+<h3><a href="#user-content-contrived-example" id="user-content-contrived-example" rel="nofollow"></a>Contrived Example</h3>
 <p>Here is a contrived example showing the use of the <code>polymorphic_type</code> option:</p>
 <pre lang="ini"><span class="c1"># page.ini</span>
 
@@ -193,14 +193,14 @@ determine whether the <code>body</code> field is interpreted as being <code>mark
 <p>In this case, the <code>body</code> field will be interpreted as raw HTML if the
 content of that field starts with a “<code>&lt;</code>”, otherwise it will be
 interpreted as <em>Markdown</em> text.</p>
-<h2>Author</h2>
+<h2><a href="#user-content-author" id="user-content-author" rel="nofollow"></a>Author</h2>
 <p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org" rel="nofollow">dairiki@dairiki.org</a></p>
-<h2>Changelog</h2>
-<h3>0.1 — 2021-02-05</h3>
+<h2><a href="#user-content-changelog" id="user-content-changelog" rel="nofollow"></a>Changelog</h2>
+<h3><a href="#user-content-01--2021-02-05" id="user-content-01--2021-02-05" rel="nofollow"></a>0.1 — 2021-02-05</h3>
 <p>No code changes.</p>
 <p>Update development status classifier to "stable".</p>
 <p>Test under python 3.9.  Stop testing under 3.5.</p>
-<h3>0.1b1 — 2020-05-04</h3>
+<h3><a href="#user-content-01b1--2020-05-04" id="user-content-01b1--2020-05-04" rel="nofollow"></a>0.1b1 — 2020-05-04</h3>
 <p>Initial release.</p>
  
         
