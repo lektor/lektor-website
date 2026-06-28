@@ -6,10 +6,10 @@
   "main": "static/gen/host.js",
   "scripts": {},
   "devDependencies": {
-    "@babel/core": "^7.16.0",
+    "@babel/core": "^8.0.1",
     "@babel/eslint-parser": "^7.16.3",
-    "@babel/preset-env": "^7.16.11",
-    "babel-loader": "^10.0.0",
+    "@babel/preset-env": "^8.0.2",
+    "babel-loader": "^10.1.1",
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
     "css-loader": "^7.1.2",
