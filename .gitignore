@@ -8,5 +8,6 @@ assets/static/*
 packages/*/build
 packages/*/dist
 webpack/node_modules
+_html/
 *~
 *#
