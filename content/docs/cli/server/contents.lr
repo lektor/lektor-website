@@ -25,6 +25,10 @@ HTTP server.
 - `-p, --port INTEGER`: The port to bind to.
 - `-O, --output-path PATH`: The dev server will build into the same folder
   as the build command by default.
+- `-O, --output-path PATH`: The output path.
+   Note that, by default, the dev server will build into the same folder as the build command.
+   This overrides any `output_path` setting in the [project file :ref](http://localhost:5000/docs/project/file/#project).
+   A relative path is interpreted relative to the *current working directory*.
 - `-v, --verbose`: Increases the verbosity of the logging.
 - `-f, --build-flag TEXT`: Defines an arbitrary build flag.  These can be
   used by plugins to customize the build process.  More information can be

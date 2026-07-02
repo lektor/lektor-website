@@ -18,6 +18,8 @@ in the Lektor cache is used.
 ## Options
 
 - `-O, --output-path PATH`: The output path.
+   This overrides any `output_path` setting in the [project file :ref](http://localhost:5000/docs/project/file/#project).
+   A relative path is interpreted relative to the *current working directory*.
 - `-v, --verbose`: Increases the verbosity of the logging.
 - `--yes`: Confirms the cleaning.
 - `--help`: print this help page.
