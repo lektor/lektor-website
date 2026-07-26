@@ -127,9 +127,9 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-citation</h1>
+          <h1><a href="#user-content-lektor-citation" id="user-content-lektor-citation" rel="nofollow"></a>lektor-citation</h1>
 <p>An APA-styled citation plugin for the lektor static content management system (<a href="https://getlektor.com" rel="nofollow">https://getlektor.com</a>).</p>
-<h2>Preparations</h2>
+<h2><a href="#user-content-preparations" id="user-content-preparations" rel="nofollow"></a>Preparations</h2>
 <p>Install the plugin by</p>
 <pre><code>lektor plugin add lektor-citation
 </code></pre>
@@ -143,8 +143,8 @@ priority = url
 link = /for-example/link-to-your/biblioprahy
 </code></pre>
 <p>And put a <em>Literature.bib</em> BibTex-file into the project's <em>assets</em>-folder respectively.</p>
-<h2>Jinja_env</h2>
-<h3>Bibliography</h3>
+<h2><a href="#user-content-jinja_env" id="user-content-jinja_env" rel="nofollow"></a>Jinja_env</h2>
+<h3><a href="#user-content-bibliography" id="user-content-bibliography" rel="nofollow"></a>Bibliography</h3>
 <p>To get a formated output of your whole BibTex library you can either</p>
 <ol>
 <li>Use method citation_short_output in the template of your literature page. It creates an unordered list of entries.</li>
@@ -204,7 +204,7 @@ citation_issbn(entry)
 citation_pages(entry)
 citation_note(entry)
 </code></pre>
-<h3>In-text Cites</h3>
+<h3><a href="#user-content-in-text-cites" id="user-content-in-text-cites" rel="nofollow"></a>In-text Cites</h3>
 <p>To cite a certain entry in your texts you can use the <strong>jinja_env globals</strong>:</p>
 <pre><code>citation_full_cite(id, link="")
 citation_full_citeNP(id, link="")
@@ -215,7 +215,7 @@ citation_full_citeNP(id, link="")
 <p>or</p>
 <pre><code>(AuthorI &amp; AuthorII, 2019)
 </code></pre>
-<h4>link parameter</h4>
+<h4><a href="#user-content-link-parameter" id="user-content-link-parameter" rel="nofollow"></a>link parameter</h4>
 <p>Which url is used for your citation's link depends on what you set in the <em>citation.ini</em> file.</p>
 <ul>
 <li>If you set <em>priority</em> in the <em>default</em> section to <strong>url</strong> the link is set to the value of the <em>url</em> field of the entry.</li>

@@ -118,7 +118,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor-Git-Timestamp</h1>
+          <h1><a href="#user-content-lektor-git-timestamp" id="user-content-lektor-git-timestamp" rel="nofollow"></a>Lektor-Git-Timestamp</h1>
 <p><a href="https://pypi.org/project/lektor-git-timestamp/" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-git-timestamp.svg" alt="PyPI version"></a>
 <a href="https://pypi.python.org/pypi/lektor-git-timestamp/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-git-timestamp.svg" alt="PyPI Supported Python Versions"></a>
 <a href="https://github.com/dairiki/lektor-git-timestamp/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-git-timestamp" alt="GitHub license"></a>
@@ -128,7 +128,7 @@
 <code>gittimestamp</code>, which gets it's default value from git timestamps.
 This can be used to implement auto-updating <code>pub_date</code> and <code>last_mod</code>
 fields in Lektor datamodels.</p>
-<h2>Description</h2>
+<h2><a href="#user-content-description" id="user-content-description" rel="nofollow"></a>Description</h2>
 <p>The <code>gittimestamp</code> type behaves just like the built-in <code>datetime</code>
 type, except that if the field is left blank in <code>contents.lr</code> a
 default value will be deduced from git timestamps for the file (or
@@ -142,19 +142,19 @@ list of timestamps.  That list of timestamps is filtered based on the
 <code>ignore_commits</code> and <code>skip_first_commit</code> options (see below); then,
 finally, a timestamp is selected from those that remain based on the
 setting of the <code>strategy</code> option.</p>
-<h3>Field Options</h3>
+<h3><a href="#user-content-field-options" id="user-content-field-options" rel="nofollow"></a>Field Options</h3>
 <p>The <code>gittimestamp</code> type supports the following options.</p>
-<h4><code>ignore_commits</code></h4>
+<h4><a href="#user-content-ignore_commits" id="user-content-ignore_commits" rel="nofollow"></a><code>ignore_commits</code></h4>
 <p>This can be set to a string, which is interpreted as a regular
 expression.  Any git commits whose commit message matches this pattern
 are ignored when computing a default timestamp value for the field.
 (The matching is performed using <code>re.search</code>.)</p>
-<h4><code>skip_first_commit</code></h4>
+<h4><a href="#user-content-skip_first_commit" id="user-content-skip_first_commit" rel="nofollow"></a><code>skip_first_commit</code></h4>
 <p>If this boolean option is set, the first commit in the git log for the
 source file will be ignored.  This is useful for implementing a
 <code>last_mod</code> field which has a defined value only if the source file has
 actually been modified since the initial commit.</p>
-<h4><code>strategy</code></h4>
+<h4><a href="#user-content-strategy" id="user-content-strategy" rel="nofollow"></a><code>strategy</code></h4>
 <p>This option determines which timestamp is selected from the git log
 (and/or the file mtime).  This can be set to one of four values:</p>
 <ul>
@@ -180,13 +180,13 @@ result at <code>first</code>, but if the timestamps in the git log are not monot
 this will select the minimum of all the timestamps remaining after any filtering.</p>
 </li>
 </ul>
-<h3>Global Configuration</h3>
+<h3><a href="#user-content-global-configuration" id="user-content-global-configuration" rel="nofollow"></a>Global Configuration</h3>
 <p>The following global configuration options are supported.
 These values are specified by way of the plugins' <a href="https://www.getlektor.com/docs/plugins/howto/#configure-plugins" rel="nofollow">configuration file</a>:
 <code>configs/git-timestamp.ini</code> under the project site directory.</p>
 <p>By default, the <a href="https://git-scm.com/docs/git-log#Documentation/git-log.txt---follow" rel="nofollow"><code>--follow</code></a> option is passed to <code>git log</code> when
 computing timestamps.  This behavior may be adjusted on a global basis by way of the plugins' <a href="https://www.getlektor.com/docs/plugins/howto/#configure-plugins" rel="nofollow">configuration file</a> (<code>configs/git-timestamp.ini</code> under the project site directory) via the following settings:</p>
-<h4><code>follow_renames</code></h4>
+<h4><a href="#user-content-follow_renames" id="user-content-follow_renames" rel="nofollow"></a><code>follow_renames</code></h4>
 <p>This is a boolean setting that specifies whether the
 <a href="https://git-scm.com/docs/git-log#Documentation/git-log.txt---follow" rel="nofollow"><code>--follow</code></a> option should be passed to <code>git log</code> when
 querying git for timestamps.  This options causes <code>git</code> to attempt to
@@ -202,13 +202,13 @@ Alternatives</a> are enabled.</p>
 <p><strong>Note</strong> Since we currently run <code>git log</code> on a per-record basis, when <code>--follow</code>
 is specified, <em>copied</em> files may be detected as “renamed”. This may not be ideal.</p>
 </blockquote>
-<h4><code>follow_rename_threshold</code></h4>
+<h4><a href="#user-content-follow_rename_threshold" id="user-content-follow_rename_threshold" rel="nofollow"></a><code>follow_rename_threshold</code></h4>
 <p>Set the <em>similarity index threshold</em> (passed to <code>git log</code> via its
 <a href="https://git-scm.com/docs/git-log#Documentation/git-log.txt--Mltngt" rel="nofollow"><code>-M</code> option</a>) used when detecting renames. This should be
 specified as a (floating point) number between 0 and 100,
 inclusive. Setting <code>follow_rename_threshold = 100</code> will limit
 detection to exact renames only. The default value is 50.</p>
-<h2>Examples</h2>
+<h2><a href="#user-content-examples" id="user-content-examples" rel="nofollow"></a>Examples</h2>
 <p>Here is a simple example excerpt from a datamodel file:</p>
 <pre lang="ini"><span class="na">&lt;...&gt;</span>
 
@@ -246,7 +246,7 @@ most recent commit for the file, except that:</p>
 </ul>
 <p>If there has only been one commit of the source file, <code>last_mod</code> will not have
 a default value.  (It will evaluate to a jinja2 Undefined instance.)</p>
-<h2>Warning: On sorting by <code>gittimestamp</code> in <code>Lektor &lt; 3.3</code></h2>
+<h2><a href="#user-content-warning-on-sorting-by-gittimestamp-in-lektor--33" id="user-content-warning-on-sorting-by-gittimestamp-in-lektor--33" rel="nofollow"></a>Warning: On sorting by <code>gittimestamp</code> in <code>Lektor &lt; 3.3</code></h2>
 <p>A common use case for timestamps is for sorting records.
 E.g. in a blog one generally wants to display posts in reverse
 chronological order by post date.  This generally won't work using
@@ -260,57 +260,57 @@ field value until after the record for the page is available.) In
 <a href="https://github.com/lektor/lektor/pull/789" rel="nofollow">#789</a> which was merged to
 the master branch on February 6, 2021, but didn't make it into a release
 until Lektor 3.3, released on December 13 2021.</p>
-<h2>Author</h2>
+<h2><a href="#user-content-author" id="user-content-author" rel="nofollow"></a>Author</h2>
 <p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org" rel="nofollow">dairiki@dairiki.org</a></p>
-<h2>Changelog</h2>
-<h3>Release 1.0.0 (2024-02-06)</h3>
+<h2><a href="#user-content-changelog" id="user-content-changelog" rel="nofollow"></a>Changelog</h2>
+<h3><a href="#user-content-release-100-2024-02-06" id="user-content-release-100-2024-02-06" rel="nofollow"></a>Release 1.0.0 (2024-02-06)</h3>
 <p>No code changes from 1.0.0b3</p>
-<h3>Release 1.0.0b3 (2024-01-23)</h3>
-<h4>Breaking Changes</h4>
+<h3><a href="#user-content-release-100b3-2024-01-23" id="user-content-release-100b3-2024-01-23" rel="nofollow"></a>Release 1.0.0b3 (2024-01-23)</h3>
+<h4><a href="#user-content-breaking-changes" id="user-content-breaking-changes" rel="nofollow"></a>Breaking Changes</h4>
 <ul>
 <li>Drop support for python 3.8.</li>
 <li>The default value for the <code>follow_renames</code> global config setting has
 changed from <em>true</em> to <em>false</em>.</li>
 </ul>
-<h4>Bugs Fixed</h4>
+<h4><a href="#user-content-bugs-fixed" id="user-content-bugs-fixed" rel="nofollow"></a>Bugs Fixed</h4>
 <ul>
 <li>Fix to work when <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">alternatives</a> are enabled. Note that in this case
 the <code>follow_renames</code> global option is not supported.</li>
 </ul>
-<h4>Testing</h4>
+<h4><a href="#user-content-testing" id="user-content-testing" rel="nofollow"></a>Testing</h4>
 <ul>
 <li>Test under python 3.12.</li>
 </ul>
-<h4>Code Style</h4>
+<h4><a href="#user-content-code-style" id="user-content-code-style" rel="nofollow"></a>Code Style</h4>
 <ul>
 <li>Style: Use <a href="https://docs.astral.sh/ruff/" rel="nofollow">ruff</a> for style linting and formatting. This replaces
 our usage of <code>black</code>, <code>reorder-python-imports</code>, and <code>flake8</code>.</li>
 </ul>
-<h3>Release 1.0.0b2 (2023-06-15)</h3>
+<h3><a href="#user-content-release-100b2-2023-06-15" id="user-content-release-100b2-2023-06-15" rel="nofollow"></a>Release 1.0.0b2 (2023-06-15)</h3>
 <ul>
 <li>Added type annotations.</li>
 <li>Convert packaging to PDM.</li>
 </ul>
-<h4>Code Style</h4>
+<h4><a href="#user-content-code-style-1" id="user-content-code-style-1" rel="nofollow"></a>Code Style</h4>
 <ul>
 <li>Style: Run <a href="https://github.com/psf/black" rel="nofollow">black</a> and <a href="https://github.com/asottile/reorder-python-imports" rel="nofollow">reorder-python-imports</a> on code. Configure
 <a href="https://pre-commit.com/" rel="nofollow">pre-commit</a> to keep all up-to-date.</li>
 </ul>
-<h4>Tests</h4>
+<h4><a href="#user-content-tests" id="user-content-tests" rel="nofollow"></a>Tests</h4>
 <ul>
 <li>Disuse the deprecated module <code>pkg_resources</code>.</li>
 </ul>
-<h4>Buglets</h4>
+<h4><a href="#user-content-buglets" id="user-content-buglets" rel="nofollow"></a>Buglets</h4>
 <ul>
 <li>Do not strip trailing whitespace from <code>git log</code> output. (This was
 erroneously removing trailing newlines from the final commit
 message.)</li>
 </ul>
-<h3>Release 1.0.0b1 (2023-04-11)</h3>
+<h3><a href="#user-content-release-100b1-2023-04-11" id="user-content-release-100b1-2023-04-11" rel="nofollow"></a>Release 1.0.0b1 (2023-04-11)</h3>
 <ul>
 <li>Drop support for python 2.7 and 3.6. (<a href="https://github.com/dairiki/lektor-git-timestamp/pull/2" rel="nofollow">#2</a>)</li>
 </ul>
-<h4>Testing</h4>
+<h4><a href="#user-content-testing-1" id="user-content-testing-1" rel="nofollow"></a>Testing</h4>
 <ul>
 <li>
 <p>Test under python 3.10 and 3.11. (<a href="https://github.com/dairiki/lektor-git-timestamp/pull/2" rel="nofollow">#2</a>)</p>
@@ -320,19 +320,19 @@ message.)</li>
 descriptor-valued fields. (This requires <code>lektor&gt;=3.3</code>.)</p>
 </li>
 </ul>
-<h3>Release 0.1.0.post1 (2021-08-12)</h3>
+<h3><a href="#user-content-release-010post1-2021-08-12" id="user-content-release-010post1-2021-08-12" rel="nofollow"></a>Release 0.1.0.post1 (2021-08-12)</h3>
 <p>No code changes.</p>
 <p>Add warning to README about <code>lektor &gt; 3.2</code> (not yet released) being
 required in order to be able to sort records by <code>gittimestamp</code> fields.</p>
-<h3>Release 0.1 (2021-02-05)</h3>
+<h3><a href="#user-content-release-01-2021-02-05" id="user-content-release-01-2021-02-05" rel="nofollow"></a>Release 0.1 (2021-02-05)</h3>
 <p>No code changes.</p>
 <p>Update development status classifier to "stable".</p>
 <p>Add functional tests.</p>
-<h3>Release 0.1a2 (2021-02-03)</h3>
-<h4>Bugs Fixed</h4>
+<h3><a href="#user-content-release-01a2-2021-02-03" id="user-content-release-01a2-2021-02-03" rel="nofollow"></a>Release 0.1a2 (2021-02-03)</h3>
+<h4><a href="#user-content-bugs-fixed-1" id="user-content-bugs-fixed-1" rel="nofollow"></a>Bugs Fixed</h4>
 <p>Fixed attrocious typo which prevented the use of anything other than the
 default <code>strategy=last</code> for picking timestamps.</p>
-<h3>Release 0.1a1 (2020-06-16)</h3>
+<h3><a href="#user-content-release-01a1-2020-06-16" id="user-content-release-01a1-2020-06-16" rel="nofollow"></a>Release 0.1a1 (2020-06-16)</h3>
 <p>Initial release.</p>
  
         

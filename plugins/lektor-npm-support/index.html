@@ -151,18 +151,18 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-npm-support</h1>
+          <h1><a href="#user-content-lektor-npm-support" id="user-content-lektor-npm-support" rel="nofollow"></a>lektor-npm-support</h1>
 <p><a href="https://travis-ci.org/sterin/lektor-npm-support" rel="nofollow"><img src="https://travis-ci.org/sterin/lektor-npm-support.svg" alt="Build Status"></a>
 <a href="https://ci.appveyor.com/project/sterin/lektor-npm-support" rel="nofollow"><img src="https://ci.appveyor.com/api/projects/status/6op1csefpi9l8hbg?svg=true" alt="Build status"></a>
 <a href="https://codecov.io/gh/sterin/lektor-npm-support" rel="nofollow"><img src="https://codecov.io/gh/sterin/lektor-npm-support/branch/master/graph/badge.svg" alt="Code Coverage"></a></p>
 <p><code>lektor-npm-support</code> makes it easy to use <a href="https://parcel.js.org" rel="nofollow">Parcel</a>, <a href="https://webpack.js.org" rel="nofollow">webpack</a>, <a href="http://browserify.org/" rel="nofollow">browserify</a>, or any other tool to build assets for <a href="https://github.com/lektor/lektor" rel="nofollow">Lektor</a> projects.</p>
-<h2>Enabling the Plugin</h2>
+<h2><a href="#user-content-enabling-the-plugin" id="user-content-enabling-the-plugin" rel="nofollow"></a>Enabling the Plugin</h2>
 <p>To enable the plugin, run this command while inside your Lektor project directory:</p>
 <pre lang="bash">lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-npm-support
 </pre>
-<h2>Example: Creating a <a href="https://parceljs.org/" rel="nofollow">Parcel</a> Project</h2>
+<h2><a href="#user-content-example-creating-a-parcel-project" id="user-content-example-creating-a-parcel-project" rel="nofollow"></a>Example: Creating a <a href="https://parceljs.org/" rel="nofollow">Parcel</a> Project</h2>
 <p>Create a <code>parcel/</code> folder and inside that folder create the following files:</p>
-<h3><code>configs/npm-support.ini</code></h3>
+<h3><a href="#user-content-configsnpm-supportini" id="user-content-configsnpm-supportini" rel="nofollow"></a><code>configs/npm-support.ini</code></h3>
 <p>This file instructs the plugin how to generate the assets:</p>
 <pre lang="ini"><span class="k">[parcel]</span>
 <span class="na">npm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yarn</span>
@@ -176,7 +176,7 @@
 <li><code>build_script</code> is the npm script used in <code>lektor build -f npm</code>.</li>
 </ul>
 <p>This plugin supports more than one such entry.</p>
-<h3><code>parcel/package.json</code></h3>
+<h3><a href="#user-content-parcelpackagejson" id="user-content-parcelpackagejson" rel="nofollow"></a><code>parcel/package.json</code></h3>
 <p>This is a standard <code>package.json</code> file. It should contain two entries in the <code>scripts</code> section. The <code>build</code> script is used during <code>lektor build -f npm</code>, and the <code>watch</code> script is used during <code>lektor server -f npm</code>.</p>
 <pre lang="json"><span class="p">{</span>
 <span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-parcel-project"</span><span class="p">,</span>
@@ -192,23 +192,23 @@
 <pre><code>$ cd &lt;/path/to/your/lektor/project&gt;/parcel
 $ yarn add parcel-bundler babel-preset-env node-sass
 </code></pre>
-<h3><code>parcel/babelr.rc</code></h3>
+<h3><a href="#user-content-parcelbabelrrc" id="user-content-parcelbabelrrc" rel="nofollow"></a><code>parcel/babelr.rc</code></h3>
 <p>Next up is a simple Babel config file, using the recommended <code>env</code> preset.</p>
 <pre lang="json"><span class="p">{</span>
 <span class="w">  </span><span class="nt">"presets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"env"</span><span class="p">]</span>
 <span class="p">}</span>
 </pre>
-<h3><code>parcel/main.scss</code></h3>
+<h3><a href="#user-content-parcelmainscss" id="user-content-parcelmainscss" rel="nofollow"></a><code>parcel/main.scss</code></h3>
 <p>A simple SCSS file.</p>
 <pre lang="scss"><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">border</span><span class="nd">:</span><span class="w"> </span><span class="nt">10px</span><span class="w"> </span><span class="nt">solid</span><span class="w"> </span><span class="nt">red</span><span class="o">;</span>
 <span class="p">}</span>
 </pre>
-<h3><code>parcel/main.js</code></h3>
+<h3><a href="#user-content-parcelmainjs" id="user-content-parcelmainjs" rel="nofollow"></a><code>parcel/main.js</code></h3>
 <p>A simple Javascript file that imports the SCSS file so that Parcel will know to include it as well.</p>
 <pre lang="javascript"><span class="k">import</span><span class="w"> </span><span class="s1">'./main.scss'</span><span class="p">;</span>
 </pre>
-<h2>Running the Server</h2>
+<h2><a href="#user-content-running-the-server" id="user-content-running-the-server" rel="nofollow"></a>Running the Server</h2>
 <p>Now you're ready to go.  When you run <code>lektor server</code> nothing wil happen,
 instead you need to now run it as <code>lektor server -f npm</code> which
 will enable the Parcel build.  Parcel will automatically build your files
@@ -216,16 +216,16 @@ into <code>assets/static/gen</code> and this is where Lektor will then pick up t
 files.  This is done so that you can ship the generated assets
 to others that might not have these tools, which simplifies using a
 Lektor website that use this plugin.</p>
-<h2>Manual Builds</h2>
+<h2><a href="#user-content-manual-builds" id="user-content-manual-builds" rel="nofollow"></a>Manual Builds</h2>
 <p>To manually trigger a build that also invokes webpack you can use <code>lektor build -f npm</code>.</p>
-<h2>Including The Files</h2>
+<h2><a href="#user-content-including-the-files" id="user-content-including-the-files" rel="nofollow"></a>Including The Files</h2>
 <p>Now you need to include the files in your template.  This will do it:</p>
 <pre lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ '/static/gen/main.css'| asseturl }}"</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">text/javascript</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ '/static/gen/main.js'| asseturl }}"</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre>
-<h2>Complete Working Example</h2>
+<h2><a href="#user-content-complete-working-example" id="user-content-complete-working-example" rel="nofollow"></a>Complete Working Example</h2>
 <p>The <code>examples</code> folder of this repository contains working projects.</p>
-<h2>Credits</h2>
+<h2><a href="#user-content-credits" id="user-content-credits" rel="nofollow"></a>Credits</h2>
 <p>This plugin is based on the official <a href="https://github.com/lektor/lektor-webpack-support" rel="nofollow">lektor-webpack-support</a> Lektor plugin by <a href="http://lucumr.pocoo.org/about/" rel="nofollow">Armin Ronacher</a>.</p>
  
         

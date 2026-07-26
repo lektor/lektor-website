@@ -133,17 +133,17 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor-Google-Search</h1>
+          <h1><a href="#user-content-lektor-google-search" id="user-content-lektor-google-search" rel="nofollow"></a>Lektor-Google-Search</h1>
 <p>This plugin add support for <a href="https://search.google.com/search-console/about" rel="nofollow">Google Search</a> to <a href="https://www.getlektor.com/" rel="nofollow">Lektor CMS</a></p>
 <p>Once the plugin is enabled, a <code>render_google_search()</code> function is available to be included in a taget <code>template</code> which autoatically
 include Google-Search code in final HTML fles rendered by Lektor.</p>
-<h2>How to Use the plugin ?</h2>
-<h3>Enable the plugin</h3>
+<h2><a href="#user-content-how-to-use-the-plugin-" id="user-content-how-to-use-the-plugin-" rel="nofollow"></a>How to Use the plugin ?</h2>
+<h3><a href="#user-content-enable-the-plugin" id="user-content-enable-the-plugin" rel="nofollow"></a>Enable the plugin</h3>
 <p>To enable the plugin, add the following to your <code>.lektorproject</code> file:</p>
 <pre lang="ini"><span class="k">[packages]</span>
 <span class="na">lektor-google-search</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1</span>
 </pre>
-<h3>Configure the plugin</h3>
+<h3><a href="#user-content-configure-the-plugin" id="user-content-configure-the-plugin" rel="nofollow"></a>Configure the plugin</h3>
 <p>The plugin needs a config file with your <code>search Engine ID</code> code in it</p>
 <ul>
 <li>Create a file named <code>google-serch.ini</code> into <code>./configs</code> folder in your lektor project's base directory.</li>
@@ -151,7 +151,7 @@ include Google-Search code in final HTML fles rendered by Lektor.</p>
 </ul>
 <pre lang="ini"><span class="na">SEARCH_ENGINE_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">83892839209432084</span>
 </pre>
-<h3>Usage in template</h3>
+<h3><a href="#user-content-usage-in-template" id="user-content-usage-in-template" rel="nofollow"></a>Usage in template</h3>
 <p>Add Google Search code snippet by calling the function <code>render_google_search()</code> in the template of your preference where you want the search box to appear.</p>
 <pre lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ render_googe_search() }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre>

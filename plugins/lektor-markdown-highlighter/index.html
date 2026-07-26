@@ -136,14 +136,14 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-markdown-highlighter</h1>
+          <h1><a href="#user-content-lektor-markdown-highlighter" id="user-content-lektor-markdown-highlighter" rel="nofollow"></a>lektor-markdown-highlighter</h1>
 <p>This plugin adds support for syntax highlighting through Pygments to
 Lektor's markdown support.</p>
-<h2>Enabling the Plugin</h2>
+<h2><a href="#user-content-enabling-the-plugin" id="user-content-enabling-the-plugin" rel="nofollow"></a>Enabling the Plugin</h2>
 <p>To enable the plugin run this command:</p>
 <pre lang="shell">lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>markdown-highlighter
 </pre>
-<h2>Configuring the Plugin</h2>
+<h2><a href="#user-content-configuring-the-plugin" id="user-content-configuring-the-plugin" rel="nofollow"></a>Configuring the Plugin</h2>
 <p>The plugin has a config file that is used to configure a few things
 for Pygments.  Just create a file named <code>markdown-highlighter.ini</code> into your
 <code>configs/</code> folder.  Currently only <code>pygments.style</code> is used:</p>
@@ -153,14 +153,14 @@ for Pygments.  Just create a file named <code>markdown-highlighter.ini</code> in
 <p>You can use this to select any of the built-in Pygments styles.  Support for
 custom styles will come in the future.</p>
 <p>The config file is considered the "source" for the Pygments stylesheet, so you must create the configuration file (it can be empty) or Lektor's build will prune <code>pygments.css</code>.</p>
-<h2>In Markdown</h2>
+<h2><a href="#user-content-in-markdown" id="user-content-in-markdown" rel="nofollow"></a>In Markdown</h2>
 <p>To use the syntax highlighter you need to use fenced blocks and pass the name
 of the pygments lexer after the opening fence:</p>
 <pre><code>```python
 print("Hello World!")
 ```
 </code></pre>
-<h2>In Templates</h2>
+<h2><a href="#user-content-in-templates" id="user-content-in-templates" rel="nofollow"></a>In Templates</h2>
 <p>In templates the plugin provides the <code>get_pygments_stylesheet</code> function which
 can be used to generate and retrieve a link to the pygments stylesheet:</p>
 <pre lang="jinja"><span class="x">&lt;link rel="stylesheet" href="</span><span class="cp">{{</span> <span class="nv">get_pygments_stylesheet</span><span class="o">()|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">"&gt;</span>

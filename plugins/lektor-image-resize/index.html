@@ -127,7 +127,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor image resize plugin</h1>
+          <h1><a href="#user-content-lektor-image-resize-plugin" id="user-content-lektor-image-resize-plugin" rel="nofollow"></a>lektor image resize plugin</h1>
 <p><a href="https://badge.fury.io/py/lektor-image-resize" rel="nofollow"><img src="https://badge.fury.io/py/lektor-image-resize.svg" alt="PyPI version"></a>
 <a href="https://pepy.tech/project/lektor-image-resize" rel="nofollow"><img src="https://pepy.tech/badge/lektor-image-resize" alt="Downloads"></a>
 <a href="https://github.com/chaos-bodensee/lektor-image-resize/actions/workflows/pythonpackage.yml" rel="nofollow"><img src="https://github.com/chaos-bodensee/lektor-image-resize/actions/workflows/pythonpackage.yml/badge.svg" alt="Linting Python package"></a>
@@ -135,12 +135,12 @@
 <a href="https://github.com/chaos-bodensee/lektor-image-resize/blob/main/LICENSE" rel="nofollow"><img src="https://raw.githubusercontent.com/chaos-bodensee/lektor-image-resize/main/.github/license.svg?sanitize=true" alt="MIT License"></a></p>
 <p>This plugin generates JPG and WEBP Images and Thumbnails in predefined sizes for any images in your <a href="https://getlektor.com" rel="nofollow">Lektor</a> content.
 The difference between this plugin and the lektor <a href="https://www.getlektor.com/docs/api/db/record/thumbnail/" rel="nofollow">thumbnail</a> filter is that this plugin is converting all images and you don't need to have any references to the images in your templates.</p>
-<h2>TL;DR: What does this plugin do?</h2>
+<h2><a href="#user-content-tldr-what-does-this-plugin-do" id="user-content-tldr-what-does-this-plugin-do" rel="nofollow"></a>TL;DR: What does this plugin do?</h2>
 <ul>
 <li>It will generate <code>JPEG</code> images in the sizes you configured of all images in your Lektor content using <code>imagemagic</code>.</li>
 <li>It will generate <code>WEBP</code> images in the same sizes using <code>imagemagic</code>.</li>
 </ul>
-<h2>Usage</h2>
+<h2><a href="#user-content-usage" id="user-content-usage" rel="nofollow"></a>Usage</h2>
 <p>Use this plugin if you want to be able to link to full-size images in your content, but still want thumbnails to be generated for the link itself.
 For example, you may have an image called <code>waffle.jpg</code>, and to link to it in the content (not the template), but also show a thumbnail.
 All images will be converted to webp using <a href="https://pypi.org/project/Pillow/" rel="nofollow">Pillow</a>.</p>
@@ -157,7 +157,7 @@ All images will be converted to webp using <a href="https://pypi.org/project/Pil
   <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre>
-<h2>Installation</h2>
+<h2><a href="#user-content-installation" id="user-content-installation" rel="nofollow"></a>Installation</h2>
 <p>To install the plugin, add <code>lektor-image-resize</code> to your plugins from the command line and create a config file:</p>
 <pre lang="bash"><span class="c1"># add the plugin to lektor</span>
 lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-image-resize
@@ -187,7 +187,7 @@ whether a file will exist or not. If the original file is smaller than the width
 you have specified, the file will only be copied, and will not be resized.</p>
 <p>The <code>max_width</code>/<code>max_height</code> parameters work like for the <a href="https://www.getlektor.com/docs/api/db/record/thumbnail/" rel="nofollow">Lektor
 thumbnail</a> command.</p>
-<h2>Good to know</h2>
+<h2><a href="#user-content-good-to-know" id="user-content-good-to-know" rel="nofollow"></a>Good to know</h2>
 <p>There is a filter plugin avaliable at <a href="https://github.com/chaos-bodensee/lektor-image-filter.git" rel="nofollow">lektor-image-filter</a> available, that can help you to use the image in all configured sizes,</p>
  
         

@@ -136,20 +136,20 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>SCSS compiler for lektor</h1>
+          <h1><a href="#user-content-scss-compiler-for-lektor" id="user-content-scss-compiler-for-lektor" rel="nofollow"></a>SCSS compiler for lektor</h1>
 <p><a href="https://badge.fury.io/py/lektor-scss" rel="nofollow"><img src="https://badge.fury.io/py/lektor-scss.svg" alt="PyPI version"></a>
 <a href="https://pepy.tech/project/lektor-scss" rel="nofollow"><img src="https://pepy.tech/badge/lektor-scss" alt="Downloads"></a>
 <img src="https://github.com/chaos-bodensee/lektor-scss/workflows/Upload%20Python%20Package/badge.svg" alt="Upload Python Package">
 <img src="https://github.com/chaos-bodensee/lektor-scss/workflows/Linting%20Python%20package/badge.svg" alt="Linting Python package"></p>
 <p>SCSS compiler for <a href="https://getlektor.com" rel="nofollow">Lektor</a> that compiles css from sass.</p>
-<h2>How does it actually work?</h2>
+<h2><a href="#user-content-how-does-it-actually-work" id="user-content-how-does-it-actually-work" rel="nofollow"></a>How does it actually work?</h2>
 <ul>
 <li>It uses <a href="https://github.com/sass/libsass-python" rel="nofollow">libsass</a></li>
 <li>It looks for <code>.scss</code> and <code>.sass</code> files <em>(ignores part files that begin with a underscore e.g. '_testfile.scss') and compiles them as part of the build process.</em></li>
 <li>It only rebuilds the css when it's needed (file changed, a file it imports changed or the config changed).</li>
 <li>When starting the the development server it watches the files for changes in the background and rebuilds them when needed.</li>
 </ul>
-<h2>Installation</h2>
+<h2><a href="#user-content-installation" id="user-content-installation" rel="nofollow"></a>Installation</h2>
 <p>You can install the plugin with Lektor's installer:</p>
 <pre lang="bash">lektor<span class="w"> </span>plugins<span class="w"> </span>add<span class="w"> </span>lektor-scss
 </pre>
@@ -157,7 +157,7 @@
 <pre lang="ini"><span class="k">[packages]</span>
 <span class="na">lektor-scss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1.5.1</span>
 </pre>
-<h2>Usage</h2>
+<h2><a href="#user-content-usage" id="user-content-usage" rel="nofollow"></a>Usage</h2>
 <p>To enable the plugin, pass the <code>scss</code> flag when starting the development
 server or when running a build:</p>
 <pre lang="bash"><span class="c1"># build and compile css from scss</span>
@@ -166,13 +166,13 @@ lektor<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </
 <span class="c1"># edit site with new generated css</span>
 lektor<span class="w"> </span>server<span class="w"> </span>-f<span class="w"> </span>scss
 </pre>
-<h2>Python3</h2>
+<h2><a href="#user-content-python3" id="user-content-python3" rel="nofollow"></a>Python3</h2>
 <p>It is highly recommended to use this plugin with a python3 version of lektor.</p>
 <p>Since lektor can be used as a python module it is possible to enforce this <em>(after lektor is installed eg. with <code>pip3 install --user --upgrade lektor</code>)</em> with the following command:</p>
 <pre lang="bash"><span class="c1"># run a python3 lektor server with new generated css</span>
 python3<span class="w"> </span>-m<span class="w"> </span>lektor<span class="w"> </span>server<span class="w"> </span>-f<span class="w"> </span>scss
 </pre>
-<h2>Configuration</h2>
+<h2><a href="#user-content-configuration" id="user-content-configuration" rel="nofollow"></a>Configuration</h2>
 <p>The Plugin has the following settings you can adjust to your needs:</p>
 <table>
 <thead>
@@ -221,7 +221,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>lektor<span class="w"> 
 </tbody>
 </table>
 <p>An example file with the default config can be found at <code>configs/scss.ini</code>. For every parameter that is not specified in the config file the default value is used by the plugin.</p>
-<h2>Development</h2>
+<h2><a href="#user-content-development" id="user-content-development" rel="nofollow"></a>Development</h2>
 <p>To test and/or develop on this plugin in your running lektor installation, simply place it in the <code>packages/</code> Folder and have a look at the <a href="https://www.getlektor.com/docs/plugins/dev/" rel="nofollow">Lektor Doku</a></p>
 
 

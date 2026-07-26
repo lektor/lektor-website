@@ -121,20 +121,20 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor-HAL</h1>
+          <h1><a href="#user-content-lektor-hal" id="user-content-lektor-hal" rel="nofollow"></a>Lektor-HAL</h1>
 <p>A plugin for <a href="https://www.getlektor.com" rel="nofollow">Lektor</a> that uses the HAL API
 to easily maintain an up-to-date list of publications on a static website.</p>
 <p><a href="https://hal.archives-ouvertes.fr/" rel="nofollow">HAL</a> is an open archive where authors
 can deposit scholarly documents from all academic fields.</p>
-<h2>Configuration</h2>
+<h2><a href="#user-content-configuration" id="user-content-configuration" rel="nofollow"></a>Configuration</h2>
 <p>Add <code>lektor-hal</code> to the <code>[packages]</code> section of your <code>.lektorproject</code> file.</p>
 <p>In <code>./configs/hal.ini</code>, the query field must be specified, following to the
 <a href="https://api.archives-ouvertes.fr/docs/search" rel="nofollow">HAL docs</a></p>
 <p>Example:</p>
 <pre><code>query = ((authIdHal_s:my-id-hal) OR (authFullName_s:"My Name"))
 </code></pre>
-<h2>Usage</h2>
-<h3>Example</h3>
+<h2><a href="#user-content-usage" id="user-content-usage" rel="nofollow"></a>Usage</h2>
+<h3><a href="#user-content-example" id="user-content-example" rel="nofollow"></a>Example</h3>
 <pre lang="html"><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"publications"</span> <span class="na">id</span><span class="o">=</span><span class="s">"publications"</span><span class="p">&gt;</span>
   {% for publi in hal_publications %}
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -149,7 +149,7 @@ can deposit scholarly documents from all academic fields.</p>
 </pre>
 <p>Two global variables are available in your jinja template, <code>hal_publications</code> and
 <code>hal_request</code>.</p>
-<h3><code>hal_publications</code></h3>
+<h3><a href="#user-content-hal_publications" id="user-content-hal_publications" rel="nofollow"></a><code>hal_publications</code></h3>
 <p>A list of <code>Publication</code>s, a dataclass with the following attributes:</p>
 <ul>
 <li><code>raw</code>: A dict containing everything about this publication returned by the
@@ -166,9 +166,9 @@ HAL API.</li>
 <li><code>where</code>: returns where the article was published (<code>journalTitle_s</code> or <code>conferenceTitle_s</code>
 if missing)</li>
 </ul>
-<h3><code>hal_request</code></h3>
+<h3><a href="#user-content-hal_request" id="user-content-hal_request" rel="nofollow"></a><code>hal_request</code></h3>
 <p>URL used for the HAL API request.</p>
-<h2>Known caveat</h2>
+<h2><a href="#user-content-known-caveat" id="user-content-known-caveat" rel="nofollow"></a>Known caveat</h2>
 <p>Lektor will not 'know' that the page must be rebuilt when new entries are
 returned by the HAL API request.
 As a workaround, the plugin allows to mark any page as "dirty", so it is rebuilt

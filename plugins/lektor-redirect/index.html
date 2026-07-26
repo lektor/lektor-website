@@ -115,7 +115,7 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>lektor-redirect</h1>
+          <h1><a href="#user-content-lektor-redirect" id="user-content-lektor-redirect" rel="nofollow"></a>lektor-redirect</h1>
 <p><a href="https://pypi.org/project/lektor-redirect/" rel="nofollow"><img src="https://img.shields.io/pypi/v/lektor-redirect.svg" alt="PyPI version"></a>
 <a href="https://pypi.python.org/pypi/lektor-redirect/" rel="nofollow"><img src="https://img.shields.io/pypi/pyversions/lektor-redirect.svg" alt="PyPI Supported Python Versions"></a>
 <a href="https://github.com/dairiki/lektor-redirect/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/dairiki/lektor-redirect" alt="GitHub license"></a>
@@ -126,21 +126,21 @@ URLs which should redirect to their current location.</p>
 <p>[!IMPORTANT]
 Currently this plugin <em>will not work</em> on Lektor sites with <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">alternatives</a> enabled.</p>
 </blockquote>
-<h2>How it works</h2>
+<h2><a href="#user-content-how-it-works" id="user-content-how-it-works" rel="nofollow"></a>How it works</h2>
 <p>The plugin looks for a field named (by default) <code>redirect_from</code> on pages
 and attachments in the site. This field is expected to contain a sequence of URLs
 to redirect from.</p>
 <p>There are two ways that redirects may be implemented by this plugin.
 Either or both may be enabled.</p>
-<h3>Redirect pages</h3>
+<h3><a href="#user-content-redirect-pages" id="user-content-redirect-pages" rel="nofollow"></a>Redirect pages</h3>
 <p>Redirect pages can be generated at the specified URLs.  The template for these
 pages is up to you, however the intent is that these pages will attempt
 an <em><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects#metarefresh" rel="nofollow">meta refresh</a></em> and/or <em><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects#jslocation" rel="nofollow">javascript redirect</a></em> to the target page.</p>
-<h3>Redirect map</h3>
+<h3><a href="#user-content-redirect-map" id="user-content-redirect-map" rel="nofollow"></a>Redirect map</h3>
 <p>A <em>redirect map</em> file can be generated.  This may be used to configure your
 web server to issue the desired redirects itself.
 (Currently only an nginx-style map is supported.)</p>
-<h2>Usage</h2>
+<h2><a href="#user-content-usage" id="user-content-usage" rel="nofollow"></a>Usage</h2>
 <p>By default the plugin looks for a field named <code>redirect_from</code> on pages in the
 site.
 (The name of the field may be customized in the plugin configuration file. See below.)
@@ -172,7 +172,7 @@ redirect the user to <code>/blog/first-post/</code>.</p>
 mapping <code>/blog/test-post/</code> to <code>/blog/first-post/</code>.</p>
 </li>
 </ul>
-<h3>Configuration File</h3>
+<h3><a href="#user-content-configuration-file" id="user-content-configuration-file" rel="nofollow"></a>Configuration File</h3>
 <p>The plugin's configuration file is <code>configs/redirect.ini</code>.
 Settings should be in a <code>[redirect]</code> section.
 There are currently three configurable settings. Here is an example:</p>
@@ -191,7 +191,7 @@ There are currently three configurable settings. Here is an example:</p>
 <span class="c1"># map generation is disabled.</span>
 <span class="na">map_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.redirect.map</span>
 </pre>
-<h3>Redirect Pages</h3>
+<h3><a href="#user-content-redirect-pages-1" id="user-content-redirect-pages-1" rel="nofollow"></a>Redirect Pages</h3>
 <p>If a <code>template</code> is configured in the plugin configuration file (<code>configs/redirect.ini</code>),
 <em>redirect pages</em> will be generated from the specified template. The intention is that
 the resulting page will redirect the user to the target location using <a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects#metarefresh" rel="nofollow">meta refresh</a>
@@ -235,7 +235,7 @@ For example if there is a redirect from <code>/old-image.png</code> to
 This is done with the hope that the web server, without extra
 configuration, will respond to a request for <code>/old-image.png</code> with a
 content-type header of <code>text/html</code>.</p>
-<h3>Redirect Map</h3>
+<h3><a href="#user-content-redirect-map-1" id="user-content-redirect-map-1" rel="nofollow"></a>Redirect Map</h3>
 <p>If a <code>map_file</code> is configured in the plugin configuration file (<code>configs/redirect.ini</code>),
 a <em>map file</em> will be generated in the output tree.</p>
 <p>The map file is in a format suitable for inclusion in an <em>nginx</em> <a href="https://nginx.org/en/docs/http/ngx_http_map_module.html" rel="nofollow">map block</a>.
@@ -281,7 +281,7 @@ look like:</p>
 <span class="w">    </span><span class="err">}</span>
 <span class="err">}</span>
 </pre>
-<h2>To Do</h2>
+<h2><a href="#user-content-to-do" id="user-content-to-do" rel="nofollow"></a>To Do</h2>
 <ul>
 <li>
 <p>Make this work for Lektor projects with <a href="https://www.getlektor.com/docs/content/alts/" rel="nofollow">alternatives</a> enabled.</p>
@@ -291,7 +291,7 @@ look like:</p>
 (E.g. Apache <a href="https://httpd.apache.org/docs/current/rewrite/rewritemap.html#txt" rel="nofollow">text map</a> format.)</p>
 </li>
 </ul>
-<h2>Author</h2>
+<h2><a href="#user-content-author" id="user-content-author" rel="nofollow"></a>Author</h2>
 <p>Jeff Dairiki <a href="mailto:dairiki@dairiki.org" rel="nofollow">dairiki@dairiki.org</a></p>
  
         

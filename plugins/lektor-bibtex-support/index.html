@@ -127,21 +127,21 @@
       <div class="col-sm-9 doc-styling">
         <h2>Project Description</h2>
         
-          <h1>Lektor Bibtex Plugin</h1>
+          <h1><a href="#user-content-lektor-bibtex-plugin" id="user-content-lektor-bibtex-plugin" rel="nofollow"></a>Lektor Bibtex Plugin</h1>
 <p>The plugin allows adding a list of publications generated from bibtex files to a page.</p>
-<h2>Enabling the plugin</h2>
+<h2><a href="#user-content-enabling-the-plugin" id="user-content-enabling-the-plugin" rel="nofollow"></a>Enabling the plugin</h2>
 <p>To enable the plugin add this to your project file:</p>
 <pre><code>[packages]
 lektor-bibtex-support = 0.1
 </code></pre>
-<h2>Configuring</h2>
+<h2><a href="#user-content-configuring" id="user-content-configuring" rel="nofollow"></a>Configuring</h2>
 <p>Create a file configs/bibtex-support.ini with a section called Bibtex. Define a variable files that
 is a white space separated list of bibtex files. Put these files into the assets directory of your project.</p>
 <pre><code>[Bibtex]
 files = A.bib B.bib
 </code></pre>
 <p>Optionally you can also create a template file that should leave in the template directory to render the bibtex entries. If you skip this entry a default template will be used that sorts the entries by year.</p>
-<h2>Usage</h2>
+<h2><a href="#user-content-usage" id="user-content-usage" rel="nofollow"></a>Usage</h2>
 <p>You can add the the publication anywhere in your jinja template by calling</p>
 <pre><code>{{ list_publications(name=name, tag=tag, year=year, labels=labels, fname=fname)|safe }}
 </code></pre>
@@ -150,7 +150,7 @@ files = A.bib B.bib
 <p>by year: only publications from this year</p>
 <p>labels: white space separated list of bibtex labels (the name of each entry in the bibtex file)</p>
 <p>fname: white space separated list files to search (by default all files will be searched)</p>
-<h2>Javascript</h2>
+<h2><a href="#user-content-javascript" id="user-content-javascript" rel="nofollow"></a>Javascript</h2>
 <p>For the default template, you can also add the following javascript to show some entries if you have a long list (relies on jquery):</p>
 <pre><code>$(document).ready(function()
 	   {
