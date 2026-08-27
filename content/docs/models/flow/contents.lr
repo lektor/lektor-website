@@ -38,7 +38,8 @@ default = default
 This should be self explanatory.  One thing that is different about blocks
 compared to regular models is that they support the `button_label` attribute
 which can be used to customize the label of the button that adds blocks to
-a flow.
+a flow.  Similar to the `addon_label` attribute of the [Regular Models
+:ref](../), you can use an icon as a label instead.
 
 ## Templates
 
