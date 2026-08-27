@@ -12,24 +12,21 @@ issues.
 
 ## Requirements
 
-Although `lektor` would work without Imagemagick or FFmpeg, you would be missing on 
-significant parts of its capabilities. Therefore, you need to make sure you have the 
+Although `lektor` would work without FFmpeg, you would be missing on
+some of its capabilities. Therefore, you need to make sure you have the
 following software installed on your computer:
 
-* Python 3.6+ is required. If you got an older version, look at the
+* Python 3.7+ is required. If you got an older version, look at the
   [Python 3 Installation & Setup Guide :ext](https://realpython.com/installing-python/).
   * On Ubuntu you basically don't need anything new.
   * On macOS you're done as well.
   * On Windows, make sure that Python is in your `PATH`.
-* ImageMagick. 
-  * On macOS `brew install imagemagick` can get you this.
-  * On Ubuntu `sudo apt install imagemagick` will solve it.
-  * On Windows do `choco install imagemagick`, which requires [chocolatey :ext](https://chocolatey.org/),
-    or [download from here :ext](http://www.imagemagick.org)).
-* FFmpeg (mostly for video thumbnailing).
+* FFmpeg (optional, for video thumbnailing support).
   * On Ubuntu you get it through `sudo apt install ffmpeg.`
   * On macOS `brew install ffmpeg` will do the trick.
   * On Windows you'll have to put a little [work :ext](https://www.wikihow.com/Install-FFmpeg-on-Windows) in.
+
+! Since release 3.4.0, Lektor uses [Pillow :ext](https://pillow.readthedocs.io/) for image thumbnailing.  ImageMagick is no longer required.
 
 ## Install pipx
 
@@ -99,3 +96,12 @@ virtualenv venv
 . venv/bin/activate
 pip install --editable .
 ```
+
+Recent versions of Lektor (since around 3.4.0) are also installable directly from git.
+You still need `npm` installed, but the frontend JS will be built automatically as part of the PEP 517 build process:
+
+```
+python -m venv venv
+./venv/bin/pip install "lektor @ git+https://github.com/lektor/lektor@master"
+```
+ 
