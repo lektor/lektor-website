@@ -18,9 +18,7 @@ and reports an error.
 
 The parameters to the function are as follows:
 
-* `target_url`: a URL object with the parsed URL.  This object comes from the
-  Werkzeug library and gives access to the individual parts of a URL by the
-  exposed attributes ([Read about the URL object :ext](https://werkzeug.palletsprojects.com/en/2.0.x/urls/)).
+* `target_url`: the target URL as a string. 
 * `credentials`: an optional dictionary with command line supplied credentials.
   Note that these credentials might be completely absent and the keys which are
   provided might change with future versions of Lektor.
@@ -30,6 +28,8 @@ The parameters to the function are as follows:
 Each line in the generator must be a string which is then either logged to
 the output in the console or in the deploy/publish window in the admin UI.
 
+!! Prior to Lektor version 3.4, the `target_url` parameter was passed an instance of [`werkzeug.urls.URL` :ext](https://werkzeug.palletsprojects.com/en/2.3.x/urls/#werkzeug.urls.URL) rather than a `str`.
+
 ## Example
 
 This example implements a simple publisher that just copies all built files
@@ -38,14 +38,19 @@ into a new location.
 ```python
 import os
 import shutil
+from urllib.parse import urlsplit
 from lektor.publisher import Publisher
 
 
 class CopyPublisher(Publisher):
 
     def publish(self, target_url, credentials=None, **extra):
+        # Tip: Coerce target_url to str for compatibility with
+        # Lektor < 3.4.0 where target_url was a werkzeug.urls.URL
+        # instance rather than a str
+        target = urlsplit(str(target_url))
         src_path = self.output_path
-        dst_path = target_url.path
+        dst_path = target.path
         strip = len(src_path) + 1
 
         for path, folders, filenames in os.walk(src_path):
