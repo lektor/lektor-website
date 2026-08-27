@@ -30,6 +30,8 @@ used by external scripts to only deploy on successful build for instance.
 ## Options
 
 - `-O, --output-path PATH`: The output path.
+   This overrides any `output_path` setting in the [project file :ref](http://localhost:5000/docs/project/file/#project).
+   A relative path is interpreted relative to the *current working directory*.
 - `--watch`: If this is enabled the build process goes into an automatic
   loop where it watches the file system for changes and rebuilds.
 - `--prune / --no-prune`: Controls if old artifacts should be pruned.
