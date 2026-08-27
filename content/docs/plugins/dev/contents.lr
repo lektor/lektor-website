@@ -44,31 +44,43 @@ package in the packages folder.
 
 Alternatively you can manually create a `packages/hello-world/` folder.
 
-Once that is done, we need to create a `setup.py` file which tells Lektor
-what your plugin needs to run.  This will already be created for you if
-you used the wizard.
+Once that is done, we need to create `pyproject.toml` and `setup.cfg` files.
+These files tell the python packaging tools what your plugin needs to run
+and tell Lektor how to run your plugin.  These files will already have been created
+for you if you used the `lektor dev new-plugin` wizard.
 
-```python
-from setuptools import setup
+! Note that these days there are many different tools that can be used to build
+distributions (and even more ways to configure those tools.)  Since Lektor version 3.4,
+you may use any packaging tool that supports PEP-517 and PEP-660.
 
-setup(
-    name='lektor-hello-world',
-    version='0.1',
-    py_modules=['lektor_hello_world'],
-    entry_points={
-        'lektor.plugins': [
-            'hello-world = lektor_hello_world:HelloWorldPlugin',
-        ]
-    },
-    install_requires=[]
-)
+`pyproject.toml`
+```toml
+[build-system]
+requires = ["setuptools>=45"]
+build-backend = "setuptools.build_meta"
+```
+
+`setup.cfg`
+```ini
+[metadata]
+name = lektor-hello-world
+version = 0.1
+
+[options]
+py_modules = lektor_hello_world
+install_requires =
+
+[options.entry_points]
+lektor.plugins =
+    hello-world = lektor_hello_world:HelloWorldPlugin
+
 ```
 
 So going line by line, these are what the things mean:
 
-* `setuptools` is a module that helps us install the package with the
-  Python interpreter that Lektor uses.  We only need the setup function
-  from it for this example.
+* `setuptools` is a package that helps us install the package with the
+  Python interpreter that Lektor uses.  The above `pyproject.toml` declares
+  that we are using setuptools to build and install our plugin.
 * `name` is the name of the plugin when it's published to the Python package
   index where all Lektor plugins go.  As such it should be prefixed with
   `lektor-` to make it not clash with other packages on the index.
@@ -76,13 +88,13 @@ So going line by line, these are what the things mean:
   matter what you write here, but it will play a role once you start
   publishing your packages.  Users need to reference exact versions of these
   plugins when using them.
-* `py_modules`: this is a list of modules that your plugin needs to run.
+* `py_modules`: this is a list of modules that are part of your plugin's _distribution_.
   This should always be exactly one module named `lektor_XXX` where `XXX`
   is your plugin name with underscores instead of dashes as separators.
   If you need more than one module you should use a package instead.  This is
   not covered here, but you can find this in the [setuptools documentation
   :ext](https://setuptools.pypa.io/en/latest/).
-* `entry_points`: this is meta data that is needed to associate our package
+* `entry_points`: this is metadata that is needed to associate our package
   with Lektor.  Lektor will load all plugins in the `lektor.plugins` list.
   It can be a list of definitions in the form `plugin-name = import_path`.
   The plugin name is what will show up in the plugin list in Lektor,
