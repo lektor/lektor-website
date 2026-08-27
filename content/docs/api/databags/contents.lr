@@ -18,12 +18,13 @@ function to access databags.
 
 ## Supported Formats
 
-Databags go into the `databags/` folder in your project.  There are two
-formats supported: key/value pairs as ini files as well as JSON files:
+Databags go into the `databags/` folder in your project.  There are three
+formats supported: key/value pairs as ini files as well as JSON and YAML files:
 
 | Extension | Format
 | --------- | --------
 | `.json`   | JSON
+| `.yaml`   | YAML
 | `.ini`    | INI Files with or without sections
 
 ## Navigating Bags
@@ -31,8 +32,8 @@ formats supported: key/value pairs as ini files as well as JSON files:
 Dotted notation is used to navigate into data bags which are globally
 merged together.  This means that if you have a file named `i18n.ini`
 with a section `[en]` and a key `CLICK_HERE` the path `i18n.en.CLICK_HERE`
-will target that key.  For JSON files further nesting is possible.  You
-can also just target a section and the return value will be a dictionary
+will target that key.  For JSON and YAML files further nesting is possible.
+You can also just target a section and the return value will be a dictionary
 which can for instance be used with the [tojson :ref](../templates/filters/tojson/)
 filter.
 
