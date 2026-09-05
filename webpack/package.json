@@ -20,5 +20,8 @@
     "sass-loader": "^17",
     "webpack": "^5.105.0",
     "webpack-cli": "^7"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true
   }
 }
