@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
   <title>virtualpathresolver | Documentation | Lektor Static Content Management System</title>
@@ -213,29 +213,29 @@ associated virtual path resolver:</p>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Feed</span><span class="p">(</span><span class="n">VirtualSourceObject</span><span class="p">):</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">'default'</span><span class="p">):</span>
         <span class="n">VirtualSourceObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">@feed</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="k">return</span> <span class="s1">'</span><span class="si">%s</span><span class="s1">@feed</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
-            <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">!=</span> <span class="s1">&#39;default&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">'/'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">!=</span> <span class="s1">'default'</span> <span class="k">else</span> <span class="s1">''</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">url_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">build_url</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">url_path</span><span class="p">,</span> <span class="s1">&#39;feed.xml&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">build_url</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">url_path</span><span class="p">,</span> <span class="s1">'feed.xml'</span><span class="p">])</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
-    <span class="nd">@self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">virtualpathresolver</span><span class="p">(</span><span class="s1">&#39;feed&#39;</span><span class="p">)</span>
+    <span class="nd">@self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">virtualpathresolver</span><span class="p">(</span><span class="s1">'feed'</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">resolve_virtual_path</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">pieces</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">pieces</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">Feed</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">pieces</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;recent&#39;</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="n">Feed</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;recent&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">pieces</span> <span class="o">==</span> <span class="p">[</span><span class="s1">'recent'</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">Feed</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">'recent'</span><span class="p">)</span>
 </pre></div>
 
       
@@ -304,7 +304,7 @@ associated virtual path resolver:</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

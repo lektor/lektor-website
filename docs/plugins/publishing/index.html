@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Publishing | Documentation | Lektor Static Content Management System</title>
@@ -158,37 +158,37 @@ the CLI command <code>lektor dev new-plugin</code>:</p>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
 
-<span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;README.md&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'README.md'</span><span class="p">,</span> <span class="s1">'rt'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">readme</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<span class="n">_description_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;description\s+=\s+(?P&lt;description&gt;.*)&#39;</span><span class="p">)</span>
+<span class="n">_description_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'description\s+=\s+(?P&lt;description&gt;.*)'</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;lektor_hello_world.py&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'lektor_hello_world.py'</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">description</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">_description_re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
 
 <span class="n">setup</span><span class="p">(</span>
-    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Your Name&#39;</span><span class="p">,</span>
-    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;your.email@your.domain.invalid&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s1">'Your Name'</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s1">'your.email@your.domain.invalid'</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
-    <span class="n">keywords</span><span class="o">=</span><span class="s1">&#39;Lektor plugin static-site blog&#39;</span><span class="p">,</span>
-    <span class="n">license</span><span class="o">=</span><span class="s1">&#39;MIT&#39;</span><span class="p">,</span>
+    <span class="n">keywords</span><span class="o">=</span><span class="s1">'Lektor plugin static-site blog'</span><span class="p">,</span>
+    <span class="n">license</span><span class="o">=</span><span class="s1">'MIT'</span><span class="p">,</span>
     <span class="n">long_description</span><span class="o">=</span><span class="n">readme</span><span class="p">,</span>
-    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s1">&#39;text/markdown&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;lektor-hello-world&#39;</span><span class="p">,</span>
+    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s1">'text/markdown'</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">'lektor-hello-world'</span><span class="p">,</span>
     <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
-    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lektor_hello_world&#39;</span><span class="p">],</span>
-    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://github.com/youruser/lektor-yourplugin&#39;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s1">'lektor_hello_world'</span><span class="p">],</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">'http://github.com/youruser/lektor-yourplugin'</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">'1.0'</span><span class="p">,</span>
     <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
-        <span class="s1">&#39;Framework :: Lektor&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;Environment :: Web Environment&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;Environment :: Plugins&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;License :: OSI Approved :: MIT License&#39;</span><span class="p">,</span>
+        <span class="s1">'Framework :: Lektor'</span><span class="p">,</span>
+        <span class="s1">'Environment :: Web Environment'</span><span class="p">,</span>
+        <span class="s1">'Environment :: Plugins'</span><span class="p">,</span>
+        <span class="s1">'License :: OSI Approved :: MIT License'</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;lektor.plugins&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;hello-world = lektor_hello_world:HelloWorldPlugin&#39;</span><span class="p">,</span>
+        <span class="s1">'lektor.plugins'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">'hello-world = lektor_hello_world:HelloWorldPlugin'</span><span class="p">,</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">)</span>
@@ -297,7 +297,7 @@ credentials for <code>pypi</code>.  Next time it will have remembered them.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

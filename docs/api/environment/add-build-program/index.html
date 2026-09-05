@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../static/favicon.png?h=fa09bedd">
   <title>add_build_program | Documentation | Lektor Static Content Management System</title>
@@ -204,16 +204,16 @@ artifacts out of source objects.</p>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;@source&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">'@source'</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">source_content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">source_filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">url_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">build_url</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">url_path</span><span class="p">,</span> <span class="s1">&#39;source.txt&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">build_url</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">url_path</span><span class="p">,</span> <span class="s1">'source.txt'</span><span class="p">])</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">SourceBuildProgram</span><span class="p">(</span><span class="n">BuildProgram</span><span class="p">):</span>
 
@@ -223,12 +223,12 @@ artifacts out of source objects.</p>
             <span class="n">sources</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">iter_source_filenames</span><span class="p">()))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">build_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
-        <span class="n">artifact</span><span class="o">.</span><span class="n">render_template_into</span><span class="p">(</span><span class="s1">&#39;view_source.html&#39;</span><span class="p">,</span>
+        <span class="n">artifact</span><span class="o">.</span><span class="n">render_template_into</span><span class="p">(</span><span class="s1">'view_source.html'</span><span class="p">,</span>
                                       <span class="n">this</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
 
 <span class="n">env</span><span class="o">.</span><span class="n">add_build_program</span><span class="p">(</span><span class="n">Source</span><span class="p">,</span> <span class="n">SourceBuildProgram</span><span class="p">)</span>
 
-<span class="nd">@env</span><span class="o">.</span><span class="n">virtualpathresolver</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
+<span class="nd">@env</span><span class="o">.</span><span class="n">virtualpathresolver</span><span class="p">(</span><span class="s1">'source'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">resolve_virtual_path</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">pieces</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">pieces</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">Source</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
@@ -304,7 +304,7 @@ artifacts out of source objects.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

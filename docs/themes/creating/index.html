@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Creating a Theme | Documentation | Lektor Static Content Management System</title>
@@ -157,15 +157,15 @@
 <h2 id="the-theme-settings-variable">The theme_settings Variable</h2><p>A <code>theme_settings</code> section in <code>.lektorproject</code> file could be used to
 parametrize themes:</p>
 <div class="hll"><pre><span></span><span class="k">[theme_settings]</span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Lektor&quot;</span>
-<span class="na">github_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/lektor&quot;</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Lektor"</span>
+<span class="na">github_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"https://github.com/lektor"</span>
 </pre></div>
 <p>And those settings will be accessed in templates through the config env
 variable:</p>
 <div class="hll"><pre><span></span><span class="cp">{{</span> <span class="nv">config.theme_settings</span><span class="err">.</span><span class="o">&lt;</span><span class="nv">variable_name</span><span class="o">&gt;</span> <span class="cp">}}</span>
 </pre></div>
 <p>Example:</p>
-<div class="hll"><pre><span></span><span class="x">&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">config.theme_settings.github_url</span> <span class="cp">}}</span><span class="x">&quot;&gt;Github&lt;/a&gt;</span>
+<div class="hll"><pre><span></span><span class="x">&lt;a href="</span><span class="cp">{{</span> <span class="nv">config.theme_settings.github_url</span> <span class="cp">}}</span><span class="x">"&gt;Github&lt;/a&gt;</span>
 </pre></div>
 <p>will output:</p>
 <pre><code>&lt;a href=&quot;https://github.com/lektor/lektor&quot;&gt;Github&lt;/a&gt;
@@ -276,7 +276,7 @@ lektor website.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

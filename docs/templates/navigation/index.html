@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Navigation | Documentation | Lektor Static Content Management System</title>
@@ -151,16 +151,16 @@ links with the help of the <a href="../urls/" class="ref">URL Filter</a>.</p>
 most flexible ones while still being easy to maintain.  It requires knowledge
 of which pages to show and what the link title should be:</p>
 <div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav navbar-nav&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this._path</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>
-      <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;/&#39;</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>Welcome<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav navbar-nav"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this._path</span> <span class="o">==</span> <span class="s1">'/'</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">"active"</span><span class="cp">{%</span> <span class="k">endif</span>
+      <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="s1">'/'</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span>Welcome<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">for</span> <span class="nv">href</span><span class="o">,</span> <span class="nv">title</span> <span class="k">in</span> <span class="o">[</span>
-      <span class="o">[</span><span class="s1">&#39;/blog&#39;</span><span class="o">,</span> <span class="s1">&#39;Blog&#39;</span><span class="o">],</span>
-      <span class="o">[</span><span class="s1">&#39;/projects&#39;</span><span class="o">,</span> <span class="s1">&#39;Projects&#39;</span><span class="o">],</span>
-      <span class="o">[</span><span class="s1">&#39;/about&#39;</span><span class="o">,</span> <span class="s1">&#39;About&#39;</span><span class="o">]</span>
+      <span class="o">[</span><span class="s1">'/blog'</span><span class="o">,</span> <span class="s1">'Blog'</span><span class="o">],</span>
+      <span class="o">[</span><span class="s1">'/projects'</span><span class="o">,</span> <span class="s1">'Projects'</span><span class="o">],</span>
+      <span class="o">[</span><span class="s1">'/about'</span><span class="o">,</span> <span class="s1">'About'</span><span class="o">]</span>
     <span class="o">]</span> <span class="cp">%}</span>
-      <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.is_child_of</span><span class="o">(</span><span class="nv">href</span><span class="o">)</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>
-        <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">href</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.is_child_of</span><span class="o">(</span><span class="nv">href</span><span class="o">)</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">"active"</span><span class="cp">{%</span> <span class="k">endif</span>
+        <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">href</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
@@ -175,10 +175,10 @@ path of the current page is actually the path of the index page.</p>
 <h2 id="fully-automatic-navigation">Fully Automatic Navigation</h2><p>Sometimes all we want is to show navigation links for all sub-pages of
 a page.  This is easy to accomplish as well:</p>
 <div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav&quot;</span><span class="p">&gt;</span>
-    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/projects&#39;</span><span class="o">)</span><span class="nv">.children</span> <span class="cp">%}</span>
-      <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this</span> <span class="o">==</span> <span class="nv">project</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>
-        <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">project</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav"</span><span class="p">&gt;</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">'/projects'</span><span class="o">)</span><span class="nv">.children</span> <span class="cp">%}</span>
+      <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this</span> <span class="o">==</span> <span class="nv">project</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">"active"</span><span class="cp">{%</span> <span class="k">endif</span>
+        <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">project</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
@@ -186,11 +186,11 @@ a page.  This is easy to accomplish as well:</p>
 <h2 id="recursive-tree-navigation">Recursive Tree Navigation</h2><p>In some situations you want to show a tree like navigation.  This is for
 instance something that comes up when building site maps.  In that situation
 the recursive Jinja loop system really comes in handy.</p>
-<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tree-nav&quot;</span><span class="p">&gt;</span>
-  <span class="cp">{%</span> <span class="k">set</span> <span class="nv">root</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">&#39;/&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"tree-nav"</span><span class="p">&gt;</span>
+  <span class="cp">{%</span> <span class="k">set</span> <span class="nv">root</span> <span class="o">=</span> <span class="nv">site.get</span><span class="o">(</span><span class="s1">'/'</span><span class="o">)</span> <span class="cp">%}</span>
   <span class="cp">{%</span> <span class="k">for</span> <span class="nv">child</span> <span class="k">in</span> <span class="nv">root.children</span> <span class="k">recursive</span> <span class="cp">%}</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this._path</span> <span class="o">==</span> <span class="nv">child._path</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="cp">{%</span> <span class="k">endif</span>
-        <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">child</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">child.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">this._path</span> <span class="o">==</span> <span class="nv">child._path</span> <span class="cp">%}</span> <span class="na">class</span><span class="o">=</span><span class="s">"active"</span><span class="cp">{%</span> <span class="k">endif</span>
+        <span class="cp">%}</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">child</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">child.title</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
       <span class="cp">{%</span> <span class="k">if</span> <span class="nv">this.is_child_of</span><span class="o">(</span><span class="nv">child</span><span class="o">)</span> <span class="cp">%}</span>
       <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nb">loop</span><span class="o">(</span><span class="nv">child.children</span><span class="o">)</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
       <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
@@ -268,7 +268,7 @@ this is how the navigation of this documentation is rendered.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

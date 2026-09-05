@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
   <title>markdown-config | Documentation | Lektor Static Content Management System</title>
@@ -214,12 +214,12 @@
 <div class="hll"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_markdown_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
     <span class="k">class</span><span class="w"> </span><span class="nc">HeaderAnchorMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">header</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">raw</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;anchor-type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;random&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'anchor-type'</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"random"</span><span class="p">:</span>
                 <span class="n">anchor</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">anchor</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-            <span class="n">renderer</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;toc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">level</span><span class="p">,</span> <span class="n">anchor</span><span class="p">,</span> <span class="n">Markup</span><span class="p">(</span><span class="n">text</span><span class="p">)))</span>
-            <span class="k">return</span> <span class="s1">&#39;&lt;h</span><span class="si">%d</span><span class="s1"> id=&quot;</span><span class="si">%s</span><span class="s1">&quot;&gt;</span><span class="si">%s</span><span class="s1">&lt;/h</span><span class="si">%d</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">anchor</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+            <span class="n">renderer</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">'toc'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">level</span><span class="p">,</span> <span class="n">anchor</span><span class="p">,</span> <span class="n">Markup</span><span class="p">(</span><span class="n">text</span><span class="p">)))</span>
+            <span class="k">return</span> <span class="s1">'&lt;h</span><span class="si">%d</span><span class="s1"> id="</span><span class="si">%s</span><span class="s1">"&gt;</span><span class="si">%s</span><span class="s1">&lt;/h</span><span class="si">%d</span><span class="s1">&gt;'</span> <span class="o">%</span> <span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">anchor</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
     <span class="n">config</span><span class="o">.</span><span class="n">renderer_mixins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HeaderAnchorMixin</span><span class="p">)</span>
 </pre></div>
 
@@ -297,7 +297,7 @@
   </footer>
   
 
-  <script type=text/javascript src="../../../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

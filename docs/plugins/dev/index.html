@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Development | Documentation | Lektor Static Content Management System</title>
@@ -172,12 +172,12 @@ you used the wizard.</p>
 <div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;lektor-hello-world&#39;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
-    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lektor_hello_world&#39;</span><span class="p">],</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">'lektor-hello-world'</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">'0.1'</span><span class="p">,</span>
+    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s1">'lektor_hello_world'</span><span class="p">],</span>
     <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;lektor.plugins&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;hello-world = lektor_hello_world:HelloWorldPlugin&#39;</span><span class="p">,</span>
+        <span class="s1">'lektor.plugins'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">'hello-world = lektor_hello_world:HelloWorldPlugin'</span><span class="p">,</span>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="n">install_requires</span><span class="o">=</span><span class="p">[]</span>
@@ -216,8 +216,8 @@ create a new file with the name <code>lektor_hello_world.py</code> next to our
 <div class="hll"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lektor.pluginsystem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugin</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is a demo plugin for testing purposes.&#39;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Hello World'</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">'This is a demo plugin for testing purposes.'</span>
 </pre></div>
 <p>If you now start your lektor server with <code>lektor server</code> you should
 see some output that indicates that the plugin was loaded.  You can also
@@ -235,17 +235,17 @@ a function named <code>on_setup_env</code>:</p>
 <div class="hll"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="n">MESSAGES</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Reticulating splines&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Populating slots&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Possessing pawns&#39;</span><span class="p">,</span>
+    <span class="s1">'Reticulating splines'</span><span class="p">,</span>
+    <span class="s1">'Populating slots'</span><span class="p">,</span>
+    <span class="s1">'Possessing pawns'</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_random_message</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">MESSAGES</span><span class="p">)</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">HelloWorldPlugin</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is a demo plugin for testing purposes.&#39;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Hello World'</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">'This is a demo plugin for testing purposes.'</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_env</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
@@ -330,7 +330,7 @@ arguments that might be supplied in the future.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

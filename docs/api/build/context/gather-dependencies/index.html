@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
   <title>gather_dependencies | Documentation | Lektor Static Content Management System</title>
@@ -203,8 +203,8 @@ useful for a plugin to know exactly which dependencies are recorded.</p>
 encounters a dependency it will invoke the passed function.</p>
 <h2 id="example">Example</h2><div class="hll"><pre><span></span><span class="n">deps</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 <span class="k">with</span> <span class="n">get_ctx</span><span class="p">()</span><span class="o">.</span><span class="n">gather_dependencies</span><span class="p">(</span><span class="n">deps</span><span class="o">.</span><span class="n">add</span><span class="p">):</span>
-    <span class="n">items</span> <span class="o">=</span> <span class="n">pad</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;/path/to/some/pages&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dependencies are: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">deps</span><span class="p">)</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">pad</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'/path/to/some/pages'</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The dependencies are: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">deps</span><span class="p">)</span>
 </pre></div>
 
       
@@ -273,7 +273,7 @@ encounters a dependency it will invoke the passed function.</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',
