@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../static/favicon.png?h=fa09bedd">
   <title>Travis-CI | Documentation | Lektor Static Content Management System</title>
@@ -169,11 +169,11 @@ GitHub account.</p>
 file into your repository.  You can copy paste this over:</p>
 <div class="hll"><pre><span></span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span>
-<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor&quot;</span>
-<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">build&quot;</span>
+<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">"pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor"</span>
+<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">"lektor</span><span class="nv"> </span><span class="s">build"</span>
 <span class="nt">deploy</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span>
-<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages&quot;</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">"lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages"</span>
 </pre></div>
 <p>Because Travis already comes with all dependencies we need other than
 Lektor itself we just need to pip install Lektor and we're ready to go.  For
@@ -233,11 +233,11 @@ caching.  Adjust your <code>.travis.yml</code> file to look like this:</p>
 <span class="w">  </span><span class="nt">directories</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pip</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/lektor/builds</span>
-<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor&quot;</span>
-<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">build&quot;</span>
+<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">"pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor"</span>
+<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">"lektor</span><span class="nv"> </span><span class="s">build"</span>
 <span class="nt">deploy</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span>
-<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages&quot;</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">"lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages"</span>
 </pre></div>
 <p>Note that it is also possible to set the cache directory of Lektor using the
 environment variable <code>XDG_CACHE_HOME</code>, and cache this directory instead,
@@ -251,11 +251,11 @@ config:</p>
 <span class="w">  </span><span class="nt">directories</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/pip</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HOME/.cache/lektor/builds</span>
-<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor&quot;</span>
-<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">build&quot;</span>
+<span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="s">"pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">Lektor"</span>
+<span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">"lektor</span><span class="nv"> </span><span class="s">build"</span>
 <span class="nt">deploy</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span>
-<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages&quot;</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">"lektor</span><span class="nv"> </span><span class="s">deploy</span><span class="nv"> </span><span class="s">ghpages"</span>
 <span class="w">  </span><span class="nt">on</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
 </pre></div>
@@ -326,7 +326,7 @@ config:</p>
   </footer>
   
 
-  <script type=text/javascript src="../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',

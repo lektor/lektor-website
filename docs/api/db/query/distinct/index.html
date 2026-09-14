@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../../../../../static/styles.css?h=75f43aa4">
+  <link rel="stylesheet" href="../../../../../static/styles.css?h=fe3bf557">
   <link rel="stylesheet" href="../../../../../static/pygments.css">
   <link rel="shortcut icon" href="../../../../../static/favicon.png?h=fa09bedd">
   <title>distinct | Documentation | Lektor Static Content Management System</title>
@@ -244,7 +244,7 @@
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">strings</span>
 </pre></div>
 <p>You can display all your blog posts' tags with:</p>
-<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">tags</span> <span class="o">=</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">&#39;/blog&#39;</span><span class="o">)</span><span class="nv">.distinct</span><span class="o">(</span><span class="s1">&#39;tags&#39;</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="hll"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">tags</span> <span class="o">=</span> <span class="nv">site.query</span><span class="o">(</span><span class="s1">'/blog'</span><span class="o">)</span><span class="nv">.distinct</span><span class="o">(</span><span class="s1">'tags'</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">tags</span> <span class="cp">%}</span>
   <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span> <span class="k">in</span> <span class="nv">tags</span><span class="o">|</span><span class="nf">sort</span> <span class="cp">%}</span>
@@ -320,7 +320,7 @@
   </footer>
   
 
-  <script type=text/javascript src="../../../../../static/app.js?h=6221bb56" charset="utf-8"></script>
+  <script type=text/javascript src="../../../../../static/app.js?h=05e5212b" charset="utf-8"></script>
   <script>
     ((window.gitter = {}).chat = {}).options = {
       room: 'lektor/lektor',
