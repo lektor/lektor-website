@@ -1,0 +1,15 @@
+_model: plugin
+---
+name: lektor-deploy-ipfs
+---
+categories: deploy
+---
+tags:
+
+IPFS
+IPNS
+DNS
+publisher
+setup-env
+---
+summary: Add Lektor deployment files to an <a href="https://ipfs.tech/">IPFS node</a> (such as Kubo) and (optionally) also an <a href="https://ipfscluster.io/">IPFS Cluster</a> pinset, referencing them using DNSLink (powered by <a href="https://dns-lexicon.readthedocs.io/">Lexicon</a>) or an IPNS key.
