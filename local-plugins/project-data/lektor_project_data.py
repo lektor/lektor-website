@@ -51,8 +51,6 @@ class ProjectDataPlugin(Plugin):
     name = 'Project Data'
     description = u'Retrieve project information from PyPI.'
 
-    data = {}
-
     def render(self, value, content_type=None):
         """Render project description.
 
@@ -87,38 +85,41 @@ class ProjectDataPlugin(Plugin):
         url = '{}/{}/json'.format(entry_point, name)
         resp = requests.get(url)
         pkg = resp.json()
-        self.data.update(pkg['info'])
+        data = pkg['info']
         # Erase bad keys that are sometimes returned from the api
         # to handle it in the template.
         # To us, unknown is the same as non-existent.
-        for key in self.data:
-            val = self.data.get(key)
-            if type(val) is str and val.strip() == 'UNKNOWN':
-                self.data[key] = ''
-        self.data['short_name'] = name.split('lektor-')[1]
+        data.update({
+            key: ""
+            for key, val in data.items()
+            if type(val) is str and val.strip() == 'UNKNOWN'
+        })
+        data['short_name'] = name.split('lektor-')[1]
         # Rewrite description as rendered description.
-        self.data['description'] = self.render(
-            self.data['description'], self.data['description_content_type'])
-        if not self.data.get('home_page'):
-            self.data['home_page'] = f'https://pypi.org/project/{name}/'
+        data['description'] = self.render(
+            data['description'], data['description_content_type']
+        )
+        if not data.get('home_page'):
+            data['home_page'] = f'https://pypi.org/project/{name}/'
         else:
-            self.data['home_page'] = normalize_url(self.data['home_page'])
+            data['home_page'] = normalize_url(data['home_page'])
+        return data
 
-    def github_data(self, owner=None, repo=None):
+    def github_data(self, owner, repo):
         url = 'https://api.github.com/repos/{}/{}'.format(owner, repo)
         response = requests.get(url)
         data = response.json()
         return data
 
     def project_data(self, name):
-        self.package_data(name)
+        data = self.package_data(name)
         # github data not currently used. Commented to save build time.
-        # if 'github' in self.data.get('home_page'):
-        #     owner = self.data['home_page'].split('/')[-2]
-        #     repo = self.data['home_page'].split('/')[-1]
-        #     self.data['gh'] = self.github_data(owner=owner, repo=repo)
+        # if 'github' in data.get('home_page'):
+        #     owner = data['home_page'].split('/')[-2]
+        #     repo = data['home_page'].split('/')[-1]
+        #     data['gh'] = self.github_data(owner=owner, repo=repo)
         # TODO: support bitbucket
-        return self.data
+        return data
 
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals['project_data'] = self.project_data
