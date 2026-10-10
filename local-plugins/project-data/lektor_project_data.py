@@ -47,37 +47,38 @@ def parse_header(ct: str) -> tuple[str, dict[str, str]]:
     return (header.content_type, dict(header.params))
 
 
+def render_description(value, content_type=None):
+    """Render project description.
+
+    This is taken from
+    https://github.com/pypa/warehouse/blob/master/warehouse/filters.py
+    to ensure compliance and not reinvent the wheel.  We don't
+    want to be creative here.
+
+    """
+    content_type, parameters = parse_header(content_type or '')
+
+    # Get the appropriate renderer
+    renderer = _RENDERERS.get(content_type, readme_renderer.txt)
+
+    # Actually render the given value, this will not only render
+    # the value, but also ensure that it's had any disallowed
+    # markup removed.
+    rendered = renderer.render(value, **parameters)
+
+    # If the content was not rendered, we'll render as plaintext
+    # instead. The reason it's necessary to do this instead of
+    # just accepting plaintext is that readme_renderer will deal
+    # with sanitizing the content.
+    if rendered is None:
+        rendered = readme_renderer.txt.render(value)
+
+    return rendered
+
+
 class ProjectDataPlugin(Plugin):
     name = 'Project Data'
     description = u'Retrieve project information from PyPI.'
-
-    def render(self, value, content_type=None):
-        """Render project description.
-
-        This is taken from
-        https://github.com/pypa/warehouse/blob/master/warehouse/filters.py
-        to ensure compliance and not reinvent the wheel.  We don't
-        want to be creative here.
-
-        """
-        content_type, parameters = parse_header(content_type or '')
-
-        # Get the appropriate renderer
-        renderer = _RENDERERS.get(content_type, readme_renderer.txt)
-
-        # Actually render the given value, this will not only render
-        # the value, but also ensure that it's had any disallowed
-        # markup removed.
-        rendered = renderer.render(value, **parameters)
-
-        # If the content was not rendered, we'll render as plaintext
-        # instead. The reason it's necessary to do this instead of
-        # just accepting plaintext is that readme_renderer will deal
-        # with sanitizing the content.
-        if rendered is None:
-            rendered = readme_renderer.txt.render(value)
-
-        return rendered
 
     def package_data(self, name, entry_point=None):
         if not entry_point:
@@ -96,7 +97,7 @@ class ProjectDataPlugin(Plugin):
         })
         data['short_name'] = name.split('lektor-')[1]
         # Rewrite description as rendered description.
-        data['description'] = self.render(
+        data['description'] = render_description(
             data['description'], data['description_content_type']
         )
         if not data.get('home_page'):
