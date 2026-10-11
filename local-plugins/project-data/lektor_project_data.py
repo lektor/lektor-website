@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 import re
 from email.policy import EmailPolicy
+from functools import cached_property
 
 import readme_renderer.markdown
 import readme_renderer.rst
 import readme_renderer.txt
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util import Retry
 
 from lektor.pluginsystem import Plugin
 
@@ -80,11 +83,23 @@ class ProjectDataPlugin(Plugin):
     name = 'Project Data'
     description = u'Retrieve project information from PyPI.'
 
+    @cached_property
+    def session(self) -> requests.Session:
+        # Configure requests.Session to retry connection errors.
+        #
+        # The github CI seems to encounter sporadic connection errors when making
+        # requests to PyPI.
+        s = requests.Session()
+        retry_strategy = Retry(total=3, connect=3, backoff_factor=1.0)
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        s.mount("https://", adapter)
+        return s
+
     def package_data(self, name, entry_point=None):
         if not entry_point:
             entry_point = 'https://pypi.org/pypi'
         url = '{}/{}/json'.format(entry_point, name)
-        resp = requests.get(url)
+        resp = self.session.get(url)
         pkg = resp.json()
         data = pkg['info']
         # Erase bad keys that are sometimes returned from the api
@@ -108,7 +123,7 @@ class ProjectDataPlugin(Plugin):
 
     def github_data(self, owner, repo):
         url = 'https://api.github.com/repos/{}/{}'.format(owner, repo)
-        response = requests.get(url)
+        response = self.session.get(url)
         data = response.json()
         return data
 

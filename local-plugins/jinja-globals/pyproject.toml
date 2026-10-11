@@ -12,3 +12,9 @@ classifiers = [
 
 [project.entry-points."lektor.plugins"]
 jinja-globals = "lektor_jinja_globals:JinjaGlobalsPlugin"
+
+[dependency-groups]
+dev = [
+    "lektor",
+    "pytest>=9.1.1",
+]

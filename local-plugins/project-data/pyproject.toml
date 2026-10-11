@@ -10,3 +10,9 @@ dependencies = [
 
 [project.entry-points."lektor.plugins"]
 project-data = "lektor_project_data:ProjectDataPlugin"
+
+[dependency-groups]
+dev = [
+    "lektor",
+    "pytest>=9.1.1",
+]
