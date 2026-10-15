@@ -38,6 +38,7 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-markdown-ruby-blocks/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-github-repos/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-make/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-ai-chatbot/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-qiniu/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-strip-html-tags/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-limit-dependencies/</loc></url>
@@ -101,6 +102,7 @@
   <url><loc>https://www.getlektor.com/plugins/lektor-i18n/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-npm-support/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-make/</loc></url>
+  <url><loc>https://www.getlektor.com/plugins/lektor-ai-chatbot/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-limit-dependencies/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-scss/</loc></url>
   <url><loc>https://www.getlektor.com/plugins/lektor-gulp/</loc></url>
