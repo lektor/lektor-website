@@ -8,7 +8,7 @@ type: filter
 ---
 version_added: 2.0
 ---
-body: 
+body:
 
 This filter converts a markdown string into HTML.  This behaves the same as
 the [Markdown Type :ref](../../../db/types/markdown/).
@@ -20,3 +20,13 @@ the [Markdown Type :ref](../../../db/types/markdown/).
   {{ "Hello **World**"|markdown }}
 </div>
 ```
+
+## Controlling URL Resolution
+
+By default, an attempt is made to resolve relative URLs in markdown *links* and *image* tags to a *record* through the Lektor database.
+This makes things “just work” when linking to images and other attachments from pages that have a non-default  [alt :ref](/docs/content/alts/),
+as well as in other edge cases e.g. involving custom [slug_formats :ref](/docs/models/children/#child-slug-behavior).
+
+This behavior can be controlled by passing an optional `resolve_links` parameter to the filter.
+This works like the  [resolve_links :ref](/docs/api/db/types/markdown/#resolution-of-links) option of the *Markdown field type*.
+
