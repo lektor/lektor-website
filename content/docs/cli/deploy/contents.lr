@@ -27,6 +27,8 @@ For more information see the deployment chapter in the documentation.
 ## Options
 
 - `-O, --output-path PATH`: The output path.
+   This overrides any `output_path` setting in the [project file :ref](http://localhost:5000/docs/project/file/#project).
+   A relative path is interpreted relative to the *current working directory*.
 - `--username TEXT`: An optional username to override the URL.
 - `--password TEXT`: An optional password to override the URL or the
   default prompt.
